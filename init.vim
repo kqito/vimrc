@@ -22,14 +22,14 @@ if !isdirectory(s:dein_repo_dir)
 				let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/dein.toml'
 				if dein#load_state(s:dein_dir)
 				call dein#begin(s:dein_dir)
-call dein#load_toml(s:toml_file)
+				call dein#load_toml(s:toml_file)
 				call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>', 'noremap')
 				call dein#end()
-call dein#save_state()
+				call dein#save_state()
 				endif
 
 				if has('vim_starting') && dein#check_install()
-call dein#install()
+				call dein#install()
 				endif
 				"end of dein scripts------------------------
 
@@ -74,3 +74,6 @@ call dein#install()
 				noremap <silent> t< <C-w>< 
 				noremap <silent> t+ <C-w>+ 
 				noremap <silent> t- <C-w>- 
+
+				"terminal mapping
+				noremap <silent> ex :<C-u>terminal<CR>
