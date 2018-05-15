@@ -8,6 +8,7 @@ endif
 " reset augroup
 augroup MyAutoCmd
 autocmd!
+au BufNewFile * put = '止まるんじゃねぇぞ...'
 augroup END
 
 "dein scripts----------
@@ -19,17 +20,18 @@ if !isdirectory(s:dein_repo_dir)
 				endif
 				let &runtimepath = s:dein_repo_dir .",". &runtimepath
 				" read plugin & create chache
-				let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/dein.toml'
+				let s:dein_file = fnamemodify(expand('<sfile>'), ':h').'/toml/dein.toml'
+				let s:visual_file = fnamemodify(expand('<sfile>'), ':h').'/toml/visual.toml'
 				if dein#load_state(s:dein_dir)
 				call dein#begin(s:dein_dir)
-				call dein#load_toml(s:toml_file)
-				call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>', 'noremap')
+				call dein#load_toml(s:dein_file)
+				call dein#load_toml(s:visual_file)
 				call dein#end()
-				call dein#save_state()
+call dein#save_state()
 				endif
 
 				if has('vim_starting') && dein#check_install()
-				call dein#install()
+call dein#install()
 				endif
 				"end of dein scripts------------------------
 
@@ -43,11 +45,16 @@ if !isdirectory(s:dein_repo_dir)
 				set title
 				set number
 				set tabstop=2
+				set shiftwidth=2
 				set backspace=indent,eol,start
 				set cursorline
-				set smartcase
 				set showmode
 
+				"search config
+				set incsearch
+				set ignorecase
+				set hlsearch
+				set smartcase
 				inoremap <silent> jj <ESC>
 				nnoremap <silent> i a
 				nnoremap <silent> I A
@@ -55,25 +62,36 @@ if !isdirectory(s:dein_repo_dir)
 				nnoremap <silent> A I
 				vnoremap <silent> A I
 				vnoremap <silent> A I
-				noremap <S-j> $
-				noremap <S-h> 0
+				noremap <S-k> $
+				noremap <S-j> 0
 				nnoremap == gg=G''
+				noremap <silent> :b :<C-u>bd<CR>
 
-				"windows config
-				noremap <silent> t^ :<C-u>sp<CR>
-				noremap <silent> t~ :<C-u>vs<CR>
-				noremap <silent> th <C-w>h 
-				noremap <silent> tj <C-w>j 
-				noremap <silent> tk <C-w>k 
-				noremap <silent> tl <C-w>l 
-				noremap <silent> tH <C-w>H 
-				noremap <silent> tJ <C-w>J 
-				noremap <silent> tK <C-w>K 
-				noremap <silent> tL <C-w>L 
-				noremap <silent> t> <C-w>> 
-				noremap <silent> t< <C-w>< 
-				noremap <silent> t+ <C-w>+ 
-				noremap <silent> t- <C-w>- 
+				noremap tt :<C-u>vs<CR>
+				"windows mapping
+				nmap [window] <Nop>
+				map t [window]
+				noremap <silent> [window]~ :<C-u>sp<CR>
+				noremap <silent> [window]^ :<C-u>vs<CR>
+				noremap <silent> [window]h <C-w>h 
+				noremap <silent> [window]j <C-w>j 
+				noremap <silent> [window]k <C-w>k 
+				noremap <silent> [window]l <C-w>l 
+				noremap <silent> [window]H <C-w>H 
+				noremap <silent> [window]J <C-w>J 
+				noremap <silent> [window]K <C-w>K 
+				noremap <silent> [window]L <C-w>L 
+				noremap <silent> [window], <C-w>> 
+				noremap <silent> [window]. <C-w>< 
+				noremap <silent> [window]+ <C-w>+ 
+				noremap <silent> [window]- <C-w>- 
 
 				"terminal mapping
+				"set shell on using terminalmode
+				set sh=zsh
 				noremap <silent> ex :<C-u>terminal<CR>
+				tnoremap <silent> jj <C-\><C-n>
+				tnoremap <C-j> <C-\><C-n>
+
+				"autocmd config
+
