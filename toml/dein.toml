@@ -16,15 +16,13 @@ hook_add = '''
 nmap [denite] <Nop>
 map s [denite]
 
-" プロジェクト内のファイル検索
 nmap <silent> [denite]p :<C-u>Denite file_rec -highlight-mode-insert=Search<CR>
-" バッファに展開中のファイル検索
-nmap <silent> [denite]b :<C-u>Denite buffer -mode=normal <CR>
-" ファイル内の関数/クラス等の検索
-nmap <silent> [denite]y :<C-u>Denite file_old <CR>
-nmap <silent> [denite]w :<C-u>DeniteCursorWord line<CR>
-nmap <silent> [denite]s :<C-u>Denite line<CR>
-nmap <silent> [denite]h :<C-u>Denite help<CR>
+nmap <silent> [denite]o :<C-u>DeniteBufferDir file_rec -highlight-mode-insert=Search<CR>
+nmap <silent> [denite]b :<C-u>Denite buffer -highlight-mode-insert=Search<CR>
+nmap <silent> [denite]y :<C-u>Denite file_old -highlight-mode-insert=Search<CR>
+nmap <silent> [denite]s :<C-u>Denite line -auto-preview -highlight-mode-insert=Search<CR>
+nmap <silent> [denite]h :<C-u>Denite help -highlight-mode-insert=Search<CR>
+nmap <silent> [denite]w :<C-u>Denite -auto-preview -highlight-mode-insert=Search grep<CR>
 call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>', 'noremap')
 '''
 [[plugins]]
