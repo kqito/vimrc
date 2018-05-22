@@ -3,11 +3,9 @@ repo = 'Shougo/dein.vim'
 hook_add = '''
 let g:python3_host_prog = $PYENV_ROOT . '/shims/python3'
 '''
+
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-hook_add = '''
-let g:deoplete#enable_at_startup = 1
-'''
+repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
@@ -24,7 +22,16 @@ nmap <silent> [denite]s :<C-u>Denite line -auto-preview -highlight-mode-insert=S
 nmap <silent> [denite]h :<C-u>Denite help -highlight-mode-insert=Search<CR>
 nmap <silent> [denite]w :<C-u>Denite -auto-preview -highlight-mode-insert=Search grep<CR>
 call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>', 'noremap')
+" customize ignore globs
+call denite#custom#source('file_rec', 'matchers', ['matcher_fuzzy','matcher_ignore_globs'])
+call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
+      \ [
+      \ '.git/', '.gomi/',
+      \ 'images/', '*.o', '*.make',
+      \ '*.min.*',
+      \ 'img/', 'fonts/'])
 '''
+
 [[plugins]]
 repo = 'simeji/winresizer'
 hook_add = '''

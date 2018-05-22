@@ -42,10 +42,12 @@ endif
 let &runtimepath = s:dein_repo_dir .",". &runtimepath
 " read plugin & create chache
 let s:dein_file = fnamemodify(expand('<sfile>'), ':h').'/toml/dein.toml'
+let s:lazy_file = fnamemodify(expand('<sfile>'), ':h').'/toml/dein_lazy.toml'
 let s:visual_file = fnamemodify(expand('<sfile>'), ':h').'/toml/visual.toml'
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
   call dein#load_toml(s:dein_file)
+  call dein#load_toml(s:lazy_file)
   call dein#load_toml(s:visual_file)
   call dein#end()
   call dein#save_state()
@@ -85,6 +87,8 @@ set hlsearch
 set smartcase
 
 inoremap <silent> jj <ESC>
+inoremap <silent> <C-i> <ESC>A
+inoremap <silent> <C-o> <ESC>o
 nnoremap <silent> i a
 nnoremap <silent> a i
 nnoremap <silent> I A
@@ -99,12 +103,13 @@ noremap <silent> :b :<C-u>bd<CR>
 "windows mapping
 nmap [window] <Nop>
 map t [window]
-noremap <silent> [window]~ :<C-u>sp<CR>
-noremap <silent> [window]^ :<C-u>vs<CR>
+noremap <silent> [window]^ :<C-u>sp<CR>
+noremap <silent> [window]~ :<C-u>vs<CR>
 noremap <silent> [window]h <C-w>h 
 noremap <silent> [window]j <C-w>j 
 noremap <silent> [window]k <C-w>k 
 noremap <silent> [window]l <C-w>l 
+noremap <silent> [window]t <C-w>w
 noremap <silent> [window]H <C-w>H 
 noremap <silent> [window]J <C-w>J 
 noremap <silent> [window]K <C-w>K 
@@ -114,9 +119,9 @@ noremap <silent> [window]L <C-w>L
 "set zsh on using terminalmode
 set sh=zsh
 noremap <silent> ex :<C-u>terminal<CR>
-tnoremap <silent> jj <C-\><C-n>
-tnoremap <silent> <C-j> <C-\><C-n>
+tnoremap <silent> <ESC> :<S-u>q<CR>
 tnoremap <silent> tt <C-\><C-n><C-w>w
+tnoremap <silent> jj <C-\><C-n>
 
 "map mapping
 noremap M '
@@ -127,7 +132,6 @@ inoremap ( ()<ESC>i
 inoremap " ""<ESC>i
 inoremap ' ''<ESC>i
 inoremap [ []<ESC>i
-inoremap < <><ESC>i
-inoremap @ <ESC>$i
-nnoremap ;; <ESC><S-A>;<ESC><S-a>
-inoremap ;; <ESC><S-A>;<ESC><S-a>
+inoremap @ <ESC>f)i
+nnoremap ;; <ESC><S-A>;<ESC><S-a><ESC>
+inoremap ;; <ESC><S-A>;<ESC><S-a><ESC>
