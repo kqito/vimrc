@@ -8,6 +8,10 @@ endif
 augroup MyAutoCmd
   autocmd!
   au BufNewFile * put = '止まるんじゃねぇぞ...'
+
+  " Turn off paste mode when leaving insert
+  autocmd InsertLeave * set nopaste"
+
   "autocmd config
   if has('nvim')
     autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif
@@ -87,8 +91,8 @@ set hlsearch
 set smartcase
 
 inoremap <silent> jj <ESC>
-inoremap <silent> <C-i> <ESC>A
 inoremap <silent> <C-o> <ESC>o
+""inoremap <silent> <C-i> <ESC>i
 nnoremap <silent> i a
 nnoremap <silent> a i
 nnoremap <silent> I A
@@ -126,12 +130,30 @@ tnoremap <silent> jj <C-\><C-n>
 "map mapping
 noremap M '
 
+function! s:Reach()
+  let cursor = col('.')
+  let len = len(getline('.'))   
+  let diff = len - cursor
+  for i in range(diff)
+    execute "normal \<Right>"
+    if matchstr(getline('.'), '.', cursor - 1 + i) == "\'"  ||  
+          \ matchstr(getline('.'), '.', cursor - 1 + i) == "\"" 
+      break
+    endif
+  endfor
+endfunction
+
 "coding mapping
-inoremap { {}<Left><CR><ESC><S-o>
+inoremap { <ESC>f)a{}<Left><CR><ESC><S-o>
 inoremap ( ()<ESC>i
 inoremap " ""<ESC>i
 inoremap ' ''<ESC>i
 inoremap [ []<ESC>i
-inoremap @ <ESC>f)i
-nnoremap ;; <ESC><S-A>;<ESC><S-a><ESC>
-inoremap ;; <ESC><S-A>;<ESC><S-a><ESC>
+inoremap <silent> <C-h> <ESC>:call <SID>Reach()<CR>i
+""inoremap <C-u><C-u> <ESC>f)a
+
+"special mapping"
+nnoremap ;; <ESC><S-A>;<ESC>
+inoremap ;; <ESC><S-A>;<ESC>
+inoremap :: <ESC><S-A>:<ESC><S-a>
+inoremap {{ <ESC><S-A>{}<Left><CR><ESC><S-o>
