@@ -1,5 +1,6 @@
 "about hook_* : https://qiita.com/delphinus/items/cd221a450fd23506e81a
 "about toml_sample : https://qiita.com/kawaz/items/ee725f6214f91337b42b
+
 if !&compatible
   set nocompatible
 endif
@@ -33,6 +34,15 @@ augroup MyAutoCmd
   endif
 augroup END
 
+augroup Vimrc
+  autocmd!
+  autocmd InsertLeave * call <SID>auto_save()
+  function! s:auto_save()
+    if filewritable(expand('%'))
+      write
+    endif
+  endfunction
+augroup END
 
 "dein scripts----------
 let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
@@ -88,6 +98,11 @@ set ignorecase
 set hlsearch
 set smartcase
 
+if has('persistent_undo')
+  set undodir=~/.config/nvim/.undo
+  set undofile
+endif
+
 inoremap <silent> jj <ESC>
 inoremap <silent> <C-o> <ESC>o
 noremap <silent> reset :<C-u>source ~/.nvim/init.vim<CR>
@@ -112,7 +127,7 @@ noremap <silent> [window]h <C-w>h
 noremap <silent> [window]j <C-w>j 
 noremap <silent> [window]k <C-w>k 
 noremap <silent> [window]l <C-w>l 
-noremap <silent> [window]t <C-w>w
+noremap <silent> [window]w <C-w>w
 noremap <silent> [window]H <C-w>H 
 noremap <silent> [window]J <C-w>J 
 noremap <silent> [window]K <C-w>K 
@@ -123,7 +138,7 @@ noremap <silent> [window]L <C-w>L
 set sh=zsh
 noremap <silent> ex :<C-u>sp<CR><C-w>j:<C-u>terminal<CR>i
 tnoremap <silent> <ESC> :<S-u>q<CR>
-tnoremap <silent> tt <C-\><C-n><C-w>w
+tnoremap <silent> <C-w>w <C-\><C-n><C-w>w
 tnoremap <silent> jj <C-\><C-n>
 
 "map mapping
