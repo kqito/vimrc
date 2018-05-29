@@ -7,8 +7,6 @@ endif
 " reset augroup
 augroup MyAutoCmd
   autocmd!
-  au BufNewFile * put = '止まるんじゃねぇぞ...'
-
   " Turn off paste mode when leaving insert
   autocmd InsertLeave * set nopaste"
 
@@ -92,6 +90,7 @@ set smartcase
 
 inoremap <silent> jj <ESC>
 inoremap <silent> <C-o> <ESC>o
+noremap <silent> reset :<C-u>source ~/.nvim/init.vim<CR>
 ""inoremap <silent> <C-i> <ESC>i
 nnoremap <silent> i a
 nnoremap <silent> a i
@@ -106,7 +105,7 @@ noremap <silent> :b :<C-u>bd<CR>
 
 "windows mapping
 nmap [window] <Nop>
-map t [window]
+map <C-w> [window]
 noremap <silent> [window]^ :<C-u>sp<CR>
 noremap <silent> [window]~ :<C-u>vs<CR>
 noremap <silent> [window]h <C-w>h 
@@ -122,7 +121,7 @@ noremap <silent> [window]L <C-w>L
 "terminal mapping
 "set zsh on using terminalmode
 set sh=zsh
-noremap <silent> ex :<C-u>terminal<CR>
+noremap <silent> ex :<C-u>sp<CR><C-w>j:<C-u>terminal<CR>i
 tnoremap <silent> <ESC> :<S-u>q<CR>
 tnoremap <silent> tt <C-\><C-n><C-w>w
 tnoremap <silent> jj <C-\><C-n>
@@ -130,30 +129,81 @@ tnoremap <silent> jj <C-\><C-n>
 "map mapping
 noremap M '
 
-function! s:Reach()
+function! s:ReachToSingle()
   let cursor = col('.')
-  let len = len(getline('.'))   
-  let diff = len - cursor
-  for i in range(diff)
-    execute "normal \<Right>"
-    if matchstr(getline('.'), '.', cursor - 1 + i) == "\'"  ||  
-          \ matchstr(getline('.'), '.', cursor - 1 + i) == "\"" 
-      break
+  let diff = len(getline('.')) - cursor + 1
+  if s:checkStr(getline('.'), "\'") || s:checkStr(getline('.'), "\"")
+    for i in range(diff)
+      if i == 0 
+        continue 
+      endif
+      exe "normal! \<Right>"
+      if matchstr(getline('.'), '.', cursor - 1 + i) == "\'"  ||  
+            \ matchstr(getline('.'), '.', cursor - 1 + i) == "\"" 
+        if len(getline('.')) - col('.') == 0
+          exe "startinsert!"
+        else
+          exe "startinsert"
+          exe "normal! \<Right>"
+        endif
+        break
+      endif
+    endfor
+  else
+    echo "That word does not exist in this line"
+  endif
+endfunction
+
+function! s:ReachToBracket()
+  let cursor = col('.')
+  let diff = len(getline('.')) - cursor + 1
+  if s:checkStr(getline('.'), "\)")
+    for i in range(diff)
+      if i == 0
+        continue
+      endif
+      exe "normal! \<Right>"
+      if matchstr(getline('.'), '.', cursor - 1 + i) == "\)"
+        if len(getline('.')) - col('.') == 0
+          exe "startinsert!"
+        else
+          exe "startinsert"
+          exe "normal! \<Right>"
+        endif
+        break
+      endif
+    endfor
+  else
+    echo "That word does not exist in this line"
+  endif
+endfunction
+
+function! s:checkStr(str, check)
+  for i in range(len(a:str))
+    if i == 0 
+      continue 
+    endif
+    if matchstr(a:str, '.', i) == a:check
+      return 1
     endif
   endfor
+  return 0
 endfunction
 
 "coding mapping
-inoremap { <ESC>f)a{}<Left><CR><ESC><S-o>
+inoremap { {}<Left><CR><ESC><S-o>
 inoremap ( ()<ESC>i
 inoremap " ""<ESC>i
 inoremap ' ''<ESC>i
 inoremap [ []<ESC>i
-inoremap <silent> <C-h> <ESC>:call <SID>Reach()<CR>i
-""inoremap <C-u><C-u> <ESC>f)a
+inoremap <silent> <C-h> <ESC>:call <SID>ReachToSingle()<CR>
+nnoremap <silent> <C-h> <ESC>:call <SID>ReachToSingle()<CR>
+inoremap <silent> <C-h><C-h> <ESC>:call <SID>ReachToBracket()<CR>
+nnoremap <silent> <C-h><C-h> <ESC>:call <SID>ReachToBracket()<CR>
 
 "special mapping"
 nnoremap ;; <ESC><S-A>;<ESC>
 inoremap ;; <ESC><S-A>;<ESC>
 inoremap :: <ESC><S-A>:<ESC><S-a>
 inoremap {{ <ESC><S-A>{}<Left><CR><ESC><S-o>
+inoremap >> <ESC><S-A>><ESC>
