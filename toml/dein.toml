@@ -22,8 +22,8 @@ nmap <silent> [denite]s :<C-u>Denite line -auto-preview -highlight-mode-insert=S
 nmap <silent> [denite]h :<C-u>Denite help -highlight-mode-insert=Search<CR>
 nmap <silent> [denite]w :<C-u>Denite -auto-preview -highlight-mode-insert=Search grep<CR>
 call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>', 'noremap')
-" customize ignore globs
 call denite#custom#source('file_rec', 'matchers', ['matcher_fuzzy','matcher_ignore_globs'])
+" customize ignore globs
 call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
       \ [
       \ '.git/', '.gomi/',
@@ -36,4 +36,12 @@ call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
 repo = 'simeji/winresizer'
 hook_add = '''
 let g:winresizer_start_key = '<C-T>'
+'''
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+hook_add = '''
+let g:user_emmet_mode='ni'
+let g:user_emmet_install_gloabal = 0
+let g:user_emmet_leader_key='<C-Y>'
 '''
