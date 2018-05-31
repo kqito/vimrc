@@ -1,6 +1,3 @@
-"about hook_* : https://qiita.com/delphinus/items/cd221a450fd23506e81a
-"about toml_sample : https://qiita.com/kawaz/items/ee725f6214f91337b42b
-
 if !&compatible
   set nocompatible
 endif
@@ -104,8 +101,7 @@ if has('persistent_undo')
 endif
 
 inoremap <silent> jj <ESC>
-inoremap <silent> <C-o> <ESC>o
-noremap <silent> reset :<C-u>source ~/.nvim/init.vim<CR>
+noremap <silent> load :<C-u>source ~/.nvim/init.vim<CR>
 ""inoremap <silent> <C-i> <ESC>i
 nnoremap <silent> i a
 nnoremap <silent> a i
@@ -199,7 +195,7 @@ function! s:checkStr(str, check)
       continue 
     endif
     if matchstr(a:str, '.', i) == a:check
-      return 1
+     return 1
     endif
   endfor
   return 0
@@ -211,6 +207,8 @@ inoremap ( ()<ESC>i
 inoremap " ""<ESC>i
 inoremap ' ''<ESC>i
 inoremap [ []<ESC>i
+inoremap <silent> <C-j> <ESC>o
+inoremap <silent> <C-k> <ESC>O
 inoremap <silent> <C-h> <ESC>:call <SID>ReachToSingle()<CR>
 nnoremap <silent> <C-h> <ESC>:call <SID>ReachToSingle()<CR>
 inoremap <silent> <C-h><C-h> <ESC>:call <SID>ReachToBracket()<CR>
@@ -218,7 +216,7 @@ nnoremap <silent> <C-h><C-h> <ESC>:call <SID>ReachToBracket()<CR>
 
 "special mapping"
 nnoremap ;; <ESC><S-A>;<ESC>
-inoremap ;; <ESC><S-A>;<ESC>
+inoremap ;; <ESC><S-A>;<
 inoremap :: <ESC><S-A>:<ESC><S-a>
 inoremap {{ <ESC><S-A>{}<Left><CR><ESC><S-o>
 inoremap >> <ESC><S-A>><ESC>
