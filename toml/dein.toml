@@ -45,3 +45,38 @@ let g:user_emmet_mode='ni'
 let g:user_emmet_install_gloabal = 0
 let g:user_emmet_leader_key='<C-Y>'
 '''
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+hook_add = '''
+nmap [figitive] <Nop>
+map <C-g> [figitive]
+nmap <silent> [figitive]s :<C-u>Gstatus<CR>
+nmap <silent> [figitive]d :<C-u>Gdiff<CR>
+nmap <silent> [figitive]b :<C-u>Gblame<CR>
+nmap <silent> [figitive]l :<C-u>Glog<CR>
+nmap <silent> [figitive]r :<C-u>Gread<CR>
+nmap <silent> [figitive]a :<C-u>Gwrite<CR>
+'''
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+
+[[plugins]]
+repo = 'Xuyuanp/nerdtree-git-plugin'
+hook_add = '''
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+
+    map <C-n> :NERDTreeToggle<CR>
+'''
