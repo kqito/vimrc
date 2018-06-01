@@ -102,7 +102,9 @@ endif
 
 inoremap <silent> jj <ESC>
 noremap <silent> load :<C-u>source ~/.nvim/init.vim<CR>
-""inoremap <silent> <C-i> <ESC>i
+let mapleader = "\<Space>"
+inoremap <silent> <C-i> <ESC>i
+inoremap <silent> <C-o> <ESC>o
 nnoremap <silent> i a
 nnoremap <silent> a i
 nnoremap <silent> I A
@@ -133,9 +135,8 @@ noremap <silent> [window]L <C-w>L
 "set zsh on using terminalmode
 set sh=zsh
 noremap <silent> ex :<C-u>sp<CR><C-w>j:<C-u>terminal<CR>i
-tnoremap <silent> <ESC> :<S-u>q<CR>
 tnoremap <silent> <C-w>w <C-\><C-n><C-w>w
-tnoremap <silent> jj <C-\><C-n>
+tnoremap <silent> <ESC> <C-\><C-n>
 
 "map mapping
 noremap M '
