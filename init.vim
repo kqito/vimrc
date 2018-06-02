@@ -76,6 +76,7 @@ set t_Co=256
 language C
 set title
 set number
+set modifiable
 set tabstop=2
 set shiftwidth=2
 set shiftwidth=2
@@ -101,7 +102,7 @@ if has('persistent_undo')
 endif
 
 inoremap <silent> jj <ESC>
-noremap <silent> load :<C-u>source ~/.nvim/init.vim<CR>
+noremap <silent> 123 :<C-u>source ~/.nvim/init.vim<CR>
 let mapleader = "\<Space>"
 inoremap <silent> <C-i> <ESC>i
 inoremap <silent> <C-o> <ESC>o
@@ -134,9 +135,24 @@ noremap <silent> [window]L <C-w>L
 "terminal mapping
 "set zsh on using terminalmode
 set sh=zsh
-noremap <silent> ex :<C-u>sp<CR><C-w>j:<C-u>terminal<CR>i
+noremap  <silent> <C-l> <ESC>:call <SID>ChangeDirectory()<CR><ESC>:call <SID>Exec("hello")<CR>
 tnoremap <silent> <C-w>w <C-\><C-n><C-w>w
 tnoremap <silent> <ESC> <C-\><C-n>
+
+function! s:ChangeDirectory()
+  let dir = expand("%:p")
+  split
+  exe "normal \<C-w>j"
+  terminal
+  startinsert
+endfunction
+
+funct! s:Exec(command)
+    redir =>output
+    silent exec a:command
+    redir END
+    return output
+endfunct!
 
 "map mapping
 noremap M '
@@ -196,28 +212,27 @@ function! s:checkStr(str, check)
       continue 
     endif
     if matchstr(a:str, '.', i) == a:check
-     return 1
+      return 1
     endif
   endfor
   return 0
 endfunction
 
 "coding mapping
-inoremap { {}<Left><CR><ESC><S-o>
+inoremap { {}<Left>
 inoremap ( ()<ESC>i
 inoremap " ""<ESC>i
 inoremap ' ''<ESC>i
 inoremap [ []<ESC>i
 inoremap <silent> <C-j> <ESC>o
 inoremap <silent> <C-k> <ESC>O
-inoremap <silent> <C-h> <ESC>:call <SID>ReachToSingle()<CR>
-nnoremap <silent> <C-h> <ESC>:call <SID>ReachToSingle()<CR>
-inoremap <silent> <C-h><C-h> <ESC>:call <SID>ReachToBracket()<CR>
-nnoremap <silent> <C-h><C-h> <ESC>:call <SID>ReachToBracket()<CR>
+inoremap <silent> <C-h><<C-h> <ESC>:call <SID>ReachToSingle()<CR>
+nnoremap <silent> <C-h><<C-h> <ESC>:call <SID>ReachToSingle()<CR>
+inoremap <silent> <C-h> <ESC><Right>
 
-"special mapping"
+"End of sentence
 nnoremap ;; <ESC><S-A>;<ESC>
-inoremap ;; <ESC><S-A>;<
+inoremap ;; <ESC><S-A>;
 inoremap :: <ESC><S-A>:<ESC><S-a>
-inoremap {{ <ESC><S-A>{}<Left><CR><ESC><S-o>
+inoremap {{ <ESC><S-A>{}<Left>
 inoremap >> <ESC><S-A>><ESC>
