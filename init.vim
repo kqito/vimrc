@@ -219,6 +219,7 @@ endfunction
 
 "coding mapping
 inoremap { {}<Left>
+inoremap {<CR> {}<Left><CR><ESC><S-o>
 inoremap ( ()<ESC>i
 inoremap " ""<ESC>i
 inoremap ' ''<ESC>i
@@ -235,3 +236,4 @@ inoremap ;; <ESC><S-A>;
 inoremap :: <ESC><S-A>:<ESC><S-a>
 inoremap {{ <ESC><S-A>{}<Left>
 inoremap >> <ESC><S-A>><ESC>
+
