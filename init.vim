@@ -67,9 +67,9 @@ if has('vim_starting') && dein#check_install()
 endif
 "end of dein scripts------------------------
 
-"change the colorcheme
+"change the jolorcheme
 syntax on
-colorscheme iceberg
+colorscheme antares
 set t_Co=256
 
 "configuring display
@@ -81,7 +81,6 @@ set tabstop=2
 set shiftwidth=2
 set shiftwidth=2
 set backspace=indent,eol,start
-set cursorline
 set showmode
 set autoindent
 set smartindent
