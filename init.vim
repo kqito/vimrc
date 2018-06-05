@@ -134,6 +134,7 @@ noremap <silent> [window]L <C-w>L
 "terminal mapping
 "set zsh on using terminalmode
 set sh=zsh
+noremap <silent> ex :<C-u>sp<CR><C-w>j:<C-u>terminal<CR>i
 noremap  <silent> <C-l> <ESC>:call <SID>ChangeDirectory()<CR><ESC>:call <SID>Exec("hello")<CR>
 tnoremap <silent> <C-w>w <C-\><C-n><C-w>w
 tnoremap <silent> <ESC> <C-\><C-n>
@@ -148,9 +149,9 @@ endfunction
 
 funct! s:Exec(command)
     redir =>output
-    silent exec a:command
+    silent exe a:command
     redir END
-    return output
+""    return output
 endfunct!
 
 "map mapping
