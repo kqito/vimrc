@@ -148,10 +148,10 @@ function! s:ChangeDirectory()
 endfunction
 
 funct! s:Exec(command)
-    redir =>output
-    silent exe a:command
-    redir END
-""    return output
+  redir =>output
+  silent exe a:command
+  redir END
+  ""    return output
 endfunct!
 
 "map mapping
@@ -169,9 +169,9 @@ function! s:ReachToSingle()
       if matchstr(getline('.'), '.', cursor - 1 + i) == "\'"  ||  
             \ matchstr(getline('.'), '.', cursor - 1 + i) == "\"" 
         if len(getline('.')) - col('.') == 0
-          exe "startinsert!"
+          startinsert!
         else
-          exe "startinsert"
+          startinsert!
           exe "normal! \<Right>"
         endif
         break
@@ -229,7 +229,7 @@ inoremap <silent> <C-j> <ESC>o
 inoremap <silent> <C-k> <ESC>O
 inoremap <silent> <C-h><<C-h> <ESC>:call <SID>ReachToSingle()<CR>
 nnoremap <silent> <C-h><<C-h> <ESC>:call <SID>ReachToSingle()<CR>
-inoremap <silent> <C-h> <ESC><Right>
+inoremap <silent> <C-h> <Right>
 
 "End of sentence
 nnoremap ;; <ESC><S-A>;<ESC>
