@@ -236,5 +236,6 @@ nnoremap ;; <ESC><S-A>;<ESC>
 inoremap ;; <ESC><S-A>;
 inoremap :: <ESC><S-A>:<ESC><S-a>
 inoremap {{ <ESC><S-A>{}<Left>
+inoremap {{<CR> <ESC><S-A>{}<Left><CR><ESC><S-o>
 inoremap >> <ESC><S-A>><ESC>
 
