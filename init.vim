@@ -135,24 +135,8 @@ noremap <silent> [window]L <C-w>L
 "set zsh on using terminalmode
 set sh=zsh
 noremap <silent> ex :<C-u>sp<CR><C-w>j:<C-u>terminal<CR>i
-noremap  <silent> <C-l> <ESC>:call <SID>ChangeDirectory()<CR><ESC>:call <SID>Exec("hello")<CR>
 tnoremap <silent> <C-w>w <C-\><C-n><C-w>w
 tnoremap <silent> <ESC> <C-\><C-n>
-
-function! s:ChangeDirectory()
-  let dir = expand("%:p")
-  split
-  exe "normal \<C-w>j"
-  terminal
-  startinsert
-endfunction
-
-funct! s:Exec(command)
-  redir =>output
-  silent exe a:command
-  redir END
-  ""    return output
-endfunct!
 
 "map mapping
 noremap M '
@@ -238,4 +222,3 @@ inoremap :: <ESC><S-A>:<ESC><S-a>
 inoremap {{ <ESC><S-A>{}<Left>
 inoremap {{<CR> <ESC><S-A>{}<Left><CR><ESC><S-o>
 inoremap >> <ESC><S-A>><ESC>
-
