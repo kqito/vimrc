@@ -134,24 +134,9 @@ noremap <silent> [window]L <C-w>L
 "terminal mapping
 "set zsh on using terminalmode
 set sh=zsh
-noremap  <silent> <C-l> <ESC>:call <SID>ChangeDirectory()<CR><ESC>:call <SID>Exec("hello")<CR>
+noremap <silent> ex :<C-u>sp<CR><C-w>j:<C-u>terminal<CR>i
 tnoremap <silent> <C-w>w <C-\><C-n><C-w>w
 tnoremap <silent> <ESC> <C-\><C-n>
-
-function! s:ChangeDirectory()
-  let dir = expand("%:p")
-  split
-  exe "normal \<C-w>j"
-  terminal
-  startinsert
-endfunction
-
-funct! s:Exec(command)
-    redir =>output
-    silent exec a:command
-    redir END
-    return output
-endfunct!
 
 "map mapping
 noremap M '
@@ -168,9 +153,9 @@ function! s:ReachToSingle()
       if matchstr(getline('.'), '.', cursor - 1 + i) == "\'"  ||  
             \ matchstr(getline('.'), '.', cursor - 1 + i) == "\"" 
         if len(getline('.')) - col('.') == 0
-          exe "startinsert!"
+          startinsert!
         else
-          exe "startinsert"
+          startinsert!
           exe "normal! \<Right>"
         endif
         break
@@ -228,12 +213,12 @@ inoremap <silent> <C-j> <ESC>o
 inoremap <silent> <C-k> <ESC>O
 inoremap <silent> <C-h><<C-h> <ESC>:call <SID>ReachToSingle()<CR>
 nnoremap <silent> <C-h><<C-h> <ESC>:call <SID>ReachToSingle()<CR>
-inoremap <silent> <C-h> <ESC><Right>
+inoremap <silent> <C-h> <Right>
 
 "End of sentence
 nnoremap ;; <ESC><S-A>;<ESC>
 inoremap ;; <ESC><S-A>;
 inoremap :: <ESC><S-A>:<ESC><S-a>
 inoremap {{ <ESC><S-A>{}<Left>
+inoremap {{<CR> <ESC><S-A>{}<Left><CR><ESC><S-o>
 inoremap >> <ESC><S-A>><ESC>
-
