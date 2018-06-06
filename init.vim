@@ -69,7 +69,8 @@ endif
 
 "change the jolorcheme
 syntax on
-colorscheme antares
+set background=dark
+colorscheme lucius
 set t_Co=256
 
 "configuring display
