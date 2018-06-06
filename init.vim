@@ -75,6 +75,7 @@ set t_Co=256
 
 "configuring display
 language C
+set fenc=utf-8
 set title
 set number
 set modifiable
@@ -88,6 +89,7 @@ set smartindent
 set cindent
 set smarttab
 set expandtab
+set hidden
 "swap configuring"
 set noswapfile
 "search config
