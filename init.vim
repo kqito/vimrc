@@ -78,26 +78,32 @@ language C
 set fenc=utf-8
 set title
 set number
-set modifiable
-set tabstop=2
-set shiftwidth=2
-set shiftwidth=2
 set backspace=indent,eol,start
 set showmode
+set autoread
+set hidden
+
+"indent
 set autoindent
 set smartindent
 set cindent
-set smarttab
-set expandtab
-set hidden
-"swap configuring"
+
+"tab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=0
+set noexpandtab
+
+"swap config
 set noswapfile
+
 "search config
 set incsearch
 set ignorecase
 set hlsearch
 set smartcase
 
+"undo config
 if has('persistent_undo')
   set undodir=~/.config/nvim/.undo
   set undofile
@@ -220,7 +226,7 @@ inoremap <silent> <C-h> <Right>
 
 "End of sentence
 nnoremap ;; <ESC><S-A>;<ESC>
-inoremap ;; <ESC><S-A>;
+inoremap ;; <ESC><S-A>;<ESC>
 inoremap :: <ESC><S-A>:<ESC><S-a>
 inoremap {{ <ESC><S-A>{}<Left>
 inoremap {{<CR> <ESC><S-A>{}<Left><CR><ESC><S-o>
