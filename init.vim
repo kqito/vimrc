@@ -101,6 +101,7 @@ set incsearch
 set ignorecase
 set hlsearch
 set smartcase
+nnoremap <silent> <ESC><ESC> :noh<CR>
 
 "undo config
 if has('persistent_undo')
