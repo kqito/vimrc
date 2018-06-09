@@ -2,19 +2,20 @@ if !&compatible
   set nocompatible
 endif
 
-" reset augroup
+"Reset augroup
 augroup MyAutoCmd
   autocmd!
   " Turn off paste mode when leaving insert
   autocmd InsertLeave * set nopaste"
 
-  "autocmd config
+	"To be insert mode when move to terminal buffer
   if has('nvim')
     autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif
   else
     autocmd WinEnter * if &buftype ==# 'terminal' | normal i | endif
   endif
 
+	"Auto set indent spaces
   if has("autocmd")
     filetype plugin on
     filetype indent on
@@ -31,6 +32,7 @@ augroup MyAutoCmd
   endif
 augroup END
 
+"Save the file that open buffer when leave insert mode
 augroup Vimrc
   autocmd!
   autocmd InsertLeave * call <SID>auto_save()
@@ -62,30 +64,39 @@ if dein#load_state(s:dein_dir)
   call dein#save_state()
 endif
 
+"install plugins when no install them
 if has('vim_starting') && dein#check_install()
   call dein#install()
 endif
-"end of dein scripts------------------------
+"end of dein scripts-------------
 
-"change the jolorcheme
+"colorscheme
 syntax on
 set background=dark
 colorscheme lucius
 set t_Co=256
 
-"configuring display
+"common
+set autoread
+set hidden
+inoremap <silent> jj <ESC>
+
+"Defile space key as <Leader>
+let mapleader = "\<Space>"
+
+"display
 language C
 set title
 set number
 set backspace=indent,eol,start
 set showmode
-set autoread
-set hidden
 
 "indent
 set autoindent
 set smartindent
 set cindent
+"Auto indent when pressed ==
+nnoremap == gg=G''
 
 "tab
 set tabstop=2
@@ -103,29 +114,51 @@ set hlsearch
 set smartcase
 nnoremap <silent> <ESC><ESC> :noh<CR>
 
-"undo config
+"To able be undo after closed any files
 if has('persistent_undo')
   set undodir=~/.config/nvim/.undo
   set undofile
 endif
 
-inoremap <silent> jj <ESC>
+"cursor
+noremap <S-l> $
+noremap <S-h> 0
+inoremap <silent> <C-j> <ESC>o
+inoremap <silent> <C-k> <ESC>O
+inoremap <silent> <C-h> <Right>
+"Move cursor to end of bracket
+inoremap <silent> <C-h><C-h> <ESC>:call <SID>ReachToSingle()<CR>
+nnoremap <silent> <C-h><C-h> <ESC>:call <SID>ReachToSingle()<CR>
+
+"Map reload init.vim
 noremap <silent> 123 :<C-u>source ~/.nvim/init.vim<CR>
-let mapleader = "\<Space>"
-inoremap <silent> <C-i> <ESC>i
-inoremap <silent> <C-o> <ESC>o
+
+"Change key mapiings a,A,i,I respectively
 nnoremap <silent> i a
 nnoremap <silent> a i
 nnoremap <silent> I A
 nnoremap <silent> A I
 vnoremap <silent> A I
 vnoremap <silent> I A
-noremap <S-k> $
-noremap <S-j> 0
-nnoremap == gg=G''
+
+"coding mapping
+inoremap { {}<Left>
+inoremap {<CR> {}<Left><CR><ESC><S-o>
+inoremap ( ()<ESC>i
+inoremap " ""<ESC>i
+inoremap ' ''<ESC>i
+inoremap [ []<ESC>i
+nnoremap ;; <ESC><S-A>;<ESC>
+inoremap ;; <ESC><S-A>;<ESC>
+inoremap :: <ESC><S-A>:<ESC><S-a>
+inoremap {{ <ESC><S-A>{}<Left>
+inoremap {{<CR> <ESC><S-A>{}<Left><CR><ESC><S-o>
+inoremap >> <ESC><S-A>><ESC>
+
+"Close opening buffer
 noremap <silent> :b :<C-u>bd<CR>
 
-"windows mapping
+"Windows mapping
 nmap [window] <Nop>
 map <C-w> [window]
 noremap <silent> [window]^ :<C-u>sp<CR>
@@ -140,16 +173,17 @@ noremap <silent> [window]J <C-w>J
 noremap <silent> [window]K <C-w>K 
 noremap <silent> [window]L <C-w>L 
 
-"terminal mapping
-"set zsh on using terminalmode
+"Terminal mapping
+"Set zsh on using Terminal mode
 set sh=zsh
 noremap <silent> ex :<C-u>sp<CR><C-w>j:<C-u>terminal<CR>i
 tnoremap <silent> <C-w>w <C-\><C-n><C-w>w
 tnoremap <silent> <ESC> <C-\><C-n>
 
-"map mapping
+"Map
 noremap M '
 
+"Move cursor to " or '
 function! s:ReachToSingle()
   let cursor = col('.')
   let diff = len(getline('.')) - cursor + 1
@@ -175,6 +209,7 @@ function! s:ReachToSingle()
   endif
 endfunction
 
+"Move cursor to )
 function! s:ReachToBracket()
   let cursor = col('.')
   let diff = len(getline('.')) - cursor + 1
@@ -199,6 +234,7 @@ function! s:ReachToBracket()
   endif
 endfunction
 
+"Check if there is a target char
 function! s:checkStr(str, check)
   for i in range(len(a:str))
     if i == 0 
@@ -210,24 +246,3 @@ function! s:checkStr(str, check)
   endfor
   return 0
 endfunction
-
-"coding mapping
-inoremap { {}<Left>
-inoremap {<CR> {}<Left><CR><ESC><S-o>
-inoremap ( ()<ESC>i
-inoremap " ""<ESC>i
-inoremap ' ''<ESC>i
-inoremap [ []<ESC>i
-inoremap <silent> <C-j> <ESC>o
-inoremap <silent> <C-k> <ESC>O
-inoremap <silent> <C-h><<C-h> <ESC>:call <SID>ReachToSingle()<CR>
-nnoremap <silent> <C-h><<C-h> <ESC>:call <SID>ReachToSingle()<CR>
-inoremap <silent> <C-h> <Right>
-
-"End of sentence
-nnoremap ;; <ESC><S-A>;<ESC>
-inoremap ;; <ESC><S-A>;<ESC>
-inoremap :: <ESC><S-A>:<ESC><S-a>
-inoremap {{ <ESC><S-A>{}<Left>
-inoremap {{<CR> <ESC><S-A>{}<Left><CR><ESC><S-o>
-inoremap >> <ESC><S-A>><ESC>
