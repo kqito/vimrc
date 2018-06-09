@@ -2,6 +2,7 @@
 repo = 'Shougo/dein.vim'
 hook_add = '''
 let g:python3_host_prog = $PYENV_ROOT . '/shims/python3'
+let mapleader = "\<Space>"
 '''
 
 [[plugins]]
@@ -100,6 +101,7 @@ let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_insert_leave = 1
 let g:ale_fix_on_save = 1
 
+nmap <Leader> <Nop>
 nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <Leader>j <Plug>(ale_next_wrap)
 nmap <silent> <Leader>o <Plug>(ale_toggle)

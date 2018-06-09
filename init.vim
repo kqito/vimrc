@@ -81,9 +81,6 @@ set autoread
 set hidden
 inoremap <silent> jj <ESC>
 
-"Defile space key as <Leader>
-let mapleader = "\<Space>"
-
 "display
 language C
 set title
