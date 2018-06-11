@@ -70,12 +70,6 @@ if has('vim_starting') && dein#check_install()
 endif
 "end of dein scripts-------------
 
-"colorscheme
-syntax on
-set background=dark
-colorscheme lucius
-set t_Co=256
-
 "common
 set autoread
 set hidden
@@ -88,6 +82,8 @@ set title
 set number
 set backspace=indent,eol,start
 set showmode
+let s:color_dir = expand('~/.config/nvim/.color.vim')
+exe 'source' s:color_dir
 
 "indent
 set autoindent
