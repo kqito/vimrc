@@ -115,8 +115,10 @@ if has('persistent_undo')
 endif
 
 "cursor
-noremap <S-l> $
-noremap <S-h> 0
+noremap <silent> <S-j> <C-f>
+noremap <silent> <S-k> <C-b> 
+noremap <silent> <S-l> $
+noremap <silent> <S-h> 0
 inoremap <silent> <C-j> <ESC>o
 inoremap <silent> <C-k> <ESC>O
 inoremap <silent> <C-h> <Right>
@@ -155,8 +157,8 @@ noremap <silent> :b :<C-u>bd<CR>
 "Windows mapping
 nmap [window] <Nop>
 map <C-w> [window]
-noremap <silent> [window]^ :<C-u>sp<CR>
-noremap <silent> [window]~ :<C-u>vs<CR>
+noremap <silent> [window]~ :<C-u>sp<CR>
+noremap <silent> [window]^ :<C-u>vs<CR>
 noremap <silent> [window]h <C-w>h 
 noremap <silent> [window]j <C-w>j 
 noremap <silent> [window]k <C-w>k 
