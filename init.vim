@@ -43,6 +43,12 @@ augroup Vimrc
   endfunction
 augroup END
 
+"compile
+augroup autoCompile
+	autocmd!
+	autocmd BufWritePost *.c :lcd %:h | :!gcc %:p | :!./a.out
+augroup END
+
 "dein scripts----------
 let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
 let s:dein_dir = s:cache_home . '/dein'
@@ -51,6 +57,7 @@ if !isdirectory(s:dein_repo_dir)
   call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
 endif
 let &runtimepath = s:dein_repo_dir .",". &runtimepath
+
 " read plugin & create chache
 let s:dein_file = fnamemodify(expand('<sfile>'), ':h').'/toml/dein.toml'
 let s:lazy_file = fnamemodify(expand('<sfile>'), ':h').'/toml/dein_lazy.toml'
@@ -89,6 +96,7 @@ exe 'source' s:color_dir
 set autoindent
 set smartindent
 set cindent
+
 "Auto indent when pressed ==
 nnoremap == gg=G''
 
@@ -121,7 +129,13 @@ noremap <silent> <S-l> $
 noremap <silent> <S-h> 0
 inoremap <silent> <C-j> <ESC>o
 inoremap <silent> <C-k> <ESC>O
-inoremap <silent> <C-h> <Right>
+"
+"to able to be move when in insertmode
+inoremap <silent> <C-l> <Right>
+inoremap <silent> <C-h> <Left>
+inoremap <silent> <C-h> <Left>
+inoremap <silent> <C-h> <Left>
+
 "Move cursor to end of bracket
 inoremap <silent> <C-h><C-h> <ESC>:call <SID>ReachToSingle()<CR>
 nnoremap <silent> <C-h><C-h> <ESC>:call <SID>ReachToSingle()<CR>
