@@ -47,9 +47,24 @@ augroup Vimrc
     endfunction
 augroup END
 
-
-let g:autoCompile_c = 0
 "compile
+nmap [autoCompile] <Nop>
+map <C-c> [autoCompile]
+
+"When g:autoCompile_c is 1, to be enable to auto Compile .c file"
+let g:autoCompile_c = 0
+nnoremap <silent> [autoCompile]c :call <SID>toggle_c()<CR>
+
+function! s:toggle_c()
+    if g:autoCompile_c
+        let g:autoCompile_c = 0
+    else
+        let g:autoCompile_c = 1
+    endif
+    let s:str = "autoCompile_c"
+    echo s:str '=' g:autoCompile_c
+endfunction
+
 augroup autoCompile
     autocmd!
     autocmd BufWritePost *.c call <SID>gcc_buffer()
