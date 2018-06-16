@@ -28,7 +28,7 @@ call denite#custom#source('file_rec', 'matchers', ['matcher_fuzzy','matcher_igno
 " customize ignore globs
 call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
       \ [
-      \ '.git/', '.gomi/',
+      \ '.git/', '.gomi/', '.undo/',
       \ 'images/', '*.o', '*.make',
       \ '*.min.*',
       \ 'img/', 'fonts/'])
