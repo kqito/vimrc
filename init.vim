@@ -151,7 +151,7 @@ inoremap <silent> <C-h><C-h> <ESC>:call <SID>ReachToSingle()<CR>
 nnoremap <silent> <C-h><C-h> <ESC>:call <SID>ReachToSingle()<CR>
 
 "Map reload init.vim
-noremap <silent> 123 :<C-u>source ~/.nvim/init.vim<CR>
+noremap <silent> 0init :source ~/.nvim/init.vim<CR>
 
 "Change key mapiings a,A,i,I respectively
 nnoremap <silent> i a
