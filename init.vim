@@ -49,7 +49,7 @@ augroup END
 
 "compile
 nmap [autoCompile] <Nop>
-map <C-c> [autoCompile]
+map <C-x> [autoCompile]
 
 "When g:autoCompile_c is 1, to be enable to auto Compile .c file"
 let g:autoCompile_c = 0
