@@ -53,7 +53,7 @@ augroup autoCompile
 		if g:autoCompile_c
 			let path = substitute(expand('%:p'), ' ', '\\ ', "g")
 			let compilePath = substitute(expand('%:h'), ' ', '\\ ', "g") .'/a.out'
-			exe '!gcc' path '&&' compilePath
+			exe '!gcc' path '-o' compilePath '&&' compilePath
 		endif
 	endfunction
 augroup END
