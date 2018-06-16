@@ -175,9 +175,6 @@ inoremap {{ <ESC><S-A>{}<Left>
 inoremap {{<CR> <ESC><S-A>{}<Left><CR><ESC><S-o>
 inoremap >> <ESC><S-A>><ESC>
 
-"Close opening buffer
-noremap <silent> :b :<C-u>bd<CR>
-
 "Windows mapping
 nmap [window] <Nop>
 map <C-w> [window]
