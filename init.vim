@@ -1,61 +1,65 @@
 if !&compatible
-	set nocompatible
+    set nocompatible
 endif
 
 "Reset augroup
 augroup MyAutoCmd
-	autocmd!
-	" Turn off paste mode when leaving insert
-	autocmd InsertLeave * set nopaste"
+    autocmd!
+    " Turn off paste mode when leaving insert
+    autocmd InsertLeave * set nopaste"
 
-	"To be insert mode when move to terminal buffer
-	if has('nvim')
-		autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif
-	else
-		autocmd WinEnter * if &buftype ==# 'terminal' | normal i | endif
-	endif
+    "To be insert mode when move to terminal buffer
+    if has('nvim')
+        autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif
+    else
+        autocmd WinEnter * if &buftype ==# 'terminal' | normal i | endif
+    endif
 
-	"Auto set indent spaces
-	if has("autocmd")
-		filetype plugin on
-		filetype indent on
-		autocmd FileType c           setlocal sw=4 sts=4 ts=4 et
-		autocmd FileType html        setlocal sw=4 sts=4 ts=4 et
-		autocmd FileType ruby        setlocal sw=2 sts=2 ts=2 et
-		autocmd FileType js          setlocal sw=4 sts=4 ts=4 et
-		autocmd FileType zsh         setlocal sw=4 sts=4 ts=4 et
-		autocmd FileType python      setlocal sw=4 sts=4 ts=4 et
-		autocmd FileType json        setlocal sw=4 sts=4 ts=4 et
-		autocmd FileType html        setlocal sw=4 sts=4 ts=4 et
-		autocmd FileType css         setlocal sw=4 sts=4 ts=4 et
-		autocmd FileType javascript  setlocal sw=4 sts=4 ts=4 et
-	endif
+    "Auto set indent spaces
+    if has("autocmd")
+        filetype plugin on
+        filetype indent on
+        "ts = tabstop
+        "sts = softtabstop
+        "sw = shiftwidth
+        autocmd FileType vim         setlocal sw=4 sts=4 ts=4 et
+        autocmd FileType c           setlocal sw=4 sts=4 ts=4 et
+        autocmd FileType html        setlocal sw=4 sts=4 ts=4 et
+        autocmd FileType ruby        setlocal sw=4 sts=4 ts=4 et
+        autocmd FileType js          setlocal sw=4 sts=4 ts=4 et
+        autocmd FileType zsh         setlocal sw=4 sts=4 ts=4 et
+        autocmd FileType python      setlocal sw=4 sts=4 ts=4 et
+        autocmd FileType json        setlocal sw=4 sts=4 ts=4 et
+        autocmd FileType html        setlocal sw=4 sts=4 ts=4 et
+        autocmd FileType css         setlocal sw=4 sts=4 ts=4 et
+        autocmd FileType javascript  setlocal sw=4 sts=4 ts=4 et
+    endif
 augroup END
 
 "Save the file that open buffer when leave insert mode
 augroup Vimrc
-	autocmd!
-	autocmd InsertLeave * call <SID>auto_save()
-	function! s:auto_save()
-		if filewritable(expand('%'))
-			write
-		endif
-	endfunction
+    autocmd!
+    autocmd InsertLeave * call <SID>auto_save()
+    function! s:auto_save()
+        if filewritable(expand('%'))
+            write
+        endif
+    endfunction
 augroup END
 
 
 let g:autoCompile_c = 0
 "compile
 augroup autoCompile
-	autocmd!
-	autocmd BufWritePost *.c call <SID>gcc_buffer()
-	function! s:gcc_buffer()
-		if g:autoCompile_c
-			let path = substitute(expand('%:p'), ' ', '\\ ', "g")
-			let compilePath = substitute(expand('%:h'), ' ', '\\ ', "g") .'/a.out'
-			exe '!gcc' path '&&' compilePath
-		endif
-	endfunction
+    autocmd!
+    autocmd BufWritePost *.c call <SID>gcc_buffer()
+    function! s:gcc_buffer()
+        if g:autoCompile_c
+            let path = substitute(expand('%:p'), ' ', '\\ ', "g")
+            let compilePath = substitute(expand('%:h'), ' ', '\\ ', "g") .'/a.out'
+            exe '!gcc' path '&&' compilePath
+        endif
+    endfunction
 augroup END
 
 "dein scripts----------
@@ -63,7 +67,7 @@ let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
 let s:dein_dir = s:cache_home . '/dein'
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 if !isdirectory(s:dein_repo_dir)
-	call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
+    call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
 endif
 let &runtimepath = s:dein_repo_dir .",". &runtimepath
 
@@ -72,17 +76,17 @@ let s:dein_file = fnamemodify(expand('<sfile>'), ':h').'/toml/dein.toml'
 let s:lazy_file = fnamemodify(expand('<sfile>'), ':h').'/toml/dein_lazy.toml'
 let s:visual_file = fnamemodify(expand('<sfile>'), ':h').'/toml/visual.toml'
 if dein#load_state(s:dein_dir)
-	call dein#begin(s:dein_dir)
-	call dein#load_toml(s:dein_file)
-	call dein#load_toml(s:lazy_file)
-	call dein#load_toml(s:visual_file)
-	call dein#end()
-	call dein#save_state()
+    call dein#begin(s:dein_dir)
+    call dein#load_toml(s:dein_file)
+    call dein#load_toml(s:lazy_file)
+    call dein#load_toml(s:visual_file)
+    call dein#end()
+    call dein#save_state()
 endif
 
 "install plugins when no install them
 if has('vim_starting') && dein#check_install()
-	call dein#install()
+    call dein#install()
 endif
 "end of dein scripts-------------
 
@@ -110,12 +114,6 @@ set cindent
 "Auto indent when pressed ==
 nnoremap == gg=G''
 
-"tab
-set tabstop=2
-set shiftwidth=2
-set softtabstop=0
-set noexpandtab
-
 "swap config
 set noswapfile
 
@@ -128,8 +126,8 @@ nnoremap <silent> <ESC><ESC> :noh<CR>
 
 "To able be undo after closed any files
 if has('persistent_undo')
-	set undodir=~/.config/nvim/.undo
-	set undofile
+    set undodir=~/.config/nvim/.undo
+    set undofile
 endif
 
 "cursor
@@ -202,64 +200,64 @@ noremap M '
 
 "Move cursor to " or '
 function! s:ReachToSingle()
-	let cursor = col('.')
-	let diff = len(getline('.')) - cursor + 1
-	if s:checkStr(getline('.'), "\'") || s:checkStr(getline('.'), "\"")
-		for i in range(diff)
-			if i == 0 
-				continue 
-			endif
-			exe "normal! \<Right>"
-			if matchstr(getline('.'), '.', cursor - 1 + i) == "\'"  ||  
-						\ matchstr(getline('.'), '.', cursor - 1 + i) == "\"" 
-				if len(getline('.')) - col('.') == 0
-					startinsert!
-				else
-					startinsert!
-					exe "normal! \<Right>"
-				endif
-				break
-			endif
-		endfor
-	else
-		echo "That word does not exist in this line"
-	endif
+    let cursor = col('.')
+    let diff = len(getline('.')) - cursor + 1
+    if s:checkStr(getline('.'), "\'") || s:checkStr(getline('.'), "\"")
+        for i in range(diff)
+            if i == 0 
+                continue 
+            endif
+            exe "normal! \<Right>"
+            if matchstr(getline('.'), '.', cursor - 1 + i) == "\'"  ||  
+                        \ matchstr(getline('.'), '.', cursor - 1 + i) == "\"" 
+                if len(getline('.')) - col('.') == 0
+                    startinsert!
+                else
+                    startinsert!
+                    exe "normal! \<Right>"
+                endif
+                break
+            endif
+        endfor
+    else
+        echo "That word does not exist in this line"
+    endif
 endfunction
 
 "Move cursor to )
 function! s:ReachToBracket()
-	let cursor = col('.')
-	let diff = len(getline('.')) - cursor + 1
-	if s:checkStr(getline('.'), "\)")
-		for i in range(diff)
-			if i == 0
-				continue
-			endif
-			exe "normal! \<Right>"
-			if matchstr(getline('.'), '.', cursor - 1 + i) == "\)"
-				if len(getline('.')) - col('.') == 0
-					exe "startinsert!"
-				else
-					exe "startinsert"
-					exe "normal! \<Right>"
-				endif
-				break
-			endif
-		endfor
-	else
-		echo "That word does not exist in this line"
-	endif
+    let cursor = col('.')
+    let diff = len(getline('.')) - cursor + 1
+    if s:checkStr(getline('.'), "\)")
+        for i in range(diff)
+            if i == 0
+                continue
+            endif
+            exe "normal! \<Right>"
+            if matchstr(getline('.'), '.', cursor - 1 + i) == "\)"
+                if len(getline('.')) - col('.') == 0
+                    exe "startinsert!"
+                else
+                    exe "startinsert"
+                    exe "normal! \<Right>"
+                endif
+                break
+            endif
+        endfor
+    else
+        echo "That word does not exist in this line"
+    endif
 endfunction
 
 "Check if there is a target char
 function! s:checkStr(str, check)
-	for i in range(len(a:str))
-		if i == 0 
-			continue 
-		endif
-		if matchstr(a:str, '.', i) == a:check
-			return 1
-		endif
-	endfor
-	return 0
+    for i in range(len(a:str))
+        if i == 0 
+            continue 
+        endif
+        if matchstr(a:str, '.', i) == a:check
+            return 1
+        endif
+    endfor
+    return 0
 endfunction
