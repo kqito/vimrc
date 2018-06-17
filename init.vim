@@ -150,13 +150,9 @@ noremap <silent> <S-j> <C-f>
 noremap <silent> <S-k> <C-b> 
 noremap <silent> <S-l> $
 noremap <silent> <S-h> 0
-inoremap <silent> <C-j> <ESC>o
-inoremap <silent> <C-k> <ESC>O
 "
 "to able to be move when in insertmode
 inoremap <silent> <C-l> <Right>
-inoremap <silent> <C-h> <Left>
-inoremap <silent> <C-h> <Left>
 inoremap <silent> <C-h> <Left>
 
 "Move cursor to end of bracket
