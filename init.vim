@@ -48,33 +48,42 @@ augroup Vimrc
 augroup END
 
 "compile
-nmap [autoCompile] <Nop>
 map <C-x> [autoCompile]
 
-"When g:autoCompile_c is 1, to be enable to auto Compile .c file"
-let g:autoCompile_c = 0
-nnoremap <silent> [autoCompile]c :call <SID>toggle_c()<CR>
+"When g:autoCompile is 1, to be enable to auto Compile .c file"
+let g:autoCompile = 0
+nnoremap <silent> [autoCompile] :call <SID>toggle_auto_compile()<CR>
 
-function! s:toggle_c()
-    if g:autoCompile_c
-        let g:autoCompile_c = 0
+function! s:toggle_auto_compile()
+    if g:autoCompile
+        let g:autoCompile = 0
     else
-        let g:autoCompile_c = 1
+        let g:autoCompile = 1
     endif
     let s:str = "autoCompile_c"
-    echo s:str '=' g:autoCompile_c
+    echo s:str '=' g:autoCompile
 endfunction
 
 augroup autoCompile
     autocmd!
-    autocmd BufWritePost *.c call <SID>gcc_buffer()
-    function! s:gcc_buffer()
-        if g:autoCompile_c
+    autocmd BufWritePost *.c call <SID>c_execute()
+    function! s:c_execute()
+        if g:autoCompile
             let path = substitute(expand('%:p'), ' ', '\\ ', "g")
             let compilePath = substitute(expand('%:h'), ' ', '\\ ', "g") .'/a.out'
             exe '!gcc' path '-o' compilePath '&&' compilePath
         endif
     endfunction
+
+    autocmd BufWritePost *.py call <SID>python_execute()
+    function! s:python_execute()
+        if g:autoCompile
+            let path = substitute(expand('%:p'), ' ', '\\ ', "g")
+            echo path
+            exe '!python' path
+        endif
+    endfunction
+
 augroup END
 
 "dein scripts----------
@@ -110,6 +119,7 @@ set autoread
 set hidden
 set wildmenu
 inoremap <silent> jj <ESC>
+inoremap <silent> ff <Right>
 
 "display
 language C
@@ -146,8 +156,8 @@ if has('persistent_undo')
 endif
 
 "cursor
-noremap <silent> <S-j> <C-f>
-noremap <silent> <S-k> <C-b> 
+noremap <silent> <S-j> <C-d>
+noremap <silent> <S-k> <C-u> 
 noremap <silent> <S-l> $
 noremap <silent> <S-h> 0
 "
@@ -172,6 +182,7 @@ vnoremap <silent> I A
 
 "coding mapping
 inoremap { {}<Left>
+inoremap , , 
 inoremap {<CR> {}<Left><CR><ESC><S-o>
 inoremap ( ()<ESC>i
 inoremap " ""<ESC>i
@@ -207,68 +218,5 @@ tnoremap <silent> <C-w>w <C-\><C-n><C-w>w
 tnoremap <silent> <ESC> <C-\><C-n>
 
 "Map
-noremap M '
-
-"Move cursor to " or '
-function! s:ReachToSingle()
-    let cursor = col('.')
-    let diff = len(getline('.')) - cursor + 1
-    if s:checkStr(getline('.'), "\'") || s:checkStr(getline('.'), "\"")
-        for i in range(diff)
-            if i == 0 
-                continue 
-            endif
-            exe "normal! \<Right>"
-            if matchstr(getline('.'), '.', cursor - 1 + i) == "\'"  ||  
-                        \ matchstr(getline('.'), '.', cursor - 1 + i) == "\"" 
-                if len(getline('.')) - col('.') == 0
-                    startinsert!
-                else
-                    startinsert!
-                    exe "normal! \<Right>"
-                endif
-                break
-            endif
-        endfor
-    else
-        echo "That word does not exist in this line"
-    endif
-endfunction
-
-"Move cursor to )
-function! s:ReachToBracket()
-    let cursor = col('.')
-    let diff = len(getline('.')) - cursor + 1
-    if s:checkStr(getline('.'), "\)")
-        for i in range(diff)
-            if i == 0
-                continue
-            endif
-            exe "normal! \<Right>"
-            if matchstr(getline('.'), '.', cursor - 1 + i) == "\)"
-                if len(getline('.')) - col('.') == 0
-                    exe "startinsert!"
-                else
-                    exe "startinsert"
-                    exe "normal! \<Right>"
-                endif
-                break
-            endif
-        endfor
-    else
-        echo "That word does not exist in this line"
-    endif
-endfunction
-
-"Check if there is a target char
-function! s:checkStr(str, check)
-    for i in range(len(a:str))
-        if i == 0 
-            continue 
-        endif
-        if matchstr(a:str, '.', i) == a:check
-            return 1
-        endif
-    endfor
-    return 0
-endfunction
+noremap m '
+noremap M m
