@@ -21,3 +21,8 @@
         \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
   '''
   on_i = 1
+
+[[plugins]]
+  repo = 'zchee/deoplete-jedi'
+  on_i = 1
+  on_ft = 'python'
