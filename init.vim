@@ -129,7 +129,9 @@ set number
 set backspace=indent,eol,start
 set showmode
 let s:color_dir = expand('~/.config/nvim/.color.vim')
-exe 'source' s:color_dir
+if filewritable(s:color_dir)
+    exe 'source' s:color_dir
+endif
 
 "indent
 set autoindent
@@ -164,10 +166,6 @@ noremap <silent> <S-h> 0
 "to able to be move when in insertmode
 inoremap <silent> <C-l> <Right>
 inoremap <silent> <C-h> <Left>
-
-"Move cursor to end of bracket
-inoremap <silent> <C-h><C-h> <ESC>:call <SID>ReachToSingle()<CR>
-nnoremap <silent> <C-h><C-h> <ESC>:call <SID>ReachToSingle()<CR>
 
 "Map reload init.vim
 noremap <silent> 0init :source ~/.nvim/init.vim<CR>
@@ -210,13 +208,14 @@ noremap <silent> [window]J <C-w>J
 noremap <silent> [window]K <C-w>K 
 noremap <silent> [window]L <C-w>L 
 
-"Terminal mapping
-"Set zsh on using Terminal mode
-set sh=zsh
-noremap <silent> ex :<C-u>sp<CR><C-w>j:<C-u>terminal<CR>i
-tnoremap <silent> <C-w>w <C-\><C-n><C-w>w
-tnoremap <silent> <ESC> <C-\><C-n>
-
+if has("terminal")
+    "Terminal mapping
+    "Set zsh on using Terminal mode
+    set sh=zsh
+    noremap <silent> ex :<C-u>sp<CR><C-w>j:<C-u>terminal<CR>i
+    tnoremap <silent> <C-w>w <C-\><C-n><C-w>w
+    tnoremap <silent> <ESC> <C-\><C-n>
+endif
 "Map
-noremap m '
-noremap M m
+noremap m 'm
+noremap M mm
