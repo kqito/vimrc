@@ -68,9 +68,10 @@ augroup autoCompile
     autocmd!
     autocmd BufWritePost *.c call <SID>c_execute()
     function! s:c_execute()
-        if g:autoCompile
             let path = substitute(expand('%:p'), ' ', '\\ ', "g")
             let compilePath = substitute(expand('%:h'), ' ', '\\ ', "g") .'/a.out'
+            let catPath = substitute(expand('%:h'), ' ', '\\ ', "g") .'/word.txt'
+        if g:autoCompile
             exe '!gcc' path '-o' compilePath '&&' compilePath
         endif
     endfunction
@@ -208,7 +209,7 @@ noremap <silent> [window]J <C-w>J
 noremap <silent> [window]K <C-w>K 
 noremap <silent> [window]L <C-w>L 
 
-if has("terminal")
+if has("nvim")
     "Terminal mapping
     "Set zsh on using Terminal mode
     set sh=zsh
