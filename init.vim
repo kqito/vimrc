@@ -88,30 +88,32 @@ augroup autoCompile
 augroup END
 
 "dein scripts----------
-let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
-let s:dein_dir = s:cache_home . '/dein'
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-if !isdirectory(s:dein_repo_dir)
-    call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
-endif
-let &runtimepath = s:dein_repo_dir .",". &runtimepath
+if(v:version >= 800 || has('nvim'))
+        let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
+    let s:dein_dir = s:cache_home . '/dein'
+    let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+    if !isdirectory(s:dein_repo_dir)
+        call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
+    endif
+    let &runtimepath = s:dein_repo_dir .",". &runtimepath
 
-" read plugin & create chache
-let s:dein_file = fnamemodify(expand('<sfile>'), ':h').'/toml/dein.toml'
-let s:lazy_file = fnamemodify(expand('<sfile>'), ':h').'/toml/dein_lazy.toml'
-let s:visual_file = fnamemodify(expand('<sfile>'), ':h').'/toml/visual.toml'
-if dein#load_state(s:dein_dir)
-    call dein#begin(s:dein_dir)
-    call dein#load_toml(s:dein_file)
-    call dein#load_toml(s:lazy_file)
-    call dein#load_toml(s:visual_file)
-    call dein#end()
-    call dein#save_state()
-endif
+    " read plugin & create chache
+    let s:dein_file = fnamemodify(expand('<sfile>'), ':h').'/toml/dein.toml'
+    let s:lazy_file = fnamemodify(expand('<sfile>'), ':h').'/toml/dein_lazy.toml'
+    let s:visual_file = fnamemodify(expand('<sfile>'), ':h').'/toml/visual.toml'
+    if dein#load_state(s:dein_dir)
+        call dein#begin(s:dein_dir)
+        call dein#load_toml(s:dein_file)
+        call dein#load_toml(s:lazy_file)
+        call dein#load_toml(s:visual_file)
+        call dein#end()
+        call dein#save_state()
+    endif
 
-"install plugins when no install them
-if has('vim_starting') && dein#check_install()
+    "install plugins when no install them
+    if has('vim_starting') && dein#check_install()
     call dein#install()
+    endif
 endif
 "end of dein scripts-------------
 
