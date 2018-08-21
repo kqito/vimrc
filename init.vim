@@ -2,6 +2,7 @@ if !&compatible
     set nocompatible
 endif
 
+
 "Reset augroup
 augroup MyAutoCmd
     autocmd!
@@ -33,6 +34,7 @@ augroup MyAutoCmd
         autocmd FileType html        setlocal sw=4 sts=4 ts=4 et
         autocmd FileType css         setlocal sw=4 sts=4 ts=4 et
         autocmd FileType javascript  setlocal sw=4 sts=4 ts=4 et
+        autocmd FileType sh  setlocal sw=2 sts=2 ts=2 et
     endif
 augroup END
 
@@ -68,9 +70,9 @@ augroup autoCompile
     autocmd!
     autocmd BufWritePost *.c call <SID>c_execute()
     function! s:c_execute()
-            let path = substitute(expand('%:p'), ' ', '\\ ', "g")
-            let compilePath = substitute(expand('%:h'), ' ', '\\ ', "g") .'/a.out'
-            let catPath = substitute(expand('%:h'), ' ', '\\ ', "g") .'/word.txt'
+        let path = substitute(expand('%:p'), ' ', '\\ ', "g")
+        let compilePath = substitute(expand('%:h'), ' ', '\\ ', "g") .'/a.out'
+        let catPath = substitute(expand('%:h'), ' ', '\\ ', "g") .'/word.txt'
         if g:autoCompile
             exe '!gcc' path '-o' compilePath '&&' compilePath
         endif
@@ -89,7 +91,7 @@ augroup END
 
 "dein scripts----------
 if(v:version >= 800 || has('nvim'))
-        let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
+    let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
     let s:dein_dir = s:cache_home . '/dein'
     let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
     if !isdirectory(s:dein_repo_dir)
@@ -112,7 +114,7 @@ if(v:version >= 800 || has('nvim'))
 
     "install plugins when no install them
     if has('vim_starting') && dein#check_install()
-    call dein#install()
+        call dein#install()
     endif
 endif
 "end of dein scripts-------------
@@ -210,6 +212,12 @@ noremap <silent> [window]H <C-w>H
 noremap <silent> [window]J <C-w>J 
 noremap <silent> [window]K <C-w>K 
 noremap <silent> [window]L <C-w>L 
+
+"Move windows
+nnoremap [w <C-w>k
+nnoremap ]w <C-w>j
+tnoremap [w <C-\><C-n><C-w>k
+tnoremap ]w <C-\><C-n><C-w>j
 
 if has("nvim")
     "Terminal mapping
