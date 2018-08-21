@@ -183,6 +183,9 @@ nnoremap <silent> A I
 vnoremap <silent> A I
 vnoremap <silent> I A
 
+"Move the cursor to the end of the line
+nmap <silent> v <S-v>
+
 "coding mapping
 inoremap { {}<Left>
 inoremap , , 
@@ -227,6 +230,7 @@ if has("nvim")
     tnoremap <silent> <C-w>w <C-\><C-n><C-w>w
     tnoremap <silent> <ESC> <C-\><C-n>
 endif
+
 "Map
 noremap m 'm
 noremap M mm
