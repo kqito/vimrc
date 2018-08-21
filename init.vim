@@ -142,6 +142,8 @@ endif
 set autoindent
 set smartindent
 set cindent
+nnoremap <silent> > >>
+nnoremap <silent> < <<
 
 "Auto indent when pressed ==
 nnoremap == gg=G''
