@@ -186,6 +186,17 @@ vnoremap <silent> I A
 "Move the cursor to the end of the line
 nmap <silent> v <S-v>
 
+"high light settings
+nnoremap <silent> // "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
+nmap # //:%s/<C-r>///g<Left><Left>
+
+" move the an line
+nnoremap <C-j> "zdd"zp
+nnoremap <C-k> "zdd<Up>"zP
+" move the multiple line
+vnoremap <C-k> "zx<Up>"zP`[V`]
+vnoremap <C-j> "zx"zp`[V`]
+
 "coding mapping
 inoremap { {}<Left>
 inoremap , , 
