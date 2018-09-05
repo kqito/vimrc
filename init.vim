@@ -148,6 +148,9 @@ nnoremap <silent> < <<
 "Auto indent when pressed ==
 nnoremap == gg=G''
 
+"delete next space
+nnoremap <silent> d<Space> df<Space>
+
 "swap config
 set noswapfile
 
