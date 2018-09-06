@@ -1,7 +1,7 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 hook_add = '''
-let g:python3_host_prog = $PYENV_ROOT . '/shims/python3'
+let g:python3_host_prog = $HOME . '/.pyenv/shims/python3'
 nmap [call] <Nop>
 map <Space> [call]
 '''
