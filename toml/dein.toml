@@ -121,3 +121,6 @@ nmap <silent> [call]j <Plug>(ale_next_wrap)
 nmap <silent> [call]o <Plug>(ale_toggle)
 nmap <silent> [call]d <Plug>(ale_detail)
 '''
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
