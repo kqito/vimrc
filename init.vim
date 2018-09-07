@@ -175,6 +175,7 @@ noremap <silent> <S-h> 0
 "to able to be move when in insertmode
 inoremap <silent> <C-l> <Right>
 inoremap <silent> <C-h> <Left>
+inoremap <silent> <C-o> <ESC>o
 
 "Map reload init.vim
 noremap <silent> 0<CR> :source ~/.nvim/init.vim<CR>
