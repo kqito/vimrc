@@ -242,7 +242,7 @@ if has("nvim")
     "Terminal mapping
     "Set zsh on using Terminal mode
     set sh=zsh
-    noremap <silent> ex :<C-u>sp<CR><C-w>j:<C-u>terminal<CR>i
+    noremap <silent> 1 :<C-u>sp<CR><C-w>j:<C-u>terminal<CR>i
     tnoremap <silent> <C-w>w <C-\><C-n><C-w>w
     tnoremap <silent> <ESC> <C-\><C-n>
 endif
