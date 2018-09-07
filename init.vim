@@ -2,7 +2,6 @@ if !&compatible
     set nocompatible
 endif
 
-
 "Reset augroup
 augroup MyAutoCmd
     autocmd!
@@ -178,7 +177,7 @@ inoremap <silent> <C-l> <Right>
 inoremap <silent> <C-h> <Left>
 
 "Map reload init.vim
-noremap <silent> 0init :source ~/.nvim/init.vim<CR>
+noremap <silent> 0<CR> :source ~/.nvim/init.vim<CR>
 
 "Change key mapiings a,A,i,I respectively
 nnoremap <silent> i a
@@ -203,19 +202,27 @@ vnoremap <C-k> "zx<Up>"zP`[V`]
 vnoremap <C-j> "zx"zp`[V`]
 
 "coding mapping
-inoremap { {}<Left>
+"if b:lexima_disabled is 1, lexima plugin will not work.
+nnoremap <silent> 2 :call <SID>toggle_auto_compile()<CR>
+
+function! s:toggle_auto_compile()
+    if exists("b:lexima_disabled")
+        if b:lexima_disabled
+            let b:lexima_disabled = 0
+            echo 'autoCoding is enabled'
+        else
+            let b:lexima_disabled = 1
+            echo 'autoCoding is disabled'
+        endif
+    else
+        let b:lexima_disabled = 1
+        echo 'autoCoding is disabled'
+    endif
+endfunction
+
 inoremap , , 
-inoremap {<CR> {}<Left><CR><ESC><S-o>
-inoremap ( ()<ESC>i
-inoremap " ""<ESC>i
-inoremap ' ''<ESC>i
-inoremap [ []<ESC>i
-nnoremap ;; <ESC><S-A>;<ESC>
-inoremap ;; <ESC><S-A>;<ESC>
-inoremap :: <ESC><S-A>:<ESC><S-a>
-inoremap {{ <ESC><S-A>{}<Left>
-inoremap {{<CR> <ESC><S-A>{}<Left><CR><ESC><S-o>
-inoremap >> <ESC><S-A>><ESC>
+inoremap ;; <ESC><S-A>;
+inoremap :: <ESC><S-A>:
 
 "Windows mapping
 nmap [window] <Nop>
