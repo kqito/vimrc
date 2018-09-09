@@ -132,7 +132,7 @@ set title
 set number
 set backspace=indent,eol,start
 set showmode
-let s:color_dir = expand('~/.config/nvim/.color.vim')
+let s:color_dir = expand('~/.config/nvim/color.vim')
 if filewritable(s:color_dir)
     exe 'source' s:color_dir
 endif
