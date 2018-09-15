@@ -123,7 +123,7 @@ set autoread
 set hidden
 set wildmenu
 inoremap <silent> jj <ESC>
-inoremap <silent> ff <Right>
+inoremap <silent> ff <ESC>A
 
 "display
 language C
