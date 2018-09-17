@@ -125,6 +125,9 @@ set wildmenu
 inoremap <silent> jj <ESC>
 inoremap <silent> ff <ESC>A
 
+"yank
+set clipboard+=unnamed
+
 "display
 language C
 set fenc=utf-8
