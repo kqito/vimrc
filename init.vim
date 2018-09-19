@@ -49,7 +49,7 @@ augroup Vimrc
 augroup END
 
 "compile
-map <C-x> [autoCompile]
+map 3 [autoCompile]
 
 "When g:autoCompile is 1, to be enable to auto Compile .c file"
 let g:autoCompile = 0
@@ -58,11 +58,11 @@ nnoremap <silent> [autoCompile] :call <SID>toggle_auto_compile()<CR>
 function! s:toggle_auto_compile()
     if g:autoCompile
         let g:autoCompile = 0
+        echo 'Auto compiletion is disabled'
     else
         let g:autoCompile = 1
+        echo 'Auto compiletion is Enabled'
     endif
-    let s:str = "autoCompile_c"
-    echo s:str '=' g:autoCompile
 endfunction
 
 augroup autoCompile
@@ -83,6 +83,16 @@ augroup autoCompile
             let path = substitute(expand('%:p'), ' ', '\\ ', "g")
             echo path
             exe '!python' path
+        endif
+    endfunction
+
+    autocmd BufWritePost *.java call <SID>java_execute()
+    function! s:java_execute()
+        if g:autoCompile
+            let compilePath = substitute(expand('%:h'), ' ', '\\ ', "g")
+            let filePath = substitute(expand('%:p'), ' ', '\\ ', "g")
+            let executePath = fnamemodify(filePath, ":t:r")
+            exe '!javac' filePath '-d' compilePath '&& java -cp' compilePath executePath
         endif
     endfunction
 
@@ -207,20 +217,20 @@ vnoremap <C-j> "zx"zp`[V`]
 
 "coding mapping
 "if b:lexima_disabled is 1, lexima plugin will not work.
-nnoremap <silent> 2 :call <SID>toggle_auto_compile()<CR>
+nnoremap <silent> 2 :call <SID>toggle_auto_coding()<CR>
 
-function! s:toggle_auto_compile()
+function! s:toggle_auto_coding()
     if exists("b:lexima_disabled")
         if b:lexima_disabled
             let b:lexima_disabled = 0
-            echo 'autoCoding is enabled'
+            echo 'Auto Coding is enabled'
         else
             let b:lexima_disabled = 1
-            echo 'autoCoding is disabled'
+            echo 'Auto Coding is disabled'
         endif
     else
         let b:lexima_disabled = 1
-        echo 'autoCoding is disabled'
+        echo 'Auto Coding is disabled'
     endif
 endfunction
 
