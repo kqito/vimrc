@@ -1,5 +1,5 @@
 #!/bin/bash
-if type wget > /dev/null 2&>1; then
+if type wget > /dev/null 2>&1; then
   wget https://github.com/jonathanfilip/vim-lucius/raw/master/colors/lucius.vim
   echo 'install successfully!!'
 else
