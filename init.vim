@@ -17,8 +17,8 @@ augroup MyAutoCmd
 
     "Auto set indent spaces
     if has("autocmd")
-        filetype plugin on
-        filetype indent on
+        "filetype plugin on
+        "filetype indent on
         "ts = tabstop
         "sts = softtabstop
         "sw = shiftwidth
@@ -110,12 +110,10 @@ if(v:version >= 800 || has('nvim'))
 
     " read plugin & create chache
     let s:dein_file = fnamemodify(expand('<sfile>'), ':h').'/toml/dein.toml'
-    let s:lazy_file = fnamemodify(expand('<sfile>'), ':h').'/toml/dein_lazy.toml'
     let s:visual_file = fnamemodify(expand('<sfile>'), ':h').'/toml/visual.toml'
     if dein#load_state(s:dein_dir)
         call dein#begin(s:dein_dir)
         call dein#load_toml(s:dein_file)
-        call dein#load_toml(s:lazy_file)
         call dein#load_toml(s:visual_file)
         call dein#end()
         call dein#save_state()
@@ -144,11 +142,16 @@ set fenc=utf-8
 set title
 set number
 set backspace=indent,eol,start
+
 set showmode
 let s:color_dir = expand('~/.config/nvim/color.vim')
 if filewritable(s:color_dir)
     exe 'source' s:color_dir
 endif
+
+"highlight color
+highlight PmenuSel ctermfg=lightred ctermbg=black
+highlight Pmenu ctermfg=lightblue ctermbg=black
 
 "indent
 set autoindent
@@ -209,11 +212,11 @@ nnoremap <silent> // "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
 nmap # //:%s/<C-r>///g<Left><Left>
 
 " move the an line
-nnoremap <C-j> "zdd"zp
-nnoremap <C-k> "zdd<Up>"zP
+nnoremap <C-p> "zdd"zp
+nnoremap <C-n> "zdd<Up>"zP
 " move the multiple line
-vnoremap <C-k> "zx<Up>"zP`[V`]
-vnoremap <C-j> "zx"zp`[V`]
+vnoremap <C-p> "zx<Up>"zP`[V`]
+vnoremap <C-n> "zx"zp`[V`]
 
 "coding mapping
 "if b:lexima_disabled is 1, lexima plugin will not work.
@@ -235,8 +238,9 @@ function! s:toggle_auto_coding()
 endfunction
 
 inoremap , , 
-inoremap ;; <ESC><S-A>;
-inoremap :: <ESC><S-A>:
+inoremap ;; <ESC><S-A>;<ESC>
+nnoremap ;; <ESC><S-A>;<ESC>
+inoremap :: <ESC><S-A>:<ESC>
 
 "Windows mapping
 nmap [window] <Nop>
@@ -252,6 +256,7 @@ noremap <silent> [window]H <C-w>H
 noremap <silent> [window]J <C-w>J 
 noremap <silent> [window]K <C-w>K 
 noremap <silent> [window]L <C-w>L 
+noremap <silent> ^ <C-w>w
 
 "Move windows
 nnoremap [w <C-w>k
@@ -265,6 +270,7 @@ if has("nvim")
     set sh=zsh
     noremap <silent> 1 :<C-u>sp<CR><C-w>j:<C-u>terminal<CR>i
     tnoremap <silent> <C-w>w <C-\><C-n><C-w>w
+    tnoremap <silent> ^ <C-\><C-n><C-w>w
     tnoremap <silent> <ESC> <C-\><C-n>
 endif
 
