@@ -100,6 +100,8 @@ merged = 0
 [[plugins]]
 repo = 'rdnetto/YCM-Generator'
 
+""""""""""""""""""""""""""""""""""""""
+"YCM
 [[plugins]]
 repo = 'ervandew/supertab'
 
@@ -128,3 +130,5 @@ let g:UltiSnipsEditSplit="vertical"
 nnoremap [call]i :YcmCompleter OrganizeImports<cr>
 nnoremap [call]f :YcmCompleter FixIt<cr>
 '''
+
+""""""""""""""""""""""""""""""""""""""
