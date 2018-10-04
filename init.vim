@@ -218,8 +218,8 @@ vnoremap <C-p> "zx<Up>"zP`[V`]
 vnoremap <C-n> "zx"zp`[V`]
 
 "specify delete register
-noremap d "xd
-vnoremap dd "xd
+nnoremap d "xd
+vnoremap d "xd
 noremap p "xp
 
 "coding mapping
