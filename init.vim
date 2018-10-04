@@ -17,8 +17,7 @@ augroup MyAutoCmd
 
     "Auto set indent spaces
     if has("autocmd")
-        "filetype plugin on
-        "filetype indent on
+        filetype plugin indent on
         "ts = tabstop
         "sts = softtabstop
         "sw = shiftwidth
@@ -212,11 +211,16 @@ nnoremap <silent> // "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
 nmap # //:%s/<C-r>///g<Left><Left>
 
 " move the an line
-nnoremap <C-p> "zdd"zp
-nnoremap <C-n> "zdd<Up>"zP
+nnoremap <C-n> "zdd"zp
+nnoremap <C-p> "zdd<Up>"zP
 " move the multiple line
 vnoremap <C-p> "zx<Up>"zP`[V`]
 vnoremap <C-n> "zx"zp`[V`]
+
+"specify delete register
+noremap d "xd
+vnoremap dd "xd
+noremap p "xp
 
 "coding mapping
 "if b:lexima_disabled is 1, lexima plugin will not work.
