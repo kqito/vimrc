@@ -1,3 +1,5 @@
+"#######################################################
+"#######################################################
 if !&compatible
     set nocompatible
 endif
@@ -15,6 +17,8 @@ augroup MyAutoCmd
         autocmd WinEnter * if &buftype ==# 'terminal' | normal i | endif
     endif
 
+"#######################################################
+"#######################################################
     "Auto set indent spaces
     if has("autocmd")
         filetype plugin indent on
@@ -37,6 +41,8 @@ augroup MyAutoCmd
     endif
 augroup END
 
+"#######################################################
+"#######################################################
 "compile
 map 3 [autoCompile]
 
@@ -86,7 +92,8 @@ augroup autoCompile
     endfunction
 
 augroup END
-
+"#######################################################
+"#######################################################
 "dein scripts----------
 if(v:version >= 800 || has('nvim'))
     let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
@@ -114,7 +121,8 @@ if(v:version >= 800 || has('nvim'))
     endif
 endif
 "end of dein scripts-------------
-
+"#######################################################
+"#######################################################
 "common
 set autoread
 set hidden
@@ -122,13 +130,19 @@ set wildmenu
 inoremap <silent> jj <ESC>
 inoremap <silent> ff <ESC>A
 
+"#######################################################
+"#######################################################
 "Mapping space
 nmap [call] <Nop>
 map <Space> [call]
 
+"#######################################################
+"#######################################################
 "yank
 set clipboard+=unnamed
 
+"#######################################################
+"#######################################################
 "display
 language C
 set fenc=utf-8
@@ -142,10 +156,14 @@ if filewritable(s:color_dir)
     exe 'source' s:color_dir
 endif
 
+"#######################################################
+"#######################################################
 "highlight color
 highlight PmenuSel ctermfg=lightred ctermbg=black
 highlight Pmenu ctermfg=lightblue ctermbg=black
 
+"#######################################################
+"#######################################################
 "indent
 set autoindent
 set smartindent
@@ -153,15 +171,23 @@ set cindent
 nnoremap <silent> > >>
 nnoremap <silent> < <<
 
+"#######################################################
+"#######################################################
 "Auto indent when pressed ==
 nnoremap == gg=G''
 
+"#######################################################
+"#######################################################
 "delete next space
 nnoremap <silent> d<Space> df<Space>
 
+"#######################################################
+"#######################################################
 "swap config
 set noswapfile
 
+"#######################################################
+"#######################################################
 "search config
 set incsearch
 set ignorecase
@@ -169,26 +195,36 @@ set hlsearch
 set smartcase
 nnoremap <silent> <ESC><ESC> :noh<CR>
 
+"#######################################################
+"#######################################################
 "To able be undo after closed any files
 if has('persistent_undo')
     set undodir=~/.config/nvim/.undo
     set undofile
 endif
 
+"#######################################################
+"#######################################################
 "cursor
 noremap <silent> <S-j> <C-d>
 noremap <silent> <S-k> <C-u> 
 noremap <silent> <S-l> $
 noremap <silent> <S-h> 0
-"
+
+"#######################################################
+"#######################################################
 "to able to be move when in insertmode
 inoremap <silent> <C-l> <Right>
 inoremap <silent> <C-h> <Left>
 inoremap <silent> <C-o> <ESC>o
 
+"#######################################################
+"#######################################################
 "Map reload init.vim
 noremap <silent> 0<CR> :source ~/.nvim/init.vim<CR>
 
+"#######################################################
+"#######################################################
 "Change key mapiings a,A,i,I respectively
 nnoremap <silent> i a
 nnoremap <silent> a i
@@ -197,13 +233,19 @@ nnoremap <silent> A I
 vnoremap <silent> A I
 vnoremap <silent> I A
 
+"#######################################################
+"#######################################################
 "Move the cursor to the end of the line
 nmap <silent> v <S-v>
 
+"#######################################################
+"#######################################################
 "high light settings
 nnoremap <silent> // "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
 nmap # //:%s/<C-r>///g<Left><Left>
 
+"#######################################################
+"#######################################################
 " move the an line
 nnoremap <C-n> "zdd"zp
 nnoremap <C-p> "zdd<Up>"zP
@@ -211,6 +253,8 @@ nnoremap <C-p> "zdd<Up>"zP
 vnoremap <C-p> "zx<Up>"zP`[V`]
 vnoremap <C-n> "zx"zp`[V`]
 
+"#######################################################
+"#######################################################
 "specify delete register
 nnoremap d "xd
 vnoremap d "xd
@@ -220,11 +264,15 @@ nnoremap x "xx
 noremap p "xp
 
 
+"#######################################################
+"#######################################################
 inoremap , , 
 inoremap ;; <ESC><S-A>;<ESC>
 nnoremap ;; <ESC><S-A>;<ESC>
 inoremap :: <ESC><S-A>:<ESC>
 
+"#######################################################
+"#######################################################
 "Windows mapping
 nmap [window] <Nop>
 map <C-w> [window]
@@ -248,6 +296,8 @@ nnoremap ]w <C-w>j
 tnoremap [w <C-\><C-n><C-w>k
 tnoremap ]w <C-\><C-n><C-w>j
 
+"#######################################################
+"#######################################################
 if has("nvim")
     "Terminal mapping
     "Set zsh on using Terminal mode
@@ -258,6 +308,8 @@ if has("nvim")
     tnoremap <silent> <ESC> <C-\><C-n>
 endif
 
+"#######################################################
+"#######################################################
 "Map
 noremap m 'm
 noremap M mm
