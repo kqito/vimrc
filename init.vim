@@ -17,12 +17,12 @@ augroup MyAutoCmd
 
     "Auto set indent spaces
     if has("autocmd")
-        "filetype plugin on
-        "filetype indent on
+        filetype plugin indent on
         "ts = tabstop
         "sts = softtabstop
         "sw = shiftwidth
         autocmd FileType vim         setlocal sw=4 sts=4 ts=4 et
+        autocmd FileType conf         setlocal sw=4 sts=4 ts=4 et
         autocmd FileType c           setlocal sw=4 sts=4 ts=4 et
         autocmd FileType html        setlocal sw=4 sts=4 ts=4 et
         autocmd FileType ruby        setlocal sw=4 sts=4 ts=4 et
@@ -35,17 +35,6 @@ augroup MyAutoCmd
         autocmd FileType javascript  setlocal sw=4 sts=4 ts=4 et
         autocmd FileType sh  setlocal sw=2 sts=2 ts=2 et
     endif
-augroup END
-
-"Save the file that open buffer when leave insert mode
-augroup Vimrc
-    autocmd!
-    autocmd InsertLeave * call <SID>auto_save()
-    function! s:auto_save()
-        if filewritable(expand('%'))
-            write
-        endif
-    endfunction
 augroup END
 
 "compile
@@ -133,6 +122,10 @@ set wildmenu
 inoremap <silent> jj <ESC>
 inoremap <silent> ff <ESC>A
 
+"Mapping space
+nmap [call] <Nop>
+map <Space> [call]
+
 "yank
 set clipboard+=unnamed
 
@@ -212,11 +205,19 @@ nnoremap <silent> // "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
 nmap # //:%s/<C-r>///g<Left><Left>
 
 " move the an line
-nnoremap <C-p> "zdd"zp
-nnoremap <C-n> "zdd<Up>"zP
+nnoremap <C-n> "zdd"zp
+nnoremap <C-p> "zdd<Up>"zP
 " move the multiple line
 vnoremap <C-p> "zx<Up>"zP`[V`]
 vnoremap <C-n> "zx"zp`[V`]
+
+"specify delete register
+nnoremap d "xd
+vnoremap d "xd
+nnoremap y "xy
+vnoremap y "xy
+nnoremap x "xx
+noremap p "xp
 
 "coding mapping
 "if b:lexima_disabled is 1, lexima plugin will not work.
@@ -257,6 +258,7 @@ noremap <silent> [window]J <C-w>J
 noremap <silent> [window]K <C-w>K 
 noremap <silent> [window]L <C-w>L 
 noremap <silent> ^ <C-w>w
+nnoremap <silent> [call]q :bp<bar>sp<bar>bn<bar>bd<CR>
 
 "Move windows
 nnoremap [w <C-w>k

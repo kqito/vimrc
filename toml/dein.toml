@@ -1,21 +1,21 @@
+#dein
+#########################################
 [[plugins]]
 repo = 'Shougo/dein.vim'
 hook_add = '''
 let g:python_host_prog = $HOME . '/.pyenv/shims/python2.7'
 let g:python3_host_prog = $HOME . '/.pyenv/shims/python3.6'
-nmap [call] <Nop>
-map <Space> [call]
 '''
 
+#########################################
+#denite
+#########################################
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = '''
-"<Nop>は無効化を意味する
-nmap [denite] <Nop>
 map s [denite]
 
 nmap <silent> [denite]p :<C-u>Denite file_rec -highlight-mode-insert=Search<CR>
-nmap <silent> [denite]o :<C-u>DeniteBufferDir file_rec -highlight-mode-insert=Search<CR>
 nmap <silent> [denite]b :<C-u>Denite buffer -highlight-mode-insert=Search<CR>
 nmap <silent> [denite]y :<C-u>Denite file_old -highlight-mode-insert=Search<CR>
 nmap <silent> [denite]s :<C-u>Denite line -auto-preview -highlight-mode-insert=Search<CR>
@@ -32,12 +32,18 @@ call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
       \ 'img/', 'fonts/'])
 '''
 
+#########################################
+#Change window's size
+#########################################
 [[plugins]]
 repo = 'simeji/winresizer'
 hook_add = '''
 let g:winresizer_start_key = '<C-T>'
 '''
 
+#########################################
+#Emmet
+#########################################
 [[plugins]]
 repo = 'mattn/emmet-vim'
 hook_add = '''
@@ -46,6 +52,9 @@ let g:user_emmet_install_gloabal = 0
 let g:user_emmet_leader_key='<C-Y>'
 '''
 
+#########################################
+#To make git unable even in vim
+#########################################
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 hook_add = '''
@@ -59,6 +68,9 @@ nmap <silent> [figitive]r :<C-u>Gread<CR>
 nmap <silent> [figitive]a :<C-u>Gwrite<CR>
 '''
 
+#########################################
+#Nerdtree
+#########################################
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 
@@ -81,18 +93,21 @@ let g:NERDTreeIndicatorMapCustom = {
     map <C-b> :NERDTreeToggle<CR>
 '''
 
+#########################################
+#Auto coding
+#########################################
 [[plugins]]
 repo = 'cohama/lexima.vim'
 
-""repo = 'lambdalisue/vim-pyenv'
-
+#########################################
+#YCM
+#########################################
 [[plugins]]
 repo = 'Valloric/YouCompleteMe'
 hook_add = '''
 
 let g:ycm_confirm_extra_conf = 0
-""let g:ycm_global_ycm_extra_conf = '~/.vim/dein/repos/github.com/Valloric/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-
+let g:ycm_global_ycm_extra_conf = '~/.vim/dein/repos/github.com/Valloric/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 
 '''
 merged = 0
@@ -100,8 +115,6 @@ merged = 0
 [[plugins]]
 repo = 'rdnetto/YCM-Generator'
 
-""""""""""""""""""""""""""""""""""""""
-"YCM
 [[plugins]]
 repo = 'ervandew/supertab'
 
@@ -126,9 +139,26 @@ let g:UltiSnipsJumpForwardTrigger      = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
 let g:UltiSnipsEditSplit="vertical"
 
-"Mapping
-nnoremap [call]i :YcmCompleter OrganizeImports<cr>
-nnoremap [call]f :YcmCompleter FixIt<cr>
-'''
 
-""""""""""""""""""""""""""""""""""""""
+'''
+#########################################
+#Eclim
+#########################################
+[[plugins]]
+repo = 'ervandew/eclim'
+hook_add = '''
+
+set runtimepath+=~/.cache/dein/eclim
+
+augroup Eclim
+autocmd!
+
+autocmd FileType java let g:EclimCompletionMethod = 'omnifunc'
+autocmd FileType java nnoremap [call]i :JavaImportOrganize<CR>
+autocmd FileType java nnoremap [call]f :JavaCorrect<CR>
+autocmd FileType java nnoremap [call]e :Java<CR>
+
+augroup END
+'''
+#########################################
+#########################################
