@@ -1,0 +1,48 @@
+#########################################
+#Eclim
+#########################################
+[[plugins]]
+repo = 'ervandew/eclim'
+hook_add = '''
+
+augroup Eclim
+autocmd!
+
+autocmd FileType java let g:EclimCompletionMethod = 'omnifunc'
+autocmd FileType java nnoremap [call]i :JavaImportOrganize<CR>
+autocmd FileType java nnoremap [call]f :JavaCorrect<CR>
+autocmd FileType java nnoremap [call]e :Java<CR>
+
+augroup END
+'''
+on_ft = ['java']
+
+#########################################
+#ale
+#########################################
+[[plugins]]
+repo = 'w0rp/ale'
+hook_add = '''
+
+let g:ale_lint_on_enter = 1
+let g:airline#extensions#ale#enabled = 1
+let g:ale_sign_column_always = 1
+let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+let g:ale_lint_on_text_changed = 1
+let g:ale_sign_error = 'x'
+let g:ale_sign_warning = '?'
+let g:ale_fix_on_save = 1
+let g:ale_linters = {
+      \ 'python': ['pylint'],
+      \ }
+let g:ale_python_flake8_use_global = 1
+let g:ale_fixers = {
+      \ 'javascript': ['prettier', 'eslint'],
+      \ 'python': ['autopep8', 'isort'],
+	\}
+nmap <silent> [call]k <Plug>(ale_previous_wrap)
+nmap <silent> [call]j <Plug>(ale_next_wrap)
+nmap <silent> [call]o <Plug>(ale_toggle)
+nmap <silent> [call]d <Plug>(ale_detail)
+'''
+on_ft = ['python', 'javascript']

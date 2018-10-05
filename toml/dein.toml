@@ -1,3 +1,4 @@
+#########################################
 #dein
 #########################################
 [[plugins]]
@@ -160,25 +161,6 @@ let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
 let g:UltiSnipsEditSplit="vertical"
 
 
-'''
-#########################################
-#Eclim
-#########################################
-[[plugins]]
-repo = 'ervandew/eclim'
-hook_add = '''
-
-set runtimepath+=~/.cache/dein/eclim
-
-augroup Eclim
-autocmd!
-
-autocmd FileType java let g:EclimCompletionMethod = 'omnifunc'
-autocmd FileType java nnoremap [call]i :JavaImportOrganize<CR>
-autocmd FileType java nnoremap [call]f :JavaCorrect<CR>
-autocmd FileType java nnoremap [call]e :Java<CR>
-
-augroup END
 '''
 #########################################
 #########################################
