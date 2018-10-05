@@ -6,8 +6,6 @@ repo = 'Shougo/dein.vim'
 hook_add = '''
 let g:python_host_prog = $HOME . '/.pyenv/shims/python2.7'
 let g:python3_host_prog = $HOME . '/.pyenv/shims/python3.6'
-nmap [call] <Nop>
-map <Space> [call]
 '''
 
 #########################################
@@ -19,6 +17,7 @@ hook_add = '''
 map s [denite]
 
 nmap <silent> [denite]p :<C-u>Denite file_rec -highlight-mode-insert=Search<CR>
+nmap <silent> [denite]b :<C-u>Denite buffer -highlight-mode-insert=Search<CR>
 nmap <silent> [denite]y :<C-u>Denite file_old -highlight-mode-insert=Search<CR>
 nmap <silent> [denite]s :<C-u>Denite line -auto-preview -highlight-mode-insert=Search<CR>
 nmap <silent> [denite]h :<C-u>Denite help -highlight-mode-insert=Search<CR>
@@ -149,5 +148,10 @@ nnoremap [call]i :YcmCompleter OrganizeImports<cr>
 nnoremap [call]f :YcmCompleter FixIt<cr>
 
 '''
+#########################################
+#Eclim
+#########################################
+[[plugins]]
+repo = 'ervandew/eclim'
 #########################################
 #########################################
