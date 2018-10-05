@@ -36,17 +36,6 @@ augroup MyAutoCmd
     endif
 augroup END
 
-"Save the file that open buffer when leave insert mode
-augroup Vimrc
-    autocmd!
-    autocmd InsertLeave * call <SID>auto_save()
-    function! s:auto_save()
-        if filewritable(expand('%'))
-            write
-        endif
-    endfunction
-augroup END
-
 "compile
 map 3 [autoCompile]
 
