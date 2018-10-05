@@ -1,4 +1,3 @@
-#########################################
 #dein
 #########################################
 [[plugins]]
@@ -143,9 +142,6 @@ let g:UltiSnipsJumpForwardTrigger      = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
 let g:UltiSnipsEditSplit="vertical"
 
-"Mapping
-nnoremap [call]i :YcmCompleter OrganizeImports<cr>
-nnoremap [call]f :YcmCompleter FixIt<cr>
 
 '''
 #########################################
@@ -153,5 +149,19 @@ nnoremap [call]f :YcmCompleter FixIt<cr>
 #########################################
 [[plugins]]
 repo = 'ervandew/eclim'
+hook_add = '''
+
+set runtimepath+=~/.cache/dein/eclim
+
+augroup Eclim
+autocmd!
+
+autocmd FileType java let g:EclimCompletionMethod = 'omnifunc'
+autocmd FileType java nnoremap [call]i :JavaImportOrganize<CR>
+autocmd FileType java nnoremap [call]f :JavaCorrect<CR>
+autocmd FileType java nnoremap [call]e :Java<CR>
+
+augroup END
+'''
 #########################################
 #########################################

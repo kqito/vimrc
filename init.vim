@@ -22,6 +22,7 @@ augroup MyAutoCmd
         "sts = softtabstop
         "sw = shiftwidth
         autocmd FileType vim         setlocal sw=4 sts=4 ts=4 et
+        autocmd FileType conf         setlocal sw=4 sts=4 ts=4 et
         autocmd FileType c           setlocal sw=4 sts=4 ts=4 et
         autocmd FileType html        setlocal sw=4 sts=4 ts=4 et
         autocmd FileType ruby        setlocal sw=4 sts=4 ts=4 et
