@@ -254,6 +254,7 @@ noremap <silent> [window]J <C-w>J
 noremap <silent> [window]K <C-w>K 
 noremap <silent> [window]L <C-w>L 
 noremap <silent> ^ <C-w>w
+nnoremap <silent> [call]q :bp<bar>sp<bar>bn<bar>bd<CR>
 
 "Move windows
 nnoremap [w <C-w>k
