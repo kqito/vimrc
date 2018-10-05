@@ -219,24 +219,6 @@ vnoremap y "xy
 nnoremap x "xx
 noremap p "xp
 
-"coding mapping
-"if b:lexima_disabled is 1, lexima plugin will not work.
-nnoremap <silent> 2 :call <SID>toggle_auto_coding()<CR>
-
-function! s:toggle_auto_coding()
-    if exists("b:lexima_disabled")
-        if b:lexima_disabled
-            let b:lexima_disabled = 0
-            echo 'Auto Coding is enabled'
-        else
-            let b:lexima_disabled = 1
-            echo 'Auto Coding is disabled'
-        endif
-    else
-        let b:lexima_disabled = 1
-        echo 'Auto Coding is disabled'
-    endif
-endfunction
 
 inoremap , , 
 inoremap ;; <ESC><S-A>;<ESC>
