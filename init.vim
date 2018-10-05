@@ -132,6 +132,10 @@ set wildmenu
 inoremap <silent> jj <ESC>
 inoremap <silent> ff <ESC>A
 
+"Mapping space
+nmap [call] <Nop>
+map <Space> [call]
+
 "yank
 set clipboard+=unnamed
 
