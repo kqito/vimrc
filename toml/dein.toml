@@ -130,6 +130,13 @@ hook_add = '''
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_global_ycm_extra_conf = '~/.cache/dein/repos/github.com/Valloric/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py'
 
+augroup c_mapping
+autocmd!
+
+autocmd FileType c nnoremap [call]f :YcmCompleter FixIt<CR>
+
+augroup END
+
 '''
 merged = 0
 
