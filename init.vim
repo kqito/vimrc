@@ -262,7 +262,7 @@ nnoremap d "xd
 vnoremap d "xd
 nnoremap y "xy
 vnoremap y "xy
-nnoremap x "xx
+nnoremap x ""x
 noremap p "xp
 
 
