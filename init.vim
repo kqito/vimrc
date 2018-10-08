@@ -43,55 +43,38 @@ augroup END
 
 "#######################################################
 "#######################################################
-"compile
+"When you press 3 key, execute focuesd file
 map 3 [autoCompile]
 
-"When g:autoCompile is 1, to be enable to auto Compile .c file"
-let g:autoCompile = 0
-nnoremap <silent> [autoCompile] :call <SID>toggle_auto_compile()<CR>
+nnoremap <silent> [autoCompile] :call <SID>execute_compile()<CR>
 
-function! s:toggle_auto_compile()
-    if g:autoCompile
-        let g:autoCompile = 0
-        echo 'Auto compiletion is disabled'
-    else
-        let g:autoCompile = 1
-        echo 'Auto compiletion is Enabled'
-    endif
+function! s:execute_compile()
+if &filetype == 'c'
+    call <SID>execute_c()
+elseif &filetype == 'python'
+    call <SID>execute_py()
+elseif &filetype == 'java'
+    call <SID>execute_java()
+endif
 endfunction
 
-augroup autoCompile
-    autocmd!
-    autocmd BufWritePost *.c call <SID>c_execute()
-    function! s:c_execute()
+function! s:execute_c()
+    let path = substitute(expand('%:p'), ' ', '\\ ', "g")
+    let compilePath = substitute(expand('%:h'), ' ', '\\ ', "g") .'/a.out'
+    let catPath = substitute(expand('%:h'), ' ', '\\ ', "g") .'/word.txt'
+        exe '!gcc' path '-o' compilePath '&&' compilePath
+endfunction
+function! s:execute_py()
         let path = substitute(expand('%:p'), ' ', '\\ ', "g")
-        let compilePath = substitute(expand('%:h'), ' ', '\\ ', "g") .'/a.out'
-        let catPath = substitute(expand('%:h'), ' ', '\\ ', "g") .'/word.txt'
-        if g:autoCompile
-            exe '!gcc' path '-o' compilePath '&&' compilePath
-        endif
-    endfunction
-
-    autocmd BufWritePost *.py call <SID>python_execute()
-    function! s:python_execute()
-        if g:autoCompile
-            let path = substitute(expand('%:p'), ' ', '\\ ', "g")
-            echo path
-            exe '!python' path
-        endif
-    endfunction
-
-    autocmd BufWritePost *.java call <SID>java_execute()
-    function! s:java_execute()
-        if g:autoCompile
-            let compilePath = substitute(expand('%:h'), ' ', '\\ ', "g")
-            let filePath = substitute(expand('%:p'), ' ', '\\ ', "g")
-            let executePath = fnamemodify(filePath, ":t:r")
-            exe '!javac' filePath '-d' compilePath '&& java -cp' compilePath executePath
-        endif
-    endfunction
-
-augroup END
+        echo path
+        exe '!python3' path
+endfunction
+function! s:execute_java()
+        let compilePath = substitute(expand('%:h'), ' ', '\\ ', "g")
+        let filePath = substitute(expand('%:p'), ' ', '\\ ', "g")
+        let executePath = fnamemodify(filePath, ":t:r")
+        exe '!javac' filePath '-d' compilePath '&& java -cp' compilePath executePath
+endfunction
 "#######################################################
 "#######################################################
 "dein scripts----------
@@ -106,11 +89,13 @@ if(v:version >= 800 || has('nvim'))
 
     " read plugin & create chache
     let s:dein_file = fnamemodify(expand('<sfile>'), ':h').'/toml/dein.toml'
+    let s:dein_lazy_file = fnamemodify(expand('<sfile>'), ':h').'/toml/dein_lazy.toml'
     let s:visual_file = fnamemodify(expand('<sfile>'), ':h').'/toml/visual.toml'
     if dein#load_state(s:dein_dir)
         call dein#begin(s:dein_dir)
-        call dein#load_toml(s:dein_file)
-        call dein#load_toml(s:visual_file)
+        call dein#load_toml(s:dein_file, {'lazy': 0})
+        call dein#load_toml(s:visual_file, {'lazy': 0})
+        call dein#load_toml(s:dein_lazy_file, {'lazy': 1})
         call dein#end()
         call dein#save_state()
     endif
@@ -260,7 +245,7 @@ nnoremap d "xd
 vnoremap d "xd
 nnoremap y "xy
 vnoremap y "xy
-nnoremap x "xx
+nnoremap x ""x
 noremap p "xp
 
 
@@ -298,15 +283,23 @@ tnoremap ]w <C-\><C-n><C-w>j
 
 "#######################################################
 "#######################################################
+"Terminal mapping
+"Set zsh on using Terminal mode
+    
 if has("nvim")
-    "Terminal mapping
-    "Set zsh on using Terminal mode
     set sh=zsh
-    noremap <silent> 1 :<C-u>sp<CR><C-w>j:<C-u>terminal<CR>i
-    tnoremap <silent> <C-w>w <C-\><C-n><C-w>w
+    "map <silent> 1 :vs<CR><C-t>llll<CR><C-w>l:terminal<CR>i
+    map <silent> 1 :call <SID>create_Terminal()<CR>
+    tnoremap <silent> <C-w>w <C-\><C-n><C-w>w<C-w><
     tnoremap <silent> ^ <C-\><C-n><C-w>w
     tnoremap <silent> <ESC> <C-\><C-n>
 endif
+
+function! s:create_Terminal()
+exe ':vert botright 70split'
+exe ':terminal'
+exe 'startinsert'
+endfunction
 
 "#######################################################
 "#######################################################
