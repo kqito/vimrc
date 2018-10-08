@@ -43,55 +43,38 @@ augroup END
 
 "#######################################################
 "#######################################################
-"compile
+"When you press 3 key, execute focuesd file
 map 3 [autoCompile]
 
-"When g:autoCompile is 1, to be enable to auto Compile .c file"
-let g:autoCompile = 0
-nnoremap <silent> [autoCompile] :call <SID>toggle_auto_compile()<CR>
+nnoremap <silent> [autoCompile] :call <SID>execute_compile()<CR>
 
-function! s:toggle_auto_compile()
-    if g:autoCompile
-        let g:autoCompile = 0
-        echo 'Auto compiletion is disabled'
-    else
-        let g:autoCompile = 1
-        echo 'Auto compiletion is Enabled'
-    endif
+function! s:execute_compile()
+if &filetype == 'c'
+    call <SID>execute_c()
+elseif &filetype == 'python'
+    call <SID>execute_py()
+elseif &filetype == 'java'
+    call <SID>execute_java()
+endif
 endfunction
 
-augroup autoCompile
-    autocmd!
-    autocmd BufWritePost *.c call <SID>c_execute()
-    function! s:c_execute()
+function! s:execute_c()
+    let path = substitute(expand('%:p'), ' ', '\\ ', "g")
+    let compilePath = substitute(expand('%:h'), ' ', '\\ ', "g") .'/a.out'
+    let catPath = substitute(expand('%:h'), ' ', '\\ ', "g") .'/word.txt'
+        exe '!gcc' path '-o' compilePath '&&' compilePath
+endfunction
+function! s:execute_py()
         let path = substitute(expand('%:p'), ' ', '\\ ', "g")
-        let compilePath = substitute(expand('%:h'), ' ', '\\ ', "g") .'/a.out'
-        let catPath = substitute(expand('%:h'), ' ', '\\ ', "g") .'/word.txt'
-        if g:autoCompile
-            exe '!gcc' path '-o' compilePath '&&' compilePath
-        endif
-    endfunction
-
-    autocmd BufWritePost *.py call <SID>python_execute()
-    function! s:python_execute()
-        if g:autoCompile
-            let path = substitute(expand('%:p'), ' ', '\\ ', "g")
-            echo path
-            exe '!python' path
-        endif
-    endfunction
-
-    autocmd BufWritePost *.java call <SID>java_execute()
-    function! s:java_execute()
-        if g:autoCompile
-            let compilePath = substitute(expand('%:h'), ' ', '\\ ', "g")
-            let filePath = substitute(expand('%:p'), ' ', '\\ ', "g")
-            let executePath = fnamemodify(filePath, ":t:r")
-            exe '!javac' filePath '-d' compilePath '&& java -cp' compilePath executePath
-        endif
-    endfunction
-
-augroup END
+        echo path
+        exe '!python3' path
+endfunction
+function! s:execute_java()
+        let compilePath = substitute(expand('%:h'), ' ', '\\ ', "g")
+        let filePath = substitute(expand('%:p'), ' ', '\\ ', "g")
+        let executePath = fnamemodify(filePath, ":t:r")
+        exe '!javac' filePath '-d' compilePath '&& java -cp' compilePath executePath
+endfunction
 "#######################################################
 "#######################################################
 "dein scripts----------
