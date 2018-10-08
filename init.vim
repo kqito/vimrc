@@ -283,15 +283,23 @@ tnoremap ]w <C-\><C-n><C-w>j
 
 "#######################################################
 "#######################################################
+"Terminal mapping
+"Set zsh on using Terminal mode
+    
 if has("nvim")
-    "Terminal mapping
-    "Set zsh on using Terminal mode
     set sh=zsh
-    noremap <silent> 1 :<C-u>sp<CR><C-w>j:<C-u>terminal<CR>i
-    tnoremap <silent> <C-w>w <C-\><C-n><C-w>w
+    "map <silent> 1 :vs<CR><C-t>llll<CR><C-w>l:terminal<CR>i
+    map <silent> 1 :call <SID>create_Terminal()<CR>
+    tnoremap <silent> <C-w>w <C-\><C-n><C-w>w<C-w><
     tnoremap <silent> ^ <C-\><C-n><C-w>w
     tnoremap <silent> <ESC> <C-\><C-n>
 endif
+
+function! s:create_Terminal()
+exe ':vert botright 70split'
+exe ':terminal'
+exe 'startinsert'
+endfunction
 
 "#######################################################
 "#######################################################
