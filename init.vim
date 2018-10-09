@@ -5,7 +5,7 @@ if !&compatible
 endif
 
 "Reset augroup
-augroup MyAutoCmd
+augroup auto_insert
     autocmd!
     " Turn off paste mode when leaving insert
     autocmd InsertLeave * set nopaste"
@@ -16,9 +16,11 @@ augroup MyAutoCmd
     else
         autocmd WinEnter * if &buftype ==# 'terminal' | normal i | endif
     endif
-
+augroup END
 "#######################################################
 "#######################################################
+augroup ftindent
+    autocmd!
     "Auto set indent spaces
     if has("autocmd")
         filetype plugin indent on
@@ -49,31 +51,31 @@ map 3 [autoCompile]
 nnoremap <silent> [autoCompile] :call <SID>execute_compile()<CR>
 
 function! s:execute_compile()
-if &filetype == 'c'
-    call <SID>execute_c()
-elseif &filetype == 'python'
-    call <SID>execute_py()
-elseif &filetype == 'java'
-    call <SID>execute_java()
-endif
+    if &filetype == 'c'
+        call <SID>execute_c()
+    elseif &filetype == 'python'
+        call <SID>execute_py()
+    elseif &filetype == 'java'
+        call <SID>execute_java()
+    endif
 endfunction
 
 function! s:execute_c()
     let path = substitute(expand('%:p'), ' ', '\\ ', "g")
     let compilePath = substitute(expand('%:h'), ' ', '\\ ', "g") .'/a.out'
     let catPath = substitute(expand('%:h'), ' ', '\\ ', "g") .'/word.txt'
-        exe '!gcc' path '-o' compilePath '&&' compilePath
+    exe '!gcc' path '-o' compilePath '&&' compilePath
 endfunction
 function! s:execute_py()
-        let path = substitute(expand('%:p'), ' ', '\\ ', "g")
-        echo path
-        exe '!python3' path
+    let path = substitute(expand('%:p'), ' ', '\\ ', "g")
+    echo path
+    exe '!python3' path
 endfunction
 function! s:execute_java()
-        let compilePath = substitute(expand('%:h'), ' ', '\\ ', "g")
-        let filePath = substitute(expand('%:p'), ' ', '\\ ', "g")
-        let executePath = fnamemodify(filePath, ":t:r")
-        exe '!javac' filePath '-d' compilePath '&& java -cp' compilePath executePath
+    let compilePath = substitute(expand('%:h'), ' ', '\\ ', "g")
+    let filePath = substitute(expand('%:p'), ' ', '\\ ', "g")
+    let executePath = fnamemodify(filePath, ":t:r")
+    exe '!javac' filePath '-d' compilePath '&& java -cp' compilePath executePath
 endfunction
 "#######################################################
 "#######################################################
@@ -261,48 +263,71 @@ inoremap :: <ESC><S-A>:<ESC>
 "Windows mapping
 nmap [window] <Nop>
 map <C-w> [window]
-noremap <silent> [window]~ :<C-u>sp<CR>
-noremap <silent> [window]^ :<C-u>vs<CR>
+noremap <silent> [window]^ :call <SID>create_new_window()<CR><ESC>
 noremap <silent> [window]h <C-w>h 
 noremap <silent> [window]j <C-w>j 
 noremap <silent> [window]k <C-w>k 
 noremap <silent> [window]l <C-w>l 
 noremap <silent> [window]w <C-w>w
-noremap <silent> [window]H <C-w>H 
-noremap <silent> [window]J <C-w>J 
-noremap <silent> [window]K <C-w>K 
-noremap <silent> [window]L <C-w>L 
 noremap <silent> ^ <C-w>w
 nnoremap <silent> [call]q :bp<bar>sp<bar>bn<bar>bd<CR>
 
-"Move windows
-nnoremap [w <C-w>k
-nnoremap ]w <C-w>j
-tnoremap [w <C-\><C-n><C-w>k
-tnoremap ]w <C-\><C-n><C-w>j
+function! s:create_new_window()
+    if has("nvim")
+        "If there is a terminal buffer, create a window horizontally. If not, create a window vertically
+        if win_id2win(g:terminal_window_id) "if no have Terminal's window
+            exe ':leftabove split'
+            let s:current_window = win_getid()
+            let s:result = win_gotoid(g:terminal_window_id) "move to specified window
+            exe ':vertical resize ' g:terminal_window_size
+            let s:result = win_gotoid(s:current_window) "move to current window
+        else
+            exe ':botright vsplit'
+        endif
+    else
+        "If it is vim, create a window vertically
+        exe ':botright vsplit'
+    endif
+    endfunction
+    "#######################################################
+    "#######################################################
+    "Terminal mapping
+    "Set zsh on using Terminal mode
 
-"#######################################################
-"#######################################################
-"Terminal mapping
-"Set zsh on using Terminal mode
-    
-if has("nvim")
-    set sh=zsh
-    "map <silent> 1 :vs<CR><C-t>llll<CR><C-w>l:terminal<CR>i
-    map <silent> 1 :call <SID>create_Terminal()<CR>
-    tnoremap <silent> <C-w>w <C-\><C-n><C-w>w<C-w><
-    tnoremap <silent> ^ <C-\><C-n><C-w>w
-    tnoremap <silent> <ESC> <C-\><C-n>
-endif
 
-function! s:create_Terminal()
-exe ':vert botright 70split'
-exe ':terminal'
-exe 'startinsert'
-endfunction
+    if has("nvim")
+        let g:terminal_window_id = 0
+        let g:terminal_window_size = 70
 
-"#######################################################
-"#######################################################
-"Map
-noremap m 'm
-noremap M mm
+        set sh=zsh
+        map <silent> 1 :call <SID>create_terminal()<CR>
+        tnoremap <silent> <C-w>w <C-\><C-n><C-w>w<C-w><
+        tnoremap <silent> ^ <C-\><C-n><C-w>w
+        tnoremap <silent> <ESC> <C-\><C-n>
+        tmap <silent> <C-c> <ESC>:q<Cr>
+
+        function! s:create_terminal()
+            if !win_id2win(g:terminal_window_id) "if no have Terminal's window
+                exe ':vert botright ' g:terminal_window_size 'split'
+                let g:terminal_window_id = win_getid()
+            else "if you have it, 
+                let s:result = win_gotoid(g:terminal_window_id) "move to specified window
+                exe ':vertical resize ' g:terminal_window_size
+            endif
+
+            if !bufexists("Terminal") "if no have Terminal buffer
+                exe ':terminal'
+                exe ':file Terminal'
+            else
+                exe 'buffer Terminal'
+            endif
+
+            exe 'startinsert'
+        endfunction
+    endif
+
+    "#######################################################
+    "#######################################################
+    "Map
+    noremap m 'm
+    noremap M mm
