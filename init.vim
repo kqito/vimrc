@@ -122,11 +122,11 @@ nnoremap <silent> <S-q> <Nop>
 "#######################################################
 "buffer
 nmap [Buffer] <Nop>
-map b [Buffer]
+map <C-b> [Buffer]
 
-nnoremap [Buffer]b :b#<CR>
-nnoremap [Buffer]p :bnext<CR>
-nnoremap [Buffer]n :bprev<CR>
+nnoremap [Buffer]<C-b> :b#<CR>
+nnoremap [Buffer]<C-p> :bnext<CR>
+nnoremap [Buffer]<C-n> :bprev<CR>
 
 "#######################################################
 "#######################################################
@@ -209,7 +209,6 @@ noremap <silent> <S-j> <C-d>
 noremap <silent> <S-k> <C-u> 
 noremap <silent> <S-l> $
 noremap <silent> <S-h> 0
-noremap <silent> W B
 
 "#######################################################
 "#######################################################
@@ -306,7 +305,6 @@ function! s:create_new_window()
     "#######################################################
     "Terminal mapping
     "Set zsh on using Terminal mode
-
 
     if has("nvim")
         let g:terminal_window_id = 0
