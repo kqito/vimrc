@@ -197,6 +197,7 @@ noremap <silent> <S-j> <C-d>
 noremap <silent> <S-k> <C-u> 
 noremap <silent> <S-l> $
 noremap <silent> <S-h> 0
+noremap <silent> W B
 
 "#######################################################
 "#######################################################
@@ -207,7 +208,7 @@ inoremap <silent> <C-o> <ESC>o
 
 "#######################################################
 "#######################################################
-"Map reload init.vim
+"reload init.vim
 noremap <silent> 0<CR> :source ~/.nvim/init.vim<CR>
 
 "#######################################################
