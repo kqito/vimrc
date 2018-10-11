@@ -91,7 +91,7 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
-    map [call]b :NERDTreeToggle<CR>
+    map <silent> [call]b :NERDTreeToggle<CR>
 '''
 
 #########################################
