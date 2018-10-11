@@ -313,7 +313,14 @@ function! s:create_new_window()
 
         set sh=zsh
         map <silent> 1 :call <SID>create_terminal()<CR>
-        tnoremap <silent> <C-w>w <C-\><C-n><C-w>w<C-w><
+        tmap [window] <Nop>
+        tmap <C-w> [window]
+        tnoremap <silent> [window]w <C-\><C-n><C-w>w
+        tnoremap <silent> [window]h <C-\><C-n><C-w>h 
+        tnoremap <silent> [window]j <C-\><C-n><C-w>j 
+        tnoremap <silent> [window]k <C-\><C-n><C-w>k 
+        tnoremap <silent> [window]l <C-\><C-n><C-w>l 
+        tnoremap <silent> [window]w <C-\><C-n><C-w>w
         tnoremap <silent> ^ <C-\><C-n><C-w>w
         tnoremap <silent> <ESC> <C-\><C-n>
         tmap <silent> <C-c> <ESC>:q<Cr>
