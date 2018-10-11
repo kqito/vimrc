@@ -257,6 +257,7 @@ vnoremap <C-n> "zx"zp`[V`]
 "#######################################################
 "specify delete register
 nnoremap d "xd
+nnoremap D "xD
 vnoremap d "xd
 nnoremap y "xy
 vnoremap y "xy
