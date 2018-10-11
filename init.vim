@@ -115,7 +115,18 @@ set autoread
 set hidden
 set wildmenu
 inoremap <silent> jj <ESC>
-inoremap <silent> ff <ESC>A
+inoremap <silent> ll <ESC>A
+nnoremap <silent> <S-q> <Nop>
+
+"#######################################################
+"#######################################################
+"buffer
+nmap [Buffer] <Nop>
+map b [Buffer]
+
+nnoremap [Buffer]b :b#<CR>
+nnoremap [Buffer]p :bnext<CR>
+nnoremap [Buffer]n :bprev<CR>
 
 "#######################################################
 "#######################################################
