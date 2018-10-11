@@ -90,9 +90,10 @@ if(v:version >= 800 || has('nvim'))
     let &runtimepath = s:dein_repo_dir .",". &runtimepath
 
     " read plugin & create chache
-    let s:dein_file = fnamemodify(expand('<sfile>'), ':h').'/toml/dein.toml'
-    let s:dein_lazy_file = fnamemodify(expand('<sfile>'), ':h').'/toml/dein_lazy.toml'
-    let s:visual_file = fnamemodify(expand('<sfile>'), ':h').'/toml/visual.toml'
+    let s:toml_dir = fnamemodify(expand('<sfile>'), ':h').'/toml'
+    let s:dein_file = s:toml_dir.'/dein.toml'
+    let s:dein_lazy_file = s:toml_dir.'/dein_lazy.toml'
+    let s:visual_file = s:toml_dir.'/visual.toml'
     if dein#load_state(s:dein_dir)
         call dein#begin(s:dein_dir)
         call dein#load_toml(s:dein_file, {'lazy': 0})
