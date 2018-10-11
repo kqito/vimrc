@@ -115,7 +115,18 @@ set autoread
 set hidden
 set wildmenu
 inoremap <silent> jj <ESC>
-inoremap <silent> ff <ESC>A
+inoremap <silent> ll <ESC>A
+nnoremap <silent> <S-q> <Nop>
+
+"#######################################################
+"#######################################################
+"buffer
+nmap [Buffer] <Nop>
+map b [Buffer]
+
+nnoremap [Buffer]b :b#<CR>
+nnoremap [Buffer]p :bnext<CR>
+nnoremap [Buffer]n :bprev<CR>
 
 "#######################################################
 "#######################################################
@@ -127,6 +138,7 @@ map <Space> [call]
 "#######################################################
 "yank
 set clipboard+=unnamed
+nnoremap <silent> Y <C-v>$"xy
 
 "#######################################################
 "#######################################################
@@ -197,6 +209,7 @@ noremap <silent> <S-j> <C-d>
 noremap <silent> <S-k> <C-u> 
 noremap <silent> <S-l> $
 noremap <silent> <S-h> 0
+noremap <silent> W B
 
 "#######################################################
 "#######################################################
@@ -207,7 +220,7 @@ inoremap <silent> <C-o> <ESC>o
 
 "#######################################################
 "#######################################################
-"Map reload init.vim
+"reload init.vim
 noremap <silent> 0<CR> :source ~/.nvim/init.vim<CR>
 
 "#######################################################
