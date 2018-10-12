@@ -21,26 +21,8 @@ augroup END
 "#######################################################
 augroup ftindent
     autocmd!
-    "Auto set indent spaces
-    if has("autocmd")
-        filetype plugin indent on
-        "ts = tabstop
-        "sts = softtabstop
-        "sw = shiftwidth
-        autocmd FileType vim         setlocal sw=4 sts=4 ts=4 et
-        autocmd FileType conf         setlocal sw=4 sts=4 ts=4 et
-        autocmd FileType c           setlocal sw=4 sts=4 ts=4 et
-        autocmd FileType html        setlocal sw=4 sts=4 ts=4 et
-        autocmd FileType ruby        setlocal sw=4 sts=4 ts=4 et
-        autocmd FileType js          setlocal sw=4 sts=4 ts=4 et
-        autocmd FileType zsh         setlocal sw=4 sts=4 ts=4 et
-        autocmd FileType python      setlocal sw=4 sts=4 ts=4 et
-        autocmd FileType json        setlocal sw=4 sts=4 ts=4 et
-        autocmd FileType html        setlocal sw=4 sts=4 ts=4 et
-        autocmd FileType css         setlocal sw=4 sts=4 ts=4 et
-        autocmd FileType javascript  setlocal sw=4 sts=4 ts=4 et
-        autocmd FileType sh  setlocal sw=2 sts=2 ts=2 et
-    endif
+    setlocal sw=4 sts=4 ts=4 et
+    autocmd FileType sh  setlocal sw=2 sts=2 ts=2 et
 augroup END
 
 "#######################################################
@@ -48,17 +30,11 @@ augroup END
 "When you press 3 key, execute focuesd file
 map 3 [autoCompile]
 
-nnoremap <silent> [autoCompile] :call <SID>execute_compile()<CR>
-
-function! s:execute_compile()
-    if &filetype == 'c'
-        call <SID>execute_c()
-    elseif &filetype == 'python'
-        call <SID>execute_py()
-    elseif &filetype == 'java'
-        call <SID>execute_java()
-    endif
-endfunction
+nnoremap <expr><silent> [autoCompile] 
+            \&filetype ==# 'c' ? ":call <SID>execute_c()\<CR>" : 
+            \&filetype ==# 'python' ? ":call <SID>execute_py()\<CR>" : 
+            \&filetype ==# 'java' ? ":call <SID>execute_java()\<CR>" :
+            \":echo \"The filetype is not supported\"\<CR>"
 
 function! s:execute_c()
     let path = substitute(expand('%:p'), ' ', '\\ ', "g")
@@ -115,6 +91,7 @@ endif
 set autoread
 set hidden
 set wildmenu
+filetype plugin indent on
 inoremap <silent> jj <ESC>
 nnoremap <silent> <S-q> <Nop>
 
