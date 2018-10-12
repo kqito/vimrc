@@ -116,7 +116,6 @@ set autoread
 set hidden
 set wildmenu
 inoremap <silent> jj <ESC>
-inoremap <silent> pp <ESC>A
 nnoremap <silent> <S-q> <Nop>
 
 "#######################################################
