@@ -116,7 +116,7 @@ set autoread
 set hidden
 set wildmenu
 inoremap <silent> jj <ESC>
-inoremap <silent> ll <ESC>A
+inoremap <silent> pp <ESC>A
 nnoremap <silent> <S-q> <Nop>
 
 "#######################################################
@@ -302,52 +302,52 @@ function! s:create_new_window()
         "If it is vim, create a window vertically
         exe ':botright vsplit'
     endif
+endfunction
+"#######################################################
+"#######################################################
+"Terminal mapping
+"Set zsh on using Terminal mode
+
+if has("nvim")
+    let g:terminal_window_id = 0
+    let g:terminal_window_size = 70
+
+    set sh=zsh
+    map <silent> 1 :call <SID>create_terminal()<CR>
+    tmap [window] <Nop>
+    tmap <C-w> [window]
+    tnoremap <silent> [window]w <C-\><C-n><C-w>w
+    tnoremap <silent> [window]h <C-\><C-n><C-w>h 
+    tnoremap <silent> [window]j <C-\><C-n><C-w>j 
+    tnoremap <silent> [window]k <C-\><C-n><C-w>k 
+    tnoremap <silent> [window]l <C-\><C-n><C-w>l 
+    tnoremap <silent> [window]w <C-\><C-n><C-w>w
+    tnoremap <silent> ^ <C-\><C-n><C-w>w
+    tnoremap <silent> <ESC> <C-\><C-n>
+    tmap <silent> <C-c> <ESC>:q<Cr>
+
+    function! s:create_terminal()
+        if !win_id2win(g:terminal_window_id) "if no have Terminal's window
+            exe ':vert botright ' g:terminal_window_size 'split'
+            let g:terminal_window_id = win_getid()
+        else "if you have it, 
+            let s:result = win_gotoid(g:terminal_window_id) "move to specified window
+            exe ':vertical resize ' g:terminal_window_size
+        endif
+
+        if !bufexists("Terminal") "if no have Terminal buffer
+            exe ':terminal'
+            exe ':file Terminal'
+        else
+            exe 'buffer Terminal'
+        endif
+
+        exe 'startinsert'
     endfunction
-    "#######################################################
-    "#######################################################
-    "Terminal mapping
-    "Set zsh on using Terminal mode
+endif
 
-    if has("nvim")
-        let g:terminal_window_id = 0
-        let g:terminal_window_size = 70
-
-        set sh=zsh
-        map <silent> 1 :call <SID>create_terminal()<CR>
-        tmap [window] <Nop>
-        tmap <C-w> [window]
-        tnoremap <silent> [window]w <C-\><C-n><C-w>w
-        tnoremap <silent> [window]h <C-\><C-n><C-w>h 
-        tnoremap <silent> [window]j <C-\><C-n><C-w>j 
-        tnoremap <silent> [window]k <C-\><C-n><C-w>k 
-        tnoremap <silent> [window]l <C-\><C-n><C-w>l 
-        tnoremap <silent> [window]w <C-\><C-n><C-w>w
-        tnoremap <silent> ^ <C-\><C-n><C-w>w
-        tnoremap <silent> <ESC> <C-\><C-n>
-        tmap <silent> <C-c> <ESC>:q<Cr>
-
-        function! s:create_terminal()
-            if !win_id2win(g:terminal_window_id) "if no have Terminal's window
-                exe ':vert botright ' g:terminal_window_size 'split'
-                let g:terminal_window_id = win_getid()
-            else "if you have it, 
-                let s:result = win_gotoid(g:terminal_window_id) "move to specified window
-                exe ':vertical resize ' g:terminal_window_size
-            endif
-
-            if !bufexists("Terminal") "if no have Terminal buffer
-                exe ':terminal'
-                exe ':file Terminal'
-            else
-                exe 'buffer Terminal'
-            endif
-
-            exe 'startinsert'
-        endfunction
-    endif
-
-    "#######################################################
-    "#######################################################
-    "Map
-    noremap m 'm
-    noremap M mm
+"#######################################################
+"#######################################################
+"Map
+noremap m 'm
+noremap M mm
