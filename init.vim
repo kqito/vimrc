@@ -5,23 +5,11 @@ if !&compatible
 endif
 
 "Reset augroup
-augroup auto_insert
+augroup My_auto
     autocmd!
     " Turn off paste mode when leaving insert
     autocmd InsertLeave * set nopaste"
-
-    "To be insert mode when move to terminal buffer
-    if has('nvim')
-        autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif
-    else
-        autocmd WinEnter * if &buftype ==# 'terminal' | normal i | endif
-    endif
-
-augroup END
-"#######################################################
-"#######################################################
-augroup ftindent
-    autocmd!
+    autocmd BufRead * exe "normal g;" 
     setlocal sw=4 sts=4 ts=4 et
     autocmd FileType sh  setlocal sw=2 sts=2 ts=2 et
 augroup END
@@ -276,6 +264,13 @@ if has("nvim")
 
     augroup terminal
         autocmd!
+        "To be insert mode when move to terminal buffer
+        if has('nvim')
+            autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif
+        else
+            autocmd WinEnter * if &buftype ==# 'terminal' | normal i | endif
+        endif
+
         autocmd BufLeave * if &buftype ==# 'terminal' | file Terminal | endif
     augroup END
 
