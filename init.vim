@@ -16,6 +16,7 @@ augroup auto_insert
     else
         autocmd WinEnter * if &buftype ==# 'terminal' | normal i | endif
     endif
+
 augroup END
 "#######################################################
 "#######################################################
@@ -262,30 +263,23 @@ noremap <silent> ^ <C-w>w
 nnoremap <silent> [call]q :bp<bar>sp<bar>bn<bar>bd<CR>
 
 function! s:create_new_window()
-    if has("nvim")
-        "If there is a terminal buffer, create a window horizontally. If not, create a window vertically
-        if win_id2win(g:terminal_window_id) "if no have Terminal's window
-            exe ':leftabove split'
-            let s:current_window = win_getid()
-            let s:result = win_gotoid(g:terminal_window_id) "move to specified window
-            exe ':vertical resize ' g:terminal_window_size
-            let s:result = win_gotoid(s:current_window) "move to current window
-        else
-            exe ':botright vsplit'
-        endif
-    else
-        "If it is vim, create a window vertically
-        exe ':botright vsplit'
-    endif
+    "If there is a terminal buffer, create a window horizontally. If not, create a window vertically
+    exe win_id2win(g:terminal_window_id) ? ':vertical resize 134 | split': ':botright vsplit'
 endfunction
 "#######################################################
 "#######################################################
 "Terminal mapping
 "Set zsh on using Terminal mode
+"split : vertical resize 134
 
 if has("nvim")
+
+    augroup terminal
+        autocmd!
+        autocmd BufLeave * if &buftype ==# 'terminal' | file Terminal | endif
+    augroup END
+
     let g:terminal_window_id = 0
-    let g:terminal_window_size = 70
 
     set sh=zsh
     map <silent> 1 :call <SID>create_terminal()<CR>
@@ -302,27 +296,12 @@ if has("nvim")
     tmap <silent> <C-c> <ESC>:q<Cr>
 
     function! s:create_terminal()
-        if !win_id2win(g:terminal_window_id) "if no have Terminal's window
-            exe ':vert botright ' g:terminal_window_size 'split'
-            let g:terminal_window_id = win_getid()
-        else "if you have it, 
-            let s:result = win_gotoid(g:terminal_window_id) "move to specified window
-            exe ':vertical resize ' g:terminal_window_size
-        endif
-
-        if !bufexists("Terminal") "if no have Terminal buffer
-            exe ':terminal'
-            exe ':file Terminal'
-        else
-            exe 'buffer Terminal'
-        endif
-
-        exe 'startinsert'
+        exe !win_id2win(g:terminal_window_id) ? ':vert botright split': win_gotoid(g:terminal_window_id)
+        let g:terminal_window_id = win_getid() "memory window id
+        exe !bufexists("Terminal") ? ':terminal' : 'buffer Terminal'
+        exe ':vertical resize 70 | startinsert'
     endfunction
 endif
 
 "#######################################################
 "#######################################################
-"Map
-noremap m 'm
-noremap M mm
