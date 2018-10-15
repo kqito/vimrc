@@ -11,7 +11,7 @@ if type wget > /dev/null 2>&1; then
         wget https://github.com/${site[i]} -P $color_dir > /dev/null 2>&1
     }
 
-    echo "Install successfully!!\nThe additional colortheme you can use are\n"
+    echo "Install successfully!!\nThe additional colorscheme you can use are"
 
     for ((i = 0; i < ${#site[@]}; i++)) {
         echo $((i+1)). ${site[i]##*/} | sed -e 's/\.vim//'
