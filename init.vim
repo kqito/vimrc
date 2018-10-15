@@ -10,7 +10,6 @@ augroup My_auto
     " Turn off paste mode when leaving insert
     autocmd InsertLeave * set nopaste"
     autocmd BufRead * exe "normal g;" 
-    setlocal sw=4 sts=4 ts=4 et
     autocmd FileType sh  setlocal sw=2 sts=2 ts=2 et
 augroup END
 
@@ -66,6 +65,11 @@ if(v:version >= 800 || has('nvim'))
         call dein#load_toml(s:dein_lazy_file, {'lazy': 1})
         call dein#end()
         call dein#save_state()
+    endif
+
+    if !has('nvim')
+        call dein#add('roxma/nvim-yarp')
+        call dein#add('roxma/vim-hug-neovim-rpc')
     endif
 
     "install plugins when no install them
@@ -133,6 +137,7 @@ highlight Pmenu ctermfg=lightblue ctermbg=black
 set autoindent
 set smartindent
 set cindent
+setlocal sw=4 sts=4 ts=4 et
 nnoremap <silent> > >>
 nnoremap <silent> < <<
 
