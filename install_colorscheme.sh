@@ -1,15 +1,15 @@
 #!/bin/bash
 
 declare -a site=(\
-  "jonathanfilip/vim-lucius/raw/master/colors/lucius.vim" \
-  "fcpg/vim-orbital/blob/master/colors/orbital.vim"\
+  "https://raw.githubusercontent.com/jonathanfilip/vim-lucius/master/colors/lucius.vim" \
+  "https://raw.githubusercontent.com/fcpg/vim-orbital/master/colors/orbital.vim"\
   )
 color_dir="/usr/local/share/nvim/runtime/colors/"
 
 function install_colorscheme(){ 
   if type wget > /dev/null 2>&1; then
     for ((i = 0; i < ${#site[@]}; i++)) {
-      wget https://github.com/${site[i]} -P $color_dir > /dev/null 2>&1
+      wget ${site[i]} -O $color_dir${site[i]##*/} > /dev/null 2>&1
     }
   else
     cat << EOS
@@ -29,7 +29,7 @@ function result(){
   }
 
   printf "\nPlease write it in vimrc as follows.\
-    \n\e[32;40mcolorscheme ${filename}"
+    \n\e[32;40mcolorscheme ${filename%.*}"
 }
 
 function error(){
@@ -39,7 +39,7 @@ Please check to exist the url.
 Also please check the permissions of colorscheme directory. 
 EOS
 for ((i = 0; i < ${#site[@]}; i++)) {
-  printf "Colorscheme url $((i+1)): \e[31;4mhttps://github.com/${site[i]}\e[m\n"
+  printf "Colorscheme url $((i+1)): \e[31;4m${site[i]}\e[m\n"
 }
 printf "Save location : \e[31;4m$color_dir"
 
