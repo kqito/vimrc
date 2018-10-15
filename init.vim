@@ -93,6 +93,7 @@ map <C-b> [Buffer]
 nnoremap [Buffer]<C-b> :b#<CR>
 nnoremap [Buffer]<C-p> :bnext<CR>
 nnoremap [Buffer]<C-n> :bprev<CR>
+nnoremap [Buffer]<C-d> :bd<CR>
 
 "#######################################################
 "#######################################################
@@ -291,7 +292,7 @@ if has("nvim")
     tmap <silent> <C-c> <ESC>:q<Cr>
 
     function! s:create_terminal()
-        exe !win_id2win(g:terminal_window_id) ? ':vert botright split': win_gotoid(g:terminal_window_id)
+        exe winnr('$') == 1 || !win_id2win(g:terminal_window_id) ? ':vert botright split': win_gotoid(g:terminal_window_id)
         let g:terminal_window_id = win_getid() "memory window id
         exe !bufexists("Terminal") ? ':terminal' : 'buffer Terminal'
         exe ':vertical resize 70 | startinsert'
