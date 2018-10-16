@@ -137,7 +137,9 @@ highlight Pmenu ctermfg=lightblue ctermbg=black
 set autoindent
 set smartindent
 set cindent
-setlocal sw=4 sts=4 ts=4 et
+set expandtab
+set tabstop=4
+set shiftwidth=4
 nnoremap <silent> > >>
 nnoremap <silent> < <<
 
