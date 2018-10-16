@@ -9,7 +9,7 @@ augroup My_auto
     autocmd!
     " Turn off paste mode when leaving insert
     autocmd InsertLeave * set nopaste"
-    autocmd BufRead * exe "normal g;" 
+    autocmd BufRead * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
     autocmd FileType sh  setlocal sw=2 sts=2 ts=2 et
 augroup END
 
