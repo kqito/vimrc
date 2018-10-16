@@ -47,3 +47,12 @@ nmap <silent> [call]o <Plug>(ale_toggle)
 nmap <silent> [call]d <Plug>(ale_detail)
 '''
 on_ft = ['python', 'javascript']
+
+#########################################
+#Vim syntax highlighting for Pug 
+#########################################
+[[plugins]]
+repo = 'digitaltoad/vim-pug'
+on_ft = ['pug']
+#########################################
+#########################################
