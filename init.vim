@@ -282,7 +282,7 @@ if has("nvim")
         autocmd BufLeave * if &buftype ==# 'terminal' | file Terminal | endif
     augroup END
 
-    let g:terminal_window_id = 0
+    let g:terminal_window_id = winnr('$') == 1 ? 0 : bufwinid("Terminal") 
 
     set sh=zsh
     map <silent> 1 :call <SID>create_terminal()<CR>
