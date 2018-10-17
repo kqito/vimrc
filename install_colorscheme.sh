@@ -4,7 +4,7 @@ declare -a site=(\
   "https://raw.githubusercontent.com/jonathanfilip/vim-lucius/master/colors/lucius.vim" \
   "https://raw.githubusercontent.com/fcpg/vim-orbital/master/colors/orbital.vim"\
   "https://raw.githubusercontent.com/elmindreda/vimcolors/master/colors/phosphor.vim"\
-		"https://github.com/tomasr/molokai"\
+  "https://github.com/tomasr/molokai"\
   )
 color_dir="/usr/local/share/nvim/runtime/colors/"
 
