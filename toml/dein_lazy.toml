@@ -1,23 +1,4 @@
 #########################################
-#Eclim
-#########################################
-[[plugins]]
-repo = 'ervandew/eclim'
-hook_add = '''
-
-augroup Eclim
-autocmd!
-
-autocmd FileType java let g:EclimCompletionMethod = 'omnifunc'
-autocmd FileType java nnoremap [call]i :JavaImportOrganize<CR>
-autocmd FileType java nnoremap [call]f :JavaCorrect<CR>
-autocmd FileType java nnoremap [call]e :Java<CR>
-
-augroup END
-'''
-on_ft = ['java']
-
-#########################################
 #ale
 #########################################
 [[plugins]]
@@ -60,17 +41,12 @@ on_ft = ['pug']
 #########################################
 [[plugins]]
 repo = 'AtsushiM/search-parent.vim'
-on_ft = ['sass']
+on_ft = ['sass', 'scss']
 
 [[plugins]]
 repo = 'AtsushiM/sass-compile.vim'
 hook_add = '''
-let g:sass_compile_cdloop = 5
-let g:sass_compile_auto = 0
-let g:sass_compile_file = ['scss', 'sass']
-let g:sass_compile_cssdir = ['stylesheet', 'css']
-" let g:sass_compile_beforecmd = "growlnotify -t 'sass-compile.vim' -m 'start sass compile.'"
-" let g:sass_compile_aftercmd = "growlnotify -t 'sass-compile.vim' -m ${sasscompileresult}"
+nnoremap <silent> [autoCompile] :SassCompile<CR>
 '''
 on_ft = ['sass', 'scss']
 
