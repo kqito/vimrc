@@ -27,12 +27,10 @@ nnoremap <expr><silent> [autoCompile]
 function! s:execute_c()
     let path = substitute(expand('%:p'), ' ', '\\ ', "g")
     let compilePath = substitute(expand('%:h'), ' ', '\\ ', "g") .'/a.out'
-    let catPath = substitute(expand('%:h'), ' ', '\\ ', "g") .'/word.txt'
     exe '!gcc' path '-o' compilePath '&&' compilePath
 endfunction
 function! s:execute_py()
     let path = substitute(expand('%:p'), ' ', '\\ ', "g")
-    echo path
     exe '!python3' path
 endfunction
 function! s:execute_java()
