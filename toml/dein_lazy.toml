@@ -72,7 +72,7 @@ let g:sass_compile_cssdir = ['stylesheet', 'css']
 " let g:sass_compile_beforecmd = "growlnotify -t 'sass-compile.vim' -m 'start sass compile.'"
 " let g:sass_compile_aftercmd = "growlnotify -t 'sass-compile.vim' -m ${sasscompileresult}"
 '''
-on_ft = ['sass']
+on_ft = ['sass', 'scss']
 
 #########################################
 #########################################
