@@ -272,9 +272,9 @@ if has("nvim")
         autocmd!
         "To be insert mode when move to terminal buffer
         if has('nvim')
-            autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif
+            autocmd BufEnter * if &buftype ==# 'terminal' | startinsert | endif
         else
-            autocmd WinEnter * if &buftype ==# 'terminal' | normal i | endif
+            autocmd BufEnter * if &buftype ==# 'terminal' | normal i | endif
         endif
 
         autocmd BufLeave * if &buftype ==# 'terminal' | file Terminal | endif
@@ -295,6 +295,13 @@ if has("nvim")
     tnoremap <silent> ^ <C-\><C-n><C-w>w
     tnoremap <silent> <ESC> <C-\><C-n>
     tmap <silent> <C-c> <ESC>:q<Cr>
+    "Buffer
+    tmap [Buffer] <Nop>
+    tmap <C-b> [Buffer]
+    tmap [Buffer]<C-b> <ESC>:b#<CR>
+    tmap [Buffer]<C-p> <ESC>:bnext<CR>
+    tmap [Buffer]<C-n> <ESC>:bprev<CR>
+    tmap [Buffer]<C-d> <ESC>:bd<CR>
 
     function! s:create_terminal()
         exe winnr('$') == 1 || !win_id2win(g:terminal_window_id) ? ':vert botright split': win_gotoid(g:terminal_window_id)
