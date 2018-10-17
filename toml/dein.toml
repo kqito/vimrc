@@ -6,6 +6,7 @@ repo = 'Shougo/dein.vim'
 hook_add = '''
 let g:python_host_prog =  $HOME . '/.pyenv/shims/python2'
 let g:python3_host_prog = $HOME . '/.pyenv/shims/python3'
+let g:ruby_host_prog = $HOME . '/.rbenv/shims/ruby'
 '''
 
 #########################################
