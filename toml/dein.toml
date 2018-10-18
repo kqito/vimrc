@@ -38,7 +38,7 @@ call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
         \ 'lib-cov', '*.pid', 'pids',
         \ '*.seed', '*.pid.lock', 'logs',
         \ '*.log', 'npm-debug.log*', 'yarn-debug.log',
-        \ 'yarn-error.log', '*.?*cache*'
+        \ 'yarn-error.log', '*.?*cache*', '*css.map'
         \ ])
 '''
 
