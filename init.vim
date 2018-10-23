@@ -212,7 +212,8 @@ nmap <silent> v <S-v>
 "#######################################################
 "high light settings
 nnoremap <silent> // "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
-nmap # //:%s/<C-r>///g<Left><Left>
+nnoremap # "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>:%s//g<Left><Left><C-r>"/
+nmap $ :%s//g<Left><Left>
 
 "#######################################################
 "#######################################################
