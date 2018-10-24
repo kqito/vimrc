@@ -267,8 +267,7 @@ endfunction
 "Set zsh on using Terminal mode
 "split : vertical resize 134
 
-if has("nvim")
-
+if(v:version >= 800 || has('nvim'))
     augroup terminal
         autocmd!
         "To be insert mode when move to terminal buffer
