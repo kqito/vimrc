@@ -118,10 +118,22 @@ set number
 set backspace=indent,eol,start
 
 set showmode
+
+syntax on
+set t_Co=256
+
 let s:color_dir = expand('~/.config/nvim/color.vim')
 if filewritable(s:color_dir)
+    "if you have your colorscheme file
     exe 'source' s:color_dir
+else
+    set background=dark
+    colorscheme lucius
 endif
+
+"Sample color.vim
+"set background=dark
+"colorscheme lucius
 
 "#######################################################
 "#######################################################
