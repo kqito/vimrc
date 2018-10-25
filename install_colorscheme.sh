@@ -4,14 +4,17 @@ declare -a site=(\
   "https://raw.githubusercontent.com/jonathanfilip/vim-lucius/master/colors/lucius.vim" \
   "https://raw.githubusercontent.com/fcpg/vim-orbital/master/colors/orbital.vim"\
   "https://raw.githubusercontent.com/elmindreda/vimcolors/master/colors/phosphor.vim"\
-  "https://github.com/tomasr/molokai"\
   )
-color_dir="/usr/local/share/nvim/runtime/colors/"
+
+vim_dir=`which vim | sed 's/\/bin\/vim//'`
 
 function install_colorscheme(){ 
   if type wget > /dev/null 2>&1; then
     for ((i = 0; i < ${#site[@]}; i++)) {
-      wget ${site[i]} -O $color_dir${site[i]##*/} > /dev/null 2>&1
+      find ${vim_dir} -name '*vim*' -type d | \
+        xargs -n1 -I@ find @ -name 'colors' | \
+        uniq | \
+        xargs -I@ wget ${site[i]} -O @/${site[i]##*/} > /dev/null 2>&1
     }
   else
     cat << EOS
@@ -39,13 +42,18 @@ function error(){
 Someting to wrong!
 Please check to exist the url. 
 Also please check the permissions of colorscheme directory. 
+
 EOS
 for ((i = 0; i < ${#site[@]}; i++)) {
   printf "Colorscheme url $((i+1)): \e[31;4m${site[i]}\e[m\n"
 }
-printf "Save location : \e[31;4m$color_dir"
 
-exit
+printf "\nSave location : \e[31;4m\n"
+find ${vim_dir} -name '*vim*' -type d | \
+  xargs -n1 -I@ find @ -name 'colors' | \
+  uniq | \
+  xargs -I@ && 
+  exit
 }
 
 install_colorscheme && result || error
