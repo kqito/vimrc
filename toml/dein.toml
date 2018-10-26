@@ -155,6 +155,10 @@ repo = 'rdnetto/YCM-Generator'
 
 [[plugins]]
 repo = 'ervandew/supertab'
+hook_add = '''
+let g:SuperTabDefaultCompletionType    = '<C-k>'
+let g:SuperTabCrMapping                = 1
+'''
 
 [[plugins]]
 repo = 'honza/vim-snippets'
@@ -172,8 +176,6 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_add_preview_to_completeopt=0
 let g:syntastic_java_checkers = []
 let g:EclimFileTypeValidate = 0
-let g:SuperTabDefaultCompletionType    = '<C-k>'
-let g:SuperTabCrMapping                = 0
 let g:UltiSnipsExpandTrigger           = '<C-k>'
 let g:UltiSnipsJumpForwardTrigger      = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
