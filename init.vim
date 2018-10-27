@@ -194,7 +194,7 @@ noremap <silent> <S-h> 0
 inoremap <silent> <C-l> <Right>
 inoremap <silent> <C-h> <Left>
 inoremap <silent> <C-o> <ESC>o
-inoremap <silent> <C-m> <ESC>A
+inoremap <silent> <C-i> <ESC>A
 
 "#######################################################
 "#######################################################
