@@ -146,7 +146,7 @@ repo = 'rdnetto/YCM-Generator'
 repo = 'ervandew/supertab'
 hook_add = '''
 let g:SuperTabDefaultCompletionType    = '<C-k>'
-let g:SuperTabCrMapping                = 1
+let g:SuperTabCrMapping                = 0
 '''
 
 [[plugins]]
