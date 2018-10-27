@@ -53,17 +53,6 @@ let g:winresizer_start_key = '<C-T>'
 '''
 
 #########################################
-#Emmet
-#########################################
-[[plugins]]
-repo = 'mattn/emmet-vim'
-hook_add = '''
-let g:user_emmet_mode='ni'
-let g:user_emmet_install_gloabal = 0
-let g:user_emmet_leader_key='<C-Y>'
-'''
-
-#########################################
 #To make git unable even in vim
 #########################################
 [[plugins]]
@@ -184,5 +173,11 @@ let g:UltiSnipsEditSplit="vertical"
 "Python path Config
 let g:ycm_python_binary_path = 'python'
 '''
+#########################################
+#surround
+#########################################
+[[plugins]]
+repo = 'tpope/vim-surround'
+
 #########################################
 #########################################
