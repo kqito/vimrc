@@ -96,7 +96,7 @@ map <C-b> [Buffer]
 nnoremap [Buffer]<C-b> :b#<CR>
 nnoremap [Buffer]<C-p> :bnext<CR>
 nnoremap [Buffer]<C-n> :bprev<CR>
-nnoremap [Buffer]<C-d> :bp<bar>sp<bar>bn<bar>bd<CR>
+nnoremap [Buffer]<C-d> :b#<bar>sp<bar>b#<bar>bd<CR>
 
 "#######################################################
 "#######################################################
@@ -309,7 +309,7 @@ if(v:version >= 800 || has('nvim'))
     tmap [Buffer]<C-b> <ESC>:b#<CR>
     tmap [Buffer]<C-p> <ESC>:bnext<CR>
     tmap [Buffer]<C-n> <ESC>:bprev<CR>
-    tmap [Buffer]<C-d> <ESC>:bp<bar>sp<bar>bn<bar>bd<CR>
+    tmap [Buffer]<C-d> <ESC>:b#<bar>sp<bar>b#<bar>bd<CR>
 
     function! s:create_terminal()
         exe winnr('$') == 1 || !win_id2win(g:terminal_window_id) ? ':vert botright split': win_gotoid(g:terminal_window_id)
