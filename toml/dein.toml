@@ -17,7 +17,8 @@ repo = 'Shougo/denite.nvim'
 hook_add = '''
 map s [denite]
 
-nmap <silent> [denite]p :<C-u>Denite file_rec -highlight-mode-insert=Search<CR>
+nmap <silent> [denite]p :<C-u>DeniteBufferDir file_rec -highlight-mode-insert=Search<CR>
+nmap <silent> [denite]r :<C-u>DeniteProjectDir file_rec -highlight-mode-insert=Search<CR>
 nmap <silent> [denite]b :<C-u>Denite buffer -highlight-mode-insert=Search<CR>
 nmap <silent> [denite]y :<C-u>Denite file_old -highlight-mode-insert=Search<CR>
 nmap <silent> [denite]s :<C-u>Denite line -auto-preview -highlight-mode-insert=Search<CR>
