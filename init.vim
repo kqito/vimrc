@@ -123,6 +123,7 @@ set backspace=indent,eol,start
 set showmode
 
 syntax on
+set synmaxcol=200
 set t_Co=256
 
 let s:color_dir = expand('~/.config/nvim/color.vim')
