@@ -156,6 +156,8 @@ set tabstop=4
 set shiftwidth=4
 nnoremap <silent> > >>
 nnoremap <silent> < <<
+vnoremap > >`[V`]
+vnoremap < <`[V`]
 
 "#######################################################
 "#######################################################
