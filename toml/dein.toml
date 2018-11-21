@@ -172,6 +172,8 @@ let g:EclimFileTypeValidate = 0
 let g:SuperTabDefaultCompletionType    = '<C-k>'
 let g:SuperTabCrMapping                = 0
 let g:UltiSnipsExpandTrigger           = '<C-k>'
+let g:UltiSnipsJumpForwardTrigger      = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
 let g:UltiSnipsEditSplit="vertical"
 
 "Python path Config
