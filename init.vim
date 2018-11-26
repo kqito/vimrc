@@ -307,7 +307,7 @@ if(v:version >= 800 || has('nvim'))
     tnoremap <silent> [window]w <C-\><C-n><C-w>w
     tnoremap <silent> ^ <C-\><C-n><C-w>w
     tnoremap <silent> <ESC> <C-\><C-n>
-    tmap <silent> <C-c> <ESC>:q<Cr>
+    tmap <silent> <C-x> <ESC>:q<Cr>
     "Buffer
     tmap [Buffer] <Nop>
     tmap <C-b> [Buffer]

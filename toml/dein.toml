@@ -78,24 +78,13 @@ nmap <silent> [figitive]a :<C-u>Gwrite<CR>
 #########################################
 [[plugins]]
 repo = 'scrooloose/nerdtree'
-
-[[plugins]]
-repo = 'Xuyuanp/nerdtree-git-plugin'
 hook_add = '''
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
-    \ }
-
-    map <silent> [call]b :NERDTreeToggle<CR>
+map <silent> [call]b :NERDTreeToggle<CR>
+'''
+[[plugins]]
+repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
+hook_add = '''
+let g:NERDTreeLimitedSyntax = 1
 '''
 
 #########################################
