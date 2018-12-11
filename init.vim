@@ -1,5 +1,8 @@
 "#######################################################
 "#######################################################
+
+filetype plugin indent on
+
 if !&compatible
     set nocompatible
 endif
@@ -11,9 +14,9 @@ augroup My_auto
     autocmd InsertLeave * set nopaste"
     autocmd BufRead * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
     autocmd FileType sh  setlocal sw=2 sts=2 ts=2 et
-    autocmd BufNewFile,BufEnter *.js setlocal sw=2 sts=2 ts=2 et
-    autocmd BufNewFile,BufEnter *.scss setlocal sw=2 sts=2 ts=2 et
-    autocmd BufNewFile,BufEnter *.pug setlocal sw=2 sts=2 ts=2 et
+    autocmd BufNewFile,BufRead *.js setlocal sw=2 sts=2 ts=2 et
+    autocmd BufNewFile,BufRead *.scss setlocal sw=2 sts=2 ts=2 et
+    autocmd BufNewFile,BufRead *.pug setlocal sw=2 sts=2 ts=2 et
 augroup END
 
 "#######################################################
@@ -149,7 +152,6 @@ highlight Pmenu ctermfg=lightblue ctermbg=black
 "#######################################################
 "indent
 set autoindent
-set smartindent
 set cindent
 set nosmarttab
 set tabstop=4
@@ -162,7 +164,7 @@ vnoremap < <`[V`]
 "#######################################################
 "#######################################################
 "Auto indent when pressed ==
-nnoremap == gg=G''
+nnoremap == gg=G''zz
 
 "#######################################################
 "#######################################################
@@ -193,6 +195,7 @@ noremap <silent> <S-j> <C-d>
 noremap <silent> <S-k> <C-u> 
 noremap <silent> <S-l> $
 noremap <silent> <S-h> 0
+noremap <silent> g; g;zz
 
 "#######################################################
 "#######################################################
@@ -296,7 +299,7 @@ if(v:version >= 800 || has('nvim'))
     let g:terminal_window_id = winnr('$') == 1 ? 0 : bufwinid("Terminal") 
 
     set sh=zsh
-    map <silent> 1 :call <SID>create_terminal()<CR>
+    map <silent> [call]1 :call <SID>create_terminal()<CR>
     tmap [window] <Nop>
     tmap <C-w> [window]
     tnoremap <silent> [window]w <C-\><C-n><C-w>w

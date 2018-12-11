@@ -40,7 +40,7 @@ call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
         \ '*.seed', '*.pid.lock', 'logs',
         \ '*.log', 'npm-debug.log*', 'yarn-debug.log',
         \ 'yarn-error.log', '*.?*cache*', '*css.map', 
-        \ '*.css'
+        \ '*.css', '*.class'
         \ ])
 '''
 
@@ -65,12 +65,12 @@ repo = 'tpope/vim-fugitive'
 hook_add = '''
 nmap [figitive] <Nop>
 map <C-g> [figitive]
-nmap <silent> [figitive]s :<C-u>Gstatus<CR>
-nmap <silent> [figitive]d :<C-u>Gdiff<CR>
-nmap <silent> [figitive]b :<C-u>Gblame<CR>
-nmap <silent> [figitive]l :<C-u>Glog<CR>
-nmap <silent> [figitive]r :<C-u>Gread<CR>
-nmap <silent> [figitive]a :<C-u>Gwrite<CR>
+nmap <silent> [figitive]<C-s> :<C-u>Gstatus<CR>
+nmap <silent> [figitive]<C-d> :<C-u>Gdiff<CR>
+nmap <silent> [figitive]<C-b> :<C-u>Gblame<CR>
+nmap <silent> [figitive]<C-l> :<C-u>Glog<CR>
+nmap <silent> [figitive]<C-r> :<C-u>Gread<CR>
+nmap <silent> [figitive]<C-a> :<C-u>Gwrite<CR>
 '''
 
 #########################################
