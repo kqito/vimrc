@@ -14,9 +14,9 @@ augroup My_auto
     autocmd InsertLeave * set nopaste"
     autocmd BufRead * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
     autocmd FileType sh  setlocal sw=2 sts=2 ts=2 et
-    autocmd BufNewFile,BufRead *.js setlocal sw=2 sts=2 ts=2 et
-    autocmd BufNewFile,BufRead *.scss setlocal sw=2 sts=2 ts=2 et
-    autocmd BufNewFile,BufRead *.pug setlocal sw=2 sts=2 ts=2 et
+    autocmd BufNewFile,BufRead,VimEnter *.js setlocal sw=2 sts=2 ts=2 et
+    autocmd BufNewFile,BufRead,VimEnter *.scss setlocal sw=2 sts=2 ts=2 et
+    autocmd BufNewFile,BufRead,VimEnter *.pug setlocal sw=2 sts=2 ts=2 et
 augroup END
 
 "#######################################################
