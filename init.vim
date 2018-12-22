@@ -17,6 +17,8 @@ augroup My_auto
     autocmd FileType js setlocal sw=2 sts=2 ts=2 et
     autocmd FileType scss setlocal sw=2 sts=2 ts=2 et
     autocmd FileType pug setlocal sw=2 sts=2 ts=2 et
+	" open a help text vertically
+	autocmd BufEnter *.txt if &buftype == 'help' | wincmd L | endif
 augroup END
 
 "#######################################################
