@@ -261,12 +261,26 @@ noremap p "xp
 "#######################################################
 "mouse settings
 if has('mouse')
-	set mouse=a
+	set mouse=
+	nnoremap <silent> [call]m :call <SID>toggle_mouse()<CR>
+else
+	nnoremap <silent> [call]m :echo 'Mouse function is not enabled'<CR>
 endif
 
 if !has('nvim')
     set ttymouse=sgr
 endif
+
+
+function! s:toggle_mouse()
+    if &mouse !=# 'a'
+		set mouse=a
+		echo 'Mouse function is enabled'
+    else
+		set mouse=
+		echo 'Mouse function is disabled'
+    endif
+endfunction
 "#######################################################
 "#######################################################
 inoremap , , 
