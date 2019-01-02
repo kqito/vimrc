@@ -22,6 +22,9 @@ let g:ale_fixers = {
       \ 'javascript': ['standard'],
       \ 'python': ['autopep8', 'isort'],
 	\}
+'''
+
+hook_post_source = '''
 nmap <silent> [call]k <Plug>(ale_previous_wrap)
 nmap <silent> [call]j <Plug>(ale_next_wrap)
 nmap <silent> [call]o <Plug>(ale_toggle)
