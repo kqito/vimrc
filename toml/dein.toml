@@ -138,12 +138,10 @@ imap <expr> <buffer> <tab> pumvisible() ? "\<c-n>" : "\<tab>"
 nnoremap <silent> [call]j :lnext<CR>
 nnoremap <silent> [call]k :lprevious<CR>
 augroup c_mapping
+
 autocmd!
-
 autocmd FileType c nnoremap [call]f :YcmCompleter FixIt<CR>
-
 augroup END
-
 '''
 merged = 0
 
