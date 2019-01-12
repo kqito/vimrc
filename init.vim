@@ -14,7 +14,7 @@ augroup My_auto
     autocmd InsertLeave * set nopaste"
     autocmd BufRead * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
     autocmd FileType sh  setlocal sw=2 sts=2 ts=2 et
-    autocmd FileType js setlocal sw=2 sts=2 ts=2 et
+    autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
     autocmd FileType scss setlocal sw=2 sts=2 ts=2 et
     autocmd FileType pug setlocal sw=2 sts=2 ts=2 et
 	" open a help text vertically
