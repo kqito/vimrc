@@ -93,7 +93,7 @@ nnoremap <silent> [call]0d :call <SID>callPlugins()<CR>
 "end of dein scripts-------------
 "#######################################################
 "#######################################################
-"common
+"basic
 set autoread
 set hidden
 set wildmenu
