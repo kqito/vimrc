@@ -195,4 +195,36 @@ let g:indentLine_color_term = 239
 '''
 
 #########################################
+#vim-tags
+#########################################
+[[plugins]]
+repo = 'szw/vim-tags'
+
+hook_add = '''
+ let g:vim_tags_auto_generate = 0
+
+" Update tags
+nnoremap [call]ct :TagsGenerate<CR>
+nmap [call]co &:tag <C-r>"
+nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
+nnoremap [call]cv <C-w>}
+nnoremap [call]cc :pc<CR>
+nnoremap [call]cp :pop<CR>
+nnoremap [call]cj <C-]>
+
+" Register ctags directory
+au BufNewFile,BufRead * let g:currentFileDirectory = expand('%:p:h')
+au BufNewFile,BufRead *.java let g:vim_tags_project_tags_command = "/usr/local/bin/ctags -R -a -f ~/.tagList/java.tags " . g:currentFileDirectory
+au BufNewFile,BufRead *.py let g:vim_tags_project_tags_command = "/usr/local/bin/ctags -R -a -f ~/.tagList/py.tags " . g:currentFileDirectory
+au BufNewFile,BufRead *.js let g:vim_tags_project_tags_command = "/usr/local/bin/ctags -R -a -f ~/.tagList/js.tags " . g:currentFileDirectory
+au BufNewFile,BufRead *.php let g:vim_tags_project_tags_command = "/usr/local/bin/ctags -R -a -f ~/.tagList/php.tags " . g:currentFileDirectory
+
+" Set tags
+au BufNewFile,BufRead *.java set tags+=$HOME/.tagList/java.tags  
+au BufNewFile,BufRead *.py set tags+=$HOME/.tagList/py.tags  
+au BufNewFile,BufRead *.js set tags+=$HOME/.tagList/js.tags  
+au BufNewFile,BufRead *.php set tags+=$HOME/.tagList/php.tags  
+'''
+
+#########################################
 #########################################
