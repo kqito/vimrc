@@ -184,4 +184,15 @@ let g:ycm_python_binary_path = 'python'
 repo = 'tpope/vim-surround'
 
 #########################################
+# Dispaly idnent vertically line
+#########################################
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+
+hook_add = '''
+nnoremap <silent> [call]it :IndentLinesToggle<CR>
+let g:indentLine_color_term = 239
+'''
+
+#########################################
 #########################################
