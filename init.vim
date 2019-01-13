@@ -50,39 +50,46 @@ endfunction
 "#######################################################
 "#######################################################
 "dein scripts----------
-if(v:version >= 800 || has('nvim'))
-    let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
-    let s:dein_dir = s:cache_home . '/dein'
-    let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-    if !isdirectory(s:dein_repo_dir)
-        call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
-    endif
-    let &runtimepath = s:dein_repo_dir .",". &runtimepath
+"
+fun! s:callPlugins()
+	if(v:version >= 800 || has('nvim'))
+		let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
+		let s:dein_dir = s:cache_home . '/dein'
+		let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+		if !isdirectory(s:dein_repo_dir)
+			call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
+		endif
+		let &runtimepath = s:dein_repo_dir .",". &runtimepath
 
-    " read plugin & create chache
-    let s:toml_dir = fnamemodify(expand('<sfile>'), ':h').'/toml'
-    let s:dein_file = s:toml_dir.'/dein.toml'
-    let s:dein_lazy_file = s:toml_dir.'/dein_lazy.toml'
-    let s:visual_file = s:toml_dir.'/visual.toml'
-    if dein#load_state(s:dein_dir)
-        call dein#begin(s:dein_dir)
-        call dein#load_toml(s:dein_file, {'lazy': 0})
-        call dein#load_toml(s:visual_file, {'lazy': 0})
-        call dein#load_toml(s:dein_lazy_file, {'lazy': 1})
-        call dein#end()
-        call dein#save_state()
-    endif
+		" read plugin & create chache
+		let s:toml_dir = expand('~/.config/nvim/toml')
+		let s:dein_file = s:toml_dir.'/dein.toml'
+		let s:dein_lazy_file = s:toml_dir.'/dein_lazy.toml'
+		let s:visual_file = s:toml_dir.'/visual.toml'
+		if dein#load_state(s:dein_dir)
+			call dein#begin(s:dein_dir)
+			call dein#load_toml(s:dein_file, {'lazy': 0})
+			call dein#load_toml(s:visual_file, {'lazy': 0})
+			call dein#load_toml(s:dein_lazy_file, {'lazy': 1})
+			call dein#end()
+			call dein#save_state()
+		endif
 
-    if !has('nvim')
-        call dein#add('roxma/nvim-yarp')
-        call dein#add('roxma/vim-hug-neovim-rpc')
-    endif
+		if !has('nvim')
+			call dein#add('roxma/nvim-yarp')
+			call dein#add('roxma/vim-hug-neovim-rpc')
+		endif
 
-    "install plugins when no install them
-    if has('vim_starting') && dein#check_install()
-        call dein#install()
-    endif
-endif
+		"install plugins when no install them
+		if has('vim_starting') && dein#check_install()
+			call dein#install()
+		endif
+	endif
+endfun
+
+call s:callPlugins()
+nnoremap <silent> [call]0d :call <SID>callPlugins()<CR>
+
 "end of dein scripts-------------
 "#######################################################
 "#######################################################
@@ -222,7 +229,7 @@ inoremap <silent> <C-i> <ESC>A
 "#######################################################
 "#######################################################
 "reload init.vim
-noremap <silent> 0<CR> :source ~/.nvim/init.vim<CR>
+noremap <silent> [call]0i :source ~/.nvim/init.vim<CR>
 
 "#######################################################
 "#######################################################
