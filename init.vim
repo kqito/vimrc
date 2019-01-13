@@ -100,6 +100,8 @@ set wildmenu
 filetype plugin indent on
 inoremap <silent> jj <ESC>
 nnoremap <silent> <S-q> <Nop>
+set fileformats=unix,dos,mac
+set fileencodings=utf-8,sjis
 
 "#######################################################
 "#######################################################
@@ -127,7 +129,6 @@ nnoremap <silent> Y <C-v>$"xy
 "#######################################################
 "display
 language C
-set fenc=utf-8
 set title
 set number
 set backspace=indent,eol,start
