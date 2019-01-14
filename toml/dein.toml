@@ -204,13 +204,11 @@ hook_add = '''
  let g:vim_tags_auto_generate = 0
 
 " Update tags
-nnoremap [call]ct :TagsGenerate<CR>
+nnoremap [call]cg :TagsGenerate<CR>
 nmap [call]co &:tag <C-r>"
 nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
-nnoremap [call]cv <C-w>}
+nnoremap [call]cj <C-w>}
 nnoremap [call]cc :pc<CR>
-nnoremap [call]cp :pop<CR>
-nnoremap [call]cj <C-]>
 
 " Register ctags directory
 au BufNewFile,BufRead * let g:currentFileDirectory = expand('%:p:h')
