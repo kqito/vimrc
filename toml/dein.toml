@@ -226,6 +226,22 @@ au BufNewFile,BufRead *.php set tags=$HOME/.tagList/php.tags
 
 #########################################
 #########################################
+[[plugins]]
+repo = 'vim-scripts/taglist.vim'
+hook_add = '''
+nnoremap <silent> [call]cl :TlistToggle<CR>
+
+" Original javascript settings
+let g:tlist_javascript_settings = 'js;n:constant;o:object;c:class;f:function;m:method;v:variable'
+let g:tlist_python_settings = 'Python;c:classes;f:functions;m:class members;v:variables;i:imports'
+let g:Tlist_GainFocus_On_ToggleOpen = 1
+let g:Tlist_Exit_OnlyWindow = 1
+let g:Tlist_Auto_Highlight_Tag = 1
+let g:Tlist_Show_One_File = 1
+let g:Tlist_Display_Prototype = 1
+let g:Tlist_Process_File_Always = 1
+let g:Tlist_Close_On_Select = 1
+let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
 '''
 
 #########################################
