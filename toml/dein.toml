@@ -218,10 +218,14 @@ au BufNewFile,BufRead *.js let g:vim_tags_project_tags_command = "/usr/local/bin
 au BufNewFile,BufRead *.php let g:vim_tags_project_tags_command = "/usr/local/bin/ctags -R -a -f ~/.tagList/php.tags " . g:currentFileDirectory
 
 " Set tags
-au BufNewFile,BufRead *.java set tags+=$HOME/.tagList/java.tags  
-au BufNewFile,BufRead *.py set tags+=$HOME/.tagList/py.tags  
-au BufNewFile,BufRead *.js set tags+=$HOME/.tagList/js.tags  
-au BufNewFile,BufRead *.php set tags+=$HOME/.tagList/php.tags  
+au BufNewFile,BufRead *.java set tags=$HOME/.tagList/java.tags  
+au BufNewFile,BufRead *.py set tags=$HOME/.tagList/py.tags  
+au BufNewFile,BufRead *.js set tags=$HOME/.tagList/js.tags  
+au BufNewFile,BufRead *.php set tags=$HOME/.tagList/php.tags  
+'''
+
+#########################################
+#########################################
 '''
 
 #########################################
