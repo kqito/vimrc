@@ -208,7 +208,8 @@ nnoremap [call]cg :TagsGenerate<CR>
 nmap [call]co &:tag <C-r>"
 nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 nnoremap [call]cj <C-w>}
-nnoremap [call]cc :pc<CR>
+" Close Tlist besides
+nnoremap <silent> [call]cc :pc<CR>:TlistClose<CR>
 
 " Register ctags directory
 au BufNewFile,BufRead * let g:currentFileDirectory = expand('%:p:h')
