@@ -236,7 +236,7 @@ nnoremap <silent> [call]cl :TlistToggle<CR>
 " Original javascript settings
 let g:tlist_javascript_settings = 'js;n:constant;o:object;c:class;f:function;m:method;v:variable'
 let g:tlist_python_settings = 'Python;c:classes;f:functions;m:class members;v:variables;i:imports'
-let g:tlist_scss_settings = 'scss;m:mixins;v:variables;c:classes;i:ids;t:tags;d:media'
+let g:tlist_scss_settings = 'scss;m:mixins;v:variables;c:classes;i:ids;d:media'
 let g:Tlist_GainFocus_On_ToggleOpen = 1
 let g:Tlist_Exit_OnlyWindow = 1
 let g:Tlist_Auto_Highlight_Tag = 1
