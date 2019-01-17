@@ -4,6 +4,7 @@ declare -a site=(\
   "https://raw.githubusercontent.com/jonathanfilip/vim-lucius/master/colors/lucius.vim" \
   "https://raw.githubusercontent.com/fcpg/vim-orbital/master/colors/orbital.vim"\
   "https://raw.githubusercontent.com/elmindreda/vimcolors/master/colors/phosphor.vim"\
+  "https://raw.githubusercontent.com/gosukiwi/vim-atom-dark/master/colors/atom-dark-256.vim"\
   )
 
 vim_dir=`which vim | sed 's/\/bin\/vim//'`
