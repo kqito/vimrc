@@ -102,6 +102,8 @@ inoremap <silent> jj <ESC>
 nnoremap <silent> <S-q> <Nop>
 set fileformats=unix,dos,mac
 set fileencodings=utf-8,sjis
+scriptencoding utf-8
+set encoding=utf-8
 
 "#######################################################
 "#######################################################
@@ -145,7 +147,6 @@ function! s:toggle_number()
     endif
 endfunction
 
-set showmode
 
 syntax on
 set synmaxcol=200
