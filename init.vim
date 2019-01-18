@@ -13,6 +13,7 @@ augroup My_auto
     " Turn off paste mode when leaving insert
     autocmd InsertLeave * set nopaste"
     autocmd BufRead * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+    autocmd FileType *  setlocal sw=4 sts=4 ts=4 et
     autocmd FileType sh  setlocal sw=2 sts=2 ts=2 et
     autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
     autocmd FileType scss setlocal sw=2 sts=2 ts=2 et
@@ -177,8 +178,9 @@ highlight Pmenu ctermfg=lightblue ctermbg=black
 set autoindent
 set cindent
 set nosmarttab
-set tabstop=4
-set shiftwidth=4
+set expandtab
+set tabstop=2
+set shiftwidth=2
 nnoremap <silent> > >>
 nnoremap <silent> < <<
 vnoremap > >`[V`]
