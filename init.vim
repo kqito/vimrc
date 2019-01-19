@@ -179,8 +179,6 @@ set autoindent
 set cindent
 set nosmarttab
 set expandtab
-set tabstop=2
-set shiftwidth=2
 nnoremap <silent> > >>
 nnoremap <silent> < <<
 vnoremap > >`[V`]
