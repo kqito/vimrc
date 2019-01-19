@@ -25,7 +25,7 @@ augroup END
 "#######################################################
 "#######################################################
 "When you press 3 key, execute focuesd file
-map [call]3 [autoCompile]
+map [call]@ [autoCompile]
 
 nnoremap <expr><silent> [autoCompile] 
             \&filetype ==# 'c' ? ":call <SID>execute_c()\<CR>" : 
