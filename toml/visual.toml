@@ -1,10 +1,17 @@
 [[plugins]]
+repo = 'mengelbrecht/lightline-bufferline'
+
+#########################################
+#########################################
+[[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
 set laststatus=2
 set showtabline=2
 set guioptions-=e
 set noshowmode
+let g:lightline#bufferline#shorten_path = 0
+let g:lightline#bufferline#unnamed = '[No open files]'
 
 " Status line settings
 let g:lightline = {
@@ -22,7 +29,7 @@ let g:lightline = {
 	      \   'mode': 'LightlineMode',
 	      \   'ctrlpmark': 'CtrlPMark',
 	      \ },
-	      \ 'tabline': { 'left': [ [ 'tabs' ] ], 'right': [ [ 'close' ] ] },
+	      \ 'tabline': {'left': [['buffers']], 'right': [['close']]},
 	      \ 'tab': {
 			  \ 'active': [ 'tabnum', 'filename', 'modified' ],
 			  \ 'inactive': [ 'tabnum', 'filename', 'modified' ] 
@@ -34,10 +41,12 @@ let g:lightline = {
 			  \ 'tabnum': 'lightline#tab#tabnum'
 	      \ },
 	      \ 'component_expand': {
-	      \   'syntastic': 'youcompleteme#GetErrorCount',
+                      \'buffers': 'lightline#bufferline#buffers', 
+                      \ 'syntastic': 'youcompleteme#GetErrorCount',
 	      \ },
 	      \ 'component_type': {
 	      \   'syntastic': 'error',
+              \   'buffers': 'tabsel', 
 	      \ },
 		  \ 'separator': { 'left': "\u2b80", 'right': "\u2b82" },
 		  \ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }, 
