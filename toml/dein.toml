@@ -65,7 +65,7 @@ build = 'env PY3=ON ./install.sh'
 [[plugins]]
 repo = 'simeji/winresizer'
 hook_add = '''
-let g:winresizer_start_key = '<C-T>'
+nnoremap [call]t :WinResizerStartResize<CR>
 '''
 
 #########################################
