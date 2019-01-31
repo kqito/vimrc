@@ -13,11 +13,13 @@ augroup My_auto
     " Turn off paste mode when leaving insert
     autocmd InsertLeave * set nopaste"
     autocmd BufRead * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
-    autocmd FileType *  setlocal sw=4 sts=4 ts=4 et
+    autocmd FileType *  setlocal sw=2 sts=2 ts=2 et
     autocmd FileType sh  setlocal sw=2 sts=2 ts=2 et
     autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
     autocmd FileType scss setlocal sw=2 sts=2 ts=2 et
     autocmd FileType pug setlocal sw=2 sts=2 ts=2 et
+    autocmd FileType vue setlocal sw=2 sts=2 ts=2 et
+
 	" open a help text vertically
 	autocmd BufEnter *.txt if &buftype == 'help' | wincmd L | endif
 augroup END
