@@ -33,7 +33,7 @@ nmap <silent> [call]d <Plug>(ale_detail)
 on_ft = ['python', 'javascript']
 
 #########################################
-#Vim syntax highlighting for Pug 
+# Vim syntax highlighting for Pug 
 #########################################
 [[plugins]]
 repo = 'digitaltoad/vim-pug'
@@ -52,6 +52,30 @@ hook_post_source = '''
 nnoremap <silent> [autoCompile] :SassCompile<CR>
 '''
 on_ft = ['sass', 'scss']
+
+#########################################
+# Syntac highlight for Vue.js plugin
+#########################################
+[[plugins]]
+repo = 'posva/vim-vue'
+hook_add = '''
+au FileType vue syntax sync fromstart
+'''
+on_ft = ['vue']
+
+#########################################
+# Syntac highlight for pug plugin
+#########################################
+[[plugins]]
+repo = 'digitaltoad/vim-pug'
+on_ft = ['pug', 'vue']
+
+#########################################
+# Syntac highlight for scss plugin
+#########################################
+[[plugins]]
+repo = 'cakebaker/scss-syntax.vim'
+on_ft = ['scss', 'vue']
 
 #########################################
 #########################################
