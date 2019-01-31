@@ -231,7 +231,7 @@ au BufNewFile,BufRead *.php set tags=$HOME/.tagList/php.tags
 [[plugins]]
 repo = 'vim-scripts/taglist.vim'
 hook_add = '''
-nnoremap <silent> [call]cl :TlistToggle<CR>
+nnoremap <silent> [call]cl :TlistToggle<CR>/
 
 " Original javascript settings
 let g:tlist_javascript_settings = 'js;n:constant;o:object;c:class;f:function;m:method;v:variable'
