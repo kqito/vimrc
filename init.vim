@@ -20,8 +20,11 @@ augroup My_auto
     autocmd FileType pug setlocal sw=2 sts=2 ts=2 et
     autocmd FileType vue setlocal sw=2 sts=2 ts=2 et
 
-	" open a help text vertically
+	" Open a help text vertically
 	autocmd BufEnter *.txt if &buftype == 'help' | wincmd L | endif
+
+  " Remove space or tab at End of line
+  autocmd BufWritePre * :%s/\s\+$//e
 augroup END
 
 "#######################################################
