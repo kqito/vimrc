@@ -13,6 +13,9 @@ augroup My_auto
     " Turn off paste mode when leaving insert
     autocmd InsertLeave * set nopaste"
     autocmd BufRead * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+
+    " Set each filetype
+    autocmd BufNewFile,BufRead *.vue setf vue
     autocmd FileType *  setlocal sw=2 sts=2 ts=2 et
     autocmd FileType sh  setlocal sw=2 sts=2 ts=2 et
     autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
