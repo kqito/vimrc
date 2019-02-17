@@ -21,11 +21,6 @@ augroup My_auto
 
   " Set indent space
   autocmd FileType *  setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType sh  setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType scss setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType pug setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType vue setlocal sw=2 sts=2 ts=2 et
 
   " Open a help text vertically
   autocmd BufEnter *.txt if &buftype == 'help' | wincmd L | endif
