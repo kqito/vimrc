@@ -4,27 +4,31 @@
 filetype plugin indent on
 
 if !&compatible
-    set nocompatible
+  set nocompatible
 endif
 
 "Reset augroup
 augroup My_auto
-    autocmd!
-    " Turn off paste mode when leaving insert
-    autocmd InsertLeave * set nopaste"
-    autocmd BufRead * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+  autocmd!
+  " Turn off paste mode when leaving insert
+  autocmd InsertLeave * set nopaste"
 
-    " Set each filetype
-    autocmd BufNewFile,BufRead *.vue setf vue
-    autocmd FileType *  setlocal sw=2 sts=2 ts=2 et
-    autocmd FileType sh  setlocal sw=2 sts=2 ts=2 et
-    autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
-    autocmd FileType scss setlocal sw=2 sts=2 ts=2 et
-    autocmd FileType pug setlocal sw=2 sts=2 ts=2 et
-    autocmd FileType vue setlocal sw=2 sts=2 ts=2 et
+  " Move the cursor to previous position when a file is opened
+  autocmd BufRead * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
-	" Open a help text vertically
-	autocmd BufEnter *.txt if &buftype == 'help' | wincmd L | endif
+  " Set each filetype
+  autocmd BufNewFile,BufRead *.vue setf vue
+
+  " Set indent space
+  autocmd FileType *  setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType sh  setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType scss setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType pug setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType vue setlocal sw=2 sts=2 ts=2 et
+
+  " Open a help text vertically
+  autocmd BufEnter *.txt if &buftype == 'help' | wincmd L | endif
 
   " Remove space or tab at End of line
   autocmd BufWritePre * :%s/\s\+$//e
@@ -32,34 +36,37 @@ augroup END
 
 "#######################################################
 "#######################################################
-"When you press 3 key, execute focuesd file
+" When you press 3 key, execute focuesd file
 map [call]@ [autoCompile]
 
-nnoremap <expr><silent> [autoCompile] 
-            \&filetype ==# 'c' ? ":call <SID>execute_c()\<CR>" : 
-            \&filetype ==# 'python' ? ":call <SID>execute_py()\<CR>" : 
-            \&filetype ==# 'java' ? ":call <SID>execute_java()\<CR>" :
-            \":echo \"The filetype is not supported\"\<CR>"
+nnoremap <expr><silent> [autoCompile]
+  \&filetype ==# 'c' ? ":call <SID>execute_c()\<CR>" :
+  \&filetype ==# 'python' ? ":call <SID>execute_py()\<CR>" :
+  \&filetype ==# 'java' ? ":call <SID>execute_java()\<CR>" :
+  \":echo \"The filetype is not supported\"\<CR>"
 
 function! s:execute_c()
-    let path = substitute(expand('%:p'), ' ', '\\ ', "g")
-    let compilePath = substitute(expand('%:h'), ' ', '\\ ', "g") .'/a.out'
-    exe '!gcc' path '-o' compilePath '&&' compilePath
+  let path = substitute(expand('%:p'), ' ', '\\ ', "g")
+  let compilePath = substitute(expand('%:h'), ' ', '\\ ', "g") .'/a.out'
+  exe '!gcc' path '-o' compilePath '&&' compilePath
 endfunction
+
 function! s:execute_py()
-    let path = substitute(expand('%:p'), ' ', '\\ ', "g")
-    exe '!python3' path
+  let path = substitute(expand('%:p'), ' ', '\\ ', "g")
+  exe '!python3' path
 endfunction
+
 function! s:execute_java()
-    let compilePath = substitute(expand('%:h'), ' ', '\\ ', "g")
-    let filePath = substitute(expand('%:p'), ' ', '\\ ', "g")
-    let executePath = fnamemodify(filePath, ":t:r")
-    exe '!javac' filePath '-d' compilePath '&& java -cp' compilePath executePath
+  let compilePath = substitute(expand('%:h'), ' ', '\\ ', "g")
+  let filePath = substitute(expand('%:p'), ' ', '\\ ', "g")
+  let executePath = fnamemodify(filePath, ":t:r")
+  exe '!javac' filePath '-d' compilePath '&& java -cp' compilePath executePath
 endfunction
+
 "#######################################################
+" Dein Scripts
 "#######################################################
-"dein scripts----------
-"
+
 fun! s:callPlugins()
 	if(v:version >= 800 || has('nvim'))
 		let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
@@ -99,10 +106,9 @@ endfun
 call s:callPlugins()
 nnoremap <silent> [call]0d :call <SID>callPlugins()<CR>
 
-"end of dein scripts-------------
 "#######################################################
+" Basic settings
 "#######################################################
-"basic
 set autoread
 set hidden
 set wildmenu
@@ -115,8 +121,8 @@ scriptencoding utf-8
 set encoding=utf-8
 
 "#######################################################
+" Buffer settings
 "#######################################################
-"buffer
 nmap [Buffer] <Nop>
 map <C-b> [Buffer]
 
@@ -126,20 +132,21 @@ nnoremap [Buffer]<C-n> :bprev<CR>
 nnoremap [Buffer]<C-d> :bp<bar>sp<bar>bn<bar>bd<CR>
 
 "#######################################################
+" Mapping space
 "#######################################################
-"Mapping space
 nmap [call] <Nop>
 map <Space> [call]
 
 "#######################################################
-"#######################################################
 " Yank Settings
+"#######################################################
 nnoremap <silent> Y <C-v>$"xy
 vnoremap <silent> [call]y "+y
 nnoremap <silent> [call]y "+y
+
 "#######################################################
+" Display settings
 "#######################################################
-"display
 language C
 set title
 set number
@@ -148,42 +155,37 @@ set backspace=indent,eol,start
 " Number function
 nnoremap <silent> [call]n :call <SID>toggle_number()<CR>
 function! s:toggle_number()
-    if &number !=# 1
-		set number
-		echo 'Mouse function is enabled'
-    else
-		set nonumber
-		echo 'Mouse function is disabled'
-    endif
+  if &number !=# 1
+    set number
+    echo 'Mouse function is enabled'
+  else
+    set nonumber
+    echo 'Mouse function is disabled'
+  endif
 endfunction
 
 
-syntax on
 set synmaxcol=200
 set t_Co=256
 
 let s:color_dir = expand('~/.config/nvim/color.vim')
 if filewritable(s:color_dir)
-    "if you have your colorscheme file
-    exe 'source' s:color_dir
+  "if you have your colorscheme file
+  exe 'source' s:color_dir
 else
-    set background=dark
-    colorscheme lucius
+  set background=dark
+  colorscheme lucius
 endif
 
-"Sample color.vim
-"set background=dark
-"colorscheme lucius
-
 "#######################################################
+" Highlight color settings
 "#######################################################
-"highlight color
 highlight PmenuSel ctermfg=lightred ctermbg=black
 highlight Pmenu ctermfg=lightblue ctermbg=black
 
 "#######################################################
+" Indent settings
 "#######################################################
-"indent
 set autoindent
 set cindent
 set nosmarttab
@@ -194,18 +196,18 @@ vnoremap > >`[V`]
 vnoremap < <`[V`]
 
 "#######################################################
+" Clean all indents
 "#######################################################
-"Auto indent when pressed ==
 nnoremap == gg=G''zz
 
 "#######################################################
+" Around the swap settings
 "#######################################################
-"swap config
 set noswapfile
 
 "#######################################################
+" Search settings
 "#######################################################
-"search config
 set incsearch
 set ignorecase
 set hlsearch
@@ -213,38 +215,38 @@ set smartcase
 nnoremap <silent> <ESC><ESC> :noh<CR>
 
 "#######################################################
+" Allow to undo after even closed any files
 "#######################################################
-"To able be undo after closed any files
 if has('persistent_undo')
     set undodir=~/.config/nvim/.undo
     set undofile
 endif
 
 "#######################################################
+" Move cursor settings
 "#######################################################
-"cursor
 noremap <silent> <S-j> <C-d>
-noremap <silent> <S-k> <C-u> 
+noremap <silent> <S-k> <C-u>
 noremap <silent> <S-l> $
 noremap <silent> <S-h> 0
 noremap <silent> g; g;zz
 
 "#######################################################
+" Allow to move the cursor when insert mode
 "#######################################################
-"to able to be move when in insertmode
 inoremap <silent> <C-l> <Right>
 inoremap <silent> <C-h> <Left>
 inoremap <silent> <C-o> <ESC>o
 inoremap <silent> <C-i> <ESC>A
 
 "#######################################################
+" Reload settings
 "#######################################################
-"reload init.vim
 noremap [call]0i :source ~/.nvim/init.vim<CR>
 
 "#######################################################
+" Change key mapiings a,A,i,I respectively
 "#######################################################
-"Change key mapiings a,A,i,I respectively
 nnoremap <silent> i a
 nnoremap <silent> a i
 nnoremap <silent> I A
@@ -253,18 +255,18 @@ vnoremap <silent> A I
 vnoremap <silent> I A
 
 "#######################################################
+" Move the cursor to the end of the line
 "#######################################################
-"Move the cursor to the end of the line
 nmap <silent> v <S-v>
 
 "#######################################################
-"#######################################################
 " Tmux settings
+"#######################################################
 noremap <silent> <C-t> <Nop>
 "
 "#######################################################
+" Replacement settings
 "#######################################################
-"Replacement
 nnoremap <silent> & "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
 nmap # &:%s//g<Left><Left><C-r>"/
 nmap $ &:%s//g<Left><Left>
@@ -272,17 +274,16 @@ vmap # <ESC>&:normal `<<CR>:let @a = line(".")<CR>:normal `><CR>:let @b = line("
 vmap $ <ESC>&:normal `<<CR>:let @a = line(".")<CR>:normal `><CR>:let @b = line(".")<CR>:<C-r>a,<C-r>bs//g<Left><Left>
 
 "#######################################################
+" Settings to swap rows
 "#######################################################
-" move the an line
 nnoremap <C-n> "zdd"zp
 nnoremap <C-p> "zdd<Up>"zP
-" move the multiple line
 vnoremap <C-p> "zx<Up>"zP`[V`]
 vnoremap <C-n> "zx"zp`[V`]
 
 "#######################################################
+" Specify the delete register
 "#######################################################
-"specify delete register
 nnoremap d "xd
 nnoremap D "xD
 vnoremap d "xd
@@ -293,8 +294,8 @@ noremap p "xp
 
 
 "#######################################################
+" Allow to use of mouse settings
 "#######################################################
-"mouse settings
 if has('mouse')
 	set mouse=
 	nnoremap <silent> [call]m :call <SID>toggle_mouse()<CR>
@@ -316,23 +317,25 @@ function! s:toggle_mouse()
 		echo 'Mouse function is disabled'
     endif
 endfunction
+
 "#######################################################
+" Around the coding style setting
 "#######################################################
-inoremap , , 
+inoremap , ,
 inoremap ;; <ESC><S-A>;<ESC>
 nnoremap ;; <ESC><S-A>;<ESC>
 inoremap :: <ESC><S-A>:<ESC>
 
 "#######################################################
+" Windows settings
 "#######################################################
-"Windows mapping
 nmap [window] <Nop>
 map <C-w> [window]
 noremap <silent> [window]^ :call <SID>create_new_window()<CR><ESC>
-noremap <silent> [window]h <C-w>h 
-noremap <silent> [window]j <C-w>j 
-noremap <silent> [window]k <C-w>k 
-noremap <silent> [window]l <C-w>l 
+noremap <silent> [window]h <C-w>h
+noremap <silent> [window]j <C-w>j
+noremap <silent> [window]k <C-w>k
+noremap <silent> [window]l <C-w>l
 noremap <silent> [window]w <C-w>w
 noremap <silent> ^ <C-w>w
 
@@ -340,9 +343,10 @@ function! s:create_new_window()
     "If there is a terminal buffer, create a window horizontally. If not, create a window vertically
     exe win_id2win(g:terminal_window_id) ? ':vertical resize 134 | split': ':botright vsplit'
 endfunction
+
 "#######################################################
+"Terminal settings
 "#######################################################
-"Terminal mapping
 
 if(v:version >= 800 || has('nvim'))
     augroup terminal
@@ -357,17 +361,17 @@ if(v:version >= 800 || has('nvim'))
         autocmd BufLeave * if &buftype ==# 'terminal' | file Terminal | endif
     augroup END
 
-    let g:terminal_window_id = winnr('$') == 1 ? 0 : bufwinid("Terminal") 
+    let g:terminal_window_id = winnr('$') == 1 ? 0 : bufwinid("Terminal")
 
     set sh=zsh
     map <silent> [call]1 :call <SID>create_terminal()<CR>
     tmap [window] <Nop>
     tmap <C-w> [window]
     tnoremap <silent> [window]w <C-\><C-n><C-w>w
-    tnoremap <silent> [window]h <C-\><C-n><C-w>h 
-    tnoremap <silent> [window]j <C-\><C-n><C-w>j 
-    tnoremap <silent> [window]k <C-\><C-n><C-w>k 
-    tnoremap <silent> [window]l <C-\><C-n><C-w>l 
+    tnoremap <silent> [window]h <C-\><C-n><C-w>h
+    tnoremap <silent> [window]j <C-\><C-n><C-w>j
+    tnoremap <silent> [window]k <C-\><C-n><C-w>k
+    tnoremap <silent> [window]l <C-\><C-n><C-w>l
     tnoremap <silent> [window]w <C-\><C-n><C-w>w
     tnoremap <silent> ^ <C-\><C-n><C-w>w
     tnoremap <silent> <ESC> <C-\><C-n>
@@ -387,6 +391,3 @@ if(v:version >= 800 || has('nvim'))
         exe ':vertical resize 70 | startinsert'
     endfunction
 endif
-
-"#######################################################
-"#######################################################
