@@ -316,7 +316,6 @@ endfunction
 "#######################################################
 " Around the coding style setting
 "#######################################################
-inoremap , ,
 inoremap ;; <ESC><S-A>;<ESC>
 nnoremap ;; <ESC><S-A>;<ESC>
 inoremap :: <ESC><S-A>:<ESC>
