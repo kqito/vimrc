@@ -1,5 +1,5 @@
 #########################################
-#dein
+# Dein plugin manager settings
 #########################################
 [[plugins]]
 repo = 'Shougo/dein.vim'
@@ -10,7 +10,7 @@ let g:ruby_host_prog = $HOME . '/.rbenv/shims/ruby'
 '''
 
 #########################################
-#denite
+# Denite settings
 #########################################
 [[plugins]]
 repo = 'Shougo/denite.nvim'
@@ -60,7 +60,7 @@ repo = 'nixprime/cpsm'
 build = 'env PY3=ON ./install.sh'
 
 #########################################
-#Change window's size
+# Change window's size settings
 #########################################
 [[plugins]]
 repo = 'simeji/winresizer'
@@ -69,7 +69,7 @@ nnoremap [call]t :WinResizerStartResize<CR>
 '''
 
 #########################################
-#To make git unable even in vim
+# To make git unable even in vim
 #########################################
 [[plugins]]
 repo = 'tpope/vim-fugitive'
@@ -85,7 +85,7 @@ nmap <silent> [figitive]<C-a> :<C-u>Gwrite<CR>
 '''
 
 #########################################
-#Nerdtree
+# Nerdtree settings
 #########################################
 [[plugins]]
 repo = 'scrooloose/nerdtree'
@@ -99,7 +99,7 @@ let g:NERDTreeLimitedSyntax = 1
 '''
 
 #########################################
-#Auto coding
+# Auto coding settings
 #########################################
 [[plugins]]
 repo = 'cohama/lexima.vim'
@@ -145,7 +145,7 @@ endfunction
 
 '''
 #########################################
-#YCM
+# YCM settings
 #########################################
 [[plugins]]
 repo = 'Valloric/YouCompleteMe'
@@ -198,7 +198,7 @@ let g:UltiSnipsEditSplit="vertical"
 let g:ycm_python_binary_path = 'python'
 '''
 #########################################
-#surround
+# Surround settings
 #########################################
 [[plugins]]
 repo = 'tpope/vim-surround'
@@ -215,7 +215,7 @@ let g:indentLine_color_term = 239
 '''
 
 #########################################
-#vim-tags
+# Vim-tags settings
 #########################################
 [[plugins]]
 repo = 'szw/vim-tags'
@@ -247,6 +247,7 @@ au BufNewFile,BufRead *.php set tags=$HOME/.tagList/php.tags
 '''
 
 #########################################
+# Ctags setting
 #########################################
 [[plugins]]
 repo = 'vim-scripts/taglist.vim'
@@ -266,6 +267,3 @@ let g:Tlist_Process_File_Always = 1
 let g:Tlist_Close_On_Select = 1
 let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
 '''
-
-#########################################
-#########################################
