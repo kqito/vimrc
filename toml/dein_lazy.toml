@@ -5,35 +5,52 @@
 repo = 'w0rp/ale'
 hook_add = '''
 
-let g:ale_lint_on_enter = 1
+" For airline
 let g:airline#extensions#ale#enabled = 1
+
+" Always display sign_column
 let g:ale_sign_column_always = 1
+
+" Lint timing settings
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_insert_leave = 1
+let g:ale_lint_on_save = 1
+
+" Delay settings
+let g:ale_lint_delay = 10
+
+" Statusline mark
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
-let g:ale_lint_on_text_changed = 1
 let g:ale_sign_error = 'x'
 let g:ale_sign_warning = '?'
+
+" Fix settings
 let g:ale_fix_on_save = 1
+
+" Specify linters
 let g:ale_linters = {
   \ 'javascript': ['standard'],
   \ 'vue': ['eslint','vls'],
   \ 'python': ['pylint'],
 \ }
 let g:ale_python_flake8_use_global = 1
+let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
+
+" Specify fixers
 let g:ale_fixers = {
   \ 'javascript': ['eslint'],
   \ 'python': ['autopep8', 'isort'],
 \ }
 
-let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
-
 '''
 
-
 hook_post_source = '''
+
 nmap <silent> [call]k <Plug>(ale_previous_wrap)
 nmap <silent> [call]j <Plug>(ale_next_wrap)
 nmap <silent> [call]o <Plug>(ale_toggle)
 nmap <silent> [call]d <Plug>(ale_detail)
+
 '''
 on_ft = ['python', 'javascript', 'vue']
 
@@ -74,6 +91,3 @@ on_ft = ['pug', 'vue']
 [[plugins]]
 repo = 'cakebaker/scss-syntax.vim'
 on_ft = ['scss', 'vue']
-
-#########################################
-#########################################
