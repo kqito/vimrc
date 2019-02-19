@@ -193,7 +193,12 @@ vnoremap < <`[V`]
 "#######################################################
 " Clean all indents
 "#######################################################
-nnoremap == gg=G''zz
+augroup IndentGroup
+  autocmd!
+  " Set indent space
+  autocmd FileType * nnoremap <silent> <buffer> == gg=Gg;zz
+  autocmd FileType vue nnoremap <silent> <buffer> == /<\/template><CR>:noh<CR><Down><S-v>G=Gg;zz
+augroup END
 
 "#######################################################
 " Around the swap settings
