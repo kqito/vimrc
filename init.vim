@@ -330,7 +330,7 @@ inoremap :: <ESC><S-A>:<ESC>
 "#######################################################
 nmap [window] <Nop>
 map <C-w> [window]
-noremap <silent> [window]^ :call <SID>create_new_window()<CR><ESC>
+noremap <silent> [window]v :call <SID>create_new_window()<CR><ESC>
 noremap <silent> [window]h <C-w>h
 noremap <silent> [window]j <C-w>j
 noremap <silent> [window]k <C-w>k
@@ -339,14 +339,13 @@ noremap <silent> [window]w <C-w>w
 noremap <silent> ^ <C-w>w
 
 function! s:create_new_window()
-    "If there is a terminal buffer, create a window horizontally. If not, create a window vertically
+    " If there is a terminal buffer, create a window horizontally. If not, create a window vertically
     exe win_id2win(g:terminal_window_id) ? ':vertical resize 134 | split': ':botright vsplit'
 endfunction
 
 "#######################################################
-"Terminal settings
+" Terminal settings
 "#######################################################
-
 if(v:version >= 800 || has('nvim'))
     augroup terminal
         autocmd!
@@ -390,3 +389,12 @@ if(v:version >= 800 || has('nvim'))
         exe ':vertical resize 70 | startinsert'
     endfunction
 endif
+
+"#######################################################
+" Tmux settings
+"#######################################################
+nmap [Tmux] <Nop>
+map <C-t> [Tmux]
+
+nnoremap <silent> [Tmux]p <C-w>l
+nnoremap <silent> [Tmux]n <C-w>h
