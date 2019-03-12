@@ -267,3 +267,9 @@ let g:Tlist_Process_File_Always = 1
 let g:Tlist_Close_On_Select = 1
 let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
 '''
+
+#########################################
+# Syntac highlight
+#########################################
+[[plugins]]
+repo = 'sheerun/vim-polyglot'
