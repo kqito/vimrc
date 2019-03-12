@@ -26,8 +26,8 @@ nmap <silent> [denite]h :<C-u>Denite help -highlight-mode-insert=Search<CR>
 nmap <silent> [denite]w :<C-u>Denite -auto-preview -highlight-mode-insert=Search grep<CR>
 
 " Open a file in split vertically
-call denite#custom#map('normal', '^', '<denite:do_action:vsplit>', 'noremap')
-call denite#custom#map('insert', '^', '<denite:do_action:vsplit>', 'noremap')
+call denite#custom#map('normal', '`', '<denite:do_action:vsplit>', 'noremap')
+call denite#custom#map('insert', '`', '<denite:do_action:vsplit>', 'noremap')
 
 " Leave inset mode
 call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>', 'noremap')
