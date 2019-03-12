@@ -196,8 +196,8 @@ vnoremap < <`[V`]
 augroup IndentGroup
   autocmd!
   " Set indent space
-  autocmd FileType * nnoremap <silent> <buffer> == gg=Gg;zz
-  autocmd FileType vue nnoremap <silent> <buffer> == /<\/template><CR>:noh<CR><Down><S-v>G=Gg;zz
+  autocmd BufEnter * nnoremap <silent> <buffer> == gg=Gg;zz
+  autocmd BufEnter *.vue nnoremap <silent> <buffer> == /<\/template><CR>:noh<CR><Down><S-v>G=Gg;zz
 augroup END
 
 "#######################################################
