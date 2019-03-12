@@ -112,7 +112,10 @@ set fileencodings=utf-8,sjis
 scriptencoding utf-8
 set encoding=utf-8
 
-"#######################################################
+" For US keyboard
+nnoremap ; :
+nnoremap ; :
+"#######################################################;
 " Buffer settings
 "#######################################################
 nmap [Buffer] <Nop>
