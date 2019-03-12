@@ -78,17 +78,3 @@ au FileType vue syntax sync fromstart
 au BufRead,BufNewFile *.vue setlocal filetype=vue
 '''
 on_ft = ['vue']
-
-#########################################
-# Syntac highlight for pug plugin
-#########################################
-[[plugins]]
-repo = 'digitaltoad/vim-pug'
-on_ft = ['pug', 'vue']
-
-#########################################
-# Syntac highlight for scss plugin
-#########################################
-[[plugins]]
-repo = 'cakebaker/scss-syntax.vim'
-on_ft = ['scss', 'vue']
