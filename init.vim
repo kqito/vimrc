@@ -16,9 +16,6 @@ augroup My_auto
   " Move the cursor to previous position when a file is opened
   autocmd BufRead * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
-  " Set each filetype
-  autocmd BufNewFile,BufRead *.vue setf vue
-
   " Set indent space
   autocmd FileType *  setlocal sw=2 sts=2 ts=2 et
 

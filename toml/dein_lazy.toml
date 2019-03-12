@@ -75,6 +75,7 @@ on_ft = ['sass', 'scss']
 repo = 'posva/vim-vue'
 hook_add = '''
 au FileType vue syntax sync fromstart
+au BufRead,BufNewFile *.vue setlocal filetype=vue
 '''
 on_ft = ['vue']
 
