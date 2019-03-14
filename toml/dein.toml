@@ -105,8 +105,8 @@ let g:NERDTreeLimitedSyntax = 1
 repo = 'cohama/lexima.vim'
 hook_add = '''
 
-" If b:lexima_disabled is 1, lexima plugin will not work.
-nnoremap <silent> [call]2 :call <SID>toggle_auto_coding()<CR>
+let g:lexima_enable_newline_rules	= 1
+let g:lexima_enable_space_rules = 1
 
 " My comma rule
 call lexima#add_rule({
@@ -121,24 +121,20 @@ call lexima#add_rule({
 \   "input" : "",
 \})
 
-call lexima#add_rule({
-\   "at" : ', \%#',
-\   "char" : '<Enter>',
-\   "input" : '<BS><Enter>',
-\})
-
+" If b:lexima_disabled is 1, lexima plugin will not work.
+nnoremap <silent> [call]2 :call <SID>toggle_auto_coding()<CR>
 function! s:toggle_auto_coding()
     if exists("b:lexima_disabled")
         if b:lexima_disabled
             let b:lexima_disabled = 0
-            echo 'Auto Coding is enabled'
+            echo 'lexima is enabled'
         else
             let b:lexima_disabled = 1
-            echo 'Auto Coding is disabled'
+            echo 'lexima is disabled'
         endif
     else
         let b:lexima_disabled = 1
-        echo 'Auto Coding is disabled'
+        echo 'lexima is disabled'
     endif
 
 endfunction
