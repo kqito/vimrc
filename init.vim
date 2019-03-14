@@ -230,7 +230,7 @@ noremap <silent> <S-k> <C-u>
 noremap <silent> <S-l> $
 noremap <silent> <S-h> 0
 noremap <silent> g; g;zz
-
+noremap <silent> ! %
 "#######################################################
 " Allow to move the cursor when insert mode
 "#######################################################
@@ -292,7 +292,6 @@ vnoremap y "xy
 nnoremap x ""x
 noremap p "xp
 
-
 "#######################################################
 " Allow to use of mouse settings
 "#######################################################
@@ -306,7 +305,6 @@ endif
 if !has('nvim')
     set ttymouse=sgr
 endif
-
 
 function! s:toggle_mouse()
     if &mouse !=# 'a'
