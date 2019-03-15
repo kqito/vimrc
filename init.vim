@@ -267,11 +267,11 @@ noremap <silent> <C-t> <Nop>
 "#######################################################
 " Replacement settings
 "#######################################################
-nnoremap <silent> & "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
-nmap # &:%s//g<Left><Left><C-r>"/
-nmap $ &:%s//g<Left><Left>
-vmap # <ESC>&:normal `<<CR>:let @a = line(".")<CR>:normal `><CR>:let @b = line(".")<CR>:<C-r>a,<C-r>bs//g<Left><Left><C-r>"/
-vmap $ <ESC>&:normal `<<CR>:let @a = line(".")<CR>:normal `><CR>:let @b = line(".")<CR>:<C-r>a,<C-r>bs//g<Left><Left>
+nnoremap <silent> [call]h "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
+nmap # [call]h:%s//g<Left><Left><C-r>"/
+nmap $ [call]h:%s//g<Left><Left>
+vmap # <ESC>[call]h:normal `<<CR>:let @a = line(".")<CR>:normal `><CR>:let @b = line(".")<CR>:<C-r>a,<C-r>bs//g<Left><Left><C-r>"/
+vmap $ <ESC>[call]h:normal `<<CR>:let @a = line(".")<CR>:normal `><CR>:let @b = line(".")<CR>:<C-r>a,<C-r>bs//g<Left><Left>
 
 "#######################################################
 " Settings to swap rows
