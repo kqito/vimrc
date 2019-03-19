@@ -334,7 +334,7 @@ noremap <silent> [window]j <C-w>j
 noremap <silent> [window]k <C-w>k
 noremap <silent> [window]l <C-w>l
 noremap <silent> [window]w <C-w>w
-noremap <silent> ^ <C-w>w
+noremap <silent> ` <C-w>w
 
 function! s:create_new_window()
     " If there is a terminal buffer, create a window horizontally. If not, create a window vertically
