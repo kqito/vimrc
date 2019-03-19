@@ -21,9 +21,9 @@ nmap <silent> [denite]p :<C-u>DeniteBufferDir file_rec -highlight-mode-insert=Se
 nmap <silent> [denite]r :<C-u>DeniteProjectDir file_rec -highlight-mode-insert=Search<CR>
 nmap <silent> [denite]b :<C-u>Denite buffer -highlight-mode-insert=Search<CR>
 nmap <silent> [denite]y :<C-u>Denite file_old -highlight-mode-insert=Search<CR>
-nmap <silent> [denite]s :<C-u>Denite line -auto-preview -highlight-mode-insert=Search<CR>
+nmap <silent> [denite]s :<C-u>Denite line -highlight-mode-insert=Search<CR>
 nmap <silent> [denite]h :<C-u>Denite help -highlight-mode-insert=Search<CR>
-nmap <silent> [denite]w :<C-u>Denite -auto-preview -highlight-mode-insert=Search grep<CR>
+nmap <silent> [denite]w :<C-u>Denite -highlight-mode-insert=Search grep<CR>
 
 " Open a file in split vertically
 call denite#custom#map('normal', '`', '<denite:do_action:vsplit>', 'noremap')
