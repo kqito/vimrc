@@ -24,6 +24,10 @@ augroup My_auto
 
   " Remove space or tab at End of line
   autocmd BufWritePre * :%s/\s\+$//e
+
+  " At last ,highlight settings
+  autocmd VimEnter * highlight PmenuSel ctermfg=lightred ctermbg=black
+  autocmd VimEnter * highlight Pmenu ctermfg=lightblue ctermbg=black
 augroup END
 
 "#######################################################
@@ -171,12 +175,6 @@ else
   set background=dark
   colorscheme lucius
 endif
-
-"#######################################################
-" Highlight color settings
-"#######################################################
-highlight PmenuSel ctermfg=lightred ctermbg=black
-highlight Pmenu ctermfg=lightblue ctermbg=black
 
 "#######################################################
 " Indent settings
