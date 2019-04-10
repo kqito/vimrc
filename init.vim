@@ -268,8 +268,8 @@ noremap <silent> <C-t> <Nop>
 nnoremap <silent> [call]h "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
 nmap # [call]h:%s//g<Left><Left><C-r>"/
 nmap $ [call]h:%s//g<Left><Left>
-vmap # <ESC>[call]h:normal `<<CR>:let @a = line(".")<CR>:normal `><CR>:let @b = line(".")<CR>:<C-r>a,<C-r>bs//g<Left><Left><C-r>"/
-vmap $ <ESC>[call]h:normal `<<CR>:let @a = line(".")<CR>:normal `><CR>:let @b = line(".")<CR>:<C-r>a,<C-r>bs//g<Left><Left>
+vmap # <ESC>[call]h:normal `<<CR>:let @a = getpos("'<")[1]<CR>:normal `><CR>:let @b = getpos("'>")[1]<CR>:<C-r>a,<C-r>bs//g<Left><Left><C-r>"/
+vmap $ <ESC>[call]h:normal `<<CR>:let @a = getpos("'<")[1]<CR>:normal `><CR>:let @b = getpos("'>")[1]<CR>:<C-r>a,<C-r>bs//g<Left><Left>
 
 "#######################################################
 " Settings to swap rows
