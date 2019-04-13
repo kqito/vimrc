@@ -152,7 +152,7 @@ hook_add = '''
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_global_ycm_extra_conf = '~/.cache/dein/repos/github.com/Valloric/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py'
 let g:ycm_always_populate_location_list = 1
-imap <expr> <tab> pumvisible() ? "\<c-n>" : "\<tab>"
+imap <expr> <buffer> <tab> pumvisible() ? "\<c-n>" : "\<tab>"
 nnoremap <silent> [call]j :lnext<CR>
 nnoremap <silent> [call]k :lprevious<CR>
 augroup c_mapping
