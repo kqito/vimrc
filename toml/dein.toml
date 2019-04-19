@@ -110,7 +110,7 @@ hook_add = '''
 let g:lexima_enable_newline_rules	= 1
 let g:lexima_enable_space_rules = 1
 
-" My comma rule
+" --------- For comma rule ----------
 call lexima#add_rule({
 \   "at" : '\%#',
 \   "char" : ",",
@@ -122,6 +122,28 @@ call lexima#add_rule({
 \   "char" : '<Space>',
 \   "input" : "",
 \})
+
+" -------- For brackets rule --------
+" ----- Input -----
+call lexima#add_rule({
+\   "char" : '{',
+\   "at" : '[A-Za-z]\%#',
+\   "input" : '<Del> {}<Left>',
+\})
+
+call lexima#add_rule({
+\   "char" : '{',
+\   "at" : ')\%#',
+\   "input" : '<Del> {}<Left>',
+\})
+
+call lexima#add_rule({
+\   "char" : '{',
+\   "at" : '>\%#',
+\   "input" : '<Del> {}<Left>',
+\})
+
+
 
 " If b:lexima_disabled is 1, lexima plugin will not work.
 nnoremap <silent> [call]2 :call <SID>toggle_auto_coding()<CR>
