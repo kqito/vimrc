@@ -128,19 +128,19 @@ call lexima#add_rule({
 call lexima#add_rule({
 \   "char" : '{',
 \   "at" : '[A-Za-z]\%#',
-\   "input" : '<Del> {}<Left>',
+\   "input" : ' {}<Left>',
 \})
 
 call lexima#add_rule({
 \   "char" : '{',
 \   "at" : ')\%#',
-\   "input" : '<Del> {}<Left>',
+\   "input" : ' {}<Left>',
 \})
 
 call lexima#add_rule({
 \   "char" : '{',
 \   "at" : '>\%#',
-\   "input" : '<Del> {}<Left>',
+\   "input" : ' {}<Left>',
 \})
 
 
