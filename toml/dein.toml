@@ -143,6 +143,12 @@ call lexima#add_rule({
 \   "input" : ' {}<Left>',
 \})
 
+call lexima#add_rule({
+\   "char" : '{',
+\   "at" : ':\%#',
+\   "input" : ' {}<Left>',
+\})
+
 
 
 " If b:lexima_disabled is 1, lexima plugin will not work.
