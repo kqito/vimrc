@@ -318,7 +318,6 @@ endfunction
 "#######################################################
 inoremap ;; <ESC><S-A>;<ESC>
 nnoremap ;; <ESC><S-A>;<ESC>
-inoremap :: <ESC><S-A>:<ESC>
 
 "#######################################################
 " Windows settings
