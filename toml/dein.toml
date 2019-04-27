@@ -261,7 +261,7 @@ repo = 'Yggdroot/indentLine'
 
 hook_add = '''
 nnoremap <silent> [call]it :IndentLinesToggle<CR>
-let g:indentLine_color_term = 239
+let g:indentLine_color_term = 33
 '''
 
 #########################################
