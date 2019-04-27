@@ -5,11 +5,12 @@ declare -a site=(\
   "https://raw.githubusercontent.com/fcpg/vim-orbital/master/colors/orbital.vim"\
   "https://raw.githubusercontent.com/elmindreda/vimcolors/master/colors/phosphor.vim"\
   "https://raw.githubusercontent.com/gosukiwi/vim-atom-dark/master/colors/atom-dark-256.vim"\
+  "https://raw.githubusercontent.com/NLKNguyen/papercolor-theme/master/colors/PaperColor.vim"\
   )
 
 vim_dir=`which vim | sed 's/\/bin\/vim//'`
 
-function install_colorscheme(){ 
+function install_colorscheme(){
   if type wget > /dev/null 2>&1; then
     for ((i = 0; i < ${#site[@]}; i++)) {
       find ${vim_dir} -name '*vim*' -type d | \
@@ -41,8 +42,8 @@ function result(){
 function error(){
   cat << EOS
 Someting to wrong!
-Please check to exist the url. 
-Also please check the permissions of colorscheme directory. 
+Please check to exist the url.
+Also please check the permissions of colorscheme directory.
 
 EOS
 for ((i = 0; i < ${#site[@]}; i++)) {
@@ -53,7 +54,7 @@ printf "\nSave location : \e[31;4m\n"
 find ${vim_dir} -name '*vim*' -type d | \
   xargs -n1 -I@ find @ -name 'colors' | \
   uniq | \
-  xargs -I@ && 
+  xargs -I@ &&
   exit
 }
 

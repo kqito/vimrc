@@ -26,8 +26,8 @@ augroup My_auto
   autocmd BufWritePre * :%s/\s\+$//e
 
   " At last ,highlight settings
-  autocmd VimEnter,ColorScheme * highlight PmenuSel ctermfg=lightred ctermbg=black
-  autocmd VimEnter,ColorScheme * highlight Pmenu ctermfg=lightblue ctermbg=black
+  autocmd VimEnter,ColorScheme * highlight PmenuSel ctermfg=magenta ctermbg=white
+  autocmd VimEnter,ColorScheme * highlight Pmenu ctermfg=lightblue ctermbg=white
 augroup END
 
 "#######################################################
