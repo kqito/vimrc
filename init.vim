@@ -151,19 +151,6 @@ set title
 set number
 set backspace=indent,eol,start
 
-" Number function
-nnoremap <silent> [call]n :call <SID>toggle_number()<CR>
-function! s:toggle_number()
-  if &number !=# 1
-    set number
-    echo 'Mouse function is enabled'
-  else
-    set nonumber
-    echo 'Mouse function is disabled'
-  endif
-endfunction
-
-
 set synmaxcol=200
 set t_Co=256
 
