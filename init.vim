@@ -1,4 +1,5 @@
 "#######################################################
+" Autocmd settings
 "#######################################################
 
 filetype plugin indent on
@@ -31,32 +32,33 @@ augroup My_auto
 augroup END
 
 "#######################################################
+" Run a program on vim
 "#######################################################
-" When you press 3 key, execute focuesd file
+" When you press 3 key, run focuesd file
 map [call]@ [autoCompile]
 
 nnoremap <expr><silent> [autoCompile]
-  \&filetype ==# 'c' ? ":call <SID>execute_c()\<CR>" :
-  \&filetype ==# 'python' ? ":call <SID>execute_py()\<CR>" :
-  \&filetype ==# 'java' ? ":call <SID>execute_java()\<CR>" :
+  \&filetype ==# 'c' ? ":call <SID>run_c()\<CR>" :
+  \&filetype ==# 'python' ? ":call <SID>run_py()\<CR>" :
+  \&filetype ==# 'java' ? ":call <SID>run_java()\<CR>" :
   \":echo \"The filetype is not supported\"\<CR>"
 
-function! s:execute_c()
+function! s:run_c()
   let path = substitute(expand('%:p'), ' ', '\\ ', "g")
   let compilePath = substitute(expand('%:h'), ' ', '\\ ', "g") .'/a.out'
   exe '!gcc' path '-o' compilePath '&&' compilePath
 endfunction
 
-function! s:execute_py()
+function! s:run_py()
   let path = substitute(expand('%:p'), ' ', '\\ ', "g")
   exe '!python3' path
 endfunction
 
-function! s:execute_java()
+function! s:run_java()
   let compilePath = substitute(expand('%:h'), ' ', '\\ ', "g")
   let filePath = substitute(expand('%:p'), ' ', '\\ ', "g")
-  let executePath = fnamemodify(filePath, ":t:r")
-  exe '!javac' filePath '-d' compilePath '&& java -cp' compilePath executePath
+  let runPath = fnamemodify(filePath, ":t:r")
+  exe '!javac' filePath '-d' compilePath '&& java -cp' compilePath runPath
 endfunction
 
 "#######################################################
@@ -266,7 +268,7 @@ vnoremap <C-p> "zx<Up>"zP`[V`]
 vnoremap <C-n> "zx"zp`[V`]
 
 "#######################################################
-" Specify the delete register
+" The delete register settings
 "#######################################################
 nnoremap d "xd
 nnoremap D "xD
