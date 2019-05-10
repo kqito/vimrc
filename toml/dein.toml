@@ -155,26 +155,6 @@ call lexima#add_rule({
 \   "input" : ' {}<Left>',
 \})
 
-" -------- For colon rule --------
-" ----- Input -----
-call lexima#add_rule({
-\   "char" : ":",
-\   "at" : '\%# ',
-\   "input" : ":",
-\})
-
-call lexima#add_rule({
-\   "char": ':',
-\   "at": '\%#',
-\   "input": ': ',
-\})
-
-call lexima#add_rule({
-\   "at": ': \%#',
-\   "char": '<Space>',
-\   "input": "",
-\})
-
 " If b:lexima_disabled is 1, lexima plugin will not work.
 nnoremap <silent> [call]2 :call <SID>toggle_auto_coding()<CR>
 function! s:toggle_auto_coding()
