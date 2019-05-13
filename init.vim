@@ -305,8 +305,8 @@ endfunction
 "#######################################################
 " Around the coding style setting
 "#######################################################
-inoremap ,, <ESC><S-A>,<ESC>
-nnoremap ,, <ESC><S-A>,<ESC>
+inoremap ,, <ESC>:%s/\s\+$//e<CR><S-A>,<ESC>
+nnoremap ,, <ESC>:%s/\s\+$//e<CR><S-A>,<ESC>
 inoremap ;; <ESC><S-A>;<ESC>
 nnoremap ;; <ESC><S-A>;<ESC>
 
