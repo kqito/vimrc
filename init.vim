@@ -105,7 +105,7 @@ call s:callPlugins()
 nnoremap <silent> [call]0d :call <SID>callPlugins()<CR>
 
 "#######################################################
-" Basic settings
+" General settings
 "#######################################################
 set autoread
 set hidden
@@ -117,6 +117,7 @@ set fileformats=unix,dos,mac
 set fileencodings=utf-8,sjis
 scriptencoding utf-8
 set encoding=utf-8
+cnoremap Q exit
 
 " For US keyboard
 nnoremap ; :
