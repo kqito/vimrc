@@ -24,7 +24,7 @@ augroup My_auto
   autocmd BufEnter *.txt if &buftype == 'help' | wincmd L | endif
 
   " Remove space or tab at End of line
-  autocmd BufWritePre * :%s/\s\+$//e
+  autocmd InsertLeave * :%s/\s\+$//e
 
   " At last ,highlight settings
   autocmd VimEnter,ColorScheme * highlight PmenuSel ctermfg=magenta ctermbg=white
