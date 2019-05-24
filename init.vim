@@ -114,11 +114,8 @@ filetype plugin indent on
 inoremap <silent> jj <ESC>
 nnoremap <silent> <S-q> <Nop>
 set encoding=utf-8
-set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+set fileencodings=utf-8
 set fileformats=unix,dos,mac
-let $LANG='ja_JP.UTF-8'
-let $LC_ALL='ja_JP.UTF-8'
-let $LC_CTYPE='ja_JP.UTF-8'
 cnoremap Q exit
 
 " For US keyboard
@@ -151,7 +148,6 @@ nnoremap <silent> [call]y "+y
 "#######################################################
 " Display settings
 "#######################################################
-language C
 set title
 set number
 set backspace=indent,eol,start
