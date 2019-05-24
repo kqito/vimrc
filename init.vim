@@ -285,7 +285,7 @@ noremap p "xp
 " Allow to use of mouse settings
 "#######################################################
 if has('mouse')
-	set mouse=a
+	set mouse=
 	nnoremap <silent> [call]m :call <SID>toggle_mouse()<CR>
 else
 	nnoremap <silent> [call]m :echo 'Mouse function is not enabled'<CR>
