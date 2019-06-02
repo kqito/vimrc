@@ -71,22 +71,6 @@ nnoremap [call]t :WinResizerStartResize<CR>
 '''
 
 #########################################
-# To make git unable even in vim
-#########################################
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-hook_add = '''
-nmap [figitive] <Nop>
-map <C-g> [figitive]
-nmap <silent> [figitive]<C-s> :<C-u>Gstatus<CR>
-nmap <silent> [figitive]<C-d> :<C-u>Gdiff<CR>
-nmap <silent> [figitive]<C-b> :<C-u>Gblame<CR>
-nmap <silent> [figitive]<C-l> :<C-u>Glog<CR>
-nmap <silent> [figitive]<C-r> :<C-u>Gread<CR>
-nmap <silent> [figitive]<C-a> :<C-u>Gwrite<CR>
-'''
-
-#########################################
 # Nerdtree settings
 #########################################
 [[plugins]]
