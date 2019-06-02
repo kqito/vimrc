@@ -80,3 +80,79 @@ au BufRead,BufNewFile *.vue setlocal filetype=vue
 au BufWinEnter *.vue exe ':syntax sync fromstart'
 '''
 on_ft = ['vue']
+
+#########################################
+# Auto coding settings
+#########################################
+[[plugins]]
+repo = 'cohama/lexima.vim'
+hook_add = '''
+let g:lexima_enable_newline_rules	= 1
+let g:lexima_enable_space_rules = 1
+
+" If b:lexima_disabled is 1, lexima plugin will not work.
+nnoremap <silent> [call]2 :call <SID>toggle_auto_coding()<CR>
+function! s:toggle_auto_coding()
+    if exists("b:lexima_disabled")
+        if b:lexima_disabled
+            let b:lexima_disabled = 0
+            echo 'lexima is enabled'
+        else
+            let b:lexima_disabled = 1
+            echo 'lexima is disabled'
+        endif
+    else
+        let b:lexima_disabled = 1
+        echo 'lexima is disabled'
+    endif
+
+endfunction
+'''
+
+hook_post_source = '''
+" --------- For comma rule ----------
+call lexima#add_rule({
+\   "at" : '\%# ',
+\   "char" : ",",
+\   "input" : ",",
+\})
+
+call lexima#add_rule({
+\   "at" : '\%#',
+\   "char" : ",",
+\   "input" : ",<Space>",
+\})
+
+call lexima#add_rule({
+\   "at" : ', \%#',
+\   "char" : '<Space>',
+\   "input" : "",
+\})
+
+" -------- For parenthesis rule --------
+" ----- Input -----
+call lexima#add_rule({
+\   "char" : '{',
+\   "at" : '[A-Za-z]\%#',
+\   "input" : ' {}<Left>',
+\})
+
+call lexima#add_rule({
+\   "char" : '{',
+\   "at" : ')\%#',
+\   "input" : ' {}<Left>',
+\})
+
+call lexima#add_rule({
+\   "char" : '{',
+\   "at" : '>\%#',
+\   "input" : ' {}<Left>',
+\})
+
+call lexima#add_rule({
+\   "char" : '{',
+\   "at" : ':\%#',
+\   "input" : ' {}<Left>',
+\})
+'''
+on_i = 1
