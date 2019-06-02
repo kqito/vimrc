@@ -198,15 +198,6 @@ let g:SuperTabCrMapping                = 0
 [[plugins]]
 repo = 'honza/vim-snippets'
 
-[[plugins]]
-repo = 'SirVer/ultisnips'
-hook_add = '''
-let g:UltiSnipsSnippetDirectories = [$HOME . '/.cache/dein/repos/github.com/honza/vim-snippets/custom']
-let g:UltiSnipsExpandTrigger           = '<C-k>'
-let g:UltiSnipsJumpForwardTrigger      = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
-let g:UltiSnipsEditSplit="vertical"
-'''
 #########################################
 # Surround settings
 #########################################
