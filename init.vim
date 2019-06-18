@@ -27,8 +27,8 @@ augroup My_auto
   autocmd InsertLeave * :%s/\s\+$//e
 
   " At last ,highlight settings
-  autocmd VimEnter,ColorScheme * highlight PmenuSel ctermfg=magenta ctermbg=white
-  autocmd VimEnter,ColorScheme * highlight Pmenu ctermfg=lightblue ctermbg=white
+  autocmd VimEnter,ColorScheme * highlight PmenuSel ctermfg=white ctermbg=darkblue
+  autocmd VimEnter,ColorScheme * highlight Pmenu ctermfg=white ctermbg=black
 augroup END
 
 "#######################################################
