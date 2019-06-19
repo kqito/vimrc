@@ -33,22 +33,6 @@ nnoremap <silent> [denite]w :<C-u>DeniteProjectDir grep <CR>
 nnoremap <silent> [denite]c :<C-u>DeniteProjectDir colorscheme -start-filter=v:true<CR>
 nnoremap <silent> [denite]h :<C-u>Denite help -start-filter=v:true<CR>
 
-" Define ignore_globs
-let s:ignore_globs = [
-  \ '.git/', '.gomi/', '.undo/',
-  \ 'images/', '*.o', '*.make',
-  \ '*.min.*', 'img/', 'fonts/',
-  \ '.DS_Store', '.eslintcache',
-  \ '.npm', 'node_modules/', 'jspm_packages/',
-  \ 'build/Release', '.lock-wscript', 'bower_components',
-  \ '.grunt', '.nyc_output', 'coverage',
-  \ 'lib-cov', '*.pid', 'pids', 'venv/',
-  \ '*.seed', '*.pid.lock', 'logs',
-  \ '*.log', 'npm-debug.log*', 'yarn-debug.log',
-  \ 'yarn-error.log', '*.?*cache*', '*css.map',
-  \ '*.css', '*.class', '.ropeproject/', '__pycache__/',
-  \ ]
-
 " Define mappings
 	autocmd FileType denite call s:denite_my_settings()
 	function! s:denite_my_settings()
@@ -65,17 +49,36 @@ let s:ignore_globs = [
 	endfunction
 
 	" Change file/rec
-  call denite#custom#var('file/rec', 'command',
-    \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
-	" For python script scantree.py
-	" Read bellow on this file to learn more about scantree.py
-	call denite#custom#var('file/rec', 'command', ['scantree.py'])
+  " Define ignore_globs
+  let s:ignore_globs = [
+    \ '.git/', '.gomi/', '.undo/',
+    \ 'images/', '*.o', '*.make',
+    \ '*.min.*', 'img/', 'fonts/',
+    \ '.DS_Store', '.eslintcache',
+    \ '.npm', 'node_modules/', 'jspm_packages/',
+    \ 'build/Release', '.lock-wscript', 'bower_components',
+    \ '.grunt', '.nyc_output', 'coverage',
+    \ 'lib-cov', '*.pid', 'pids', 'venv/',
+    \ '*.seed', '*.pid.lock', 'logs',
+    \ '*.log', 'npm-debug.log*', 'yarn-debug.log',
+    \ 'yarn-error.log', '*.?*cache*', '*css.map',
+    \ '*.css', '*.class', '.ropeproject/', '__pycache__/',
+  \ ]
 
-	" Change matchers.
-	call denite#custom#source(
-	\ 'file/rec', 'matchers', ['matcher/ignore_globs'])
-	call denite#custom#source(
-	\ 'file/old', 'matchers', ['matcher/ignore_globs'])
+  call denite#custom#var('file/rec', 'command', [
+    \ 'ag',
+    \ '--follow',
+    \ ] + map(deepcopy(s:ignore_globs), { k, v -> '--ignore=' . v }) + [
+    \ '--nocolor',
+    \ '--nogroup',
+    \ '-g',
+    \ ''
+    \ ])
+
+  call denite#custom#source('file/rec', 'matchers', ['matcher/substring'])
+
+  " Change ignore_globs
+  call denite#custom#filter('matcher/ignore_globs', 'ignore_globs', s:ignore_globs)
 
 	" Ag command on grep source
 	call denite#custom#var('grep', 'command', ['ag'])
@@ -84,10 +87,6 @@ let s:ignore_globs = [
 	call denite#custom#var('grep', 'pattern_opt', [])
 	call denite#custom#var('grep', 'separator', ['--'])
 	call denite#custom#var('grep', 'final_opts', [])
-
-	" Change ignore_globs
-	call denite#custom#filter('matcher/ignore_globs', 'ignore_globs', s:ignore_globs)
-	call denite#custom#filter('matcher/cpsm', 'ignore_globs', s:ignore_globs)
 '''
 
 [[plugins]]
