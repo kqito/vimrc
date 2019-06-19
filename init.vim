@@ -20,7 +20,7 @@ augroup My_auto
   " Set indent space
   autocmd FileType *  setlocal sw=2 sts=2 ts=2 et
 
-  " Open a help text vertically
+" Open a help text vertically
   autocmd BufEnter *.txt if &buftype == 'help' | wincmd L | endif
 
   " Remove space or tab at End of line
@@ -205,6 +205,7 @@ set ignorecase
 set hlsearch
 set smartcase
 nnoremap <silent> <ESC><ESC> :noh<CR>
+nnoremap <silent> <C-c><C-c> :noh<CR>
 
 "#######################################################
 " Allow to undo after even closed any files
