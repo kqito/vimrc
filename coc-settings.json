@@ -1,0 +1,11 @@
+{
+  "suggest.echodocSupport": true,
+  "suggest.maxCompleteItemCount": 20,
+  "eslint.autoFixOnSave": true,
+  "eslint.packageManager": "npm",
+  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "vue"],
+  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "vue"],
+  "diagnostic.errorSign": "×",
+  "diagnostic.warningSign": "×",
+  "diagnostic.infoSign": "×"
+}
