@@ -11,25 +11,6 @@ autocmd VimEnter * call dein#call_hook('post_source')
 '''
 
 #########################################
-# Deoplete settings
-#########################################
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-hook_add = '''
-let g:deoplete#enable_at_startup = 1
-
-" Close popup when press enter key
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function() abort
-  return deoplete#close_popup() . "\<CR>"
-endfunction
-
-" Able to Select candidate with tab key
-imap <expr><TAB> pumvisible() ? "<C-n>" : "<TAB>"
-imap <expr><S-TAB> pumvisible() ? "<C-p>" : "<S-TAB>"
-'''
-
-#########################################
 # Denite settings
 #########################################
 [[plugins]]
@@ -118,7 +99,8 @@ build = 'env PY3=ON ./install.sh'
 #########################################
 [[plugins]]
 repo = 'neoclide/coc.nvim'
-build = 'coc#util#install()'
+build = './install.sh nightly'
+rev = 'release'
 hook_add = '''
 " coc.nvim
 
@@ -245,8 +227,8 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-'''
 
+'''
 #########################################
 # Change window's size settings
 #########################################
