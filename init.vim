@@ -29,6 +29,10 @@ augroup My_auto
   " At last ,highlight settings
   autocmd VimEnter,ColorScheme * highlight PmenuSel ctermfg=white ctermbg=darkblue
   autocmd VimEnter,ColorScheme * highlight Pmenu ctermfg=white ctermbg=black
+  autocmd VimEnter,ColorScheme * highlight NormalFloat ctermfg=white ctermbg=darkblue cterm=NONE guifg=NONE guibg=NONE gui=NONE
+  autocmd VimEnter,ColorScheme * highlight Search ctermfg=white ctermbg=lightblue
+  autocmd VimEnter,ColorScheme * highlight Underlined ctermfg=white ctermbg=lightblue
+  " autocmd VimEnter,ColorScheme * highlight NormalFloat ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#64666d gui=NONE
 augroup END
 
 "#######################################################
@@ -163,6 +167,10 @@ else
   set background=dark
   colorscheme lucius
 endif
+
+" Cursor settings
+set cursorline
+highlight CursorLine term=NONE cterm=NONE guibg=Grey90
 
 "#######################################################
 " Indent settings
