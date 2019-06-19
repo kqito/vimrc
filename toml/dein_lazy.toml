@@ -57,20 +57,6 @@ nmap <silent> [call]d <Plug>(ale_detail)
 on_ft = ['python', 'javascript', 'vue']
 
 #########################################
-#Sass
-#########################################
-[[plugins]]
-repo = 'AtsushiM/search-parent.vim'
-on_ft = ['sass', 'scss']
-
-[[plugins]]
-repo = 'AtsushiM/sass-compile.vim'
-hook_post_source = '''
-nnoremap <silent> [autoCompile] :SassCompile<CR>
-'''
-on_ft = ['sass', 'scss']
-
-#########################################
 # Syntac highlight for Vue.js plugin
 #########################################
 [[plugins]]
