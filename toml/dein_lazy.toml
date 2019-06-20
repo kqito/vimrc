@@ -4,18 +4,18 @@
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = '''
-noremap [denite] <Nop>
-map s [denite]
+  noremap [denite] <Nop>
+  map s [denite]
 
-" mapping
-nnoremap <silent> [denite]p :<C-u>DeniteProjectDir file/rec -start-filter=v:true<CR>
-nnoremap <silent> [denite]r :<C-u>DeniteBufferDir file/rec -start-filter=v:true<CR>
-nnoremap <silent> [denite]b :<C-u>Denite buffer <CR>
-nnoremap <silent> [denite]y :<C-u>Denite file/old -start-filter=v:true<CR>
-nnoremap <silent> [denite]s :<C-u>DeniteCursorWord grep <CR>
-nnoremap <silent> [denite]w :<C-u>DeniteProjectDir grep <CR>
-nnoremap <silent> [denite]c :<C-u>DeniteProjectDir colorscheme -start-filter=v:true<CR>
-nnoremap <silent> [denite]h :<C-u>Denite help -start-filter=v:true<CR>
+  " mapping
+  nnoremap <silent> [denite]p :<C-u>DeniteProjectDir file/rec -start-filter=v:true<CR>
+  nnoremap <silent> [denite]r :<C-u>DeniteBufferDir file/rec -start-filter=v:true<CR>
+  nnoremap <silent> [denite]b :<C-u>Denite buffer <CR>
+  nnoremap <silent> [denite]y :<C-u>Denite file/old -start-filter=v:true<CR>
+  nnoremap <silent> [denite]s :<C-u>DeniteCursorWord grep <CR>
+  nnoremap <silent> [denite]w :<C-u>DeniteProjectDir grep <CR>
+  nnoremap <silent> [denite]c :<C-u>DeniteProjectDir colorscheme -start-filter=v:true<CR>
+  nnoremap <silent> [denite]h :<C-u>Denite help -start-filter=v:true<CR>
 
 " Define mappings
 	autocmd FileType denite call s:denite_my_settings()
@@ -32,8 +32,9 @@ nnoremap <silent> [denite]h :<C-u>Denite help -start-filter=v:true<CR>
 	  nnoremap <silent><buffer><expr> i denite#do_map('open_filter_buffer')
 	  nnoremap <silent><buffer><expr> <Space> denite#do_map('toggle_select').'j'
 	endfunction
+'''
 
-	" Change file/rec
+hook_post_source = '''
   " Define ignore_globs
   let s:ignore_globs = [
     \ '.git/', '.gomi/', '.undo/',
@@ -50,6 +51,7 @@ nnoremap <silent> [denite]h :<C-u>Denite help -start-filter=v:true<CR>
     \ '*.css', '*.class', '.ropeproject/', '__pycache__/',
   \ ]
 
+	" Change file/rec
   call denite#custom#var('file/rec', 'command', [
     \ 'ag',
     \ '--follow',
@@ -75,13 +77,10 @@ nnoremap <silent> [denite]h :<C-u>Denite help -start-filter=v:true<CR>
 	call denite#custom#var('grep', 'pattern_opt', [])
 	call denite#custom#var('grep', 'separator', ['--'])
 	call denite#custom#var('grep', 'final_opts', [])
-'''
-
-hook_post_source = '''
   let s:denite_win_width_percent = 0.85
   let s:denite_win_height_percent = 0.7
 
-  call denite#custom#option('default', {
+  call denite#custom#option('_', {
     \ 'split': 'floating',
     \ 'winwidth': float2nr(&columns * s:denite_win_width_percent),
     \ 'wincol': float2nr((&columns - (&columns * s:denite_win_width_percent)) / 2),
