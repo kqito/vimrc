@@ -22,8 +22,9 @@ nnoremap <silent> [denite]h :<C-u>Denite help -start-filter=v:true<CR>
 	function! s:denite_my_settings()
 	  nnoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
 
-    " Open a selected file with vsplit
-	  nnoremap <silent><buffer><expr> ` denite#do_map('do_action', 'vsplit')
+    " Open a selected file with split or vsplit
+	  nnoremap <silent><buffer><expr> v denite#do_map('do_action', 'vsplit')
+	  nnoremap <silent><buffer><expr> s denite#do_map('do_action', 'split')
 
 	  nnoremap <silent><buffer><expr> d denite#do_map('do_action', 'delete')
 	  nnoremap <silent><buffer><expr> p denite#do_map('do_action', 'preview')
