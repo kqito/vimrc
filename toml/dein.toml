@@ -225,3 +225,9 @@ let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
 #########################################
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
+
+#########################################
+# Comment out
+#########################################
+[[plugins]]
+repo = 'tpope/vim-commentary'
