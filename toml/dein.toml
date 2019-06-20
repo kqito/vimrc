@@ -156,12 +156,6 @@ let g:NERDTreeLimitedSyntax = 1
 '''
 
 #########################################
-# Surround settings
-#########################################
-[[plugins]]
-repo = 'tpope/vim-surround'
-
-#########################################
 # Dispaly idnent vertically line
 #########################################
 [[plugins]]
