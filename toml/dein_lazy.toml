@@ -32,7 +32,9 @@ hook_add = '''
 	  nnoremap <silent><buffer><expr> i denite#do_map('open_filter_buffer')
 	  nnoremap <silent><buffer><expr> <Space> denite#do_map('toggle_select').'j'
 	endfunction
+'''
 
+hook_source = '''
   " Define ignore_globs
   let s:ignore_globs = [
     \ '.git/', '.gomi/', '.undo/',
@@ -48,13 +50,6 @@ hook_add = '''
     \ 'yarn-error.log', '*.?*cache*', '*css.map',
     \ '*.css', '*.class', '.ropeproject/', '__pycache__/',
   \ ]
-
-  " Define floating window size
-  let s:denite_win_width_percent = 0.85
-  let s:denite_win_height_percent = 0.7
-'''
-
-hook_post_source = '''
 
 	" Change file/rec
   call denite#custom#var('file/rec', 'command', [
@@ -94,13 +89,14 @@ hook_post_source = '''
 	call denite#custom#var('grep', 'separator', ['--'])
 	call denite#custom#var('grep', 'final_opts', [])
 
-  " Define floating window size
-  call denite#custom#option('_', {
+  let g:denite_win_width_percent = 0.85
+  let g:denite_win_height_percent = 0.7
+  call denite#custom#option('default', {
     \ 'split': 'floating',
-    \ 'winwidth': float2nr(&columns * s:denite_win_width_percent),
-    \ 'wincol': float2nr((&columns - (&columns * s:denite_win_width_percent)) / 2),
-    \ 'winheight': float2nr(&lines * s:denite_win_height_percent),
-    \ 'winrow': float2nr((&lines - (&lines * s:denite_win_height_percent)) / 2),
+    \ 'winwidth': float2nr(&columns * g:denite_win_width_percent),
+    \ 'wincol': float2nr((&columns - (&columns * g:denite_win_width_percent)) / 2),
+    \ 'winheight': float2nr(&lines * g:denite_win_height_percent),
+    \ 'winrow': float2nr((&lines - (&lines * g:denite_win_height_percent)) / 2),
   \ })
 '''
 
