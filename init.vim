@@ -114,6 +114,8 @@ set hidden
 set wildmenu
 filetype plugin indent on
 inoremap <silent> jj <ESC>
+vnoremap ; <ESC>:
+vnoremap : <ESC>:
 nnoremap <silent> <S-q> <Nop>
 set encoding=utf-8
 set fileencodings=utf-8
