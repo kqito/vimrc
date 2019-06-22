@@ -34,36 +34,6 @@ augroup My_auto
 augroup END
 
 "#######################################################
-" Run a program on vim
-"#######################################################
-" When you press 3 key, run focuesd file
-map [call]@ [autoCompile]
-
-nnoremap <expr><silent> [autoCompile]
-  \&filetype ==# 'c' ? ":call <SID>run_c()\<CR>" :
-  \&filetype ==# 'python' ? ":call <SID>run_py()\<CR>" :
-  \&filetype ==# 'java' ? ":call <SID>run_java()\<CR>" :
-  \":echo \"The filetype is not supported\"\<CR>"
-
-function! s:run_c()
-  let path = substitute(expand('%:p'), ' ', '\\ ', "g")
-  let compilePath = substitute(expand('%:h'), ' ', '\\ ', "g") .'/a.out'
-  exe '!gcc' path '-o' compilePath '&&' compilePath
-endfunction
-
-function! s:run_py()
-  let path = substitute(expand('%:p'), ' ', '\\ ', "g")
-  exe '!python3' path
-endfunction
-
-function! s:run_java()
-  let compilePath = substitute(expand('%:h'), ' ', '\\ ', "g")
-  let filePath = substitute(expand('%:p'), ' ', '\\ ', "g")
-  let runPath = fnamemodify(filePath, ":t:r")
-  exe '!javac' filePath '-d' compilePath '&& java -cp' compilePath runPath
-endfunction
-
-"#######################################################
 " Dein Scripts
 "#######################################################
 
@@ -115,7 +85,6 @@ set wildmenu
 filetype plugin indent on
 inoremap <silent> jj <ESC>
 vnoremap ; <ESC>:
-vnoremap : <ESC>:
 nnoremap <silent> <S-q> <Nop>
 set encoding=utf-8
 set fileencodings=utf-8
@@ -125,6 +94,7 @@ cnoremap Q q!
 " For US keyboard
 nnoremap ; :
 nnoremap ; :
+
 "#######################################################;
 " Buffer settings
 "#######################################################
@@ -226,6 +196,7 @@ noremap <silent> <S-l> $
 noremap <silent> <S-h> 0
 noremap <silent> g; g;zz
 noremap <silent> ! %
+
 "#######################################################
 " Allow to move the cursor when insert mode
 "#######################################################
@@ -236,7 +207,7 @@ inoremap <silent> <C-o> <ESC>o
 "#######################################################
 " Reload settings
 "#######################################################
-noremap [call]0i :source ~/.nvim/init.vim<CR>
+noremap [call]0 :source ~/.nvim/init.vim<CR>
 
 "#######################################################
 " Change key mapiings a,A,i,I respectively
@@ -253,11 +224,6 @@ vnoremap <silent> I A
 "#######################################################
 nmap <silent> v <S-v>
 
-"#######################################################
-" Tmux settings
-"#######################################################
-noremap <silent> <C-t> <Nop>
-"
 "#######################################################
 " Replacement settings
 "#######################################################
@@ -318,74 +284,11 @@ nnoremap ,, <ESC>:%s/\s\+$//e<CR><S-A>,<ESC>
 inoremap ;; <ESC><S-A>;<ESC>
 nnoremap ;; <ESC><S-A>;<ESC>
 
-"#######################################################
-" Windows settings
-"#######################################################
-nmap [window] <Nop>
-map <C-w> [window]
-noremap <silent> [window]v :call <SID>create_new_window()<CR><ESC>
-noremap <silent> [window]h <C-w>h
-noremap <silent> [window]j <C-w>j
-noremap <silent> [window]k <C-w>k
-noremap <silent> [window]l <C-w>l
-noremap <silent> [window]w <C-w>w
-noremap <silent> ` <C-w>w
-
-function! s:create_new_window()
-    " If there is a terminal buffer, create a window horizontally. If not, create a window vertically
-    exe win_id2win(g:terminal_window_id) ? ':vertical resize 134 | split': ':botright vsplit'
-endfunction
-
-"#######################################################
-" Terminal settings
-"#######################################################
-if(v:version >= 800 || has('nvim'))
-    augroup terminal
-        autocmd!
-        "To be insert mode when move to terminal buffer
-        if has('nvim')
-            autocmd BufEnter * if &buftype ==# 'terminal' | startinsert | endif
-        else
-            autocmd BufEnter * if &buftype ==# 'terminal' | normal i | endif
-        endif
-
-        autocmd BufLeave * if &buftype ==# 'terminal' | file Terminal | endif
-    augroup END
-
-    let g:terminal_window_id = winnr('$') == 1 ? 0 : bufwinid("Terminal")
-
-    set sh=zsh
-    map <silent> [call]1 :call <SID>create_terminal()<CR>
-    tmap [window] <Nop>
-    tmap <C-w> [window]
-    tnoremap <silent> [window]w <C-\><C-n><C-w>w
-    tnoremap <silent> [window]h <C-\><C-n><C-w>h
-    tnoremap <silent> [window]j <C-\><C-n><C-w>j
-    tnoremap <silent> [window]k <C-\><C-n><C-w>k
-    tnoremap <silent> [window]l <C-\><C-n><C-w>l
-    tnoremap <silent> [window]w <C-\><C-n><C-w>w
-    tnoremap <silent> ^ <C-\><C-n><C-w>w
-    tnoremap <silent> <ESC> <C-\><C-n>
-    tmap <silent> <C-x> <ESC>:q<Cr>
-    "Buffer
-    tmap [Buffer] <Nop>
-    tmap <C-b> [Buffer]
-    tmap [Buffer]<C-b> <ESC>:b#<CR>
-    tmap [Buffer]<C-p> <ESC>:bnext<CR>
-    tmap [Buffer]<C-n> <ESC>:bprev<CR>
-    tmap [Buffer]<C-d> <ESC>:bp<bar>sp<bar>bn<bar>bd<CR>
-
-    function! s:create_terminal()
-        exe winnr('$') == 1 || !win_id2win(g:terminal_window_id) ? ':vert botright split': win_gotoid(g:terminal_window_id)
-        let g:terminal_window_id = win_getid() "memory window id
-        exe !bufexists("Terminal") ? ':terminal' : 'buffer Terminal'
-        exe ':vertical resize 70 | startinsert'
-    endfunction
-endif
 
 "#######################################################
 " Tmux settings
 "#######################################################
+noremap <silent> <C-t> <Nop>
 nmap [Tmux] <Nop>
 map <C-t> [Tmux]
 
