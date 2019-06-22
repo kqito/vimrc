@@ -11,7 +11,7 @@ autocmd VimEnter * call dein#call_hook('post_source')
 '''
 
 #########################################
-# coc
+# Language servers settings
 #########################################
 [[plugins]]
 repo = 'neoclide/coc.nvim'

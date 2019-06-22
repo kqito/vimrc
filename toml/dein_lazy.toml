@@ -203,4 +203,4 @@ repo = 'tpope/vim-surround'
 #########################################
 [[plugin]]
 repo = 'tpope/vim-repeat'
-on_source = 'vim-surround'
+on_source = ['vim-surround']
