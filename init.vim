@@ -74,7 +74,7 @@ fun! s:callPlugins()
 endfun
 
 call s:callPlugins()
-nnoremap <silent> [call]0d :call <SID>callPlugins()<CR>
+nnoremap <silent> <space>0d :call <SID>callPlugins()<CR>
 
 "#######################################################
 " General settings
@@ -107,17 +107,11 @@ nnoremap [Buffer]<C-n> :bprev<CR>
 nnoremap [Buffer]<C-d> :bp<bar>sp<bar>bn<bar>bd<CR>
 
 "#######################################################
-" Mapping space
-"#######################################################
-nmap [call] <Nop>
-map <Space> [call]
-
-"#######################################################
 " Yank Settings
 "#######################################################
 nnoremap <silent> Y <C-v>$"xy
-vnoremap <silent> [call]y "+y
-nnoremap <silent> [call]y "+y
+vnoremap <silent> <space>y "+y
+nnoremap <silent> <space>y "+y
 
 "#######################################################
 " Display settings
@@ -207,7 +201,7 @@ inoremap <silent> <C-o> <ESC>o
 "#######################################################
 " Reload settings
 "#######################################################
-noremap [call]0 :source ~/.nvim/init.vim<CR>
+noremap <space>0 :source ~/.nvim/init.vim<CR>
 
 "#######################################################
 " Change key mapiings a,A,i,I respectively
@@ -227,11 +221,11 @@ nmap <silent> v <S-v>
 "#######################################################
 " Replacement settings
 "#######################################################
-nnoremap <silent> [call]h "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
-nmap # [call]h:%s//g<Left><Left><C-r>"/
-nmap $ [call]h:%s//g<Left><Left>
-vmap # <ESC>[call]h:let @a = getpos("'<")[1]<CR>:let @b = getpos("'>")[1]<CR>:<C-r>a,<C-r>bs//g<Left><Left><C-r>"/
-vmap $ <ESC>[call]h:let @a = getpos("'<")[1]<CR>:let @b = getpos("'>")[1]<CR>:<C-r>a,<C-r>bs//g<Left><Left>
+nnoremap <silent> <space>h "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
+nmap # <space>h:%s//g<Left><Left><C-r>"/
+nmap $ <space>h:%s//g<Left><Left>
+vmap # <ESC><space>h:let @a = getpos("'<")[1]<CR>:let @b = getpos("'>")[1]<CR>:<C-r>a,<C-r>bs//g<Left><Left><C-r>"/
+vmap $ <ESC><space>h:let @a = getpos("'<")[1]<CR>:let @b = getpos("'>")[1]<CR>:<C-r>a,<C-r>bs//g<Left><Left>
 
 "#######################################################
 " Settings to swap rows
@@ -257,9 +251,9 @@ noremap p "xp
 "#######################################################
 if has('mouse')
 	set mouse=
-	nnoremap <silent> [call]m :call <SID>toggle_mouse()<CR>
+	nnoremap <silent> <space>m :call <SID>toggle_mouse()<CR>
 else
-	nnoremap <silent> [call]m :echo 'Mouse function is not enabled'<CR>
+	nnoremap <silent> <space>m :echo 'Mouse function is not enabled'<CR>
 endif
 
 if !has('nvim')

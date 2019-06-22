@@ -139,7 +139,7 @@ nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 [[plugins]]
 repo = 'simeji/winresizer'
 hook_add = '''
-nnoremap [call]t :WinResizerStartResize<CR>
+nnoremap <space>t :WinResizerStartResize<CR>
 '''
 
 #########################################
@@ -148,7 +148,7 @@ nnoremap [call]t :WinResizerStartResize<CR>
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
-map <silent> [call]b :NERDTreeToggle<CR>
+map <silent> <space>b :NERDTreeToggle<CR>
 '''
 [[plugins]]
 repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -163,7 +163,7 @@ let g:NERDTreeLimitedSyntax = 1
 repo = 'Yggdroot/indentLine'
 
 hook_add = '''
-nnoremap <silent> [call]it :IndentLinesToggle<CR>
+nnoremap <silent> <space>it :IndentLinesToggle<CR>
 let g:indentLine_color_term = 113
 '''
 
@@ -177,12 +177,12 @@ hook_add = '''
  let g:vim_tags_auto_generate = 0
 
 " Update tags
-nnoremap [call]cg :TagsGenerate<CR>
-nmap [call]co &:tag <C-r>"
+nnoremap <space>cg :TagsGenerate<CR>
+nmap <space>co &:tag <C-r>"
 nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
-nnoremap [call]cj <C-w>}
+nnoremap <space>cj <C-w>}
 " Close Tlist besides
-nnoremap <silent> [call]cc :pc<CR>:TlistClose<CR>
+nnoremap <silent> <space>cc :pc<CR>:TlistClose<CR>
 
 " Register ctags directory
 au BufNewFile,BufRead * let g:currentFileDirectory = expand('%:p:h')
@@ -205,7 +205,7 @@ au BufNewFile,BufRead *.php set tags=$HOME/.tagList/php.tags
 [[plugins]]
 repo = 'vim-scripts/taglist.vim'
 hook_add = '''
-nnoremap <silent> [call]cl :TlistToggle<CR>/
+nnoremap <silent> <space>cl :TlistToggle<CR>/
 
 " Original javascript settings
 let g:tlist_javascript_settings = 'js;n:constant;o:object;c:class;f:function;m:method;v:variable'
