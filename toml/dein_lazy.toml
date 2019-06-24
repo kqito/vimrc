@@ -10,7 +10,7 @@ hook_add = '''
   " mapping
   nnoremap <silent> [denite]p :<C-u>DeniteProjectDir file/rec -start-filter=v:true<CR>
   nnoremap <silent> [denite]r :<C-u>DeniteBufferDir file/rec -start-filter=v:true<CR>
-  nnoremap <silent> [denite]b :<C-u>Denite buffer <CR>
+  nnoremap <silent> [denite]b :<C-u>Denite buffer -start-filter=v:true<CR>
   nnoremap <silent> [denite]y :<C-u>Denite file/old -start-filter=v:true<CR>
   nnoremap <silent> [denite]s :<C-u>DeniteCursorWord grep <CR>
   nnoremap <silent> [denite]w :<C-u>DeniteProjectDir grep <CR>
