@@ -1,9 +1,6 @@
 "#######################################################
 " Autocmd settings
 "#######################################################
-
-filetype plugin indent on
-
 if !&compatible
   set nocompatible
 endif
