@@ -1,36 +1,4 @@
 "#######################################################
-" Autocmd settings
-"#######################################################
-if !&compatible
-  set nocompatible
-endif
-
-"Reset augroup
-augroup My_auto
-  autocmd!
-  " Turn off paste mode when leaving insert
-  autocmd InsertLeave * set nopaste"
-
-  " Move the cursor to previous position when a file is opened
-  autocmd BufRead * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
-
-  " Set indent space
-  autocmd FileType *  setlocal sw=2 sts=2 ts=2 et
-
-" Open a help text vertically
-  autocmd BufEnter *.txt if &buftype == 'help' | wincmd L | endif
-
-  " Remove space or tab at End of line
-  autocmd InsertLeave * :%s/\s\+$//e
-
-  " At last ,highlight settings
-  autocmd VimEnter,ColorScheme * highlight PmenuSel ctermfg=white ctermbg=darkblue
-  autocmd VimEnter,ColorScheme * highlight Pmenu ctermfg=white ctermbg=black
-  autocmd VimEnter,ColorScheme * highlight NormalFloat ctermfg=black ctermbg=white cterm=NONE guifg=NONE guibg=NONE gui=NONE
-  autocmd VimEnter,ColorScheme * highlight Search ctermfg=black ctermbg=lightgreen
-augroup END
-
-"#######################################################
 " Dein Scripts
 "#######################################################
 
@@ -72,6 +40,38 @@ endfun
 
 call s:callPlugins()
 nnoremap <silent> <space>0d :call <SID>callPlugins()<CR>
+
+"#######################################################
+" Autocmd settings
+"#######################################################
+if !&compatible
+  set nocompatible
+endif
+
+"Reset augroup
+augroup My_auto
+  autocmd!
+  " Turn off paste mode when leaving insert
+  autocmd InsertEnter * set nopaste
+
+  " Move the cursor to previous position when a file is opened
+  autocmd BufRead * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+
+  " Set indent space
+  autocmd FileType *  setlocal sw=2 sts=2 ts=2 et
+
+" Open a help text vertically
+  autocmd BufEnter *.txt if &buftype == 'help' | wincmd L | endif
+
+  " Remove space or tab at End of line
+  autocmd InsertLeave * :%s/\s\+$//e
+
+  " At last ,highlight settings
+  autocmd VimEnter,ColorScheme * highlight PmenuSel ctermfg=white ctermbg=darkblue
+  autocmd VimEnter,ColorScheme * highlight Pmenu ctermfg=white ctermbg=black
+  autocmd VimEnter,ColorScheme * highlight NormalFloat ctermfg=black ctermbg=white cterm=NONE guifg=NONE guibg=NONE gui=NONE
+  autocmd VimEnter,ColorScheme * highlight Search ctermfg=black ctermbg=lightgreen
+augroup END
 
 "#######################################################
 " General settings
