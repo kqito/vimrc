@@ -48,9 +48,12 @@ if !&compatible
   set nocompatible
 endif
 
-"Reset augroup
+" Define autocmds
 augroup My_auto
+  "Reset augroup
   autocmd!
+  " Turn off paste mode when leaving insert
+  autocmd InsertEnter * set nopaste
 
   " Move the cursor to previous position when a file is opened
   autocmd BufRead * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
@@ -78,10 +81,7 @@ set autoread
 set hidden
 set wildmenu
 filetype plugin indent on
-
-" leave from paste mode or insert mode
-inoremap <silent> jj <ESC>:set nopaste<CR>
-
+inoremap <silent> jj <ESC>
 vnoremap ; <ESC>:
 nnoremap <silent> <S-q> <Nop>
 set encoding=utf-8
