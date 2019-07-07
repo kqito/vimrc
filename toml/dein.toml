@@ -17,6 +17,7 @@ autocmd VimEnter * call dein#call_hook('post_source')
 repo = 'neoclide/coc.nvim'
 build = './install.sh nightly'
 rev = 'release'
+merge = 0
 hook_add = '''
 " coc.nvim
 
