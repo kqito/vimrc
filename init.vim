@@ -52,6 +52,11 @@ endif
 augroup My_auto
   "Reset augroup
   autocmd!
+
+  " Filetype settings
+  autocmd BufNewFile,BufRead *.tsx setf typescript
+  autocmd BufNewFile,BufRead *.ts setf typescript
+
   " Turn off paste mode when leaving insert
   autocmd InsertEnter * set nopaste
 

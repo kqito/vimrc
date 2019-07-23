@@ -1,4 +1,5 @@
 {
+  "coc.preferences.colorSupport": true,
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 20,
   "eslint.autoFixOnSave": false,
