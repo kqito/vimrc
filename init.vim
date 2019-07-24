@@ -114,8 +114,8 @@ nnoremap [Buffer]<C-d> :bp<bar>sp<bar>bn<bar>bd<CR>
 " Yank Settings
 "#######################################################
 nnoremap <silent> Y <C-v>$"xy
-vnoremap <silent> <space>y "+y
-nnoremap <silent> <space>y "+y
+vnoremap <silent> <C-y> "+y
+nnoremap <silent> <C-y> "+y
 
 "#######################################################
 " Display settings
