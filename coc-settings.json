@@ -1,4 +1,10 @@
 {
+  "list.insertMappings": {
+		"<C-c>": "do:exit",
+	},
+	"list.normalMappings": {
+		"<C-c>": "do:exit",
+	},
   "coc.preferences.colorSupport": true,
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 20,
