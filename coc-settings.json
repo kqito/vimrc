@@ -1,9 +1,11 @@
 {
   "list.insertMappings": {
 		"<C-c>": "do:exit",
+    "<C-j>":"do:next",
+    "<C-k>":"do:previous"
 	},
 	"list.normalMappings": {
-		"<C-c>": "do:exit",
+		"<C-c>": "do:exit"
 	},
   "coc.preferences.colorSupport": true,
   "suggest.echodocSupport": true,
