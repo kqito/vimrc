@@ -234,34 +234,6 @@ let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
 repo = 'tpope/vim-commentary'
 
 #########################################
-# To make git unable even in vim
-#########################################
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-hook_add = '''
-nmap [fugitive] <Nop>
-map <C-g> [fugitive]
-nmap <silent> [fugitive]s :Gstatus<CR>
-nmap <silent> [fugitive]d :Gdiff<CR>
-nmap <silent> [fugitive]b :Gblame<CR>
-nmap <silent> [fugitive]l :Glog<CR>
-nmap <silent> [fugitive]r :Gread<CR>
-'''
-
-#########################################
-# Surround settings
-#########################################
-[[plugins]]
-repo = 'tpope/vim-surround'
-
-#########################################
-# dot repeat plugin
-#########################################
-[[plugin]]
-repo = 'tpope/vim-repeat'
-on_source = ['vim-surround']
-
-#########################################
 # Syntac highlight
 #########################################
 [[plugins]]
