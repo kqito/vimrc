@@ -15,9 +15,8 @@ autocmd VimEnter * call dein#call_hook('post_source')
 #########################################
 [[plugins]]
 repo = 'neoclide/coc.nvim'
-build = './install.sh nightly'
-rev = 'release'
 merge = 0
+rev = 'release'
 hook_add = '''
 " coc.nvim
 
@@ -136,6 +135,7 @@ nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 " For prettier settings
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 '''
+
 #########################################
 # Change window's size settings
 #########################################
