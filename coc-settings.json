@@ -10,11 +10,12 @@
   "coc.preferences.colorSupport": true,
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 20,
+  "diagnostic.errorSign": "×",
+  "diagnostic.warningSign": "×",
+  "diagnostic.infoSign": "×",
   "eslint.autoFixOnSave": false,
   "prettier.eslintIntegration": true,
   "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "vue"],
   "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "vue"],
-  "diagnostic.errorSign": "×",
-  "diagnostic.warningSign": "×",
-  "diagnostic.infoSign": "×"
+  "emmet.includeLanguages": {"vue-html": "html", "javascript": "javascriptreact", "tsx": "html"}
 }
