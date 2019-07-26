@@ -292,3 +292,12 @@ map <C-t> [Tmux]
 
 nnoremap <silent> [Tmux]p <C-w>l
 nnoremap <silent> [Tmux]n <C-w>h
+"#######################################################
+"
+" Window settings
+"#######################################################
+" Allow keys map to move windows
+nnoremap <silent> <Left> <C-w>h
+nnoremap <silent> <Right> <C-w>l
+nnoremap <silent> <Up> <C-w>k
+nnoremap <silent> <Down> <C-w>j
