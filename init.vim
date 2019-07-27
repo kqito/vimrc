@@ -42,6 +42,27 @@ call s:callPlugins()
 nnoremap <silent> <space>0d :call <SID>callPlugins()<CR>
 
 "#######################################################
+" General settings
+"#######################################################
+set autoread
+set hidden
+set wildmenu
+filetype plugin indent on
+inoremap <silent> jj <ESC>
+vnoremap ; <ESC>:
+vnoremap / <ESC>/
+nnoremap <silent> <S-q> <Nop>
+set encoding=utf-8
+set fileencodings=utf-8
+set fileformats=unix,dos,mac
+cnoremap Q q!
+
+" For US keyboard
+nnoremap ; :
+nnoremap ; :
+
+
+"#######################################################
 " Autocmd settings
 "#######################################################
 if !&compatible
@@ -78,26 +99,6 @@ augroup My_auto
   autocmd VimEnter,ColorScheme * highlight NormalFloat ctermfg=black ctermbg=white cterm=NONE guifg=NONE guibg=NONE gui=NONE
   autocmd VimEnter,ColorScheme * highlight Search ctermfg=black ctermbg=lightgreen
 augroup END
-
-"#######################################################
-" General settings
-"#######################################################
-set autoread
-set hidden
-set wildmenu
-filetype plugin indent on
-inoremap <silent> jj <ESC>
-vnoremap ; <ESC>:
-vnoremap / <ESC>/
-nnoremap <silent> <S-q> <Nop>
-set encoding=utf-8
-set fileencodings=utf-8
-set fileformats=unix,dos,mac
-cnoremap Q q!
-
-" For US keyboard
-nnoremap ; :
-nnoremap ; :
 
 "#######################################################;
 " Buffer settings
