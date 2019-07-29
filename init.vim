@@ -1,6 +1,9 @@
 "#######################################################
 " Dein Scripts
 "#######################################################
+if !&compatible
+  set nocompatible
+endif
 
 fun! s:callPlugins()
 	if(v:version >= 800 || has('nvim'))
@@ -65,11 +68,6 @@ nnoremap ; :
 "#######################################################
 " Autocmd settings
 "#######################################################
-if !&compatible
-  set nocompatible
-endif
-
-" Define autocmds
 augroup My_auto
   "Reset augroup
   autocmd!
