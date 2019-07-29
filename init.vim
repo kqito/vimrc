@@ -1,9 +1,33 @@
 "#######################################################
+" General settings
+"#######################################################
+filetype plugin indent on
+set autoread
+set hidden
+set wildmenu
+set encoding=utf-8
+set fileencodings=utf-8
+set fileformats=unix,dos,mac
+set title
+set number
+set backspace=indent,eol,start
+set synmaxcol=200
+set t_Co=256
+set nocompatible
+
+inoremap <silent> jj <ESC>
+vnoremap ; <ESC>:
+vnoremap / <ESC>/
+nnoremap <silent> <S-q> <Nop>
+cnoremap Q q!
+
+" For US keyboard
+nnoremap ; :
+nnoremap ; :
+
+"#######################################################
 " Dein Scripts
 "#######################################################
-if !&compatible
-  set nocompatible
-endif
 
 fun! s:callPlugins()
 	if(v:version >= 800 || has('nvim'))
@@ -45,27 +69,6 @@ call s:callPlugins()
 nnoremap <silent> <space>0d :call <SID>callPlugins()<CR>
 
 "#######################################################
-" General settings
-"#######################################################
-set autoread
-set hidden
-set wildmenu
-filetype plugin indent on
-inoremap <silent> jj <ESC>
-vnoremap ; <ESC>:
-vnoremap / <ESC>/
-nnoremap <silent> <S-q> <Nop>
-set encoding=utf-8
-set fileencodings=utf-8
-set fileformats=unix,dos,mac
-cnoremap Q q!
-
-" For US keyboard
-nnoremap ; :
-nnoremap ; :
-
-
-"#######################################################
 " Autocmd settings
 "#######################################################
 augroup My_auto
@@ -85,7 +88,7 @@ augroup My_auto
   " Set indent space
   autocmd FileType *  setlocal sw=2 sts=2 ts=2 et
 
-" Open a help text vertically
+  " Open a help text vertically
   autocmd BufEnter *.txt if &buftype == 'help' | wincmd L | endif
 
   " Remove space or tab at End of line
@@ -119,12 +122,6 @@ nnoremap <silent> <C-y> "+y
 "#######################################################
 " Display settings
 "#######################################################
-set title
-set number
-set backspace=indent,eol,start
-
-set synmaxcol=200
-set t_Co=256
 
 let s:color_dir = expand('~/.config/nvim/color.vim')
 if filewritable(s:color_dir)
