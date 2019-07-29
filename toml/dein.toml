@@ -238,3 +238,27 @@ repo = 'tpope/vim-commentary'
 #########################################
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
+
+#########################################
+# Surround settings
+#########################################
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugin]]
+repo = 'tpope/vim-repeat'
+
+#########################################
+# To make git even in vim
+#########################################
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+hook_add = '''
+nmap [fugitive] <Nop>
+map <C-g> [fugitive]
+nmap <silent> [fugitive]s :Gstatus<CR>
+nmap <silent> [fugitive]d :Gdiff<CR>
+nmap <silent> [fugitive]b :Gblame<CR>
+nmap <silent> [fugitive]l :Glog<CR>
+nmap <silent> [fugitive]r :Gread<CR>
+'''
