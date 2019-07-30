@@ -15,10 +15,11 @@ autocmd VimEnter * call dein#call_hook('post_source')
 #########################################
 [[plugins]]
 repo = 'neoclide/coc.nvim'
-merge = 0
+merged = 0
 rev = 'release'
 hook_add = '''
-" coc.nvim
+let s:coc_release_path = expand(g:plugins_dir . '/neoclide/coc.nvim_release')
+let &runtimepath = s:coc_release_path .",". &runtimepath
 
 " if hidden is not set, TextEdit might fail.
 set hidden

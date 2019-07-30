@@ -31,21 +31,22 @@ nnoremap ; :
 
 fun! s:callPlugins()
 	if(v:version >= 800 || has('nvim'))
-		let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
-		let s:dein_dir = s:cache_home . '/dein'
-		let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-		if !isdirectory(s:dein_repo_dir)
-			call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
+		let g:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
+		let g:dein_dir = g:cache_home . '/dein'
+		let g:plugins_dir = g:dein_dir . '/repos/github.com'
+		let g:dein_repo_dir = g:plugins_dir . '/Shougo/dein.vim'
+		if !isdirectory(g:dein_repo_dir)
+			call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(g:dein_repo_dir))
 		endif
-		let &runtimepath = s:dein_repo_dir .",". &runtimepath
+		let &runtimepath = g:dein_repo_dir .",". &runtimepath
 
 		" read plugin & create chache
 		let s:toml_dir = expand('~/.config/nvim/toml')
 		let s:dein_file = s:toml_dir.'/dein.toml'
 		let s:dein_lazy_file = s:toml_dir.'/dein_lazy.toml'
 		let s:visual_file = s:toml_dir.'/visual.toml'
-		if dein#load_state(s:dein_dir)
-			call dein#begin(s:dein_dir)
+		if dein#load_state(g:dein_dir)
+			call dein#begin(g:dein_dir)
 			call dein#load_toml(s:dein_file, {'lazy': 0})
 			call dein#load_toml(s:visual_file, {'lazy': 0})
 			call dein#load_toml(s:dein_lazy_file, {'lazy': 1})
