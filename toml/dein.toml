@@ -43,6 +43,13 @@ set shortmess+=c
 " always show signcolumns
 set signcolumn=yes
 
+" Floating Window's color
+autocmd VimEnter,ColorScheme * highlight PmenuSel guifg=#eceff1 guibg=#1976d2
+autocmd VimEnter,ColorScheme * highlight Pmenu guifg=#e1e1e1 guibg=#212121
+autocmd VimEnter,ColorScheme * highlight CocInfoFloat guifg=#e1e1e1 guibg=#212121
+autocmd VimEnter,ColorScheme * highlight CocHintFloat guifg=#e1e1e1 guibg=#212121
+autocmd VimEnter,ColorScheme * highlight CocInfoFloat guifg=#e1e1e1 guibg=#212121
+
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>

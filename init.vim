@@ -101,12 +101,6 @@ augroup My_auto
 
   " Remove space or tab at End of line
   autocmd BufWritePre * :%s/\s\+$//e
-
-  " At last ,highlight settings
-  autocmd VimEnter,ColorScheme * highlight PmenuSel ctermfg=white ctermbg=darkblue
-  autocmd VimEnter,ColorScheme * highlight Pmenu ctermfg=white ctermbg=black
-  autocmd VimEnter,ColorScheme * highlight NormalFloat ctermfg=black ctermbg=white cterm=NONE guifg=NONE guibg=NONE gui=NONE
-  autocmd VimEnter,ColorScheme * highlight Search ctermfg=black ctermbg=lightgreen
 augroup END
 
 "#######################################################;
