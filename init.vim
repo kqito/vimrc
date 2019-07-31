@@ -41,7 +41,11 @@ fun! s:callPlugins()
 		if !isdirectory(g:dein_repo_dir)
 			call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(g:dein_repo_dir))
 		endif
-		let &runtimepath = g:dein_repo_dir .",". &runtimepath
+
+    " Prevent to register duplicated runtimepath
+    if (&runtimepath !~ ".*".g:dein_repo_dir.".*")
+        let &runtimepath = g:dein_repo_dir .",". &runtimepath
+    endif
 
 		" read plugin & create chache
 		let s:toml_dir = expand('~/.config/nvim/toml')
