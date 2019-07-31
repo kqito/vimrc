@@ -136,6 +136,7 @@ endif
 
 " Cursor settings
 set cursorline
+autocmd VimEnter,ColorScheme * highlight CursorLine guifg=NONE
 
 "#######################################################
 " Indent settings
