@@ -138,7 +138,6 @@ endif
 
 " Cursor settings
 set cursorline
-highlight CursorLine term=NONE cterm=NONE guibg=Grey90
 
 "#######################################################
 " Indent settings
