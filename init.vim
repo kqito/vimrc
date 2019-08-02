@@ -13,7 +13,6 @@ set number
 set backspace=indent,eol,start
 set synmaxcol=200
 set redrawtime=6000
-set t_Co=256
 set nocompatible
 
 " For dispaly true color on tmux
