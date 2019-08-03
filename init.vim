@@ -12,7 +12,7 @@ set title
 set number
 set backspace=indent,eol,start
 set synmaxcol=200
-set redrawtime=6000
+set redrawtime=10000
 set nocompatible
 
 " For dispaly true color on tmux
@@ -194,7 +194,7 @@ noremap <silent> g; g;zz
 noremap <silent> ! %
 
 "#######################################################
-" Allow to move the cursor when insert mode
+" Insert settings
 "#######################################################
 inoremap <silent> <C-l> <Right>
 inoremap <silent> <C-h> <Left>
