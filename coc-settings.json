@@ -14,6 +14,7 @@
   "diagnostic.warningSign": "×",
   "diagnostic.infoSign": "×",
   "prettier.eslintIntegration": true,
+  "prettier.disableLanguages": [],
   "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "vue"],
   "emmet.includeLanguages": {"vue-html": "html", "javascript": "javascriptreact", "tsx": "html"}
 }
