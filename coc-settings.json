@@ -16,5 +16,15 @@
   "prettier.eslintIntegration": true,
   "prettier.disableLanguages": [],
   "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "vue"],
-  "emmet.includeLanguages": {"vue-html": "html", "javascript": "javascriptreact", "tsx": "html"}
+  "emmet.includeLanguages": {"vue-html": "html", "javascript": "javascriptreact", "tsx": "html"},
+   "languageserver": {
+    "sorbet": {
+      "command": "srb",
+      "args": ["tc", "--lsp", "--enable-all-experimental-lsp-features"],
+      "filetypes": ["ruby"],
+      "rootPatterns": ["sorbet/config"],
+      "initializationOptions": {},
+      "settings": {}
+    }
+  }
 }
