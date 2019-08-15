@@ -13,9 +13,7 @@
   "diagnostic.errorSign": "×",
   "diagnostic.warningSign": "×",
   "diagnostic.infoSign": "×",
-  "eslint.autoFixOnSave": false,
   "prettier.eslintIntegration": true,
   "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "vue"],
-  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "vue"],
   "emmet.includeLanguages": {"vue-html": "html", "javascript": "javascriptreact", "tsx": "html"}
 }
