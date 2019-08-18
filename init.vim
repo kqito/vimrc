@@ -198,7 +198,7 @@ noremap <silent> ! %
 "#######################################################
 inoremap <silent> <C-l> <Right>
 inoremap <silent> <C-h> <Left>
-inoremap <silent> <C-o> <ESC>o
+inoremap <silent> <C-o> <ESC>$<CR>i
 
 "#######################################################
 " Reload settings
