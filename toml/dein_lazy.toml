@@ -122,17 +122,6 @@ build = 'env PY3=ON ./install.sh'
 on_source = ['denite.nvim']
 
 #########################################
-# Syntac highlight for Vue.js plugin
-#########################################
-[[plugins]]
-repo = 'posva/vim-vue'
-hook_add = '''
-au BufRead,BufNewFile *.vue setlocal filetype=vue
-au BufWinEnter *.vue exe ':syntax sync fromstart'
-'''
-on_ft = ['vue']
-
-#########################################
 # Auto coding settings
 #########################################
 [[plugins]]
