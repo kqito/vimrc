@@ -60,6 +60,7 @@ hook_source = '''
   call denite#custom#var('file/rec', 'command', [
     \ 'ag',
     \ '--follow',
+    \ '--hidden',
     \ ] + map(deepcopy(s:ignore_globs), { k, v -> '--ignore=' . v }) + [
     \ '--nocolor',
     \ '--nogroup',
@@ -71,6 +72,7 @@ hook_source = '''
   call denite#custom#var('file/old', 'command', [
     \ 'ag',
     \ '--follow',
+    \ '--hidden',
     \ ] + map(deepcopy(s:ignore_globs), { k, v -> '--ignore=' . v }) + [
     \ '--nocolor',
     \ '--nogroup',
@@ -82,6 +84,7 @@ hook_source = '''
   call denite#custom#var('grep', 'command', [
     \ 'ag',
     \ '--follow',
+    \ '--hidden',
     \ ] + map(deepcopy(s:ignore_globs), { k, v -> '--ignore=' . v }) + [
     \ '--nocolor',
     \ '--nogroup',
