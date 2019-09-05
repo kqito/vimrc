@@ -112,7 +112,7 @@ map <C-b> [Buffer]
 nnoremap [Buffer]<C-b> :b#<CR>
 nnoremap [Buffer]<C-p> :bnext<CR>
 nnoremap [Buffer]<C-n> :bprev<CR>
-nnoremap [Buffer]<C-d> :bp<bar>sp<bar>bn<bar>bd<CR>
+nnoremap [Buffer]<C-d> :bufdo bd<CR>
 
 "#######################################################
 " Yank Settings
