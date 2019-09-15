@@ -17,6 +17,7 @@
   "prettier.disableLanguages": [],
   "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "vue"],
   "emmet.includeLanguages": {"vue-html": "html", "javascript": "javascriptreact", "tsx": "html"},
+  "vetur.format.defaultFormatter.html":"js-beautify-html",
    "languageserver": {
     "sorbet": {
       "command": "srb",
