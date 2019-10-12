@@ -140,9 +140,6 @@ nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols
 nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 
-nnoremap <silent> <space>d :call CocAction('jumpDefinition', 'drop')<CR>
-
-
 " For prettier settings
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
