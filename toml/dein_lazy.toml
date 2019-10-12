@@ -34,8 +34,8 @@ hook_add = '''
 
   " Color settings
   autocmd VimEnter,ColorScheme * highlight NormalFloat ctermfg=DarkGray ctermbg=Gray
-  autocmd VimEnter,ColorScheme * highlight Underlined guifg=#ff0000 guibg=NONE
-  autocmd VimEnter,ColorScheme * highlight Search guifg=#ff0000 guibg=NONE
+  autocmd VimEnter,ColorScheme * highlight Underlined guifg=#212121 guibg=#ffcdd2
+  autocmd VimEnter,ColorScheme * highlight Search  guifg=#212121 guibg=#ffcdd2
 '''
 
 hook_source = '''
