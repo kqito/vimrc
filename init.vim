@@ -125,7 +125,6 @@ nnoremap <silent> <C-y> "+y
 "#######################################################
 " Display settings
 "#######################################################
-
 let s:color_dir = expand('~/.config/nvim/color.vim')
 if filewritable(s:color_dir)
   "if you have your colorscheme file
@@ -135,7 +134,9 @@ else
   colorscheme lucius
 endif
 
+"#######################################################
 " Cursor settings
+"#######################################################
 set cursorline
 autocmd VimEnter,ColorScheme * highlight CursorLine guifg=NONE
 
