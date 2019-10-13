@@ -1,5 +1,6 @@
 [[plugins]]
 repo = 'vim-airline/vim-airline'
+
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 hook_add = '''
@@ -51,4 +52,12 @@ let g:airline_right_alt_sep = '⮃'
 " let g:airline_symbols.branch = '⭠'
 " let g:airline_symbols.readonly = '⭤'
 " let g:airline_symbols.linenr = '⭡'
+'''
+
+[[plugins]]
+repo = 'morhetz/gruvbox'
+hook_add = '''
+colorscheme gruvbox
+set background=dark
+let g:gruvbox_contrast_dark = 'hard'
 '''

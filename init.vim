@@ -123,18 +123,6 @@ vnoremap <silent> <C-y> "+y
 nnoremap <silent> <C-y> "+y
 
 "#######################################################
-" Display settings
-"#######################################################
-let s:color_dir = expand('~/.config/nvim/color.vim')
-if filewritable(s:color_dir)
-  "if you have your colorscheme file
-  exe 'source' s:color_dir
-else
-  set background=dark
-  colorscheme lucius
-endif
-
-"#######################################################
 " Cursor settings
 "#######################################################
 set cursorline

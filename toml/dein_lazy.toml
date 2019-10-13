@@ -31,11 +31,6 @@ hook_add = '''
 	  nnoremap <silent><buffer><expr> i denite#do_map('open_filter_buffer')
 	  nnoremap <silent><buffer><expr> <Space> denite#do_map('toggle_select').'j'
 	endfunction
-
-  " Color settings
-  autocmd VimEnter,ColorScheme * highlight NormalFloat ctermfg=DarkGray ctermbg=Gray
-  autocmd VimEnter,ColorScheme * highlight Underlined guifg=#212121 guibg=#ffcdd2
-  autocmd VimEnter,ColorScheme * highlight Search  guifg=#212121 guibg=#ffcdd2
 '''
 
 hook_source = '''
