@@ -16,6 +16,8 @@
   "tsserver.enableJavascript": true,
   "prettier.eslintIntegration": true,
   "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "typescript.tsx"],
+  "eslint.autoFixOnSave": false,
+  "eslint.autoFix": false,
   "prettier.disableLanguages": [],
   "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "vue"],
   "emmet.includeLanguages": {"vue-html": "html", "javascript": "javascriptreact", "tsx": "html"},
