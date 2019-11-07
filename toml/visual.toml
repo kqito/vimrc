@@ -54,10 +54,23 @@ let g:airline_right_alt_sep = '⮃'
 " let g:airline_symbols.linenr = '⭡'
 '''
 
+#########################################
+# Color schemes
+#########################################
 [[plugins]]
 repo = 'morhetz/gruvbox'
+merged = 0
 hook_add = '''
-colorscheme gruvbox
+" autocmd VimEnter * nested colorscheme gruvbox
+" set background=dark
+" let g:gruvbox_contrast_dark = 'hard'
+'''
+
+[[plugins]]
+repo = 'rakr/vim-one'
+merged = 0
+hook_add = '''
+autocmd VimEnter * nested colorscheme one
 set background=dark
-let g:gruvbox_contrast_dark = 'hard'
+let g:one_allow_italics = 1
 '''
