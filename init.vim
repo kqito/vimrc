@@ -50,11 +50,13 @@ fun! s:callPlugins()
 		" read plugin & create chache
 		let s:toml_dir = expand('~/.config/nvim/toml')
 		let s:dein_file = s:toml_dir.'/dein.toml'
+		let s:coc_file = s:toml_dir.'/coc.toml'
 		let s:dein_lazy_file = s:toml_dir.'/dein_lazy.toml'
 		let s:visual_file = s:toml_dir.'/visual.toml'
 		if dein#load_state(g:dein_dir)
 			call dein#begin(g:dein_dir)
 			call dein#load_toml(s:dein_file, {'lazy': 0})
+			call dein#load_toml(s:coc_file, {'lazy': 0})
 			call dein#load_toml(s:visual_file, {'lazy': 0})
 			call dein#load_toml(s:dein_lazy_file, {'lazy': 1})
 			call dein#end()
