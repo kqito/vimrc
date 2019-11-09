@@ -3,7 +3,13 @@
 scriptDirectory=($(cd $(dirname $BASH_SOURCE); pwd))
 
 # Create nvim dir
-mkdir -p ~/.config/nvim/
+mkdir -p ~/.config/
 
 # Copy vimrc files
-`cp "${scriptDirectory}"/* ~/.config/nvim/`
+`cp -r "${scriptDirectory}" ~/.config/`
+
+# Rename the dir for vim command
+mv ~/.config/vimrc ~/.config/nvim
+
+# Copy vimrc
+cp ~/.config/nvim/vimrc ~/.vimrc
