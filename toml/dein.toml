@@ -136,16 +136,19 @@ nnoremap <silent> [coc-list]o  :<C-u>CocList outline<CR>
 nnoremap <silent> [coc-list]w  :<C-u>CocList -I symbols<CR>
 
 " Grep current word
-nnoremap <silent> [coc-list]s :exe 'CocList -I --input='.expand('<cword>').' grep'<CR>
+nnoremap <silent> [coc-list]s  :exe 'CocList -I --input='.expand('<cword>').' grep'<CR>
 
 " Yank
-nnoremap <silent> [coc-list]y  :<C-u>CocList -A --normal yank<CR>
+nnoremap <silent> <space>y     :<C-u>CocList -A --normal yank<CR>
 
 " File ( Search from project root )
 nnoremap <silent> [coc-list]p  :<C-u>CocList files<CR>
 
 " File ( Search from current dir )
-nnoremap <silent> [coc-list]r :exe 'CocList --input='.expand('%:p:h:t'). '/' .' files'<CR>
+nnoremap <silent> [coc-list]r  :exe 'CocList --input='.expand('%:p:h:t'). '/' .' files'<CR>
+
+" Mru
+nnoremap <silent> [coc-list]y  :<C-u>CocList mru<CR>
 
 " Buffer
 nnoremap <silent> [coc-list]b  :<C-u>CocList buffers<CR>
