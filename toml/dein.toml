@@ -59,9 +59,9 @@ endfunction
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Use <CR> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -113,34 +113,42 @@ command! -nargs=0 Format :call CocAction('format')
 " Use `:Fold` to fold current buffer
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
-" Using CocList
-" Show all diagnostics
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-
-" Jump navigate diagnostics
-nmap <silent> <space>k <Plug>(coc-diagnostic-prev)
-nmap <silent> <space>j <Plug>(coc-diagnostic-next)
-
-" Do default action for next item.
-nnoremap <silent> <space>p  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent> <space>n  :<C-u>CocPrev<CR>
-
-" Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-" Show commands
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-
-" Find symbol of current document
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-
 " For prettier settings
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
-" For coc-yank
-nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
+" ===== CocList =====
+noremap [coc-list] <Nop>
+map s [coc-list]
+
+" Show all diagnostics
+nnoremap <silent> [coc-list]a  :<C-u>CocList diagnostics<CR>
+
+" Manage extensions
+nnoremap <silent> [coc-list]e  :<C-u>CocList extensions<CR>
+
+" Show commands
+nnoremap <silent> [coc-list]c  :<C-u>CocList commands<CR>
+
+" Find symbol of current document
+nnoremap <silent> [coc-list]o  :<C-u>CocList outline<CR>
+
+" Search workspace symbols
+nnoremap <silent> [coc-list]w  :<C-u>CocList -I symbols<CR>
+
+" Grep current word
+nnoremap <silent> [coc-list]s :exe 'CocList -I --input='.expand('<cword>').' grep'<CR>
+
+" Yank
+nnoremap <silent> [coc-list]y  :<C-u>CocList -A --normal yank<CR>
+
+" File ( Search from project root )
+nnoremap <silent> [coc-list]p  :<C-u>CocList files<CR>
+
+" File ( Search from current dir )
+nnoremap <silent> [coc-list]r :exe 'CocList --input='.expand('%:p:h:t'). '/' .' files'<CR>
+
+" Buffer
+nnoremap <silent> [coc-list]b  :<C-u>CocList buffers<CR>
 '''
 #########################################
 # Change window's size settings

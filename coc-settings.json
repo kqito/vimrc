@@ -3,7 +3,7 @@
 		"<C-c>": "do:exit",
     "<C-j>":"do:next",
     "<C-k>":"do:previous",
-    "<C-v>":"action:vsplit",
+    "<C-v>":"action:vsplit"
 	},
 	"list.normalMappings": {
 		"<C-c>": "do:exit"
