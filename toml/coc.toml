@@ -104,6 +104,7 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " For prettier settings
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
+" ===== Disgnostics ======
 nmap <silent> <space>k <Plug>(coc-diagnostic-prev)
 nmap <silent> <space>j <Plug>(coc-diagnostic-next)
 
@@ -112,13 +113,16 @@ noremap [coc-list] <Nop>
 map s [coc-list]
 
 " Show all diagnostics
-nnoremap <silent> [coc-list]a  :<C-u>CocList diagnostics<CR>
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<CR>
 
 " Manage extensions
-nnoremap <silent> [coc-list]e  :<C-u>CocList extensions<CR>
+nnoremap <silent> <space>e  :<C-u>CocList extensions<CR>
 
 " Show commands
-nnoremap <silent> [coc-list]c  :<C-u>CocList commands<CR>
+nnoremap <silent> <space>c  :<C-u>CocList commands<CR>
+
+" Yank
+nnoremap <silent> <space>y     :<C-u>CocList -A --normal yank<CR>
 
 " Find symbol of current document
 nnoremap <silent> [coc-list]o  :<C-u>CocList outline<CR>
@@ -128,9 +132,6 @@ nnoremap <silent> [coc-list]w  :<C-u>CocList -I symbols<CR>
 
 " Grep current word
 nnoremap <silent> [coc-list]s  :exe 'CocList -I --input='.expand('<cword>').' grep'<CR>
-
-" Yank
-nnoremap <silent> <space>y     :<C-u>CocList -A --normal yank<CR>
 
 " File ( Search from project root )
 nnoremap <silent> [coc-list]p  :<C-u>CocList files<CR>
