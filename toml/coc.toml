@@ -125,13 +125,13 @@ nnoremap <silent> <space>c  :<C-u>CocList commands<CR>
 nnoremap <silent> <space>y     :<C-u>CocList -A --normal yank<CR>
 
 " Find symbol of current document
-nnoremap <silent> [coc-list]o  :<C-u>CocList outline<CR>
+nnoremap <silent> [coc-list]o  :<C-u>CocList -A outline<CR>
 
 " Search workspace symbols
 nnoremap <silent> [coc-list]w  :<C-u>CocList -I symbols<CR>
 
 " Grep current word
-nnoremap <silent> [coc-list]s  :exe 'CocList -I --input='.expand('<cword>').' grep'<CR>
+nnoremap <silent> [coc-list]s  :exe 'CocList -I --input='.expand('<cword>').' symbols'<CR>
 
 " File ( Search from project root )
 nnoremap <silent> [coc-list]p  :<C-u>CocList files<CR>
