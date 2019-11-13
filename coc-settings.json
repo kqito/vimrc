@@ -1,4 +1,9 @@
 {
+  // ===== General ======
+  "coc.preferences.colorSupport": true,
+  "git.enableGutters": false,
+
+  // ===== Control ======
   "list.insertMappings": {
 		"<C-c>": "do:exit",
     "<C-j>":"do:next",
@@ -8,12 +13,20 @@
 	"list.normalMappings": {
 		"<C-c>": "do:exit"
 	},
-  "coc.preferences.colorSupport": true,
+
+  // ===== Coc-list ======
+  "list.source.files.excludePatterns": ["**/node_modules/**"],
+
+  // ===== Complete ======
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 20,
+
+  // ===== Disagnostic ======
   "diagnostic.errorSign": "×",
   "diagnostic.warningSign": "!",
   "diagnostic.infoSign": "?",
+
+  // ===== JS ======
   "tsserver.enableJavascript": true,
   "prettier.eslintIntegration": true,
   "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "typescript.tsx"],
@@ -23,6 +36,8 @@
   "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "vue"],
   "emmet.includeLanguages": {"vue-html": "html", "javascript": "javascriptreact", "tsx": "html"},
   "vetur.format.defaultFormatter.html":"js-beautify-html",
+
+  // ===== Server ======
    "languageserver": {
     "sorbet": {
       "command": "srb",
@@ -32,6 +47,5 @@
       "initializationOptions": {},
       "settings": {}
     }
-  },
-  "git.enableGutters": false
+  }
 }
