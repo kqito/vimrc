@@ -210,11 +210,16 @@ nmap <silent> v <S-v>
 "#######################################################
 " Replacement settings
 "#######################################################
+noremap <silent> <space>r <Nop>
+map <space>r [Replace]
+nmap [Replace] <Nop>
+
 nnoremap <silent> <space>h "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
-nmap # <space>h:%s//g<Left><Left><C-r>"/
-nmap $ <space>h:%s//g<Left><Left>
-vmap # <ESC><space>h:let @a = getpos("'<")[1]<CR>:let @b = getpos("'>")[1]<CR>:<C-r>a,<C-r>bs//g<Left><Left><C-r>"/
-vmap $ <ESC><space>h:let @a = getpos("'<")[1]<CR>:let @b = getpos("'>")[1]<CR>:<C-r>a,<C-r>bs//g<Left><Left>
+
+nmap [Replace]w <space>h:%s//g<Left><Left><C-r>"/
+nmap [Replace]p <space>h:%s//g<Left><Left>
+vmap [Replace]w <ESC><space>h:let @a = getpos("'<")[1]<CR>:let @b = getpos("'>")[1]<CR>:<C-r>a,<C-r>bs//g<Left><Left><C-r>"/
+vmap [Replace]p <ESC><space>h:let @a = getpos("'<")[1]<CR>:let @b = getpos("'>")[1]<CR>:<C-r>a,<C-r>bs//g<Left><Left>
 
 "#######################################################
 " Settings to swap rows
