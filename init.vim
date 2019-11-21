@@ -183,7 +183,6 @@ noremap <silent> <S-k> <C-u>
 noremap <silent> <S-l> $
 noremap <silent> <S-h> 0
 noremap <silent> g; g;zz
-noremap <silent> ! %
 
 "#######################################################
 " Insert settings
