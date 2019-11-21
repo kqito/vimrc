@@ -18,7 +18,6 @@ set nocompatible
 " For dispaly true color on tmux
 set termguicolors
 
-inoremap <silent> jj <ESC>
 vnoremap ; <ESC>:
 vnoremap / <ESC>/
 nnoremap <silent> <S-q> <Nop>
