@@ -24,10 +24,6 @@ vnoremap / <ESC>/
 nnoremap <silent> <S-q> <Nop>
 cnoremap Q q!
 
-" For US keyboard
-nnoremap ; :
-nnoremap ; :
-
 "#######################################################
 " Dein Scripts
 "#######################################################
