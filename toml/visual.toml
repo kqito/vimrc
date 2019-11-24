@@ -61,16 +61,16 @@ let g:airline_right_alt_sep = '⮃'
 repo = 'morhetz/gruvbox'
 merged = 0
 hook_add = '''
-" autocmd VimEnter * nested colorscheme gruvbox
-" set background=dark
-" let g:gruvbox_contrast_dark = 'hard'
+autocmd VimEnter * nested colorscheme gruvbox
+set background=dark
+let g:gruvbox_contrast_dark = 'hard'
 '''
 
 [[plugins]]
 repo = 'rakr/vim-one'
 merged = 0
 hook_add = '''
-autocmd VimEnter * nested colorscheme one
-set background=dark
-let g:one_allow_italics = 1
+" autocmd VimEnter * nested colorscheme one
+" set background=dark
+" let g:one_allow_italics = 1
 '''
