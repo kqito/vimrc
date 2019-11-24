@@ -39,6 +39,8 @@ nnoremap <silent> <space>b :call MyNerdToggle()<CR>
 repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
 hook_add = '''
 let g:NERDTreeLimitedSyntax = 1
+let g:NERDTreeMapOpenVSplit = 'v'
+let g:NERDTreeQuitOnOpen = 1
 '''
 
 #########################################
