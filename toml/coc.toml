@@ -134,7 +134,7 @@ nnoremap <silent> [coc-list]w  :<C-u>CocList -I symbols<CR>
 nnoremap <silent> [coc-list]g  :<C-u>CocList -I grep<CR>
 
 " Grep current word
-nnoremap <silent> [coc-list]s  :exe 'CocList -I --input='.expand('<cword>').' symbols'<CR>
+nnoremap <silent> [coc-list]s  :exe 'CocList -I --input='.expand('<cword>').' grep'<CR>
 
 " File ( Search from project root )
 nnoremap <silent> [coc-list]p  :<C-u>CocList files<CR>
@@ -147,4 +147,7 @@ nnoremap <silent> [coc-list]y  :<C-u>CocList mru<CR>
 
 " Buffer
 nnoremap <silent> [coc-list]b  :<C-u>CocList buffers<CR>
+
+" help vim
+nnoremap <silent> [coc-list]h  :<C-u>CocList helptags<CR>
 '''
