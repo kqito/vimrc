@@ -55,7 +55,7 @@ let g:airline_right_alt_sep = '⮃'
 '''
 
 #########################################
-# Color schemes
+# Color themes
 #########################################
 [[plugins]]
 repo = 'morhetz/gruvbox'
@@ -70,7 +70,21 @@ hook_add = '''
 repo = 'rakr/vim-one'
 merged = 0
 hook_add = '''
-autocmd VimEnter * nested colorscheme one
-set background=dark
-let g:one_allow_italics = 1
+" autocmd VimEnter * nested colorscheme one
+" set background=dark
+" let g:one_allow_italics = 1
+'''
+
+[[plugins]]
+repo = 'cocopon/iceberg.vim'
+merged = 0
+hook_add = '''
+" autocmd VimEnter * nested colorscheme iceberg
+'''
+
+[[plugins]]
+repo = 'haishanh/night-owl.vim'
+merged = 0
+hook_add = '''
+autocmd VimEnter * nested colorscheme night-owl
 '''
