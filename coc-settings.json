@@ -3,7 +3,7 @@
   "coc.preferences.colorSupport": true,
   "git.enableGutters": false,
 
-  // ===== Control ======
+  // ===== Coc-list ======
   "list.insertMappings": {
 		"<C-c>": "do:exit",
     "<C-j>":"do:next",
@@ -11,13 +11,13 @@
     "<C-v>":"action:vsplit"
 	},
 	"list.normalMappings": {
-		"<C-c>": "do:exit"
+		"<C-c>": "do:exit",
+    "<C-j>":"do:next",
+    "<C-k>":"do:previous"
 	},
-
-  // ===== Coc-list ======
   "list.source.files.excludePatterns": ["**/node_modules/**"],
 
-  // ===== Complete ======
+  // ===== Completion ======
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 20,
 
