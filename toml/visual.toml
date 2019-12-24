@@ -86,5 +86,12 @@ hook_add = '''
 repo = 'haishanh/night-owl.vim'
 merged = 0
 hook_add = '''
-autocmd VimEnter * nested colorscheme night-owl
+"autocmd VimEnter * nested colorscheme night-owl
+'''
+
+[[plugins]]
+repo = 'jonathanfilip/vim-lucius'
+merged = 0
+hook_add = '''
+autocmd VimEnter * nested colorscheme lucius
 '''
