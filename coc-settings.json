@@ -13,7 +13,8 @@
 	"list.normalMappings": {
 		"<C-c>": "do:exit",
     "<C-j>":"do:next",
-    "<C-k>":"do:previous"
+    "<C-k>":"do:previous",
+    "<C-v>":"action:vsplit"
 	},
   "list.source.files.excludePatterns": ["**/node_modules/**"],
 
