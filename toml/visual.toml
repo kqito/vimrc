@@ -94,4 +94,9 @@ repo = 'jonathanfilip/vim-lucius'
 merged = 0
 hook_add = '''
 autocmd VimEnter * nested colorscheme lucius
+
+autocmd User CocOpenFloat
+  \ if exists('w:float')
+  \ |   hi CocFloating guibg=#616161 guifg=NONE
+  \ | endif
 '''
