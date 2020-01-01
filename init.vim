@@ -1,6 +1,4 @@
-"#######################################################
-" General settings
-"#######################################################
+" ===== General settings =====
 filetype plugin indent on
 set autoread
 set hidden
@@ -23,10 +21,7 @@ vnoremap / <ESC>/
 nnoremap <silent> <S-q> <Nop>
 cnoremap Q q!
 
-"#######################################################
-" Dein Scripts
-"#######################################################
-
+" ===== Dein Scripts =====
 fun! s:callPlugins()
 	if(v:version >= 800 || has('nvim'))
 		let g:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
@@ -73,9 +68,7 @@ endfun
 call s:callPlugins()
 nnoremap <silent> <space>0d :call <SID>callPlugins()<CR>
 
-"#######################################################
-" Autocmd settings
-"#######################################################
+" ===== Autocmd settings =====
 augroup My_auto
   "Reset augroup
   autocmd!
@@ -100,9 +93,7 @@ augroup My_auto
   autocmd BufWritePre * :%s/\s\+$//e
 augroup END
 
-"#######################################################;
-" Buffer settings
-"#######################################################
+" ===== Buffer settings =====
 nmap [Buffer] <Nop>
 map <C-b> [Buffer]
 
@@ -112,22 +103,16 @@ nnoremap [Buffer]<C-n> :bprev<CR>
 nnoremap [Buffer]<C-d> :bufdo bd<CR>
 nnoremap -- :bufdo bd<CR>
 
-"#######################################################
-" Yank Settings
-"#######################################################
+" ===== Yank Settings =====
 nnoremap <silent> Y <C-v>$"xy
 vnoremap <silent> <C-y> "+y
 nnoremap <silent> <C-y> "+y
 
-"#######################################################
-" Cursor settings
-"#######################################################
+" ===== Cursor settings =====
 set cursorline
 autocmd VimEnter,ColorScheme * highlight CursorLine guifg=NONE
 
-"#######################################################
-" Indent settings
-"#######################################################
+" ===== Indent settings =====
 set autoindent
 set cindent
 set nosmarttab
@@ -137,9 +122,7 @@ nnoremap <silent> < <<
 vnoremap > >`[V`]
 vnoremap < <`[V`]
 
-"#######################################################
-" Clean all indents
-"#######################################################
+" ===== Clean all indents =====
 augroup IndentGroup
   autocmd!
   " Set indent space
@@ -147,14 +130,10 @@ augroup IndentGroup
   autocmd BufEnter *.vue nnoremap <silent> <buffer> == /<\/template><CR>:noh<CR><Down><S-v>G=Gg;zz
 augroup END
 
-"#######################################################
-" Around the swap settings
-"#######################################################
+" ===== Around the swap settings =====
 set noswapfile
 
-"#######################################################
-" Search settings
-"#######################################################
+" ===== Search settings =====
 set incsearch
 set ignorecase
 set hlsearch
@@ -162,38 +141,28 @@ set smartcase
 nnoremap <silent> <ESC><ESC> :noh<CR>
 nnoremap <silent> <C-c><C-c> :noh<CR>
 
-"#######################################################
-" Allow to undo after even closed any files
-"#######################################################
+" ===== Allow to undo after even closed any files =====
 if has('persistent_undo')
     set undodir=~/.config/nvim/.undo
     set undofile
 endif
 
-"#######################################################
-" Move cursor settings
-"#######################################################
+" ===== Move cursor settings =====
 noremap <silent> <S-j> <C-d>
 noremap <silent> <S-k> <C-u>
 noremap <silent> <S-l> $
 noremap <silent> <S-h> 0
 noremap <silent> g; g;zz
 
-"#######################################################
-" Insert settings
-"#######################################################
+" ===== Insert settings =====
 inoremap <silent> <C-l> <Right>
 inoremap <silent> <C-h> <Left>
 inoremap <silent> <C-o> <ESC>o
 
-"#######################################################
-" Reload settings
-"#######################################################
+" ===== Reload settings =====
 noremap <space>0 :source ~/.nvim/init.vim<CR>
 
-"#######################################################
-" Change key mapiings a,A,i,I respectively
-"#######################################################
+" ===== Change key mapiings a,A,i,I respectively =====
 nnoremap <silent> i a
 nnoremap <silent> a i
 nnoremap <silent> I A
@@ -201,14 +170,10 @@ nnoremap <silent> A I
 vnoremap <silent> A I
 vnoremap <silent> I A
 
-"#######################################################
-" Move the cursor to the end of the line
-"#######################################################
+" ===== Move the cursor to the end of the line =====
 nmap <silent> v <S-v>
 
-"#######################################################
-" Replacement settings
-"#######################################################
+" ===== Replacement settings =====
 noremap <silent> <space>r <Nop>
 map <space>r [Replace]
 nmap [Replace] <Nop>
@@ -220,17 +185,13 @@ nmap [Replace]p <space>h:%s//g<Left><Left>
 vmap [Replace]w <ESC><space>h:let @a = getpos("'<")[1]<CR>:let @b = getpos("'>")[1]<CR>:<C-r>a,<C-r>bs//g<Left><Left><C-r>"/
 vmap [Replace]p <ESC><space>h:let @a = getpos("'<")[1]<CR>:let @b = getpos("'>")[1]<CR>:<C-r>a,<C-r>bs//g<Left><Left>
 
-"#######################################################
-" Settings to swap rows
-"#######################################################
+" ===== Settings to swap rows =====
 nnoremap <C-n> "zdd"zp
 nnoremap <C-p> "zdd<Up>"zP
 vnoremap <C-p> "zx<Up>"zP`[V`]
 vnoremap <C-n> "zx"zp`[V`]
 
-"#######################################################
-" The delete register settings
-"#######################################################
+" ===== The delete register settings =====
 nnoremap d "xd
 nnoremap D "xD
 vnoremap d "xd
@@ -239,9 +200,7 @@ vnoremap y "xy
 nnoremap x ""x
 noremap p "xp
 
-"#######################################################
-" Allow to use of mouse settings
-"#######################################################
+" ===== Allow to use of mouse settings =====
 if has('mouse')
 	set mouse=
 	nnoremap <silent> <space>m :call <SID>toggle_mouse()<CR>
@@ -263,28 +222,22 @@ function! s:toggle_mouse()
     endif
 endfunction
 
-"#######################################################
-" Around the coding style setting
-"#######################################################
+" ===== Around the coding style setting =====
 inoremap ,, <ESC>:%s/\s\+$//e<CR><S-A>,<ESC>
 nnoremap ,, <ESC>:%s/\s\+$//e<CR><S-A>,<ESC>
 inoremap ;; <ESC><S-A>;<ESC>
 nnoremap ;; <ESC><S-A>;<ESC>
 
 
-"#######################################################
-" Tmux settings
-"#######################################################
+" ===== Tmux settings =====
 noremap <silent> <C-t> <Nop>
 nmap [Tmux] <Nop>
 map <C-t> [Tmux]
 
 nnoremap <silent> [Tmux]p <C-w>l
 nnoremap <silent> [Tmux]n <C-w>h
-"#######################################################
-"
-" Window settings
-"#######################################################
+
+" ===== Window settings =====
 " Allow keys map to move windows
 nnoremap <silent> <Left> <C-w>h
 nnoremap <silent> <Right> <C-w>l

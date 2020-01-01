@@ -1,6 +1,4 @@
-#########################################
-# Dein plugin manager settings
-#########################################
+# ===== Dein plugin manager settings =====
 [[plugins]]
 repo = 'Shougo/dein.vim'
 hook_add = '''
@@ -10,18 +8,14 @@ let g:ruby_host_prog = $HOME . '/.rbenv/shims/ruby'
 autocmd VimEnter * call dein#call_hook('post_source')
 '''
 
-#########################################
-# Change window's size settings
-#########################################
+# ===== Change window's size settings =====
 [[plugins]]
 repo = 'simeji/winresizer'
 hook_add = '''
 nnoremap <space>t :WinResizerStartResize<CR>
 '''
 
-#########################################
-# Nerdtree settings
-#########################################
+# ===== Nerdtree settings =====
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
@@ -43,47 +37,34 @@ let g:NERDTreeMapOpenVSplit = 'v'
 let g:NERDTreeQuitOnOpen = 1
 '''
 
-#########################################
-# Dispaly idnent vertically line
-#########################################
+# ===== Dispaly idnent vertically line =====
 [[plugins]]
 repo = 'Yggdroot/indentLine'
-
 hook_add = '''
 nnoremap <silent> <space>it :IndentLinesToggle<CR>
 let g:indentLine_color_term = 113
 '''
 
-#########################################
-# Add Pairs
-#########################################
+# ===== Add Pairs =====
 [[plugins]]
 repo = 'jiangmiao/auto-pairs'
 
-#########################################
-# Comment out
-#########################################
+# ===== Comment out =====
 [[plugins]]
 repo = 'tpope/vim-commentary'
 
-#########################################
-# Syntac highlight
-#########################################
+# ===== Syntac highlight =====
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
 
-#########################################
-# Surround settings
-#########################################
+# ===== Surround settings =====
 [[plugins]]
 repo = 'tpope/vim-surround'
 
 [[plugin]]
 repo = 'tpope/vim-repeat'
 
-#########################################
-# To make git even in vim
-#########################################
+# ===== To make git even in vim =====
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 hook_add = '''

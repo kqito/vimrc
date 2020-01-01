@@ -1,6 +1,4 @@
-#########################################
-# Language servers settings
-#########################################
+# ===== Language servers settings =====
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 merged = 0
