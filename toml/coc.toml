@@ -4,12 +4,6 @@ repo = 'neoclide/coc.nvim'
 merged = 0
 rev = 'release'
 hook_add = '''
-let s:coc_release_path = expand(g:plugins_dir . '/neoclide/coc.nvim_release')
-" Prevent to register duplicated runtimepath
-if (&runtimepath !~ ".*".s:coc_release_path.".*")
-  let &runtimepath = s:coc_release_path .",". &runtimepath
-endif
-
 " if hidden is not set, TextEdit might fail.
 set hidden
 
