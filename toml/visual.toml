@@ -49,6 +49,7 @@ endif
 # merged = 0
 # hook_add = '''
 # autocmd VimEnter * nested colorscheme night-owl
+# set background=dark
 # '''
 
 [[plugins]]
@@ -56,6 +57,7 @@ repo = 'jonathanfilip/vim-lucius'
 merged = 0
 hook_add = '''
 autocmd VimEnter * nested colorscheme lucius
+set background=dark
 
 autocmd User CocOpenFloat
   \ if exists('w:float')
