@@ -48,5 +48,10 @@
       "initializationOptions": {},
       "settings": {}
     }
+  },
+
+  // ===== Go ======
+  "go.goplsOptions": {
+    "completeUnimported": true
   }
 }
