@@ -239,3 +239,6 @@ nnoremap <silent> <Left> <C-w>h
 nnoremap <silent> <Right> <C-w>l
 nnoremap <silent> <Up> <C-w>k
 nnoremap <silent> <Down> <C-w>j
+
+" ===== Sudo action =====
+command! WriteAsRoot :w !sudo tee > /dev/null %
