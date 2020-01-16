@@ -22,6 +22,7 @@ endif
 # [[plugins]]
 # repo = 'morhetz/gruvbox'
 # merged = 0
+# trusted = 1
 # hook_add = '''
 # autocmd VimEnter * nested colorscheme gruvbox
 # set background=dark
@@ -31,6 +32,7 @@ endif
 # [[plugins]]
 # repo = 'rakr/vim-one'
 # merged = 0
+# trusted = 1
 # hook_add = '''
 # autocmd VimEnter * nested colorscheme one
 # set background=dark
@@ -40,6 +42,7 @@ endif
 # [[plugins]]
 # repo = 'cocopon/iceberg.vim'
 # merged = 0
+# trusted = 1
 # hook_add = '''
 # autocmd VimEnter * nested colorscheme iceberg
 # '''
@@ -47,6 +50,7 @@ endif
 # [[plugins]]
 # repo = 'haishanh/night-owl.vim'
 # merged = 0
+# trusted = 1
 # hook_add = '''
 # autocmd VimEnter * nested colorscheme night-owl
 # set background=dark
@@ -55,6 +59,7 @@ endif
 [[plugins]]
 repo = 'jonathanfilip/vim-lucius'
 merged = 0
+trusted = 1
 hook_add = '''
 autocmd VimEnter * nested colorscheme lucius
 set background=dark
