@@ -1,9 +1,6 @@
 # ===== Status line =====
 [[plugins]]
 repo = 'vim-airline/vim-airline'
-
-[[plugins]]
-repo = 'vim-airline/vim-airline-themes'
 hook_add = '''
 " use powerline-font
 set laststatus=2
@@ -11,11 +8,16 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#whitespace#mixed_indent_algo = 1
-let g:airline_theme='base16_spacemacs'
 
 if !exists('g:airline_symbols')
 let g:airline_symbols = {}
 endif
+'''
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+hook_add = '''
+let g:airline_theme='base16_spacemacs'
 '''
 
 # ===== Color themes =====
