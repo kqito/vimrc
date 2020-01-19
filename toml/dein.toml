@@ -19,6 +19,7 @@ nnoremap <space>t :WinResizerStartResize<CR>
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
+let NERDTreeShowHidden = 1
 function MyNerdToggle()
     if &filetype == 'nerdtree'
         :NERDTreeToggle
