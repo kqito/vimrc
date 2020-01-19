@@ -76,3 +76,15 @@ nmap <silent> [fugitive]b :Gblame<CR>
 nmap <silent> [fugitive]l :Glog<CR>
 nmap <silent> [fugitive]r :Gread<CR>
 '''
+
+# ===== For pane of tmux controller =====
+[[plugins]]
+repo = 'christoomey/vim-tmux-navigator'
+hook_add = '''
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <C-t>h :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-t>j :TmuxNavigateDown<cr>
+nnoremap <silent> <C-t>k :TmuxNavigateUp<cr>
+nnoremap <silent> <C-t>l :TmuxNavigateRight<cr>
+nnoremap <silent> <C-t>\\ :TmuxNavigatePrevious<cr>
+'''
