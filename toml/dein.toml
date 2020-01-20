@@ -21,11 +21,11 @@ repo = 'scrooloose/nerdtree'
 hook_add = '''
 let NERDTreeShowHidden = 1
 function MyNerdToggle()
-    if &filetype == 'nerdtree'
-        :NERDTreeToggle
-    else
-        :NERDTreeFind
-    endif
+  if &filetype == 'nerdtree' || &filetype == ''
+    :NERDTreeToggle
+  else
+    :NERDTreeFind
+  endif
 endfunction
 
 nnoremap <silent> <space>b :call MyNerdToggle()<CR>
