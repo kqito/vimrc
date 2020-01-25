@@ -1,0 +1,80 @@
+# ===== Change window's size settings =====
+[[plugins]]
+repo = 'simeji/winresizer'
+hook_add = '''
+nnoremap <space>t :WinResizerStartResize<CR>
+'''
+
+# ===== Nerdtree settings =====
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add = '''
+let NERDTreeShowHidden = 1
+function MyNerdToggle()
+  if &filetype == 'nerdtree' || &filetype == ''
+    :NERDTreeToggle
+  else
+    :NERDTreeFind
+  endif
+endfunction
+
+nnoremap <silent> <space>b :call MyNerdToggle()<CR>
+'''
+[[plugins]]
+repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
+hook_add = '''
+let g:NERDTreeLimitedSyntax = 1
+let g:NERDTreeMapOpenVSplit = 'v'
+let g:NERDTreeQuitOnOpen = 1
+'''
+
+# ===== Dispaly idnent vertically line =====
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+hook_add = '''
+let g:indentLine_conceallevel  = &conceallevel
+let g:indentLine_concealcursor = &concealcursor
+
+nnoremap <silent> <space>it :IndentLinesToggle<CR>
+let g:indentLine_color_term = 113
+'''
+
+# ===== Add Pairs =====
+[[plugins]]
+repo = 'jiangmiao/auto-pairs'
+
+# ===== Comment out =====
+[[plugins]]
+repo = 'tpope/vim-commentary'
+
+# ===== Surround settings =====
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugin]]
+repo = 'tpope/vim-repeat'
+
+# ===== To make git even in vim =====
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+hook_add = '''
+nmap [fugitive] <Nop>
+map <C-g> [fugitive]
+nmap <silent> [fugitive]s :Gstatus<CR>
+nmap <silent> [fugitive]d :Gdiff<CR>
+nmap <silent> [fugitive]b :Gblame<CR>
+nmap <silent> [fugitive]l :Glog<CR>
+nmap <silent> [fugitive]r :Gread<CR>
+'''
+
+# ===== For pane of tmux controller =====
+[[plugins]]
+repo = 'christoomey/vim-tmux-navigator'
+hook_add = '''
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <C-t>h  :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-t>j  :TmuxNavigateDown<cr>
+nnoremap <silent> <C-t>k  :TmuxNavigateUp<cr>
+nnoremap <silent> <C-t>l  :TmuxNavigateRight<cr>
+nnoremap <silent> <C-t>\\ :TmuxNavigatePrevious<cr>
+'''

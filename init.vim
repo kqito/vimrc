@@ -42,9 +42,10 @@ fun! s:callPlugins()
 		if dein#load_state(g:dein_dir)
 			call dein#begin(g:dein_dir)
 			call dein#load_toml(s:toml_dir.'/dein.toml', {'lazy': 0})
+			call dein#load_toml(s:toml_dir.'/plugins.toml', {'lazy': 0})
+			call dein#load_toml(s:toml_dir.'/plugins_lazy.toml', {'lazy': 1})
 			call dein#load_toml(s:toml_dir.'/coc.toml', {'lazy': 0})
 			call dein#load_toml(s:toml_dir.'/visual.toml', {'lazy': 0})
-			call dein#load_toml(s:toml_dir.'/dein_lazy.toml', {'lazy': 1})
 			call dein#end()
 			call dein#save_state()
 		endif
@@ -68,10 +69,6 @@ nnoremap <silent> <space>0d :call <SID>callPlugins()<CR>
 augroup My_auto
   "Reset augroup
   autocmd!
-
-  " Filetype settings
-  autocmd BufNewFile,BufRead *.tsx setf typescript
-  autocmd BufNewFile,BufRead *.ts setf typescript
 
   " Turn off paste mode when leaving insert
   autocmd InsertEnter * set nopaste
