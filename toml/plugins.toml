@@ -47,6 +47,10 @@ repo = 'jiangmiao/auto-pairs'
 [[plugins]]
 repo = 'tpope/vim-commentary'
 
+# ===== Comment out =====
+[[plugins]]
+repo = 'sheerun/vim-polyglot'
+
 # ===== Surround settings =====
 [[plugins]]
 repo = 'tpope/vim-surround'

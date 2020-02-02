@@ -66,8 +66,7 @@ call s:callPlugins()
 nnoremap <silent> <space>0d :call <SID>callPlugins()<CR>
 
 " ===== Autocmd settings =====
-augroup My_auto
-  "Reset augroup
+augroup autoDefault
   autocmd!
 
   " Turn off paste mode when leaving insert
@@ -84,6 +83,13 @@ augroup My_auto
 
   " Remove space or tab at End of line
   autocmd BufWritePre * :%s/\s\+$//e
+augroup END
+
+" ===== Filetype settings =====
+augroup updateFiletype
+  autocmd!
+
+  autocmd BufNewFile,BufRead *.tsx setf typescript
 augroup END
 
 " ===== Buffer settings =====
