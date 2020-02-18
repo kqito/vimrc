@@ -27,25 +27,25 @@
 # autocmd VimEnter * nested colorscheme iceberg
 # '''
 
-# [[plugins]]
-# repo = 'haishanh/night-owl.vim'
-# merged = 0
-# trusted = 1
-# hook_add = '''
-# autocmd VimEnter * nested colorscheme night-owl
-# set background=dark
-# '''
-
 [[plugins]]
-repo = 'jonathanfilip/vim-lucius'
+repo = 'haishanh/night-owl.vim'
 merged = 0
 trusted = 1
 hook_add = '''
-autocmd VimEnter * nested colorscheme lucius
+autocmd VimEnter * nested colorscheme night-owl
 set background=dark
-
-autocmd User CocOpenFloat
-  \ if exists('w:float')
-  \ |   hi CocFloating guibg=#616161 guifg=NONE
-  \ | endif
 '''
+
+# [[plugins]]
+# repo = 'jonathanfilip/vim-lucius'
+# merged = 0
+# trusted = 1
+# hook_add = '''
+# autocmd VimEnter * nested colorscheme lucius
+# set background=dark
+
+# autocmd User CocOpenFloat
+#   \ if exists('w:float')
+#   \ |   hi CocFloating guibg=#616161 guifg=NONE
+#   \ | endif
+# '''
