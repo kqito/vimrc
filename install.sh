@@ -1,6 +1,6 @@
 #!/bin/bash
 
-declare -a VIMRC_DIRS=("${HOME}/.vim" "${HOME}/.config/nvim")
+declare -a VIMRC_DIRS=("${HOME}/.vim")
 
 check() {
   read -p "$1 (y/N): " yn
