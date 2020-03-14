@@ -16,6 +16,9 @@ augroup general
 
   " Remove space or tab at End of line
   autocmd BufWritePre * :%s/\s\+$//e
+
+  " Auto reload
+  autocmd FocusGained,BufEnter * checktime
 augroup END
 
 " ===== Filetype settings =====
