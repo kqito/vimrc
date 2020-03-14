@@ -8,13 +8,15 @@
     "<C-c>": "do:exit",
     "<C-j>":"do:next",
     "<C-k>":"do:previous",
-    "<C-v>":"action:vsplit"
+    "<C-v>":"action:vsplit",
+    "<C-s>":"action:split"
   },
   "list.normalMappings": {
     "<C-c>": "do:exit",
     "<C-j>":"do:next",
     "<C-k>":"do:previous",
-    "<C-v>":"action:vsplit"
+    "<C-v>":"action:vsplit",
+    "<C-s>":"action:split"
   },
   "list.source.files.excludePatterns": ["**/node_modules/**"],
 
@@ -36,7 +38,12 @@
   "eslint.autoFix": false,
   "prettier.disableLanguages": [],
   "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "vue"],
-  "emmet.includeLanguages": {"vue-html": "html", "javascript": "javascriptreact", "tsx": "html"},
+  "emmet.includeLanguages": {
+    "vue-html": "html",
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact",
+    "tsx": "html"
+  },
   "vetur.format.defaultFormatter.html":"js-beautify-html",
 
   // ===== Server ======
