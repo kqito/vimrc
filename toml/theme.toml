@@ -9,15 +9,15 @@
 # let g:gruvbox_contrast_dark = 'hard'
 # '''
 
-# [[plugins]]
-# repo = 'rakr/vim-one'
-# merged = 0
-# trusted = 1
-# hook_add = '''
-# autocmd VimEnter * nested colorscheme one
-# set background=dark
-# let g:one_allow_italics = 1
-# '''
+[[plugins]]
+repo = 'rakr/vim-one'
+merged = 0
+trusted = 1
+hook_add = '''
+autocmd VimEnter * nested colorscheme one
+set background=dark
+let g:one_allow_italics = 1
+'''
 
 # [[plugins]]
 # repo = 'cocopon/iceberg.vim'
@@ -27,14 +27,14 @@
 # autocmd VimEnter * nested colorscheme iceberg
 # '''
 
-[[plugins]]
-repo = 'haishanh/night-owl.vim'
-merged = 0
-trusted = 1
-hook_add = '''
-autocmd VimEnter * nested colorscheme night-owl
-set background=dark
-'''
+# [[plugins]]
+# repo = 'haishanh/night-owl.vim'
+# merged = 0
+# trusted = 1
+# hook_add = '''
+# autocmd VimEnter * nested colorscheme night-owl
+# set background=dark
+# '''
 
 # [[plugins]]
 # repo = 'jonathanfilip/vim-lucius'
