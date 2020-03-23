@@ -88,7 +88,6 @@ nnoremap [Buffer]<C-b> :b#<CR>
 nnoremap [Buffer]<C-p> :bnext<CR>
 nnoremap [Buffer]<C-n> :bprev<CR>
 nnoremap [Buffer]<C-d> :bufdo bd<CR>
-nnoremap -- :bufdo bd<CR>
 
 " ===== Yank Settings =====
 nnoremap <silent> Y <C-v>$"xy
