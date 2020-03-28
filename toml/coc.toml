@@ -128,10 +128,10 @@ nnoremap <silent> [coc-list]o  :<C-u>CocList -A outline<CR>
 nnoremap <silent> [coc-list]w  :<C-u>CocList -I symbols<CR>
 
 " Search workspace symbols
-nnoremap <silent> [coc-list]g  :<C-u>CocList -I grep<CR>
+nnoremap <silent> [coc-list]g  :<C-u>CocList -A -I grep<CR>
 
 " Grep current word
-nnoremap <silent> [coc-list]s  :exe 'CocList -I --input='.expand('<cword>').' grep'<CR>
+nnoremap <silent> [coc-list]s  :exe 'CocList -A -I --input='.expand('<cword>').' grep'<CR>
 
 " File ( Search from project root )
 nnoremap <silent> [coc-list]p  :<C-u>CocList files<CR>
