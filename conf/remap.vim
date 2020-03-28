@@ -118,6 +118,6 @@ nnoremap <silent> <ESC><ESC> :noh<CR>
 nnoremap <silent> <C-c><C-c> :noh<CR>
 
 " ===== tab settings =====
-nnoremap <silent> <C-t>[ :tabprevious<cr>
-nnoremap <silent> <C-t>] :tabnext<cr>
+nnoremap <silent> <C-t>n :tabprevious<cr>
+nnoremap <silent> <C-t>p :tabnext<cr>
 nnoremap <silent> <C-t>e :tabnew<cr>
