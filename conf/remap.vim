@@ -42,12 +42,6 @@ nmap [Replace]a <space>h:%s//g<Left><Left>
 vmap [Replace]w <ESC><space>h:let @a = getpos("'<")[1]<CR>:let @b = getpos("'>")[1]<CR>:<C-r>a,<C-r>bs//g<Left><Left><C-r>"/
 vmap [Replace]a <ESC><space>h:let @a = getpos("'<")[1]<CR>:let @b = getpos("'>")[1]<CR>:<C-r>a,<C-r>bs//g<Left><Left>
 
-" ===== Settings to swap rows =====
-nnoremap <C-n> "zdd"zp
-nnoremap <C-p> "zdd<Up>"zP
-vnoremap <C-p> "zx<Up>"zP`[V`]
-vnoremap <C-n> "zx"zp`[V`]
-
 " ===== The delete register settings =====
 nnoremap d "xd
 nnoremap D "xD
