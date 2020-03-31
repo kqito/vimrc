@@ -10,6 +10,10 @@ noremap <silent> <S-l> $
 noremap <silent> <S-h> 0
 noremap <silent> g; g;zz
 
+" ===== Centering cursor after jump =====
+nnoremap n nzz
+nnoremap N Nzz
+
 " ===== Insert settings =====
 inoremap <silent> <C-l> <Right>
 inoremap <silent> <C-h> <Left>
