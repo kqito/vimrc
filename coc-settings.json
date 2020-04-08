@@ -32,8 +32,8 @@
   "diagnostic.infoSign": "?",
 
   // ===== JS ======
-  "tsserver.enableJavascript": true,
   "typescript.format.enabled": false,
+  "javascript.format.enabled": false,
   "prettier.eslintIntegration": true,
   "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "typescript.tsx"],
   "eslint.autoFixOnSave": false,
