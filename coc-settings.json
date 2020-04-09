@@ -1,7 +1,6 @@
 {
   // ===== General ======
   "coc.preferences.colorSupport": true,
-  "git.enableGutters": false,
 
   // ===== Coc-list ======
   "list.insertMappings": {
