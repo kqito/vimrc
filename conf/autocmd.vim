@@ -18,7 +18,7 @@ augroup general
   autocmd BufWritePre * :%s/\s\+$//e
 
   " Auto reload
-  autocmd FocusGained,BufEnter * checktime
+  autocmd! FocusGained,BufEnter * if mode() != 'c' | checktime | endif
 augroup END
 
 " ===== Filetype settings =====
