@@ -33,3 +33,5 @@ if has('persistent_undo')
     set undofile
 endif
 
+" ===== Leader setting =====
+let mapleader = "\<Space>"
