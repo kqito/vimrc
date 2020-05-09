@@ -28,7 +28,8 @@ vnoremap <silent> A I
 vnoremap <silent> I A
 
 " ===== Move the cursor to the end of the line =====
-nmap <silent> v <S-v>
+nnoremap <silent> v <S-v>
+nnoremap <silent> <S-v> v
 
 " ===== Replacement settings =====
 noremap <silent> <space>r <Nop>
