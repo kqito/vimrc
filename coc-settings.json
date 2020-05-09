@@ -19,7 +19,8 @@
     "<C-s>":"action:split",
     "<C-e>": "action:tabe"
   },
-  "list.source.files.excludePatterns": ["**/node_modules/**"],
+  "list.source.files.excludePatterns": ["**/node_modules/**", "**/yarn.lock", "**/package-lock.json"],
+  "list.source.grep.excludePatterns": ["**/node_modules/**", "**/yarn.lock", "**/package-lock.json"],
 
   // ===== Completion ======
   "suggest.echodocSupport": true,
@@ -37,7 +38,7 @@
   "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "typescript.tsx"],
   "eslint.autoFixOnSave": false,
   "eslint.autoFix": false,
-  "prettier.disableLanguages": [],
+  "prettier.disableLanguages": ["markdown"],
   "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "vue"],
   "emmet.includeLanguages": {
     "vue-html": "html",
