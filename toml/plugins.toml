@@ -86,3 +86,7 @@ nnoremap <silent> <C-t>k  :TmuxNavigateUp<cr>
 nnoremap <silent> <C-t>l  :TmuxNavigateRight<cr>
 nnoremap <silent> <C-t>\\ :TmuxNavigatePrevious<cr>
 '''
+
+# ===== For pane of tmux controller =====
+[[plugins]]
+repo = '~/Repositories/vim-easy-replace'
