@@ -16,6 +16,9 @@ function MyNerdToggle()
   else
     :NERDTreeFind
   endif
+
+  "Refresh automatically
+  exe 'silent normal R'
 endfunction
 
 nnoremap <silent> <space>b :call MyNerdToggle()<CR>
