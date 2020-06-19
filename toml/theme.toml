@@ -19,22 +19,22 @@
 # let g:one_allow_italics = 1
 # '''
 
-# [[plugins]]
-# repo = 'cocopon/iceberg.vim'
-# merged = 0
-# trusted = 1
-# hook_add = '''
-# autocmd VimEnter * nested colorscheme iceberg
-# '''
-
 [[plugins]]
-repo = 'haishanh/night-owl.vim'
+repo = 'cocopon/iceberg.vim'
 merged = 0
 trusted = 1
 hook_add = '''
-autocmd VimEnter * nested colorscheme night-owl
-set background=dark
+autocmd VimEnter * nested colorscheme iceberg
 '''
+
+# [[plugins]]
+# repo = 'haishanh/night-owl.vim'
+# merged = 0
+# trusted = 1
+# hook_add = '''
+# autocmd VimEnter * nested colorscheme night-owl
+# set background=dark
+# '''
 
 # [[plugins]]
 # repo = 'jonathanfilip/vim-lucius'
