@@ -1,6 +1,7 @@
 {
   // ===== General ======
   "coc.preferences.colorSupport": true,
+  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "vue", "go"],
 
   // ===== Coc-list ======
   "list.insertMappings": {
@@ -39,7 +40,6 @@
   "eslint.autoFixOnSave": false,
   "eslint.autoFix": false,
   "prettier.disableLanguages": ["markdown"],
-  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "vue"],
   "emmet.includeLanguages": {
     "vue-html": "html",
     "javascript": "javascriptreact",
