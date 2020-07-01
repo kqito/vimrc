@@ -1,13 +1,13 @@
 # ===== Color themes =====
-# [[plugins]]
-# repo = 'morhetz/gruvbox'
-# merged = 0
-# trusted = 1
-# hook_add = '''
-# autocmd VimEnter * nested colorscheme gruvbox
-# set background=dark
-# let g:gruvbox_contrast_dark = 'hard'
-# '''
+[[plugins]]
+repo = 'morhetz/gruvbox'
+merged = 0
+trusted = 1
+hook_add = '''
+autocmd VimEnter * nested colorscheme gruvbox
+set background=dark
+let g:gruvbox_contrast_dark = 'hard'
+'''
 
 # [[plugins]]
 # repo = 'rakr/vim-one'
@@ -19,13 +19,13 @@
 # let g:one_allow_italics = 1
 # '''
 
-[[plugins]]
-repo = 'cocopon/iceberg.vim'
-merged = 0
-trusted = 1
-hook_add = '''
-autocmd VimEnter * nested colorscheme iceberg
-'''
+# [[plugins]]
+# repo = 'cocopon/iceberg.vim'
+# merged = 0
+# trusted = 1
+# hook_add = '''
+# autocmd VimEnter * nested colorscheme iceberg
+# '''
 
 # [[plugins]]
 # repo = 'haishanh/night-owl.vim'
