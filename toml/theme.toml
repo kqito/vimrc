@@ -27,14 +27,14 @@
 # autocmd VimEnter * nested colorscheme iceberg
 # '''
 
-[[plugins]]
-repo = 'haishanh/night-owl.vim'
-merged = 0
-trusted = 1
-hook_add = '''
-autocmd VimEnter * nested colorscheme night-owl
-set background=dark
-'''
+# [[plugins]]
+# repo = 'haishanh/night-owl.vim'
+# merged = 0
+# trusted = 1
+# hook_add = '''
+# autocmd VimEnter * nested colorscheme night-owl
+# set background=dark
+# '''
 
 # [[plugins]]
 # repo = 'jonathanfilip/vim-lucius'
@@ -49,3 +49,12 @@ set background=dark
 #   \ |   hi CocFloating guibg=#616161 guifg=NONE
 #   \ | endif
 # '''
+
+[[plugins]]
+repo = 'dracula/vim'
+merged = 0
+trusted = 1
+hook_add = '''
+autocmd VimEnter * nested colorscheme dracula
+set background=dark
+'''
