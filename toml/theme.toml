@@ -1,4 +1,6 @@
 # ===== Color themes =====
+
+# # Brown base theme
 # [[plugins]]
 # repo = 'morhetz/gruvbox'
 # merged = 0
@@ -9,6 +11,7 @@
 # let g:gruvbox_contrast_dark = 'hard'
 # '''
 
+# # Purple theme
 # [[plugins]]
 # repo = 'rakr/vim-one'
 # merged = 0
@@ -19,6 +22,7 @@
 # let g:one_allow_italics = 1
 # '''
 
+# Blue base theme
 # [[plugins]]
 # repo = 'cocopon/iceberg.vim'
 # merged = 0
@@ -27,6 +31,7 @@
 # autocmd VimEnter * nested colorscheme iceberg
 # '''
 
+# # Purple theme
 # [[plugins]]
 # repo = 'haishanh/night-owl.vim'
 # merged = 0
@@ -36,6 +41,7 @@
 # set background=dark
 # '''
 
+# light color theme
 # [[plugins]]
 # repo = 'jonathanfilip/vim-lucius'
 # merged = 0
@@ -50,6 +56,7 @@
 #   \ | endif
 # '''
 
+# # Purple theme
 # [[plugins]]
 # repo = 'dracula/vim'
 # merged = 0
