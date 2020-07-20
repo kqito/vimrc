@@ -50,11 +50,21 @@
 #   \ | endif
 # '''
 
+# [[plugins]]
+# repo = 'dracula/vim'
+# merged = 0
+# trusted = 1
+# hook_add = '''
+# autocmd VimEnter * nested colorscheme dracula
+# set background=dark
+# '''
+
+# Low contrast
 [[plugins]]
-repo = 'dracula/vim'
+repo = 'jnurmine/Zenburn'
 merged = 0
 trusted = 1
 hook_add = '''
-autocmd VimEnter * nested colorscheme dracula
+autocmd VimEnter * nested colorscheme zenburn
 set background=dark
 '''
