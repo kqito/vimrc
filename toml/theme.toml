@@ -59,12 +59,22 @@
 # set background=dark
 # '''
 
-# Low contrast
+# # Low contrast
+# [[plugins]]
+# repo = 'jnurmine/Zenburn'
+# merged = 0
+# trusted = 1
+# hook_add = '''
+# autocmd VimEnter * nested colorscheme zenburn
+# set background=dark
+# '''
+
+# Light blue theme
 [[plugins]]
-repo = 'jnurmine/Zenburn'
+repo = 'jacoborus/tender.vim'
 merged = 0
 trusted = 1
 hook_add = '''
-autocmd VimEnter * nested colorscheme zenburn
+autocmd VimEnter * nested colorscheme tender
 set background=dark
 '''
