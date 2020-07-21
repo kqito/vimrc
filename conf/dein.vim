@@ -1,4 +1,3 @@
-" ===== Dein Scripts =====
 if(v:version >= 800 || has('nvim'))
   let g:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
   let g:dein_dir = g:cache_home . '/dein'
@@ -13,7 +12,6 @@ if(v:version >= 800 || has('nvim'))
       let &runtimepath = g:dein_repo_dir .",". &runtimepath
   endif
 
-  " read plugin & create chache
   let s:toml_dir = expand('~/.vim/toml/')
   if dein#load_state(g:dein_dir)
     call dein#begin(g:dein_dir)
@@ -32,7 +30,6 @@ if(v:version >= 800 || has('nvim'))
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif
 
-  "install plugins when no install them
   if has('vim_starting') && dein#check_install()
     call dein#install()
   endif

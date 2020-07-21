@@ -1,4 +1,3 @@
-" ===== General settings =====
 filetype plugin indent on
 set autoread
 set hidden
@@ -13,10 +12,10 @@ set synmaxcol=200
 set redrawtime=10000
 set nocompatible
 
-" ===== For dispaly true color on tmux =====
-set termguicolors
+let mapleader = "\<Space>"
 
-" ===== Dispaly gui color on tmux =====
+" ===== Display gui color on tmux =====
+set termguicolors
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -32,6 +31,3 @@ if has('persistent_undo')
     set undodir=~/.config/nvim/.undo
     set undofile
 endif
-
-" ===== Leader setting =====
-let mapleader = "\<Space>"

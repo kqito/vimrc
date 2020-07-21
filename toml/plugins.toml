@@ -1,11 +1,11 @@
-# ===== Change window's size settings =====
+# ===== Change window's size =====
 [[plugins]]
 repo = 'simeji/winresizer'
 hook_add = '''
 nnoremap <space>t :WinResizerStartResize<CR>
 '''
 
-# ===== Nerdtree settings =====
+# ===== Nerdtree =====
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
@@ -32,7 +32,7 @@ let g:NERDTreeQuitOnOpen = 1
 [[plugins]]
 repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-# ===== Dispaly idnent vertically line =====
+# ===== Display idnent vertically line =====
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 hook_add = '''
@@ -43,7 +43,7 @@ nnoremap <silent> <space>it :IndentLinesToggle<CR>
 let g:indentLine_color_term = 113
 '''
 
-# ===== Add Pairs =====
+# ===== Pairs =====
 [[plugins]]
 repo = 'jiangmiao/auto-pairs'
 hook_add = '''
@@ -54,11 +54,11 @@ let g:AutoPairsMapCh = 0
 [[plugins]]
 repo = 'tpope/vim-commentary'
 
-# ===== Comment out =====
+# ===== Language packs =====
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
 
-# ===== Surround settings =====
+# ===== Surround =====
 [[plugins]]
 repo = 'tpope/vim-surround'
 

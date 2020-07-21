@@ -1,4 +1,4 @@
-# ===== For highlight toml file =====
+# ===== Highlight toml file =====
 [[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = ['toml']

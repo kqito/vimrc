@@ -1,4 +1,3 @@
-" ===== Autocmd settings =====
 augroup general
   autocmd!
 
