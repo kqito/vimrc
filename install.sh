@@ -1,5 +1,6 @@
 #!/bin/bash
 
+SCRIPT_DIR=($(cd $(dirname $BASH_SOURCE); pwd))
 declare -a VIMRC_DIRS=("${HOME}/.vim")
 
 check() {
@@ -11,9 +12,7 @@ check() {
   esac
 }
 
-install() {
-  SCRIPT_DIR=($(cd $(dirname $BASH_SOURCE); pwd))
-
+installForVim() {
   echo "Installing kqito's vimrc..."
 
   mkdir -p ~/.config/
@@ -22,6 +21,18 @@ install() {
     rm -rf ${dir}
     cp -r ${SCRIPT_DIR} ${dir}
   done
+
+  echo "Done!!"
+}
+
+installForNeovim() {
+  neovimDir="${HOME}/.config/nvim/"
+  echo "Installing kqito's vimrc so that neovim can use it..."
+
+  mkdir -p $neovimDir
+
+  cp "${SCRIPT_DIR}/nvim/init.vim" $neovimDir
+  ln -s "${SCRIPT_DIR}/coc-settings.json" $neovimDir
 
   echo "Done!!"
 }
@@ -42,4 +53,8 @@ isEmptyVimrcDir() {
 
 ! isEmptyVimrcDir && $(! check "Remove all your vimrc to install kqito's vimrc?") && exit 0
 
-install
+installForVim
+
+$(! check "You also use neovim? (If yes, make this vimrc available to neovim)") && exit 0
+
+installForNeovim
