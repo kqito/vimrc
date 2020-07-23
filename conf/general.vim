@@ -11,6 +11,7 @@ set backspace=indent,eol,start
 set synmaxcol=200
 set redrawtime=10000
 set nocompatible
+set sw=2 sts=2 ts=2 et
 
 let mapleader = "\<Space>"
 

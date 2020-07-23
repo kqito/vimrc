@@ -17,7 +17,7 @@ augroup general
   autocmd BufWritePre * :%s/\s\+$//e
 
   " Auto reload
-  autocmd! InsertEnter,FocusGained,BufEnter * if mode() != 'c' | checktime | endif
+  autocmd! InsertEnter,FocusGained,BufEnter * if mode() != 'c' && &filetype != 'vim' | checktime | endif
 augroup END
 
 " ===== Filetype settings =====
@@ -29,5 +29,5 @@ augroup END
 
 " ===== Go settings =====
 augroup go
-  au FileType go setlocal sw=4 ts=4 sts=4 noet
+  autocmd FileType go setlocal sw=4 ts=4 sts=4 noet
 augroup END
