@@ -23,13 +23,13 @@
 # '''
 
 # Blue base theme
-# [[plugins]]
-# repo = 'cocopon/iceberg.vim'
-# merged = 0
-# trusted = 1
-# hook_add = '''
-# autocmd VimEnter * nested colorscheme iceberg
-# '''
+[[plugins]]
+repo = 'cocopon/iceberg.vim'
+merged = 0
+trusted = 1
+hook_add = '''
+autocmd VimEnter * nested colorscheme iceberg
+'''
 
 # # Purple theme
 # [[plugins]]
@@ -75,13 +75,3 @@
 # autocmd VimEnter * nested colorscheme zenburn
 # set background=dark
 # '''
-
-# Light blue theme
-[[plugins]]
-repo = 'jacoborus/tender.vim'
-merged = 0
-trusted = 1
-hook_add = '''
-autocmd VimEnter * nested colorscheme tender
-set background=dark
-'''
