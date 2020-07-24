@@ -115,8 +115,8 @@ nnoremap <silent> <space>a  :<C-u>CocList diagnostics<CR>
 " Manage extensions
 nnoremap <silent> <space>e  :<C-u>CocList extensions<CR>
 
-" Show commands
-nnoremap <silent> <space>c  :<C-u>CocList commands<CR>
+" Restart coc
+nnoremap <silent> <space>cr  :<C-u>CocRestart<CR>
 
 " Yank
 nnoremap <silent> <space>y     :<C-u>CocList -A --normal yank<CR>
