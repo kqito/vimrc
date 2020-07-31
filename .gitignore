@@ -2,3 +2,4 @@
 .DS_Store
 color.vim
 sessions
+conf/test.vim
