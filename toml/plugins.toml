@@ -92,4 +92,6 @@ nnoremap <silent> <C-t>\\ :TmuxNavigatePrevious<cr>
 
 # ===== Replace =====
 [[plugins]]
-repo = 'kqito/vim-easy-replace'
+# For develop
+# repo = 'kqito/vim-easy-replace'
+repo = '~/Repositories/vim-easy-replace'
