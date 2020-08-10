@@ -1,70 +1,100 @@
 {
   // ===== General ======
   "coc.preferences.colorSupport": true,
-  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "vue", "go"],
-
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "javascriptreact",
+    "vue",
+    "go"
+  ],
   // ===== Coc-list ======
   "list.insertMappings": {
     "<C-c>": "do:exit",
-    "<C-j>":"do:next",
-    "<C-k>":"do:previous",
-    "<C-v>":"action:vsplit",
-    "<C-s>":"action:split",
+    "<C-j>": "do:next",
+    "<C-k>": "do:previous",
+    "<C-v>": "action:vsplit",
+    "<C-s>": "action:split",
     "<C-e>": "action:tabe"
   },
   "list.normalMappings": {
     "<C-c>": "do:exit",
-    "<C-j>":"do:next",
-    "<C-k>":"do:previous",
-    "<C-v>":"action:vsplit",
-    "<C-s>":"action:split",
+    "<C-j>": "do:next",
+    "<C-k>": "do:previous",
+    "<C-v>": "action:vsplit",
+    "<C-s>": "action:split",
     "<C-e>": "action:tabe"
   },
-  "list.source.files.excludePatterns": ["**/node_modules/**", "**/yarn.lock", "**/package-lock.json"],
-  "list.source.grep.excludePatterns": ["**/node_modules/**", "**/yarn.lock", "**/package-lock.json"],
-
+  "list.source.files.excludePatterns": [
+    "**/node_modules/**",
+    "**/yarn.lock",
+    "**/package-lock.json"
+  ],
+  "list.source.grep.excludePatterns": [
+    "**/node_modules/**",
+    "**/yarn.lock",
+    "**/package-lock.json"
+  ],
   // ===== Completion ======
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 20,
-
   // ===== Disagnostic ======
   "diagnostic.errorSign": "×",
   "diagnostic.warningSign": "!",
   "diagnostic.infoSign": "?",
-
   // ===== JS ======
   "typescript.format.enabled": false,
   "javascript.format.enabled": false,
   "prettier.eslintIntegration": true,
-  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "typescript.tsx"],
+  "eslint.filetypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "javascriptreact",
+    "typescript.tsx"
+  ],
   "eslint.autoFixOnSave": false,
   "eslint.autoFix": false,
-  "prettier.disableLanguages": ["markdown"],
+  "prettier.disableLanguages": [
+    "markdown"
+  ],
   "emmet.includeLanguages": {
     "vue-html": "html",
     "javascript": "javascriptreact",
     "typescript": "typescriptreact",
     "tsx": "html"
   },
-  "vetur.format.defaultFormatter.html":"js-beautify-html",
-
+  "vetur.format.defaultFormatter.html": "js-beautify-html",
   // ===== Server ======
   "languageserver": {
     "sorbet": {
       "command": "srb",
-      "args": ["tc", "--lsp", "--enable-all-experimental-lsp-features"],
-      "filetypes": ["ruby"],
-      "rootPatterns": ["sorbet/config"],
+      "args": [
+        "tc",
+        "--lsp",
+        "--enable-all-experimental-lsp-features"
+      ],
+      "filetypes": [
+        "ruby"
+      ],
+      "rootPatterns": [
+        "sorbet/config"
+      ],
       "initializationOptions": {},
       "settings": {}
     },
     "dockerfile": {
       "command": "docker-langserver",
-      "filetypes": ["dockerfile"],
-      "args": ["--stdio"]
+      "filetypes": [
+        "dockerfile"
+      ],
+      "args": [
+        "--stdio"
+      ]
     }
   },
-
   // ===== Go ======
   "go.goplsOptions": {
     "completeUnimported": true
