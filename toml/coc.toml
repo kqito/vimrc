@@ -137,7 +137,8 @@ nnoremap <silent> [coc-list]s  :exe 'CocList -A -I --input='.expand('<cword>').'
 nnoremap <silent> [coc-list]p  :<C-u>CocList files<CR>
 
 " File ( Search from current dir )
-nnoremap <silent> [coc-list]r  :exe 'CocList --input='.expand('%:p:h:t'). '/' .' files'<CR>
+let g:vim_open_path = getcwd()
+nnoremap <silent> [coc-list]c  :exe 'CocList --input=' . fnamemodify(g:vim_open_path, ':t') . '/' . ' files'<CR>
 
 " Mru
 nnoremap <silent> [coc-list]y  :<C-u>CocList mru<CR>
