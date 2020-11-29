@@ -24,7 +24,6 @@ augroup END
 augroup updateFiletype
   autocmd!
 
-  autocmd BufNewFile,BufRead *.tsx setf typescript
 augroup END
 
 " ===== Go settings =====
