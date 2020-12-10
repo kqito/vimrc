@@ -2,7 +2,7 @@
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 merged = 0
-rev = 'release'
+rev = 'v0.0.78'
 trusted = 1
 hook_add = '''
 " if hidden is not set, TextEdit might fail.
@@ -28,6 +28,53 @@ let g:coc_filetype_map = {
   \ '*.jsx': 'javascriptreact',
   \ '*.tsx': 'typescriptreact',
 \ }
+
+let g:coc_global_extensions = [
+  \ 'coc-browser',
+  \ 'coc-calc',
+  \ 'coc-clock',
+  \ 'coc-css',
+  \ 'coc-emmet',
+  \ 'coc-eslint',
+  \ 'coc-git',
+  \ 'coc-github',
+  \ 'coc-gitignore',
+  \ 'coc-go',
+  \ 'coc-highlight',
+  \ 'coc-html',
+  \ 'coc-imselect',
+  \ 'coc-jest',
+  \ 'coc-json',
+  \ 'coc-lines',
+  \ 'coc-lists',
+  \ 'coc-lua',
+  \ 'coc-marketplace',
+  \ 'coc-omni',
+  \ 'coc-omnisharp',
+  \ 'coc-phpls',
+  \ 'coc-prettier',
+  \ 'coc-project',
+  \ 'coc-python',
+  \ 'coc-rust-analyzer',
+  \ 'coc-sh',
+  \ 'coc-sql',
+  \ 'coc-syntax',
+  \ 'coc-tabnine',
+  \ 'coc-tag',
+  \ 'coc-template',
+  \ 'coc-todolist',
+  \ 'coc-translator',
+  \ 'coc-tsserver',
+  \ 'coc-utils',
+  \ 'coc-vetur',
+  \ 'coc-vimlsp',
+  \ 'coc-vimtex',
+  \ 'coc-webpack',
+  \ 'coc-word',
+  \ 'coc-xml',
+  \ 'coc-yaml',
+  \ 'coc-yank',
+\ ]
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
