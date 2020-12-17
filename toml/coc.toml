@@ -3,6 +3,7 @@
 repo = 'neoclide/coc.nvim'
 merged = 0
 rev = 'v0.0.78'
+# rev = 'release'
 trusted = 1
 hook_add = '''
 " if hidden is not set, TextEdit might fail.
