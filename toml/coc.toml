@@ -2,8 +2,7 @@
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 merged = 0
-rev = 'v0.0.78'
-# rev = 'release'
+rev = 'release'
 trusted = 1
 hook_add = '''
 " if hidden is not set, TextEdit might fail.
@@ -62,7 +61,6 @@ let g:coc_global_extensions = [
   \ 'coc-syntax',
   \ 'coc-tabnine',
   \ 'coc-tag',
-  \ 'coc-template',
   \ 'coc-todolist',
   \ 'coc-translator',
   \ 'coc-tsserver',
