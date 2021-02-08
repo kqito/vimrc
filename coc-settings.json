@@ -48,6 +48,7 @@
   "typescript.format.enabled": false,
   "javascript.format.enabled": false,
   "prettier.eslintIntegration": true,
+  "prettier.trailingComma": "es5",
   "eslint.filetypes": [
     "javascript",
     "typescript",
