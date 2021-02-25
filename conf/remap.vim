@@ -32,16 +32,8 @@ nnoremap <silent> v <S-v>
 nnoremap <silent> <S-v> v
 
 " ===== Replacement settings =====
-noremap <silent> <space>r <Nop>
-map <space>r [Replace]
-nmap [Replace] <Nop>
 
 nnoremap <silent> <space>h "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
-
-nmap [Replace]w <space>h:%s//g<Left><Left><C-r>"/
-nmap [Replace]a <space>h:%s//g<Left><Left>
-vmap [Replace]w <ESC><space>h:let @a = getpos("'<")[1]<CR>:let @b = getpos("'>")[1]<CR>:<C-r>a,<C-r>bs//g<Left><Left><C-r>"/
-vmap [Replace]a <ESC><space>h:let @a = getpos("'<")[1]<CR>:let @b = getpos("'>")[1]<CR>:<C-r>a,<C-r>bs//g<Left><Left>
 
 " ===== The delete register settings =====
 nnoremap d "xd
