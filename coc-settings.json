@@ -17,7 +17,8 @@
     "<C-k>": "do:previous",
     "<C-v>": "action:vsplit",
     "<C-s>": "action:split",
-    "<C-e>": "action:tabe"
+    "<C-e>": "action:tabe",
+    "<C-o>": "do:togglemode"
   },
   "list.normalMappings": {
     "<C-c>": "do:exit",
@@ -25,7 +26,8 @@
     "<C-k>": "do:previous",
     "<C-v>": "action:vsplit",
     "<C-s>": "action:split",
-    "<C-e>": "action:tabe"
+    "<C-e>": "action:tabe",
+    "<C-o>": "do:togglemode"
   },
   "list.source.files.excludePatterns": [
     "**/node_modules/**",
