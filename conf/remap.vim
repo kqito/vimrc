@@ -17,7 +17,6 @@ nnoremap N Nzz
 " ===== Insert settings =====
 inoremap <silent> <C-l> <Right>
 inoremap <silent> <C-h> <Left>
-inoremap <silent> <C-o> <ESC>o
 
 " ===== Change key mapiings a,A,i,I respectively =====
 nnoremap <silent> i a
