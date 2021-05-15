@@ -42,6 +42,10 @@
     "**/yarn.lock",
     "**/package-lock.json"
   ],
+  // ===== Coc-explorer ======
+   "explorer.keyMappings.global": {
+    "v": ["open:vsplit"],
+  },
   // ===== Completion ======
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 20,

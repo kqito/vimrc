@@ -36,6 +36,7 @@ let g:coc_global_extensions = [
   \ 'coc-css',
   \ 'coc-emmet',
   \ 'coc-eslint',
+  \ 'coc-explorer',
   \ 'coc-git',
   \ 'coc-github',
   \ 'coc-gitignore',
@@ -155,6 +156,9 @@ nmap <silent> <space>j <Plug>(coc-diagnostic-next)
 
 " ===== Markdown ======
 let g:markdown_fenced_languages = ['css', 'javascript', 'js=javascript', 'typescript']
+
+" ===== CocList =====
+nnoremap <space>b :CocCommand explorer --quit-on-open<CR>
 
 " ===== CocList =====
 noremap [coc-list] <Nop>
