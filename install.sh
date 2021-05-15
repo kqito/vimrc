@@ -19,7 +19,7 @@ installForVim() {
 
   for dir in ${VIMRC_DIRS[@]}; do
     rm -rf ${dir}
-    cp -r ${SCRIPT_DIR} ${dir}
+    ln -s ${SCRIPT_DIR} ~/.vim
   done
 
   echo "Done!!"
@@ -31,7 +31,7 @@ installForNeovim() {
 
   mkdir -p $neovimDir
 
-  cp "${SCRIPT_DIR}/nvim/init.vim" $neovimDir
+  ln -s "${SCRIPT_DIR}/nvim/init.vim" $neovimDir
   ln -s "${SCRIPT_DIR}/coc-settings.json" $neovimDir
 
   echo "Done!!"
