@@ -8,7 +8,10 @@
     "json",
     "javascriptreact",
     "vue",
-    "go"
+    "go",
+    "css",
+    "sass",
+    "scss"
   ],
   // ===== Coc-list ======
   "list.insertMappings": {
