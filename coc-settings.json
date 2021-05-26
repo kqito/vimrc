@@ -45,6 +45,7 @@
   // ===== Coc-explorer ======
    "explorer.keyMappings.global": {
     "v": ["open:vsplit"],
+    "e": ["open:tab"],
   },
   // ===== Completion ======
   "suggest.echodocSupport": true,
