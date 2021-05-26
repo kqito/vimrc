@@ -1,15 +1,15 @@
 # ===== Color themes =====
 
-# Brown base theme
-[[plugins]]
-repo = 'morhetz/gruvbox'
-merged = 0
-trusted = 1
-hook_add = '''
-autocmd VimEnter * nested colorscheme gruvbox
-set background=dark
-let g:gruvbox_contrast_dark = 'hard'
-'''
+# # Brown base theme
+# [[plugins]]
+# repo = 'morhetz/gruvbox'
+# merged = 0
+# trusted = 1
+# hook_add = '''
+# autocmd VimEnter * nested colorscheme gruvbox
+# set background=dark
+# let g:gruvbox_contrast_dark = 'hard'
+# '''
 
 # # Purple theme
 # [[plugins]]
@@ -42,19 +42,19 @@ let g:gruvbox_contrast_dark = 'hard'
 # '''
 
 # light color theme
-# [[plugins]]
-# repo = 'jonathanfilip/vim-lucius'
-# merged = 0
-# trusted = 1
-# hook_add = '''
-# autocmd VimEnter * nested colorscheme lucius
-# set background=dark
+[[plugins]]
+repo = 'jonathanfilip/vim-lucius'
+merged = 0
+trusted = 1
+hook_add = '''
+autocmd VimEnter * nested colorscheme lucius
+set background=dark
 
-# autocmd User CocOpenFloat
-#   \ if exists('w:float')
-#   \ |   hi CocFloating guibg=#616161 guifg=NONE
-#   \ | endif
-# '''
+autocmd User CocOpenFloat
+  \ if exists('w:float')
+  \ |   hi CocFloating guibg=#616161 guifg=NONE
+  \ | endif
+'''
 
 # # Purple theme
 # [[plugins]]
