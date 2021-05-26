@@ -22,14 +22,14 @@
 # let g:one_allow_italics = 1
 # '''
 
-# # Blue base theme
-# [[plugins]]
-# repo = 'cocopon/iceberg.vim'
-# merged = 0
-# trusted = 1
-# hook_add = '''
-# autocmd VimEnter * nested colorscheme iceberg
-# '''
+# Blue base theme
+[[plugins]]
+repo = 'cocopon/iceberg.vim'
+merged = 0
+trusted = 1
+hook_add = '''
+autocmd VimEnter * nested colorscheme iceberg
+'''
 
 # # Purple theme
 # [[plugins]]
@@ -41,20 +41,20 @@
 # set background=dark
 # '''
 
-# light color theme
-[[plugins]]
-repo = 'jonathanfilip/vim-lucius'
-merged = 0
-trusted = 1
-hook_add = '''
-autocmd VimEnter * nested colorscheme lucius
-set background=dark
+# # light color theme
+# [[plugins]]
+# repo = 'jonathanfilip/vim-lucius'
+# merged = 0
+# trusted = 1
+# hook_add = '''
+# autocmd VimEnter * nested colorscheme lucius
+# set background=dark
 
-autocmd User CocOpenFloat
-  \ if exists('w:float')
-  \ |   hi CocFloating guibg=#616161 guifg=NONE
-  \ | endif
-'''
+# autocmd User CocOpenFloat
+#   \ if exists('w:float')
+#   \ |   hi CocFloating guibg=#616161 guifg=NONE
+#   \ | endif
+# '''
 
 # # Purple theme
 # [[plugins]]
