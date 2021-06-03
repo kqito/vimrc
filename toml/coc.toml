@@ -150,6 +150,9 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " For prettier settings
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
+" ===== QuickFix ======
+nnoremap <silent> <space>. :CocAction quickfix<CR>
+
 " ===== Disgnostics ======
 nmap <silent> <space>k <Plug>(coc-diagnostic-prev)
 nmap <silent> <space>j <Plug>(coc-diagnostic-next)
