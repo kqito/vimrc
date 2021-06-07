@@ -101,6 +101,7 @@ nmap <silent> gt <Plug>(coc-declaration)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gu <Plug>(coc-references-used)
 nmap <silent> gb <C-o>
 
 " Use K to show documentation in preview window
