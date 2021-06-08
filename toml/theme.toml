@@ -22,15 +22,6 @@
 # let g:one_allow_italics = 1
 # '''
 
-# Blue base theme
-[[plugins]]
-repo = 'cocopon/iceberg.vim'
-merged = 0
-trusted = 1
-hook_add = '''
-autocmd VimEnter * nested colorscheme iceberg
-'''
-
 # # Purple theme
 # [[plugins]]
 # repo = 'haishanh/night-owl.vim'
@@ -39,6 +30,25 @@ autocmd VimEnter * nested colorscheme iceberg
 # hook_add = '''
 # autocmd VimEnter * nested colorscheme night-owl
 # set background=dark
+# '''
+
+# Purple theme
+[[plugins]]
+repo = 'wadackel/vim-dogrun'
+merged = 0
+trusted = 1
+hook_add = '''
+autocmd VimEnter * nested colorscheme dogrun
+set background=dark
+'''
+
+# # Blue base theme
+# [[plugins]]
+# repo = 'cocopon/iceberg.vim'
+# merged = 0
+# trusted = 1
+# hook_add = '''
+# autocmd VimEnter * nested colorscheme iceberg
 # '''
 
 # # light color theme
