@@ -11,6 +11,7 @@ set backspace=indent,eol,start
 set synmaxcol=200
 set redrawtime=10000
 set nocompatible
+set noswapfile
 set sw=2 sts=2 ts=2 et
 
 let mapleader = "\<Space>"
@@ -23,9 +24,6 @@ if exists('+termguicolors')
   syntax on
   set termguicolors
 endif
-
-" ===== Around the swap settings =====
-set noswapfile
 
 " ===== Allow to undo after even closed any files =====
 if has('persistent_undo')

@@ -35,14 +35,19 @@ nnoremap <silent> <S-v> v
 
 nnoremap <silent> <space>h "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
 
-" ===== The delete register settings =====
-nnoremap d "xd
-nnoremap D "xD
-vnoremap d "xd
-nnoremap y "xy
-vnoremap y "xy
+" ===== Clipboard settings =====
+set clipboard+=unnamed
+
+" Ignore x map
 nnoremap x ""x
-noremap p "xp
+
+" No longer used registers
+" nnoremap d "xd
+" nnoremap D "xD
+" vnoremap d "xd
+" nnoremap y "xy
+" vnoremap y "xy
+" noremap p "xp
 
 " ===== Allow to use of mouse settings =====
 if has('mouse')
