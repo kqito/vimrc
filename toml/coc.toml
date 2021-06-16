@@ -62,6 +62,7 @@ let g:coc_global_extensions = [
   \ 'coc-syntax',
   \ 'coc-tabnine',
   \ 'coc-tag',
+  \ 'coc-tailwindcss',
   \ 'coc-todolist',
   \ 'coc-translator',
   \ 'coc-tsserver',
