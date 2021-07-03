@@ -21,7 +21,8 @@
     "<C-v>": "action:vsplit",
     "<C-s>": "action:split",
     "<C-e>": "action:tabe",
-    "<C-o>": "do:togglemode"
+    "<C-o>": "do:togglemode",
+    "<C-p>": "prompt:paste"
   },
   "list.normalMappings": {
     "<C-c>": "do:exit",

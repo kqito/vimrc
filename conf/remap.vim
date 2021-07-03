@@ -18,6 +18,7 @@ nnoremap N Nzz
 inoremap <silent> <C-l> <Right>
 inoremap <silent> <C-h> <Left>
 inoremap <silent> <C-o> <ESC>o
+inoremap <silent> <C-p> <C-r>*
 
 " ===== Change key mapiings a,A,i,I respectively =====
 nnoremap <silent> i a
