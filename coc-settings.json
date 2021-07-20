@@ -109,5 +109,10 @@
   // ===== Go ======
   "go.goplsOptions": {
     "completeUnimported": true
-  }
+  },
+
+  // ===== coc-deepl =====
+  "deepl.enabled": true,
+  "deepl.plan": "free",
+  "deepl.targetLanguage": "JA"
 }
