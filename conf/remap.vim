@@ -87,9 +87,7 @@ nnoremap [Buffer]<C-n> :bprev<CR>
 nnoremap [Buffer]<C-d> :bufdo bd<CR>
 
 " ===== Yank Settings =====
-nnoremap <silent> Y <C-v>$"xy
-vnoremap <silent> <C-y> "+y
-nnoremap <silent> <C-y> "+y
+nnoremap <silent> Y <C-v>$y
 
 " ===== Cursor settings =====
 set cursorline
