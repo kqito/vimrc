@@ -1,15 +1,15 @@
 # ===== Color themes =====
 
-# Brown base theme
-[[plugins]]
-repo = 'morhetz/gruvbox'
-merged = 0
-trusted = 1
-hook_add = '''
-autocmd VimEnter * nested colorscheme gruvbox
-set background=dark
-let g:gruvbox_contrast_dark = 'hard'
-'''
+# # Brown base theme
+# [[plugins]]
+# repo = 'morhetz/gruvbox'
+# merged = 0
+# trusted = 1
+# hook_add = '''
+# autocmd VimEnter * nested colorscheme gruvbox
+# set background=dark
+# let g:gruvbox_contrast_dark = 'hard'
+# '''
 
 # # Purple theme
 # [[plugins]]
@@ -42,14 +42,14 @@ let g:gruvbox_contrast_dark = 'hard'
 # set background=dark
 # '''
 
-# # Blue base theme
-# [[plugins]]
-# repo = 'cocopon/iceberg.vim'
-# merged = 0
-# trusted = 1
-# hook_add = '''
-# autocmd VimEnter * nested colorscheme iceberg
-# '''
+# Blue base theme
+[[plugins]]
+repo = 'cocopon/iceberg.vim'
+merged = 0
+trusted = 1
+hook_add = '''
+autocmd VimEnter * nested colorscheme iceberg
+'''
 
 # # light color theme
 # [[plugins]]
