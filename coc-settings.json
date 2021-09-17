@@ -11,7 +11,8 @@
     "go",
     "css",
     "sass",
-    "scss"
+    "scss",
+    "rust"
   ],
   // ===== Coc-list ======
   "list.insertMappings": {
