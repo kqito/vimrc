@@ -32,15 +32,15 @@
 # set background=dark
 # '''
 
-# Purple theme
-[[plugins]]
-repo = 'wadackel/vim-dogrun'
-merged = 0
-trusted = 1
-hook_add = '''
-autocmd VimEnter * nested colorscheme dogrun
-set background=dark
-'''
+# # Purple theme
+# [[plugins]]
+# repo = 'wadackel/vim-dogrun'
+# merged = 0
+# trusted = 1
+# hook_add = '''
+# autocmd VimEnter * nested colorscheme dogrun
+# set background=dark
+# '''
 
 # # Blue base theme
 # [[plugins]]
@@ -86,7 +86,7 @@ set background=dark
 # set background=dark
 # '''
 
-# Purple base
+# # Purple base
 # [[plugins]]
 # repo = 'ghifarit53/tokyonight-vim'
 # merged = 0
@@ -95,3 +95,13 @@ set background=dark
 # autocmd VimEnter * nested colorscheme tokyonight
 # set background=dark
 # '''
+
+# Blue and Purple based theme
+[[plugins]]
+repo = 'embark-theme/vim'
+merged = 0
+trusted = 1
+hook_add = '''
+autocmd VimEnter * nested colorscheme embark
+set background=dark
+'''
