@@ -1,15 +1,15 @@
 # ===== Color themes =====
 
-# # Brown base theme
-# [[plugins]]
-# repo = 'morhetz/gruvbox'
-# merged = 0
-# trusted = 1
-# hook_add = '''
-# autocmd VimEnter * nested colorscheme gruvbox
-# set background=dark
-# let g:gruvbox_contrast_dark = 'hard'
-# '''
+# Brown base theme
+[[plugins]]
+repo = 'morhetz/gruvbox'
+merged = 0
+trusted = 1
+hook_add = '''
+autocmd VimEnter * nested colorscheme gruvbox
+set background=dark
+let g:gruvbox_contrast_dark = 'hard'
+'''
 
 # # Purple theme
 # [[plugins]]
@@ -96,12 +96,12 @@
 # set background=dark
 # '''
 
-# Blue and Purple based theme
-[[plugins]]
-repo = 'embark-theme/vim'
-merged = 0
-trusted = 1
-hook_add = '''
-autocmd VimEnter * nested colorscheme embark
-set background=dark
-'''
+# # Blue and Purple based theme
+# [[plugins]]
+# repo = 'embark-theme/vim'
+# merged = 0
+# trusted = 1
+# hook_add = '''
+# autocmd VimEnter * nested colorscheme embark
+# set background=dark
+# '''

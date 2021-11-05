@@ -47,9 +47,9 @@ repo = 'tpope/vim-fugitive'
 hook_add = '''
 nmap [fugitive] <Nop>
 map <C-g> [fugitive]
-nmap <silent> [fugitive]o :Gbrowse<CR>
-vmap <silent> [fugitive]o :Gbrowse<CR>
-nmap <silent> [fugitive]b :Gblame<CR>
+nmap <silent> [fugitive]o :Git browse<CR>
+vmap <silent> [fugitive]o :Git browse<CR>
+nmap <silent> [fugitive]b :Git blame<CR>
 '''
 
 [[plugins]]
@@ -70,3 +70,7 @@ nnoremap <silent> <C-t>\\ :TmuxNavigatePrevious<cr>
 # ===== Replace =====
 [[plugins]]
 repo = 'kqito/vim-easy-replace'
+
+# ===== Misc =====
+[[plugins]]
+repo = 'github/copilot.vim'
