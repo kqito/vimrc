@@ -60,6 +60,7 @@ let g:coc_global_extensions = [
   \ 'coc-sh',
   \ 'coc-sql',
   \ 'coc-syntax',
+  \ 'coc-stylelintplus',
   \ 'coc-tabnine',
   \ 'coc-tag',
   \ 'coc-tailwindcss',
