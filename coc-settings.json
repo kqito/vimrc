@@ -47,7 +47,7 @@
   // ===== Coc-explorer ======
    "explorer.keyMappings.global": {
     "v": ["open:vsplit"],
-    "e": ["open:tab"],
+    "e": ["open:tab"]
   },
   // ===== Completion ======
   "suggest.echodocSupport": true,
@@ -60,15 +60,7 @@
   "typescript.format.enabled": false,
   "javascript.format.enabled": false,
   "prettier.trailingComma": "es5",
-  "eslint.filetypes": [
-    "javascript",
-    "typescript",
-    "typescriptreact",
-    "javascriptreact",
-    "typescript.tsx"
-  ],
   "eslint.autoFixOnSave": false,
-  "eslint.autoFix": false,
   "prettier.disableLanguages": [
     "markdown"
   ],
