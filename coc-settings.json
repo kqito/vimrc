@@ -49,6 +49,7 @@
     "v": ["open:vsplit"],
     "e": ["open:tab"]
   },
+  "explorer.file.showHiddenFiles":true,
   // ===== Completion ======
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 20,
