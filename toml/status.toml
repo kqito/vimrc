@@ -19,8 +19,8 @@ let g:airline_symbols = {}
 endif
 '''
 
-[[plugins]]
-repo = 'vim-airline/vim-airline-themes'
-hook_add = '''
-let g:airline_theme='base16_spacemacs'
-'''
+# [[plugins]]
+# repo = 'vim-airline/vim-airline-themes'
+# hook_add = '''
+# let g:airline_theme='base16_spacemacs'
+# '''

@@ -56,7 +56,7 @@ let g:coc_global_extensions = [
   \ 'coc-prettier',
   \ 'coc-project',
   \ 'coc-python',
-  \ 'coc-rust-analyzer',
+  \ 'coc-rls',
   \ 'coc-sh',
   \ 'coc-sql',
   \ 'coc-syntax',
