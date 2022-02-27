@@ -71,6 +71,13 @@ nnoremap <silent> <C-t>\\ :TmuxNavigatePrevious<cr>
 [[plugins]]
 repo = 'kqito/vim-easy-replace'
 
-# ===== Misc =====
+# ===== Github copilot =====
 [[plugins]]
 repo = 'github/copilot.vim'
+
+# ===== =====
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+hook_add = '''
+map <silent> <space>s <Plug>(easymotion-w)
+'''
