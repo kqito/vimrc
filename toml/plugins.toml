@@ -79,5 +79,7 @@ repo = 'github/copilot.vim'
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
 hook_add = '''
-map <silent> <space>s <Plug>(easymotion-w)
+map  <space>s <Plug>(easymotion-prefix)
+map  <space>ss <Plug>(easymotion-bd-f)
+nmap <space>ss <Plug>(easymotion-overwin-f)
 '''
