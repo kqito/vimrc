@@ -24,3 +24,12 @@ endif
 # hook_add = '''
 # let g:airline_theme='base16_spacemacs'
 # '''
+
+# Dark thin blue theme
+[[plugins]]
+repo = 'jacoborus/tender.vim'
+merged = 0
+trusted = 1
+hook_add = '''
+let g:airline_theme = 'tender'
+'''

@@ -24,16 +24,6 @@
 
 # # Purple theme
 # [[plugins]]
-# repo = 'haishanh/night-owl.vim'
-# merged = 0
-# trusted = 1
-# hook_add = '''
-# autocmd VimEnter * nested colorscheme night-owl
-# set background=dark
-# '''
-
-# # Purple theme
-# [[plugins]]
 # repo = 'wadackel/vim-dogrun'
 # merged = 0
 # trusted = 1
@@ -49,21 +39,6 @@
 # trusted = 1
 # hook_add = '''
 # autocmd VimEnter * nested colorscheme iceberg
-# '''
-
-# # light color theme
-# [[plugins]]
-# repo = 'jonathanfilip/vim-lucius'
-# merged = 0
-# trusted = 1
-# hook_add = '''
-# autocmd VimEnter * nested colorscheme lucius
-# set background=dark
-
-# autocmd User CocOpenFloat
-#   \ if exists('w:float')
-#   \ |   hi CocFloating guibg=#616161 guifg=NONE
-#   \ | endif
 # '''
 
 # # Purple theme
@@ -86,33 +61,22 @@
 # set background=dark
 # '''
 
-# # Purple base
+# # Dark thin blue theme
 # [[plugins]]
-# repo = 'ghifarit53/tokyonight-vim'
+# repo = 'jacoborus/tender.vim'
 # merged = 0
 # trusted = 1
 # hook_add = '''
-# autocmd VimEnter * nested colorscheme tokyonight
+# autocmd VimEnter * nested colorscheme tender
 # set background=dark
 # '''
 
-# # Blue and Purple based theme
-# [[plugins]]
-# repo = 'embark-theme/vim'
-# merged = 0
-# trusted = 1
-# hook_add = '''
-# autocmd VimEnter * nested colorscheme embark
-# set background=dark
-# '''
-
-# Dark thin blue theme
+# Live atom IDE colors
 [[plugins]]
-repo = 'jacoborus/tender.vim'
+repo = 'gosukiwi/vim-atom-dark'
 merged = 0
 trusted = 1
 hook_add = '''
-autocmd VimEnter * nested colorscheme tender
+autocmd VimEnter * nested colorscheme atom-dark
 set background=dark
-let g:airline_theme = 'tender'
 '''
