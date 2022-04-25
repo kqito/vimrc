@@ -1,7 +1,6 @@
 vnoremap ; <ESC>:
 vnoremap / <ESC>/
 nnoremap <silent> <S-q> <Nop>
-cnoremap Q q!
 
 " ===== Move cursor settings =====
 noremap <silent> <S-j> <C-d>
