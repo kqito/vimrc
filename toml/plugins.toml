@@ -75,7 +75,7 @@ repo = 'kqito/vim-easy-replace'
 [[plugins]]
 repo = 'github/copilot.vim'
 
-# ===== =====
+# ===== easymotion =====
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
 hook_add = '''

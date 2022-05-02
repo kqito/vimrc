@@ -41,7 +41,6 @@ let g:coc_global_extensions = [
   \ 'coc-github',
   \ 'coc-gitignore',
   \ 'coc-go',
-  \ 'coc-highlight',
   \ 'coc-html',
   \ 'coc-imselect',
   \ 'coc-jest',
@@ -200,6 +199,9 @@ nnoremap <silent> [coc-list]p  :<C-u>CocList files<CR>
 " File ( Search from current dir )
 let g:vim_open_path = getcwd()
 nnoremap <silent> [coc-list]c  :exe 'CocList --input=' . fnamemodify(g:vim_open_path, ':t') . '/' . ' files'<CR>
+
+" Error Occured File ( Search from current dir )
+nnoremap <silent> [coc-list]e :<C-u>CocList diagnostics<CR>
 
 " Mru
 nnoremap <silent> [coc-list]y  :<C-u>CocList mru<CR>

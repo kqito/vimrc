@@ -1,6 +1,6 @@
 {
   // ===== General ======
-  "coc.preferences.colorSupport": true,
+  "semanticTokens.filetypes": [],
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "typescript",
