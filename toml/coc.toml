@@ -61,7 +61,6 @@ let g:coc_global_extensions = [
   \ 'coc-stylelintplus',
   \ 'coc-tabnine',
   \ 'coc-tag',
-  \ 'coc-tailwindcss',
   \ 'coc-todolist',
   \ 'coc-translator',
   \ 'coc-tsserver',
@@ -152,7 +151,7 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " ===== QuickFix ======
-nnoremap <silent> <space>. :CocAction quickfix<CR>
+nnoremap <silent> <space>.  <plug>(coc-codeaction-line)
 
 " ===== Disgnostics ======
 nmap <silent> <space>k <Plug>(coc-diagnostic-prev)
