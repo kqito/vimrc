@@ -136,11 +136,6 @@ augroup end
 xmap <space>a  <Plug>(coc-codeaction-selected)
 nmap <space>a  <Plug>(coc-codeaction-selected)
 
-" Remap for do codeAction of current line
-nmap <space>ac  <Plug>(coc-codeaction)
-" Fix autofix problem of current line
-nmap <space>qf  <Plug>(coc-fix-current)
-
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
 
@@ -151,7 +146,8 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " ===== QuickFix ======
-nnoremap <silent> <space>.  <plug>(coc-codeaction-line)
+nnoremap <silent> <space>. <plug>(coc-codeaction-line)
+nnoremap <silent> <space>> :call CocAction('fixAll')<CR>
 
 " ===== Disgnostics ======
 nmap <silent> <space>k <Plug>(coc-diagnostic-prev)
