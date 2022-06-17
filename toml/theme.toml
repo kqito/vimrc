@@ -51,23 +51,23 @@
 # set background=dark
 # '''
 
-# # Dark thin blue theme
-# [[plugins]]
-# repo = 'jacoborus/tender.vim'
-# merged = 0
-# trusted = 1
-# hook_add = '''
-# autocmd VimEnter * nested colorscheme tender
-# set background=dark
-# let g:airline_theme = 'tender'
-# '''
-
-# Live atom IDE colors
+# Dark thin blue theme
 [[plugins]]
-repo = 'gosukiwi/vim-atom-dark'
+repo = 'jacoborus/tender.vim'
 merged = 0
 trusted = 1
 hook_add = '''
-autocmd VimEnter * nested colorscheme atom-dark
+autocmd VimEnter * nested colorscheme tender
 set background=dark
+let g:airline_theme = 'tender'
 '''
+
+# # Live atom IDE colors
+# [[plugins]]
+# repo = 'gosukiwi/vim-atom-dark'
+# merged = 0
+# trusted = 1
+# hook_add = '''
+# autocmd VimEnter * nested colorscheme atom-dark
+# set background=dark
+# '''
