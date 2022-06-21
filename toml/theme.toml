@@ -22,15 +22,15 @@
 # let g:one_allow_italics = 1
 # '''
 
-# # Purple theme
-# [[plugins]]
-# repo = 'wadackel/vim-dogrun'
-# merged = 0
-# trusted = 1
-# hook_add = '''
-# autocmd VimEnter * nested colorscheme dogrun
-# set background=dark
-# '''
+# Purple theme
+[[plugins]]
+repo = 'wadackel/vim-dogrun'
+merged = 0
+trusted = 1
+hook_add = '''
+autocmd VimEnter * nested colorscheme dogrun
+set background=dark
+'''
 
 # # Blue base theme
 # [[plugins]]
@@ -51,16 +51,16 @@
 # set background=dark
 # '''
 
-# Dark thin blue theme
-[[plugins]]
-repo = 'jacoborus/tender.vim'
-merged = 0
-trusted = 1
-hook_add = '''
-autocmd VimEnter * nested colorscheme tender
-set background=dark
-let g:airline_theme = 'tender'
-'''
+# # Dark thin blue theme
+# [[plugins]]
+# repo = 'jacoborus/tender.vim'
+# merged = 0
+# trusted = 1
+# hook_add = '''
+# autocmd VimEnter * nested colorscheme tender
+# set background=dark
+# let g:airline_theme = 'tender'
+# '''
 
 # # Live atom IDE colors
 # [[plugins]]
