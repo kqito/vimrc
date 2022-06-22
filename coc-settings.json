@@ -1,6 +1,7 @@
 {
   // ===== General ======
   "semanticTokens.filetypes": [],
+  "coc.preferences.enableMessageDialog": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "typescript",

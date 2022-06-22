@@ -117,9 +117,6 @@ endfunction
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Remap for rename current word
-nmap <space>rn <Plug>(coc-rename)
-
 " Remap for format selected region
 xmap <space>f  <Plug>(coc-format-selected)
 nmap <space>f  <Plug>(coc-format-selected)
@@ -142,12 +139,19 @@ command! -nargs=0 Format :call CocAction('format')
 " Use `:Fold` to fold current buffer
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
+" ===== CocCommand ======
+nnoremap <silent> <space>c :CocCommand<CR>
+
 " For prettier settings
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " ===== QuickFix ======
 nnoremap <silent> <space>. <plug>(coc-codeaction-line)
-nnoremap <silent> <space>r  <plug>(coc-refactor)
+nnoremap <silent> <space>rr  <plug>(coc-refactor)
+nnoremap <silent> <space>rn <Plug>(coc-rename)
+" This map needs `watchman` command installed in $PATH
+nnoremap <silent> <space>rf :CocCommand workspace.renameCurrentFile<CR>
+
 
 " ===== Disgnostics ======
 nmap <silent> <space>k <Plug>(coc-diagnostic-prev)
@@ -168,9 +172,6 @@ nnoremap <silent> <space>a  :<C-u>CocList diagnostics<CR>
 
 " Manage extensions
 nnoremap <silent> <space>e  :<C-u>CocList extensions<CR>
-
-" Restart coc
-nnoremap <silent> <space>cr  :<C-u>CocRestart<CR>
 
 " Yank
 nnoremap <silent> <space>y     :<C-u>CocList -A --normal yank<CR>
