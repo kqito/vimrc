@@ -58,17 +58,17 @@ else
 endif
 
 if !has('nvim')
-    set ttymouse=sgr
+	set ttymouse=sgr
 endif
 
 function! s:toggle_mouse()
-    if &mouse !=# 'a'
+	if &mouse !=# 'a'
 		set mouse=a
 		echo 'Mouse function is enabled'
-    else
+	else
 		set mouse=
 		echo 'Mouse function is disabled'
-    endif
+	endif
 endfunction
 
 " ===== Around the coding style setting =====

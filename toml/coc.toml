@@ -147,7 +147,7 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " ===== QuickFix ======
 nnoremap <silent> <space>. <plug>(coc-codeaction-line)
-nnoremap <silent> <space>> :call CocAction('fixAll')<CR>
+nnoremap <silent> <space>r  <plug>(coc-refactor)
 
 " ===== Disgnostics ======
 nmap <silent> <space>k <Plug>(coc-diagnostic-prev)
