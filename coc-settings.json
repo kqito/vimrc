@@ -38,13 +38,16 @@
   "list.source.files.excludePatterns": [
     "**/node_modules/**",
     "**/yarn.lock",
-    "**/package-lock.json"
+    "**/package-lock.json",
+    "**/.git/**"
   ],
   "list.source.grep.excludePatterns": [
     "**/node_modules/**",
     "**/yarn.lock",
-    "**/package-lock.json"
+    "**/package-lock.json",
+    "**/.git/**"
   ],
+  "list.source.files.args": ["--hidden", "--files"],
   // ===== Coc-explorer ======
    "explorer.keyMappings.global": {
     "v": ["open:vsplit"],
