@@ -5,9 +5,6 @@ hook_add = '''
 nnoremap <space>t :WinResizerStartResize<CR>
 '''
 
-[[plugins]]
-repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
-
 # ===== Display idnent vertically line =====
 [[plugins]]
 repo = 'Yggdroot/indentLine'
