@@ -147,6 +147,7 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " ===== QuickFix ======
 nnoremap <silent> <space>. <plug>(coc-codeaction-line)
+vnoremap <silent> <space>. <plug>(coc-codeaction-selected)
 nnoremap <silent> <space>rr  <plug>(coc-refactor)
 nnoremap <silent> <space>rn <Plug>(coc-rename)
 " This map needs `watchman` command installed in $PATH
