@@ -48,6 +48,7 @@
     "**/.git/**"
   ],
   "list.source.files.args": ["--hidden", "--files"],
+  "list.source.grep.args": ["--hidden"],
   // ===== Coc-explorer ======
    "explorer.keyMappings.global": {
     "v": ["open:vsplit"],
@@ -55,6 +56,7 @@
   },
   "explorer.file.showHiddenFiles":true,
   // ===== Completion ======
+  "suggest.noselect": true,
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 20,
   // ===== Disagnostic ======
