@@ -16,13 +16,6 @@ nnoremap <silent> <space>it :IndentLinesToggle<CR>
 let g:indentLine_color_term = 113
 '''
 
-# ===== Pairs =====
-[[plugins]]
-repo = 'jiangmiao/auto-pairs'
-hook_add = '''
-let g:AutoPairsMapCh = 0
-'''
-
 # ===== Comment out =====
 [[plugins]]
 repo = 'tpope/vim-commentary'

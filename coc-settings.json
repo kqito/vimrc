@@ -39,13 +39,15 @@
     "**/node_modules/**",
     "**/yarn.lock",
     "**/package-lock.json",
-    "**/.git/**"
+    "**/.git/**",
+    "**/.yarn/**"
   ],
   "list.source.grep.excludePatterns": [
     "**/node_modules/**",
     "**/yarn.lock",
     "**/package-lock.json",
-    "**/.git/**"
+    "**/.git/**",
+    "**/.yarn/**"
   ],
   "list.source.files.args": ["--hidden", "--files"],
   "list.source.grep.args": ["--hidden"],
