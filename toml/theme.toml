@@ -1,14 +1,24 @@
 # ===== Color themes =====
 
-# Brown base theme
+# # Brown base theme
+# [[plugins]]
+# repo = 'morhetz/gruvbox'
+# merged = 0
+# trusted = 1
+# hook_add = '''
+# autocmd VimEnter * nested colorscheme gruvbox
+# set background=dark
+# let g:gruvbox_contrast_dark = 'hard'
+# '''
+
+# Live atom IDE colors
 [[plugins]]
-repo = 'morhetz/gruvbox'
+repo = 'sainnhe/everforest'
 merged = 0
 trusted = 1
 hook_add = '''
-autocmd VimEnter * nested colorscheme gruvbox
+autocmd VimEnter * nested colorscheme everforest
 set background=dark
-let g:gruvbox_contrast_dark = 'hard'
 '''
 
 # # Purple theme
@@ -18,45 +28,5 @@ let g:gruvbox_contrast_dark = 'hard'
 # trusted = 1
 # hook_add = '''
 # autocmd VimEnter * nested colorscheme dogrun
-# set background=dark
-# '''
-
-# # Blue base theme
-# [[plugins]]
-# repo = 'cocopon/iceberg.vim'
-# merged = 0
-# trusted = 1
-# hook_add = '''
-# autocmd VimEnter * nested colorscheme iceberg
-# '''
-
-# # Purple theme
-# [[plugins]]
-# repo = 'dracula/vim'
-# merged = 0
-# trusted = 1
-# hook_add = '''
-# autocmd VimEnter * nested colorscheme dracula
-# set background=dark
-# '''
-
-# # Dark thin blue theme
-# [[plugins]]
-# repo = 'jacoborus/tender.vim'
-# merged = 0
-# trusted = 1
-# hook_add = '''
-# autocmd VimEnter * nested colorscheme tender
-# set background=dark
-# let g:airline_theme = 'tender'
-# '''
-
-# # Live atom IDE colors
-# [[plugins]]
-# repo = 'gosukiwi/vim-atom-dark'
-# merged = 0
-# trusted = 1
-# hook_add = '''
-# autocmd VimEnter * nested colorscheme atom-dark
 # set background=dark
 # '''
