@@ -34,6 +34,7 @@ let g:coc_global_extensions = [
   \ 'coc-calc',
   \ 'coc-clock',
   \ 'coc-css',
+  \ 'coc-deepl',
   \ 'coc-emmet',
   \ 'coc-eslint8',
   \ 'coc-explorer',
@@ -209,4 +210,8 @@ nnoremap <silent> [coc-list]b  :<C-u>CocList buffers<CR>
 
 " help vim
 nnoremap <silent> [coc-list]h  :<C-u>CocList helptags<CR>
+
+" ===== CocDeepl =====
+nmap <silent> <space>T <Plug>(coc-deepl)
+vmap <silent> <space>T <Plug>(coc-deepl-selected)
 '''
