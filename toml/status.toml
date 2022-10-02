@@ -22,5 +22,6 @@ endif
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 hook_add = '''
-let g:airline_theme='solarized'
+" let g:airline_theme='solarized'
+let g:airline_theme='angr'
 '''

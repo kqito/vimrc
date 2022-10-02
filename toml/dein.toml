@@ -2,8 +2,8 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 hook_add = '''
-let g:python_host_prog = expand('~/.pyenv/versions/2.7.13/bin/python2')
-let g:python3_host_prog = expand('~/.pyenv/versions/3.7.2/bin/python3')
-let g:ruby_host_prog = $HOME . '/.rbenv/shims/ruby'
+let g:python3_host_prog = expand('/usr/local/bin/python3')
+let g:ruby_host_prog = '/usr/bin/ruby'
+
 autocmd VimEnter * call dein#call_hook('post_source')
 '''
