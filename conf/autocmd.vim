@@ -30,16 +30,3 @@ augroup END
 augroup go
   autocmd FileType go setlocal sw=4 ts=4 sts=4 noet
 augroup END
-
-" ===== Rust settings =====
-augroup rust
-  function s:AutoWriteIfPossible()
-    if &modified && !&readonly && bufname('%') !=# '' && &buftype ==# '' && expand("%") !=# ''
-      exe ":wa"
-    endif
-  endfunction
-
-  " for auto check within coc-rust-analyzer
-  autocmd CursorHold * call s:AutoWriteIfPossible()
-  autocmd CursorHoldI * call s:AutoWriteIfPossible()
-augroup END

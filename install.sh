@@ -32,7 +32,6 @@ installForNeovim() {
   mkdir -p $neovimDir
 
   ln -s "${SCRIPT_DIR}/nvim/init.vim" $neovimDir
-  ln -s "${SCRIPT_DIR}/coc-settings.json" $neovimDir
 
   echo "Done!!"
 }
