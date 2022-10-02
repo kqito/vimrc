@@ -1,3 +1,7 @@
+let g:python_host_prog = expand('~/.pyenv/versions/2.7.13/bin/python2')
+let g:python3_host_prog = expand('/usr/local/bin/python3')
+let g:ruby_host_prog = '/usr/bin/ruby'
+
 if(v:version >= 800 || has('nvim'))
   let g:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
   let g:dein_dir = g:cache_home . '/dein'
@@ -12,14 +16,15 @@ if(v:version >= 800 || has('nvim'))
       let &runtimepath = g:dein_repo_dir .",". &runtimepath
   endif
 
-  let s:toml_dir = expand('~/.vim/toml/')
   if dein#load_state(g:dein_dir)
     call dein#begin(g:dein_dir)
-    call dein#load_toml(s:toml_dir.'/dein.toml', {'lazy': 0})
-    call dein#load_toml(s:toml_dir.'/plugins.toml', {'lazy': 0})
-    call dein#load_toml(s:toml_dir.'/plugins_lazy.toml', {'lazy': 1})
-    call dein#load_toml(s:toml_dir.'/status.toml', {'lazy': 0})
-    call dein#load_toml(s:toml_dir.'/theme.toml', {'lazy': 0})
+
+    call dein#add('Shougo/dein.vim')
+    autocmd VimEnter * call dein#call_hook('post_source')
+
+    exe 'source ' . g:vim_conf_dir . 'editor/load.vim'
+    exe 'source ' . g:vim_conf_dir . 'plugins/load.vim'
+
     call dein#end()
     call dein#save_state()
   endif
