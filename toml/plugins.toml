@@ -61,9 +61,11 @@ nnoremap <silent> <C-t>\\ :TmuxNavigatePrevious<cr>
 [[plugins]]
 repo = 'kqito/vim-easy-replace'
 
-# ===== Github copilot =====
-[[plugins]]
-repo = 'github/copilot.vim'
+# # ===== Github copilot =====
+# NOTE: This plugin will map `<Tab>` in insert mode. This will cause conflict with coc's '<Tab>'
+
+# [[plugins]]
+# repo = 'github/copilot.vim'
 
 # ===== easymotion =====
 [[plugins]]
