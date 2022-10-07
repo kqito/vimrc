@@ -1,36 +1,3 @@
-[[plugins]]
-repo = 'hrsh7th/cmp-buffer'
-[[plugins]]
-repo = 'hrsh7th/cmp-path'
-[[plugins]]
-repo = 'hrsh7th/cmp-cmdline'
-[[plugins]]
-repo = 'hrsh7th/cmp-nvim-lsp'
-[[plugins]]
-repo = 'hrsh7th/cmp-vsnip'
-[[plugins]]
-repo = 'hrsh7th/vim-vsnip'
-[[plugins]]
-repo = 'L3MON4D3/LuaSnip'
-[[plugins]]
-repo = 'saadparwaiz1/cmp_luasnip'
-[[plugins]]
-repo = 'SirVer/ultisnips'
-[[plugins]]
-repo = 'quangnguyen30192/cmp-nvim-ultisnips'
-[[plugins]]
-repo = 'dcampos/nvim-snippy'
-[[plugins]]
-repo = 'dcampos/cmp-snippy'
-
-[[plugins]]
-repo = 'hrsh7th/nvim-cmp'
-hook_add = '''
-let g:loaded_perl_provider = 0
-set completeopt=menu,menuone,noselect
-'''
-hook_source = '''
-lua <<EOF
   -- Set up nvim-cmp.
   local cmp = require'cmp'
 
@@ -112,5 +79,22 @@ lua <<EOF
       { name = 'cmdline' }
     })
   })
-EOF
-'''
+
+-- Mason
+-- require('mason').setup()
+-- require('mason-lspconfig').setup()
+-- require('mason-lspconfig').setup_handlers({ function(server)
+--   local opt = {
+--     -- -- Function executed when the LSP server startup
+--     -- on_attach = function(client, bufnr)
+--     --   local opts = { noremap=true, silent=true }
+--     --   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+--     --   vim.cmd 'autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 1000)'
+--     -- end,
+--     capabilities = require('cmp_nvim_lsp').update_capabilities(
+--       vim.lsp.protocol.make_client_capabilities()
+--     )
+--   }
+--   require('lspconfig')[server].setup(opt)
+-- end })
+

@@ -13,6 +13,12 @@ set redrawtime=10000
 set nocompatible
 set noswapfile
 set sw=2 sts=2 ts=2 et
+set updatetime=300
+set signcolumn=yes
+set cmdheight=2
+set nobackup
+set nowritebackup
+set shortmess+=c
 
 let mapleader = "\<Space>"
 

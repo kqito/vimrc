@@ -1,10 +1,6 @@
-# ===== Highlight toml file =====
-[[plugins]]
-repo = 'cespare/vim-toml'
-on_ft = ['toml']
-
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
+merged = 0
 on_event = 'BufRead'
 hook_post_update = 'TSUpdate'
 hook_source = '''

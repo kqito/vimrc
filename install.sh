@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SCRIPT_DIR=($(cd $(dirname $BASH_SOURCE); pwd))
-declare -a VIMRC_DIRS=("${HOME}/.vim")
+declare -a VIMRC_DIRS=("${HOME}/.vim" "${HOME}/.config/nvim")
 
 check() {
   read -p "$1 (y/N): " yn
@@ -25,17 +25,6 @@ installForVim() {
   echo "Done!!"
 }
 
-installForNeovim() {
-  neovimDir="${HOME}/.config/nvim/"
-  echo "Installing kqito's vimrc so that neovim can use it..."
-
-  mkdir -p $neovimDir
-
-  ln -s "${SCRIPT_DIR}/nvim/init.vim" $neovimDir
-
-  echo "Done!!"
-}
-
 isEmptyVimrcDir() {
   isEmpty=0
 
@@ -53,7 +42,3 @@ isEmptyVimrcDir() {
 ! isEmptyVimrcDir && $(! check "Remove all your vimrc to install kqito's vimrc?") && exit 0
 
 installForVim
-
-$(! check "You also use neovim? (If yes, make this vimrc available to neovim)") && exit 0
-
-installForNeovim

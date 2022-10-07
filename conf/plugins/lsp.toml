@@ -1,0 +1,73 @@
+[[plugins]]
+repo = 'neovim/nvim-lspconfig'
+depends = ['mason-lspconfig.nvim', 'nvim-cmp']
+on_event = ['VimEnter']
+hook_source = '''
+lua require('plugins.lsp')
+'''
+
+[[plugins]]
+repo = 'williamboman/mason.nvim'
+
+[[plugins]]
+repo = 'williamboman/mason-lspconfig.nvim'
+depends = ['mason.nvim']
+
+[[plugins]]
+repo = 'hrsh7th/nvim-cmp'
+depends = [
+  'cmp-nvim-lsp',
+  'cmp-buffer',
+  'cmp-tabnine',
+  'cmp-path',
+  'cmp-cmdline',
+  'cmp-vsnip',
+  'vim-vsnip',
+  'cmp-emoji',
+  'cmp_luasnip',
+  'lspkind-nvim',
+]
+hook_source = '''
+lua require('plugins.cmp')
+'''
+
+[[plugins]]
+repo = 'hrsh7th/cmp-nvim-lsp'
+on_source = 'nvim-cmp'
+
+[[plugins]]
+repo = 'hrsh7th/cmp-buffer'
+on_source = 'nvim-cmp'
+
+[[plugins]]
+repo = 'tzachar/cmp-tabnine'
+on_source = 'nvim-cmp'
+build = './install.sh'
+
+[[plugins]]
+repo = 'hrsh7th/cmp-path'
+on_source = 'nvim-cmp'
+
+[[plugins]]
+repo = 'hrsh7th/cmp-cmdline'
+on_source = 'nvim-cmp'
+
+[[plugins]]
+repo = 'hrsh7th/cmp-vsnip'
+on_source = 'nvim-cmp'
+
+[[plugins]]
+repo = 'hrsh7th/vim-vsnip'
+on_source = 'nvim-cmp'
+
+[[plugins]]
+repo = 'hrsh7th/cmp-emoji'
+on_source = 'nvim-cmp'
+
+[[plugins]]
+repo = 'saadparwaiz1/cmp_luasnip'
+on_source = 'nvim-cmp'
+
+[[plugins]]
+repo = 'onsails/lspkind-nvim'
+on_source = 'nvim-cmp'
