@@ -1,6 +1,10 @@
+" ===== Nop =====
+nnoremap <silent> s <Nop>
+nnoremap <silent> <S-q> <Nop>
+
+" ===== Shortcuts mode =====
 vnoremap ; <ESC>:
 vnoremap / <ESC>/
-nnoremap <silent> <S-q> <Nop>
 
 " ===== Move cursor settings =====
 noremap <silent> <S-j> <C-d>

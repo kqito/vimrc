@@ -1,4 +1,3 @@
-# ===== Nerdtree settings =====
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
@@ -34,49 +33,27 @@ merged = 0
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 depends = 'fzf'
-hook_add = '''
-" ===== CocList =====
-noremap [fzf] <Nop>
-map s [fzf]
 
-" Show all diagnostics
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<CR>
+[[plugins]]
+repo = 'nvim-telescope/telescope.nvim'
+on_event = ['VimEnter']
+depends = [
+  'plenary.nvim',
+  'nvim-web-devicons',
+  'telescope-symbols.nvim',
+  'telescope-fzf-native.nvim'
+]
+hook_source = 'lua require("plugins.telescope")'
 
-" Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocList extensions<CR>
+[[plugins]]
+repo = 'nvim-lua/plenary.nvim'
 
-" Yank
-nnoremap <silent> <space>y     :<C-u>CocList -A --normal yank<CR>
+[[plugins]]
+repo = 'kyazdani42/nvim-web-devicons'
 
-" Find symbol of current document
-nnoremap <silent> [fzf]o  :<C-u>CocList -A outline<CR>
+[[plugins]]
+repo = 'nvim-telescope/telescope-symbols.nvim'
 
-" Search workspace symbols
-nnoremap <silent> [fzf]w  :<C-u>CocList -A -I symbols<CR>
-
-" Search workspace symbols
-nnoremap <silent> [fzf]g  :<C-u>CocList -A -I grep<CR>
-
-" Grep current word
-nnoremap <silent> [fzf]s  :exe 'CocList -A -I --input='.expand('<cword>').' grep'<CR>
-
-" File ( Search from project root )
-nnoremap <silent> [fzf]p  :<C-u>Files<CR>
-
-" File ( Search from current dir )
-let g:vim_open_path = getcwd()
-nnoremap <silent> [fzf]c  :exe 'CocList --input=' . fnamemodify(g:vim_open_path, ':t') . '/' . ' files'<CR>
-
-" Error Occured File ( Search from current dir )
-nnoremap <silent> [fzf]e :<C-u>CocList diagnostics<CR>
-
-" Mru
-nnoremap <silent> [fzf]y  :<C-u>CocList mru<CR>
-
-" Buffer
-nnoremap <silent> [fzf]b  :<C-u>CocList buffers<CR>
-
-" help vim
-nnoremap <silent> [fzf]h  :<C-u>CocList helptags<CR>
-
-'''
+[[plugins]]
+repo = 'nvim-telescope/telescope-fzf-native.nvim'
+build = 'make'
