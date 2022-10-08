@@ -16,6 +16,7 @@ vim.keymap.set('n', 'sh', builtin.help_tags)
 vim.keymap.set('n', 'sw', builtin.lsp_workspace_symbols)
 vim.keymap.set('n', 'so', builtin.lsp_document_symbols)
 vim.keymap.set('n', 'se', builtin.diagnostics)
+vim.keymap.set('n', 'sc', builtin.commands)
 vim.keymap.set('n', 'sy', telescope_builtin_oldfiles)
 
 -- You dont need to set any of these options. These are the default ones. Only
