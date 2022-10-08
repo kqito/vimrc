@@ -19,6 +19,8 @@ trusted = 1
 hook_add = '''
 autocmd VimEnter * nested colorscheme everforest
 set background=dark
+
+let g:everforest_diagnostic_virtual_text = 'colord'
 '''
 
 # # Purple theme

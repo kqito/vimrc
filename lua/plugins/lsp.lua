@@ -14,10 +14,18 @@ vim.keymap.set('n', 'g[', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
 
 -- LSP handlers
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
-)
+  vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = {
+    prefix = '●'
+  }
+})
 vim.o.updatetime = 250
 vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+
+local signs = { Error = " ", Warning = " ", Hint = " ", Information = " " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+end
 
 local lspconfig = require('lspconfig')
 
@@ -46,25 +54,6 @@ local on_attach = function(client, bufnr)
   local opts = { noremap=true, silent=true }
 
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, _G.__MyLspFloatingOpts)
-  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics, {
-      -- Don't show message as virtual text
-      virtual_text = false,
-    }
-  )
-
-  -- Navigate diagnostics
-  buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev({ float = _G.__MyLspFloatingOpts })<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next({ float = _G.__MyLspFloatingOpts })<CR>', opts)
-
-  buf_set_keymap('n', lspmap('h'), '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', lspmap('d'), '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', lspmap('D'), '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', lspmap('i'), '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', lspmap('t'), '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  buf_set_keymap('n', lspmap('s'), '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', lspmap('a'), '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  buf_set_keymap('n', lspmap('o'), '<cmd>lua vim.lsp.buf.references()<CR>', opts)
 
   -- Highlight a symbol and its references when holding the cursor
   if client.resolved_capabilities.document_highlight then
@@ -154,3 +143,6 @@ require('mason-lspconfig').setup_handlers {
     vim.cmd [[ do User LspAttachBuffers ]]
   end,
 }
+
+require("trouble").setup {}
+vim.keymap.set("n", "<space>e", "<cmd>TroubleToggle<cr>")
