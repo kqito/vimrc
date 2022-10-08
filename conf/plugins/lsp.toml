@@ -1,10 +1,8 @@
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
-depends = ['mason-lspconfig.nvim', 'nvim-cmp']
+depends = ['mason-lspconfig.nvim', 'nvim-cmp', 'nvim-notify']
 on_event = ['VimEnter']
-hook_source = '''
-lua require('plugins.lsp')
-'''
+hook_source = 'lua require("plugins.lsp")'
 
 [[plugins]]
 repo = 'williamboman/mason.nvim'
@@ -12,6 +10,10 @@ repo = 'williamboman/mason.nvim'
 [[plugins]]
 repo = 'williamboman/mason-lspconfig.nvim'
 depends = ['mason.nvim']
+
+[[plugins]]
+repo = 'rcarriga/nvim-notify'
+hook_source = 'lua require("plugins.notify")'
 
 [[plugins]]
 repo = 'hrsh7th/nvim-cmp'
@@ -27,9 +29,7 @@ depends = [
   'cmp_luasnip',
   'lspkind-nvim',
 ]
-hook_source = '''
-lua require('plugins.cmp')
-'''
+hook_source = 'lua require("plugins.cmp")'
 
 [[plugins]]
 repo = 'hrsh7th/cmp-nvim-lsp'
