@@ -1,15 +1,22 @@
 local builtin = require('telescope.builtin')
 local actions = require('telescope.actions')
 
+local function telescope_builtin_oldfiles()
+  builtin.oldfiles({
+      only_cwd = true
+    -- {cwd_only} (boolean)  alias for only_cwd
+  })
+end
+
 vim.keymap.set('n', 'sp', builtin.find_files)
 vim.keymap.set('n', 'ss', builtin.grep_string)
 vim.keymap.set('n', 'sg', builtin.live_grep)
 vim.keymap.set('n', 'sb', builtin.buffers)
 vim.keymap.set('n', 'sh', builtin.help_tags)
-vim.keymap.set('n', 'sy', builtin.oldfiles)
 vim.keymap.set('n', 'sw', builtin.lsp_workspace_symbols)
 vim.keymap.set('n', 'so', builtin.lsp_document_symbols)
 vim.keymap.set('n', 'se', builtin.diagnostics)
+vim.keymap.set('n', 'sy', telescope_builtin_oldfiles)
 
 -- You dont need to set any of these options. These are the default ones. Only
 -- the loading is important
