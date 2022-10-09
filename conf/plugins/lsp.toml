@@ -7,7 +7,8 @@ depends = [
   'nvim-cmp',
   'nvim-notify',
   'trouble.nvim',
-  'null-ls.nvim'
+  'null-ls.nvim',
+  'lspsaga.nvim'
 ]
 
 [[plugins]]
@@ -20,6 +21,10 @@ depends = ['mason.nvim']
 [[plugins]]
 repo = 'rcarriga/nvim-notify'
 hook_source = 'lua require("plugins.notify")'
+
+[[plugins]]
+repo = 'kkharji/lspsaga.nvim'
+rev = 'main'
 
 [[plugins]]
 repo = 'hrsh7th/nvim-cmp'

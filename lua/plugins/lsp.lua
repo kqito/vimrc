@@ -1,14 +1,14 @@
 -- LSP Mappings
 vim.keymap.set("n", "<space>d", "<cmd>lua vim.lsp.buf.hover()<CR>")
-vim.keymap.set("n", "<space>.", "<cmd>lua vim.lsp.buf.code_action()<CR>")
-vim.keymap.set("n", "<space>ra", "<cmd>lua vim.lsp.buf.rename()<CR>")
+vim.keymap.set("n", "<space>.", "<cmd>Lspsaga code_action<CR>")
+vim.keymap.set("n", "<space>rr", "<cmd>lua vim.lsp.buf.rename()<CR>")
 vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
 vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
 vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
 vim.keymap.set("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
 vim.keymap.set("n", "ge", "<cmd>lua vim.diagnostic.open_float()<CR>")
-vim.keymap.set("n", "g]", "<cmd>lua vim.diagnostic.goto_next()<CR>")
 vim.keymap.set("n", "g[", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
+vim.keymap.set("n", "g]", "<cmd>lua vim.diagnostic.goto_next()<CR>")
 vim.keymap.set("n", "<space>e", "<cmd>TroubleToggle<cr>")
 
 local lspconfig = require("lspconfig")
@@ -190,7 +190,18 @@ null_ls.setup({
 		-- Misc
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.completion.spell,
-		null_ls.builtins.diagnostics.luacheck,
 		null_ls.builtins.diagnostics.yamllint,
+	},
+})
+
+require("lspsaga").init_lsp_saga({
+	code_action_icon = " ",
+	code_action_keys = {
+		quit = "<ESC>",
+		exec = "<CR>",
+	},
+	code_action_prompt = {
+		virtual_text = false,
+		sign = false,
 	},
 })
