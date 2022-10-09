@@ -29,6 +29,6 @@ let g:everforest_diagnostic_virtual_text = 'colord'
 # merged = 0
 # trusted = 1
 # hook_add = '''
-# autocmd VimEnter * nested colorscheme dogrun
+# autocmd ViEnter * nested colorscheme dogrun
 # set background=dark
 # '''

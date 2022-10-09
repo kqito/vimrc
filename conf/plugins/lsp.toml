@@ -1,8 +1,14 @@
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
-depends = ['mason-lspconfig.nvim', 'nvim-cmp', 'nvim-notify', 'trouble.nvim']
 on_event = ['VimEnter']
 hook_source = 'lua require("plugins.lsp")'
+depends = [
+  'mason-lspconfig.nvim',
+  'nvim-cmp',
+  'nvim-notify',
+  'trouble.nvim',
+  'null-ls.nvim'
+]
 
 [[plugins]]
 repo = 'williamboman/mason.nvim'
@@ -33,10 +39,12 @@ hook_source = 'lua require("plugins.cmp")'
 
 [[plugins]]
 repo = 'folke/trouble.nvim'
-depends = ['lsp-colors.nvim']
 
 [[plugins]]
 repo = 'folke/lsp-colors.nvim'
+
+[[plugins]]
+repo = 'jose-elias-alvarez/null-ls.nvim'
 
 [[plugins]]
 repo = 'hrsh7th/cmp-nvim-lsp'
