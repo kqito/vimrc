@@ -1,0 +1,7 @@
+# ===== Change window's size =====
+[[plugins]]
+repo = 'simeji/winresizer'
+on_event = ['BufNewFile', 'BufRead']
+hook_add = '''
+nnoremap <space>t :WinResizerStartResize<CR>
+'''

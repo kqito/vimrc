@@ -1,32 +1,4 @@
 [[plugins]]
-repo = 'neovim/nvim-lspconfig'
-on_event = ['VimEnter']
-hook_source = 'lua require("plugins.lsp")'
-depends = [
-  'mason-lspconfig.nvim',
-  'nvim-cmp',
-  'nvim-notify',
-  'trouble.nvim',
-  'null-ls.nvim',
-  'lspsaga.nvim'
-]
-
-[[plugins]]
-repo = 'williamboman/mason.nvim'
-
-[[plugins]]
-repo = 'williamboman/mason-lspconfig.nvim'
-depends = ['mason.nvim']
-
-[[plugins]]
-repo = 'rcarriga/nvim-notify'
-hook_source = 'lua require("plugins.notify")'
-
-[[plugins]]
-repo = 'kkharji/lspsaga.nvim'
-rev = 'main'
-
-[[plugins]]
 repo = 'hrsh7th/nvim-cmp'
 depends = [
   'cmp-nvim-lsp',
@@ -37,19 +9,9 @@ depends = [
   'cmp-vsnip',
   'vim-vsnip',
   'cmp-emoji',
-  'cmp_luasnip',
   'lspkind-nvim',
 ]
 hook_source = 'lua require("plugins.cmp")'
-
-[[plugins]]
-repo = 'folke/trouble.nvim'
-
-[[plugins]]
-repo = 'folke/lsp-colors.nvim'
-
-[[plugins]]
-repo = 'jose-elias-alvarez/null-ls.nvim'
 
 [[plugins]]
 repo = 'hrsh7th/cmp-nvim-lsp'
@@ -82,10 +44,6 @@ on_source = 'nvim-cmp'
 
 [[plugins]]
 repo = 'hrsh7th/cmp-emoji'
-on_source = 'nvim-cmp'
-
-[[plugins]]
-repo = 'saadparwaiz1/cmp_luasnip'
 on_source = 'nvim-cmp'
 
 [[plugins]]

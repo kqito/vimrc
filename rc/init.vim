@@ -35,3 +35,8 @@ if has('persistent_undo')
     set undodir=~/.config/nvim/.undo
     set undofile
 endif
+
+exe 'source ' . g:rc_root_path . '/rc/autocmd.vim'
+exe 'source ' . g:rc_root_path . '/rc/command.vim'
+exe 'source ' . g:rc_root_path . '/rc/remap.vim'
+exe 'source ' . g:rc_root_path . '/dein/init.vim'

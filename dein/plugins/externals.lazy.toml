@@ -1,0 +1,29 @@
+# ===== For pane of tmux controller =====
+[[plugins]]
+repo = 'christoomey/vim-tmux-navigator'
+on_event = ['BufNewFile', 'BufRead']
+hook_add = '''
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <C-t>h  :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-t>j  :TmuxNavigateDown<cr>
+nnoremap <silent> <C-t>k  :TmuxNavigateUp<cr>
+nnoremap <silent> <C-t>l  :TmuxNavigateRight<cr>
+nnoremap <silent> <C-t>\\ :TmuxNavigatePrevious<cr>
+'''
+
+# ===== To make git even in vim =====
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+on_event = ['BufNewFile', 'BufRead']
+hook_add = '''
+nmap [fugitive] <Nop>
+map <C-g> [fugitive]
+nmap <silent> [fugitive]o :GBrowse<CR>
+vmap <silent> [fugitive]o :GBrowse<CR>
+nmap <silent> [fugitive]b :Git blame<CR>
+'''
+
+[[plugins]]
+repo = 'tpope/vim-rhubarb'
+depends = ['vim-fugitive']
+on_event = ['BufNewFile', 'BufRead']

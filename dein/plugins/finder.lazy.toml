@@ -1,0 +1,69 @@
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --all'
+merged = 0
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = 'fzf'
+
+[[plugins]]
+repo = 'nvim-telescope/telescope.nvim'
+on_event = ['VimEnter']
+depends = [
+  'plenary.nvim',
+  'nvim-web-devicons',
+  'telescope-symbols.nvim',
+  'telescope-fzf-native.nvim'
+]
+hook_source = 'lua require("plugins.telescope")'
+
+[[plugins]]
+repo = 'nvim-lua/plenary.nvim'
+
+[[plugins]]
+repo = 'kyazdani42/nvim-web-devicons'
+
+[[plugins]]
+repo = 'nvim-telescope/telescope-symbols.nvim'
+
+[[plugins]]
+repo = 'nvim-telescope/telescope-fzf-native.nvim'
+build = 'make'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add = '''
+let NERDTreeShowHidden = 1
+function MyNerdToggle()
+  if &filetype == 'nerdtree' || &filetype == ''
+    :NERDTreeToggle
+  else
+    :NERDTreeFind
+  endif
+
+  "Refresh automatically
+  exe 'silent normal R'
+endfunction
+
+nnoremap <silent> <space>b :call MyNerdToggle()<CR>
+let g:NERDTreeLimitedSyntax = 1
+let g:NERDTreeMapOpenVSplit = 'v'
+let g:NERDTreeMapOpenSplit = 's'
+let g:NERDTreeMapOpenInTab = 'e'
+let g:NERDTreeMapOpenExpl = ''
+let g:NERDTreeQuitOnOpen = 1
+'''
+
+[[plugins]]
+repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+# ===== easymotion =====
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+on_event = ['BufNewFile', 'BufRead']
+hook_add = '''
+map  <space>s <Plug>(easymotion-prefix)
+map  <space>ss <Plug>(easymotion-bd-f)
+nmap <space>ss <Plug>(easymotion-overwin-f)
+'''

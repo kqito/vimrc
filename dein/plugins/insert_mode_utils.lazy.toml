@@ -1,0 +1,38 @@
+# ===== Display idnent vertically line =====
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+on_event = ['BufNewFile', 'BufRead']
+hook_add = '''
+let g:indentLine_conceallevel  = &conceallevel
+let g:indentLine_concealcursor = &concealcursor
+
+nnoremap <silent> <space>it :IndentLinesToggle<CR>
+let g:indentLine_color_term = 113
+'''
+
+# ===== Add Pairs =====
+[[plugins]]
+repo = 'jiangmiao/auto-pairs'
+on_event = ['BufNewFile', 'BufRead']
+hook_add = '''
+let g:AutoPairsMapCh = 0
+'''
+
+# ===== Comment out =====
+[[plugins]]
+repo = 'tpope/vim-commentary'
+on_event = ['BufNewFile', 'BufRead']
+
+# ===== Surround =====
+[[plugins]]
+repo = 'tpope/vim-surround'
+on_event = ['BufNewFile', 'BufRead']
+
+[[plugin]]
+repo = 'tpope/vim-repeat'
+on_event = ['BufNewFile', 'BufRead']
+
+# ===== Replace =====
+[[plugins]]
+repo = 'kqito/vim-easy-replace'
+on_event = ['BufNewFile', 'BufRead']

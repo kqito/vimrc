@@ -1,5 +1,3 @@
-let g:vim_conf_dir = expand('~/.vim/conf/')
+let g:rc_root_path = fnamemodify(expand('<sfile>'), ':h')
 
-for s:path in split(glob(g:vim_conf_dir . '*.vim'), "\n")
-  exe 'source ' . s:path
-endfor
+exe 'source ' . g:rc_root_path . '/rc/init.vim'
