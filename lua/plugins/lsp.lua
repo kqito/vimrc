@@ -101,7 +101,7 @@ local on_attach = function(client, bufnr)
 		[[
     augroup MyAutoCmdLspDiagnostics
       autocmd!
-      autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(0, _G.__MyLspFloatingOpts)
+      autocmd CursorHold * lua vim.diagnostic.open_float(0, _G.__MyLspFloatingOpts)
     augroup END
   ]],
 		false
