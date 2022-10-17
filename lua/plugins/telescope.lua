@@ -22,7 +22,19 @@ vim.keymap.set("n", "sy", telescope_builtin_oldfiles)
 -- You dont need to set any of these options. These are the default ones. Only
 -- the loading is important
 require("telescope").setup({
+	pickers = {
+		find_files = {
+			hidden = true,
+		},
+	},
 	defaults = {
+		file_ignore_patterns = {
+			"node_modules",
+			"build",
+			"dist",
+			"yarn.lock",
+			".git/",
+		},
 		mappings = {
 			i = {
 				["<C-u>"] = false,
