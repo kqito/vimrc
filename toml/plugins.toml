@@ -20,10 +20,6 @@ let g:indentLine_color_term = 113
 [[plugins]]
 repo = 'tpope/vim-commentary'
 
-# ===== Language packs =====
-[[plugins]]
-repo = 'sheerun/vim-polyglot'
-
 # ===== Surround =====
 [[plugins]]
 repo = 'tpope/vim-surround'

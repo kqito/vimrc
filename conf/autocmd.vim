@@ -35,11 +35,11 @@ augroup END
 augroup rust
   function s:AutoWriteIfPossible()
     if &modified && !&readonly && bufname('%') !=# '' && &buftype ==# '' && expand("%") !=# ''
-      exe ":noa wa"
+      exe ":wa"
     endif
   endfunction
 
   " for auto check within coc-rust-analyzer
-  autocmd CursorHold *.rs call s:AutoWriteIfPossible()
-  autocmd CursorHoldI *.rs call s:AutoWriteIfPossible()
+  autocmd CursorHold * call s:AutoWriteIfPossible()
+  autocmd CursorHoldI * call s:AutoWriteIfPossible()
 augroup END
