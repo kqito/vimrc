@@ -4,14 +4,16 @@
 vim.notify = require("notify")
 vim.notify.setup({
 	top_down = false,
+	stages = "fade",
+	fps = 60,
+	max_height = 3,
 })
 local client_notifs = {}
-local skip_client_names = {
-	"null-ls",
+local allow_client_names = {
+	"",
+	"rust_analyzer",
 }
-local skip_title = {
-	"cargo check",
-}
+local skip_title = {}
 
 local function get_notif_data(client_id, token)
 	if not client_notifs[client_id] then
@@ -69,19 +71,23 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
 	local notif_data = get_notif_data(client_id, result.token)
 	local client_name = vim.lsp.get_client_by_id(client_id).name
 
-	local should_skip = false
-	for _, v in pairs(skip_client_names) do
-		if should_skip or client_name == v then
+	local should_skip = true
+
+	for _, v in pairs(skip_title) do
+		if val.title:find(v) then
 			should_skip = true
 		end
 	end
-	for _, v in pairs(skip_title) do
-		if should_skip or (val.title ~= nil and val.title:find(v)) then
-			should_skip = true
+	for _, v in pairs(allow_client_names) do
+		if client_name == v then
+			should_skip = false
 		end
+	end
+	if client_name == "" then
+		should_skip = false
 	end
 
-	-- Skip null-ls notification
+	-- Skip notification
 	if should_skip then
 		return
 	end
