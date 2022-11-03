@@ -11,14 +11,26 @@
 # let g:gruvbox_contrast_dark = 'hard'
 # '''
 
+# # Green based
+# [[plugins]]
+# repo = 'sainnhe/everforest'
+# merged = 0
+# trusted = 1
+# hook_add = '''
+# autocmd VimEnter * nested colorscheme everforest
+# set background=dark
+# '''
+
 # Live atom IDE colors
 [[plugins]]
-repo = 'sainnhe/everforest'
+repo = 'sainnhe/gruvbox-material'
 merged = 0
 trusted = 1
 hook_add = '''
-autocmd VimEnter * nested colorscheme everforest
+autocmd VimEnter * nested colorscheme gruvbox-material
 set background=dark
+let g:gruvbox_material_background = 'soft'
+let g:gruvbox_material_better_performance = 1
 '''
 
 # # Purple theme

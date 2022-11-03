@@ -49,14 +49,14 @@
     "**/.git/**",
     "**/.yarn/**"
   ],
-  "list.source.files.args": ["--hidden", "--files"],
-  "list.source.grep.args": ["--hidden"],
+  "list.source.files.args": ["--ignore-case", "--hidden", "--files"],
+  "list.source.grep.args": ["--ignore-case", "--hidden"],
   // ===== Coc-explorer ======
-   "explorer.keyMappings.global": {
+  "explorer.keyMappings.global": {
     "v": ["open:vsplit"],
     "e": ["open:tab"]
   },
-  "explorer.file.showHiddenFiles":true,
+  "explorer.file.showHiddenFiles": true,
   // ===== Completion ======
   "suggest.noselect": true,
   "suggest.echodocSupport": true,
@@ -70,9 +70,7 @@
   "javascript.format.enabled": false,
   "prettier.trailingComma": "es5",
   "eslint.autoFixOnSave": false,
-  "prettier.disableLanguages": [
-    "markdown"
-  ],
+  "prettier.disableLanguages": ["markdown"],
   "emmet.includeLanguages": {
     "vue-html": "html",
     "javascript": "javascriptreact",
@@ -84,28 +82,16 @@
   "languageserver": {
     "sorbet": {
       "command": "srb",
-      "args": [
-        "tc",
-        "--lsp",
-        "--enable-all-experimental-lsp-features"
-      ],
-      "filetypes": [
-        "ruby"
-      ],
-      "rootPatterns": [
-        "sorbet/config"
-      ],
+      "args": ["tc", "--lsp", "--enable-all-experimental-lsp-features"],
+      "filetypes": ["ruby"],
+      "rootPatterns": ["sorbet/config"],
       "initializationOptions": {},
       "settings": {}
     },
     "dockerfile": {
       "command": "docker-langserver",
-      "filetypes": [
-        "dockerfile"
-      ],
-      "args": [
-        "--stdio"
-      ]
+      "filetypes": ["dockerfile"],
+      "args": ["--stdio"]
     }
   },
   // ===== Go ======
@@ -116,5 +102,9 @@
   // ===== coc-deepl =====
   "deepl.enabled": true,
   "deepl.plan": "free",
-  "deepl.targetLanguage": "JA"
+  "deepl.targetLanguage": "JA",
+
+  // Rust
+  "rust-analyzer.diagnostics.enable": false,
+  "rust-analyzer.checkOnSave.enable": true
 }
