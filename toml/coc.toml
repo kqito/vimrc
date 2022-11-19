@@ -172,10 +172,7 @@ noremap [coc-list] <Nop>
 map s [coc-list]
 
 " Show all diagnostics
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<CR>
-
-" Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocList extensions<CR>
+nnoremap <silent> <space>e  :<C-u>CocList diagnostics<CR>
 
 " Yank
 nnoremap <silent> <space>y     :<C-u>CocList -A --normal yank<CR>
