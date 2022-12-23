@@ -1,15 +1,15 @@
 # ===== Color themes =====
 
-# # Brown base theme
-# [[plugins]]
-# repo = 'morhetz/gruvbox'
-# merged = 0
-# trusted = 1
-# hook_add = '''
-# autocmd VimEnter * nested colorscheme gruvbox
-# set background=dark
-# let g:gruvbox_contrast_dark = 'hard'
-# '''
+# Brown base theme
+[[plugins]]
+repo = 'morhetz/gruvbox'
+merged = 0
+trusted = 1
+hook_add = '''
+autocmd VimEnter * nested colorscheme gruvbox
+set background=dark
+let g:gruvbox_contrast_dark = 'hard'
+'''
 
 # # Green based
 # [[plugins]]
@@ -21,17 +21,17 @@
 # set background=dark
 # '''
 
-# Live atom IDE colors
-[[plugins]]
-repo = 'sainnhe/gruvbox-material'
-merged = 0
-trusted = 1
-hook_add = '''
-autocmd VimEnter * nested colorscheme gruvbox-material
-set background=dark
-let g:gruvbox_material_background = 'soft'
-let g:gruvbox_material_better_performance = 1
-'''
+# # Live atom IDE colors
+# [[plugins]]
+# repo = 'sainnhe/gruvbox-material'
+# merged = 0
+# trusted = 1
+# hook_add = '''
+# autocmd VimEnter * nested colorscheme gruvbox-material
+# set background=dark
+# let g:gruvbox_material_background = 'soft'
+# let g:gruvbox_material_better_performance = 1
+# '''
 
 # # Purple theme
 # [[plugins]]
