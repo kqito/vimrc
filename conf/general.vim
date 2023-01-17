@@ -13,6 +13,7 @@ set redrawtime=10000
 set nocompatible
 set noswapfile
 set sw=2 sts=2 ts=2 et
+set tabpagemax=500
 
 let mapleader = "\<Space>"
 
