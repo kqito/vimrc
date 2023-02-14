@@ -10,21 +10,12 @@
 # let g:gruvbox_contrast_dark = 'hard'
 # '''
 
-# [[plugins]]
-# repo = 'sainnhe/everforest'
-# merged = 0
-# trusted = 1
-# hook_add = '''
-# autocmd VimEnter * nested colorscheme everforest
-# set background=dark
-# '''
-
 [[plugins]]
-repo = 'ajmwagar/vim-deus'
+repo = 'sainnhe/everforest'
 merged = 0
 trusted = 1
 hook_add = '''
-autocmd VimEnter * nested colorscheme deus
+autocmd VimEnter * nested colorscheme everforest
 set background=dark
 '''
 
@@ -45,5 +36,14 @@ set background=dark
 # trusted = 1
 # hook_add = '''
 # autocmd VimEnter * nested colorscheme dogrun
+# set background=dark
+# '''
+
+# [[plugins]]
+# repo = 'AlessandroYorba/Alduin'
+# merged = 0
+# trusted = 1
+# hook_add = '''
+# autocmd VimEnter * nested colorscheme alduin
 # set background=dark
 # '''
