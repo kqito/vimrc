@@ -40,6 +40,6 @@ augroup rust
   endfunction
 
   " for auto check within coc-rust-analyzer
-  autocmd CursorHold * call s:AutoWriteIfPossible()
-  autocmd CursorHoldI * call s:AutoWriteIfPossible()
+  autocmd FileType rust CursorHold * call s:AutoWriteIfPossible()
+  autocmd FileType rust CursorHoldI * call s:AutoWriteIfPossible()
 augroup END
