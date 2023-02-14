@@ -37,6 +37,7 @@
   },
   "list.source.files.excludePatterns": [
     "**/node_modules/**",
+    "**/pnpm-lock.yaml",
     "**/yarn.lock",
     "**/package-lock.json",
     "**/.git/**",
@@ -44,6 +45,7 @@
   ],
   "list.source.grep.excludePatterns": [
     "**/node_modules/**",
+    "**/pnpm-lock.yaml",
     "**/yarn.lock",
     "**/package-lock.json",
     "**/.git/**",
