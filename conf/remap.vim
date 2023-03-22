@@ -52,9 +52,9 @@ nnoremap x ""x
 " ===== Allow to use of mouse settings =====
 if has('mouse')
 	set mouse=a
-	nnoremap <silent> <space>m :call <SID>toggle_mouse()<CR>
+	nnoremap <silent> <space>M :call <SID>toggle_mouse()<CR>
 else
-	nnoremap <silent> <space>m :echo 'Mouse function is not enabled'<CR>
+	nnoremap <silent> <space>M :echo 'Mouse function is not enabled'<CR>
 endif
 
 if !has('nvim')

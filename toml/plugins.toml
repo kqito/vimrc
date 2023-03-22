@@ -67,9 +67,7 @@ repo = 'kqito/vim-easy-replace'
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
 hook_add = '''
-map  <space>s <Plug>(easymotion-prefix)
-map  <space>ss <Plug>(easymotion-bd-f)
-nmap <space>ss <Plug>(easymotion-overwin-f)
+nmap S <Plug>(easymotion-overwin-f)
 '''
 
 
