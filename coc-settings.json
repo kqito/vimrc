@@ -109,5 +109,5 @@
 
   // Rust
   "rust-analyzer.diagnostics.enable": false,
-  "rust-analyzer.checkOnSave.enable": true
+  "rust-analyzer.checkOnSave": true
 }
