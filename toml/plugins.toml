@@ -36,6 +36,7 @@ nmap [fugitive] <Nop>
 map <C-g> [fugitive]
 nmap <silent> [fugitive]o :GBrowse<CR>
 vmap <silent> [fugitive]o :GBrowse<CR>
+nmap <silent> [fugitive]d :Gdiffsplit<CR>
 vmap <silent> [fugitive]d :Gdiffsplit<CR>
 nmap <silent> [fugitive]b :Git blame<CR>
 '''
