@@ -1,4 +1,5 @@
 # ===== Change window's size =====
+
 [[plugins]]
 repo = 'simeji/winresizer'
 hook_add = '''
@@ -35,6 +36,7 @@ nmap [fugitive] <Nop>
 map <C-g> [fugitive]
 nmap <silent> [fugitive]o :GBrowse<CR>
 vmap <silent> [fugitive]o :GBrowse<CR>
+vmap <silent> [fugitive]d :Gdiffsplit<CR>
 nmap <silent> [fugitive]b :Git blame<CR>
 '''
 
