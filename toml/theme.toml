@@ -1,14 +1,14 @@
 # ===== Color themes =====
 
-[[plugins]]
-repo = 'morhetz/gruvbox'
-merged = 0
-trusted = 1
-hook_add = '''
-autocmd VimEnter * nested colorscheme gruvbox
-set background=dark
-let g:gruvbox_contrast_dark = 'hard'
-'''
+# [[plugins]]
+# repo = 'morhetz/gruvbox'
+# merged = 0
+# trusted = 1
+# hook_add = '''
+# autocmd VimEnter * nested colorscheme gruvbox
+# set background=dark
+# let g:gruvbox_contrast_dark = 'hard'
+# '''
 
 # [[plugins]]
 # repo = 'sainnhe/everforest'
@@ -31,11 +31,12 @@ let g:gruvbox_contrast_dark = 'hard'
 # let g:gruvbox_material_better_performance = 1
 # '''
 
-# [[plugins]]
-# repo = 'wadackel/vim-dogrun'
-# merged = 0
-# trusted = 1
-# hook_add = '''
-# autocmd VimEnter * nested colorscheme dogrun
-# set background=dark
-# '''
+[[plugins]]
+repo = 'joshdick/onedark.vim'
+merged = 0
+trusted = 1
+hook_add = '''
+autocmd VimEnter * nested colorscheme onedark
+set background=dark
+let g:airline_theme='onedark'
+'''
