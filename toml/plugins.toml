@@ -81,6 +81,12 @@ let g:copilot_enabled = v:false
 repo = 'easymotion/vim-easymotion'
 hook_add = '''
 nmap S <Plug>(easymotion-overwin-f)
+" Use uppercase target labels and type as a lower case
+let g:EasyMotion_use_upper = 1
+ " type `l` and match `l`&`L`
+let g:EasyMotion_smartcase = 1
+" Smartsign (type `3` and match `3`&`#`)
+let g:EasyMotion_use_smartsign_us = 1
 '''
 
 
