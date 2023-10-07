@@ -38,3 +38,11 @@ repo = 'romgrk/barbar.nvim'
 hook_add = '''
 let g:airline#extensions#tabline#enabled = 0 " Integrate for
 '''
+
+[[plugins]]
+repo = 'joshdick/onedark.vim'
+merged = 0
+trusted = 1
+hook_add = '''
+let g:airline_theme='onedark'
+'''

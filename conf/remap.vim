@@ -71,11 +71,6 @@ function! s:toggle_mouse()
 	endif
 endfunction
 
-" ===== Around the coding style setting =====
-inoremap ,, <ESC>:%s/\s\+$//e<CR><S-A>,<ESC>
-nnoremap ,, <ESC>:%s/\s\+$//e<CR><S-A>,<ESC>
-inoremap ;; <ESC><S-A>;<ESC>
-nnoremap ;; <ESC><S-A>;<ESC>
 " ===== Buffer settings =====
 nmap [Buffer] <Nop>
 map <C-b> [Buffer]
