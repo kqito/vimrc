@@ -73,7 +73,8 @@ vnoremap <silent> <space>rc :EasyReplaceCwordInVisual<cr>
 [[plugins]]
 repo = 'github/copilot.vim'
 hook_add = '''
-let g:copilot_enabled = v:false
+let g:copilot_no_tab_map = v:true
+imap <silent><script><expr> <C-f> copilot#Accept("\<CR>")
 '''
 
 # ===== easymotion =====
