@@ -1,14 +1,14 @@
 # ===== Color themes =====
 
-# [[plugins]]
-# repo = 'morhetz/gruvbox'
-# merged = 0
-# trusted = 1
-# hook_add = '''
-# autocmd VimEnter * nested colorscheme gruvbox
-# set background=dark
-# let g:gruvbox_contrast_dark = 'hard'
-# '''
+[[plugins]]
+repo = 'morhetz/gruvbox'
+merged = 0
+trusted = 1
+hook_add = '''
+autocmd VimEnter * nested colorscheme gruvbox
+set background=dark
+let g:gruvbox_contrast_dark = 'hard'
+'''
 
 # [[plugins]]
 # repo = 'sainnhe/everforest'
@@ -31,12 +31,20 @@
 # let g:gruvbox_material_better_performance = 1
 # '''
 
-[[plugins]]
-repo = 'joshdick/onedark.vim'
-merged = 0
-trusted = 1
-hook_add = '''
-autocmd VimEnter * nested colorscheme onedark
-set background=dark
-let g:airline_theme='onedark'
-'''
+# [[plugins]]
+# repo = 'folke/tokyonight.nvim'
+# merged = 0
+# trusted = 1
+# hook_add = '''
+# autocmd VimEnter * nested colorscheme tokyonight
+# set background=dark
+# '''
+
+# [[plugins]]
+# repo = 'nyoom-engineering/oxocarbon.nvim'
+# merged = 0
+# trusted = 1
+# hook_add = '''
+# autocmd VimEnter * nested colorscheme oxocarbon
+# set background=dark
+# '''

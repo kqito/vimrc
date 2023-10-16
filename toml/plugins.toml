@@ -121,3 +121,14 @@ lua <<EOF
 
 EOF
 '''
+
+# ===== for automatically cargo check =====
+[[plugins]]
+repo = '907th/vim-auto-save'
+hook_add = '''
+let g:auto_save = 0
+" let g:auto_save_silent = 1
+augroup ft_markdown
+  au!
+  au FileType rust let b:auto_save = 1
+augroup END'''
