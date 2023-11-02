@@ -3,8 +3,8 @@ vnoremap / y/<C-R>"<CR>
 nnoremap <silent> <S-q> <Nop>
 
 " ===== Saving =====
-noremap <silent> <C-w> <ESC>:wa<CR>
-inoremap <silent> <C-w> <ESC>:wa<CR>
+noremap <silent> \w <ESC>:wa<CR>
+inoremap <silent> \w <ESC>:wa<CR>
 
 " ===== Move cursor settings =====
 noremap <silent> <S-j> <C-d>

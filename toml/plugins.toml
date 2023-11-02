@@ -132,3 +132,14 @@ augroup ft_markdown
   au!
   au FileType rust let b:auto_save = 1
 augroup END'''
+
+
+# ===== Fuzzy Incremental Search =====
+[[plugins]]
+repo = 'haya14busa/incsearch.vim'
+
+[[plugins]]
+repo = 'haya14busa/incsearch-fuzzy.vim'
+hook_add = '''
+map ? <Plug>(incsearch-fuzzy-/)
+'''

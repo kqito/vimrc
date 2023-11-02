@@ -1,14 +1,14 @@
 # ===== Color themes =====
 
-[[plugins]]
-repo = 'morhetz/gruvbox'
-merged = 0
-trusted = 1
-hook_add = '''
-autocmd VimEnter * nested colorscheme gruvbox
-set background=dark
-let g:gruvbox_contrast_dark = 'hard'
-'''
+# [[plugins]]
+# repo = 'morhetz/gruvbox'
+# merged = 0
+# trusted = 1
+# hook_add = '''
+# autocmd VimEnter * nested colorscheme gruvbox
+# set background=dark
+# let g:gruvbox_contrast_dark = 'hard'
+# '''
 
 # [[plugins]]
 # repo = 'sainnhe/everforest'
@@ -20,16 +20,16 @@ let g:gruvbox_contrast_dark = 'hard'
 # let g:everforest_background = 'hard'
 # '''
 
-# [[plugins]]
-# repo = 'sainnhe/gruvbox-material'
-# merged = 0
-# trusted = 1
-# hook_add = '''
-# autocmd VimEnter * nested colorscheme gruvbox-material
-# set background=dark
-# let g:gruvbox_material_background = 'soft'
-# let g:gruvbox_material_better_performance = 1
-# '''
+[[plugins]]
+repo = 'sainnhe/gruvbox-material'
+merged = 0
+trusted = 1
+hook_add = '''
+autocmd VimEnter * nested colorscheme gruvbox-material
+set background=dark
+let g:gruvbox_material_background = 'soft'
+let g:gruvbox_material_better_performance = 1
+'''
 
 # [[plugins]]
 # repo = 'folke/tokyonight.nvim'
@@ -37,14 +37,5 @@ let g:gruvbox_contrast_dark = 'hard'
 # trusted = 1
 # hook_add = '''
 # autocmd VimEnter * nested colorscheme tokyonight
-# set background=dark
-# '''
-
-# [[plugins]]
-# repo = 'nyoom-engineering/oxocarbon.nvim'
-# merged = 0
-# trusted = 1
-# hook_add = '''
-# autocmd VimEnter * nested colorscheme oxocarbon
 # set background=dark
 # '''
