@@ -207,6 +207,10 @@ nnoremap <silent> [coc-list]b  :<C-u>CocList buffers<CR>
 " help vim
 nnoremap <silent> [coc-list]h  :<C-u>CocList helptags<CR>
 
+" help vim
+nnoremap <silent> \f  :<C-u>CocCommand tsserver.executeAutofix<CR>:<C-u>CocCommand eslint.executeAutofix<CR>
+inoremap <silent> \f  <ESC>:<C-u>CocCommand tsserver.executeAutofix<CR>:<C-u>CocCommand eslint.executeAutofix<CR>
+
 " ===== CocDeepl =====
 nmap <silent> <space>T <Plug>(coc-deepl)
 vmap <silent> <space>T <Plug>(coc-deepl-selected)

@@ -81,7 +81,7 @@ imap <silent><script><expr> <C-f> copilot#Accept("\<CR>")
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
 hook_add = '''
-nmap ; <Plug>(easymotion-overwin-f)
+nmap \s <Plug>(easymotion-overwin-f)
  " type `l` and match `l`&`L`
 let g:EasyMotion_smartcase = 1
 " Smartsign (type `3` and match `3`&`#`)
@@ -132,14 +132,3 @@ augroup ft_markdown
   au!
   au FileType rust let b:auto_save = 1
 augroup END'''
-
-
-# ===== Fuzzy Incremental Search =====
-[[plugins]]
-repo = 'haya14busa/incsearch.vim'
-
-[[plugins]]
-repo = 'haya14busa/incsearch-fuzzy.vim'
-hook_add = '''
-map ? <Plug>(incsearch-fuzzy-/)
-'''
