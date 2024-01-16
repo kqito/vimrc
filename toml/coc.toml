@@ -71,7 +71,6 @@ let g:coc_global_extensions = [
   \ 'coc-vimtex',
   \ 'coc-webpack',
   \ 'coc-word',
-  \ 'coc-xml',
   \ 'coc-yaml',
   \ 'coc-yank',
 \ ]
