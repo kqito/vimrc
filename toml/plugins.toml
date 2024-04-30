@@ -32,13 +32,27 @@ repo = 'tpope/vim-repeat'
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 hook_add = '''
-nmap [fugitive] <Nop>
-map <C-g> [fugitive]
-nmap <silent> [fugitive]o :GBrowse<CR>
-vmap <silent> [fugitive]o :GBrowse<CR>
-nmap <silent> [fugitive]d :Gdiffsplit<CR>
-vmap <silent> [fugitive]d :Gdiffsplit<CR>
-nmap <silent> [fugitive]b :Git blame<CR>
+nmap [git] <Nop>
+map <C-g> [git]
+nmap <silent> [git]a :GWrite<CR>
+nmap <silent> [git]o :GBrowse<CR>
+vmap <silent> [git]o :GBrowse<CR>
+nmap <silent> [git]d :Gdiffsplit<CR>
+vmap <silent> [git]d :Gdiffsplit<CR>
+nmap <silent> [git]b :Git blame<CR>
+'''
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+hook_add = '''
+xnoremap [git]a :<C-u>call GitGutterStageSelectedHunk()<CR>
+
+function! GitGutterStageSelectedHunk()
+  let l:line_start = line("'<")
+  let l:line_end = line("'>")
+  execute l:line_start . "," . l:line_end . "GitGutterStageHunk"
+  execute l:line_start . "," . l:line_end . "GitGutterStageHunk"
+endfunction
 '''
 
 [[plugins]]
@@ -81,7 +95,7 @@ imap <silent><script><expr> <C-f> copilot#Accept("\<CR>")
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
 hook_add = '''
-nmap \s <Plug>(easymotion-overwin-f)
+nmap <space>p <Plug>(easymotion-overwin-f)
  " type `l` and match `l`&`L`
 let g:EasyMotion_smartcase = 1
 " Smartsign (type `3` and match `3`&`#`)
@@ -122,7 +136,7 @@ lua <<EOF
 EOF
 '''
 
-# ===== for automatically cargo check =====
+# ===== For automatically cargo check =====
 [[plugins]]
 repo = '907th/vim-auto-save'
 hook_add = '''
@@ -131,4 +145,11 @@ let g:auto_save = 0
 augroup ft_markdown
   au!
   au FileType rust let b:auto_save = 1
-augroup END'''
+augroup END
+
+let g:auto_save_events = ["InsertLeave", "TextChanged"]
+
+" Prevent auto code formatting when saving
+let g:auto_save_presave_hook = "call coc#config('coc.preferences.formatOnSaveFiletypes', [])"
+let g:auto_save_postsave_hook = "call coc#config('coc.preferences.formatOnSaveFiletypes', ['*'])"
+'''

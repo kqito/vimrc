@@ -3,19 +3,7 @@
   "colors.enable": true,
   "semanticTokens.filetypes": [],
   "coc.preferences.enableMessageDialog": true,
-  "coc.preferences.formatOnSaveFiletypes": [
-    "javascript",
-    "typescript",
-    "typescriptreact",
-    "json",
-    "javascriptreact",
-    "vue",
-    "go",
-    "css",
-    "sass",
-    "scss",
-    "rust"
-  ],
+  "coc.preferences.formatOnSaveFiletypes": ["*"],
   // ===== Coc-list ======
   "list.insertMappings": {
     "<C-c>": "do:exit",
@@ -95,13 +83,6 @@
       "command": "docker-langserver",
       "filetypes": ["dockerfile"],
       "args": ["--stdio"]
-    },
-    "terraform": {
-      "command": "terraform-ls",
-      "args": ["serve"],
-      "filetypes": ["terraform", "tf"],
-      "initializationOptions": {},
-      "settings": {}
     }
   },
   // ===== Go ======
