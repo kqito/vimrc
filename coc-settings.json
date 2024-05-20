@@ -25,6 +25,16 @@
     "<C-o>": "do:togglemode"
   },
   "list.source.files.excludePatterns": [
+    "**/.cargo/**",
+    "**/node_modules/**",
+    "**/pnpm-lock.yaml",
+    "**/yarn.lock",
+    "**/package-lock.json",
+    "**/.git/**",
+    "**/.yarn/**"
+  ],
+  "list.source.mru.excludePatterns": [
+    "**/.cargo/**",
     "**/node_modules/**",
     "**/pnpm-lock.yaml",
     "**/yarn.lock",
@@ -33,6 +43,7 @@
     "**/.yarn/**"
   ],
   "list.source.grep.excludePatterns": [
+    "**/.cargo/**",
     "**/node_modules/**",
     "**/pnpm-lock.yaml",
     "**/yarn.lock",
