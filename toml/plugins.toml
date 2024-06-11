@@ -95,7 +95,7 @@ imap <silent><script><expr> <C-f> copilot#Accept("\<CR>")
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
 hook_add = '''
-nmap <space>p <Plug>(easymotion-overwin-f)
+nmap m <Plug>(easymotion-overwin-f)
  " type `l` and match `l`&`L`
 let g:EasyMotion_smartcase = 1
 " Smartsign (type `3` and match `3`&`#`)

@@ -35,6 +35,7 @@ repo = 'nvim-tree/nvim-web-devicons'
 
 [[plugins]]
 repo = 'romgrk/barbar.nvim'
+rev = 'v1.7.0'
 hook_add = '''
 let g:airline#extensions#tabline#enabled = 0 " Integrate for
 '''
