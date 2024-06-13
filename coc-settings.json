@@ -108,5 +108,6 @@
 
   // Rust
   "rust-analyzer.diagnostics.enable": false,
-  "rust-analyzer.checkOnSave": true
+  "rust-analyzer.checkOnSave": true,
+  "inlayHint.enable": false
 }

@@ -81,16 +81,6 @@ vnoremap <silent> <space>rc :EasyReplaceCwordInVisual<cr>
 '''
 
 
-# # ===== Github copilot =====
-# NOTE: This plugin will map `<Tab>` in insert mode. This will cause conflict with coc's '<Tab>'
-
-[[plugins]]
-repo = 'github/copilot.vim'
-hook_add = '''
-let g:copilot_no_tab_map = v:true
-imap <silent><script><expr> <C-f> copilot#Accept("\<CR>")
-'''
-
 # ===== easymotion =====
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
@@ -152,4 +142,31 @@ let g:auto_save_events = ["InsertLeave", "TextChanged"]
 " Prevent auto code formatting when saving
 let g:auto_save_presave_hook = "call coc#config('coc.preferences.formatOnSaveFiletypes', [])"
 let g:auto_save_postsave_hook = "call coc#config('coc.preferences.formatOnSaveFiletypes', ['*'])"
+'''
+
+# # ===== Github copilot =====
+# NOTE: This plugin will map `<Tab>` in insert mode. This will cause conflict with coc's '<Tab>'
+
+[[plugins]]
+repo = 'github/copilot.vim'
+hook_add = '''
+let g:copilot_no_tab_map = v:true
+imap <silent><script><expr> <C-f> copilot#Accept("\<CR>")
+imap <silent> <C-c> <ESC>:Copilot<CR>
+'''
+
+[[plugins]]
+repo = 'nvim-lua/plenary.nvim'
+
+[[plugins]]
+repo = 'CopilotC-Nvim/CopilotChat.nvim'
+depends = ['github/copilot.vim', 'nvim-lua/plenary.nvim']
+branch = 'canary'
+hook_add = '''
+lua << EOF
+require("CopilotChat").setup {
+  debug = false, -- Enable debugging
+  -- See Configuration section for rest
+}
+EOF
 '''

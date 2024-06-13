@@ -42,6 +42,7 @@ let g:coc_global_extensions = [
   \ 'coc-github',
   \ 'coc-gitignore',
   \ 'coc-go',
+  \ 'coc-highlight',
   \ 'coc-html',
   \ 'coc-jest',
   \ 'coc-json',
