@@ -101,11 +101,19 @@
       "filetypes": ["terraform", "tf"],
       "initializationOptions": {},
       "settings": {}
+    },
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".git/"],
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "completeUnimported": true,
+        "analyses": {
+          "copylocks": false, // Irvine Server
+          "infertypeargs": false // Irvine Server
+        }
+      }
     }
-  },
-  // ===== Go ======
-  "go.goplsOptions": {
-    "completeUnimported": true
   },
 
   // ===== coc-deepl =====
