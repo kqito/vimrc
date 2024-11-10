@@ -33,12 +33,13 @@ repo = 'lewis6991/gitsigns.nvim'
 [[plugins]]
 repo = 'nvim-tree/nvim-web-devicons'
 
-[[plugins]]
-repo = 'romgrk/barbar.nvim'
-rev = 'v1.7.0'
-hook_add = '''
-let g:airline#extensions#tabline#enabled = 0 " Integrate for
-'''
+# Disable barbar.nvim while holding a bug occurred when closing a buffer
+# [[plugins]]
+# repo = 'romgrk/barbar.nvim'
+# rev = 'v1.7.0'
+# hook_add = '''
+# let g:airline#extensions#tabline#enabled = 0 " Integrate for
+# '''
 
 [[plugins]]
 repo = 'joshdick/onedark.vim'
