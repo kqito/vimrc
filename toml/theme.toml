@@ -1,14 +1,14 @@
 # ===== Color themes =====
 
-# [[plugins]]
-# repo = 'morhetz/gruvbox'
-# merged = 0
-# trusted = 1
-# hook_add = '''
-# autocmd VimEnter * nested colorscheme gruvbox
-# set background=dark
-# let g:gruvbox_contrast_dark = 'hard'
-# '''
+[[plugins]]
+repo = 'morhetz/gruvbox'
+merged = 0
+trusted = 1
+hook_add = '''
+autocmd VimEnter * nested colorscheme gruvbox
+set background=dark
+let g:gruvbox_contrast_dark = 'hard'
+'''
 
 # [[plugins]]
 # repo = 'sainnhe/everforest'
@@ -40,11 +40,11 @@
 # set background=dark
 # '''
 
-[[plugins]]
-repo = 'rebelot/kanagawa.nvim'
-merged = 0
-trusted = 1
-hook_add = '''
-autocmd VimEnter * nested colorscheme kanagawa
-set background=dark
-'''
+# [[plugins]]
+# repo = 'rebelot/kanagawa.nvim'
+# merged = 0
+# trusted = 1
+# hook_add = '''
+# autocmd VimEnter * nested colorscheme kanagawa
+# set background=dark
+# '''
