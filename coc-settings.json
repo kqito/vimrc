@@ -124,5 +124,11 @@
   // Rust
   "rust-analyzer.diagnostics.enable": false,
   "rust-analyzer.checkOnSave": true,
-  "inlayHint.enable": false
+  // "rust-analyzer.check.command": "clippy",
+  "inlayHint.enable": false,
+
+  // ===== tsserver ======
+  "tsserver.useLocalTsdk": true,
+
+  "yaml.format.singleQuote": true
 }
