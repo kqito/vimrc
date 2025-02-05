@@ -1,24 +1,24 @@
 # ===== Color themes =====
 
-[[plugins]]
-repo = 'morhetz/gruvbox'
-merged = 0
-trusted = 1
-hook_add = '''
-autocmd VimEnter * nested colorscheme gruvbox
-set background=dark
-let g:gruvbox_contrast_dark = 'hard'
-'''
-
 # [[plugins]]
-# repo = 'sainnhe/everforest'
+# repo = 'morhetz/gruvbox'
 # merged = 0
 # trusted = 1
 # hook_add = '''
-# autocmd VimEnter * nested colorscheme everforest
+# autocmd VimEnter * nested colorscheme gruvbox
 # set background=dark
-# let g:everforest_background = 'hard'
+# let g:gruvbox_contrast_dark = 'hard'
 # '''
+
+[[plugins]]
+repo = 'sainnhe/everforest'
+merged = 0
+trusted = 1
+hook_add = '''
+autocmd VimEnter * nested colorscheme everforest
+set background=dark
+let g:everforest_background = 'hard'
+'''
 
 # [[plugins]]
 # repo = 'sainnhe/gruvbox-material'
