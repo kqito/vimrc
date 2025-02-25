@@ -36,7 +36,7 @@ let g:coc_global_extensions = [
   \ 'coc-css',
   \ 'coc-deepl',
   \ 'coc-emmet',
-  \ 'coc-eslint8',
+  \ 'coc-eslint',
   \ 'coc-explorer',
   \ 'coc-git',
   \ 'coc-github',

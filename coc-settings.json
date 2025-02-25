@@ -72,6 +72,8 @@
   "javascript.format.enabled": false,
   "prettier.trailingComma": "es5",
   "eslint.autoFixOnSave": false,
+  "eslint.workingDirectories": [{ "mode": "auto" }], // 時代がきたらtrueにする
+  "eslint.experimental.useFlatConfig": false, // 時代がきたらtrueにする
   "prettier.disableLanguages": ["markdown"],
   "emmet.includeLanguages": {
     "vue-html": "html",
