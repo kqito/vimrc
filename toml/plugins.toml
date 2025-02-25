@@ -159,14 +159,45 @@ imap <silent> <C-c> <ESC>:Copilot<CR>
 repo = 'nvim-lua/plenary.nvim'
 
 [[plugins]]
-repo = 'CopilotC-Nvim/CopilotChat.nvim'
-depends = ['github/copilot.vim', 'nvim-lua/plenary.nvim']
-branch = 'canary'
+repo = 'kyazdani42/nvim-tree.lua'
+depends = ['nvim-lua/plenary.nvim']
 hook_add = '''
 lua << EOF
-require("CopilotChat").setup {
-  debug = false, -- Enable debugging
-  -- See Configuration section for rest
+local function my_on_attach(bufnr)
+  local api = require "nvim-tree.api"
+
+  local function opts(desc)
+    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+  -- default mappings
+  api.config.mappings.default_on_attach(bufnr)
+
+  -- custom mappings
+  -- https://github.com/kunish/nvim-tree.lua/blob/45400cd7e02027937cd5e49845545e606ecf5a1f/doc/nvim-tree-lua.txt#L1579
+  vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent, opts('Up'))
+  vim.keymap.set('n', '?',     api.tree.toggle_help,           opts('Help'))
+  vim.keymap.set('n', 'l', api.node.open.edit, opts('Open Directory'))
+  vim.keymap.set('n', 'h', api.node.navigate.parent_close, opts('Close Directory'))
+  vim.keymap.set('n', 'v', api.node.open.vertical, opts('Open: Vertical Split'))
+  vim.keymap.set('n', 's', api.node.open.horizontal, opts('Open: Horizontal Split'))
+ vim.keymap.set('n',  'y',    api.fs.copy.absolute_path,             opts('Copy Absolute Path'))
+end
+
+-- pass to setup along with your other options
+require("nvim-tree").setup {
+  auto_reload_on_write = true,
+  disable_netrw = true,
+  hijack_netrw = true,
+  update_cwd = true,
+  actions = {
+    open_file = {
+      quit_on_open = true,
+    },
+  },
+  on_attach = my_on_attach,
 }
+
+vim.api.nvim_set_keymap('n', '<space>b', ':NvimTreeFindFileToggle<CR>', { noremap = true, silent = true })
 EOF
 '''
