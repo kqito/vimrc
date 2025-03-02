@@ -20,25 +20,25 @@
 # let g:everforest_background = 'hard'
 # '''
 
-# [[plugins]]
-# repo = 'sainnhe/gruvbox-material'
-# merged = 0
-# trusted = 1
-# hook_add = '''
-# autocmd VimEnter * nested colorscheme gruvbox-material
-# set background=dark
-# let g:gruvbox_material_background = 'soft'
-# let g:gruvbox_material_better_performance = 1
-# '''
-
 [[plugins]]
-repo = 'folke/tokyonight.nvim'
+repo = 'sainnhe/gruvbox-material'
 merged = 0
 trusted = 1
 hook_add = '''
-autocmd VimEnter * nested colorscheme tokyonight
+autocmd VimEnter * nested colorscheme gruvbox-material
 set background=dark
+let g:gruvbox_material_background = 'soft'
+let g:gruvbox_material_better_performance = 1
 '''
+
+# [[plugins]]
+# repo = 'folke/tokyonight.nvim'
+# merged = 0
+# trusted = 1
+# hook_add = '''
+# autocmd VimEnter * nested colorscheme tokyonight
+# set background=dark
+# '''
 
 # [[plugins]]
 # repo = 'rebelot/kanagawa.nvim'
