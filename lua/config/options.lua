@@ -21,9 +21,9 @@ vim.opt.tabstop = 2        -- ts -> tabstop
 vim.opt.expandtab = true   -- et -> expandtab
 vim.opt.tabpagemax = 500
 vim.g.mapleader = " "
+vim.o.termguicolors = true
 
 -- GUI colors in tmux
--- vim.opt.termguicolors = true
 -- if vim.fn.has("termguicolors") == 1 then
 --   vim.opt.t_8f = [[<Esc>[38;2;%lu;%lu;%lum]]
 --   vim.opt.t_8b = [[<Esc>[48;2;%lu;%lu;%lum]]

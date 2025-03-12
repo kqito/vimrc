@@ -1,82 +1,6 @@
 ---@diagnostic disable: undefined-global
 
 return {
-  { "tpope/vim-commentary" },
-  { "tpope/vim-surround" },
-  { "tpope/vim-repeat" },
-  {
-    "907th/vim-auto-save",
-    config = function()
-      vim.g.auto_save = 0
-      vim.api.nvim_create_augroup("ft_markdown", { clear = true })
-      vim.api.nvim_create_autocmd("FileType", {
-        group = "ft_markdown",
-        pattern = "rust",
-        callback = function()
-          vim.b.auto_save = 1
-        end
-      })
-      vim.g.auto_save_events = { "InsertLeave", "TextChanged" }
-      vim.g.auto_save_presave_hook = "call coc#config('coc.preferences.formatOnSaveFiletypes', [])"
-      vim.g.auto_save_postsave_hook = "call coc#config('coc.preferences.formatOnSaveFiletypes', ['*'])"
-    end
-  },
-  {
-    "simeji/winresizer",
-    config = function()
-      vim.keymap.set("n", "<space>t", ":WinResizerStartResize<CR>", { silent = true })
-    end
-  },
-  {
-    "Yggdroot/indentLine",
-    config = function()
-      vim.g.indentLine_conceallevel = vim.o.conceallevel
-      vim.g.indentLine_concealcursor = vim.o.concealcursor
-      vim.keymap.set("n", "<space>it", ":IndentLinesToggle<CR>", { silent = true })
-      vim.g.indentLine_color_term = 113
-    end
-  },
-  {
-    "easymotion/vim-easymotion",
-    config = function()
-      vim.keymap.set("n", "m", "<Plug>(easymotion-overwin-f)", { silent = false })
-      vim.g.EasyMotion_smartcase = 1
-      vim.g.EasyMotion_use_smartsign_us = 1
-    end
-  },
-  {
-    "monaqa/dial.nvim",
-    config = function()
-      vim.keymap.set("n", "<C-a>", require("dial.map").inc_normal(), { noremap = true })
-      vim.keymap.set("n", "<C-x>", require("dial.map").dec_normal(), { noremap = true })
-      vim.keymap.set("v", "<C-a>", require("dial.map").inc_visual(), { noremap = true })
-      vim.keymap.set("v", "<C-x>", require("dial.map").dec_visual(), { noremap = true })
-      vim.keymap.set("v", "g<C-a>", require("dial.map").inc_gvisual(), { noremap = true })
-      vim.keymap.set("v", "g<C-x>", require("dial.map").dec_gvisual(), { noremap = true })
-      require("dial.config").augends:register_group {
-        default = {
-          require("dial.augend").integer.alias.decimal,
-          require("dial.augend").integer.alias.hex,
-          require("dial.augend").date.alias["%Y/%m/%d"],
-          require("dial.augend").constant.alias.bool,
-        },
-        mygroup = {
-          require("dial.augend").integer.alias.decimal,
-          require("dial.augend").date.alias["%m/%d/%Y"],
-        }
-      }
-    end
-  },
-  {
-    "kqito/vim-easy-replace",
-    config = function()
-      vim.keymap.set("n", "<space>ra", ":EasyReplaceWord<cr>", { silent = true })
-      vim.keymap.set("n", "<space>rc", ":EasyReplaceCword<cr>", { silent = true })
-      vim.keymap.set("v", "<space>ra", ":EasyReplaceWordInVisual<cr>", { silent = true })
-      vim.keymap.set("v", "<space>rc", ":EasyReplaceCwordInVisual<cr>", { silent = true })
-    end
-  },
-
   -- Git
   {
     "tpope/vim-fugitive",
@@ -147,4 +71,87 @@ return {
       vim.keymap.set('n', '<space>b', ':NvimTreeFindFileToggle<CR>', { noremap = true, silent = true })
     end
   },
+
+  { "tpope/vim-commentary" },
+  { "tpope/vim-surround" },
+  { "tpope/vim-repeat" },
+  {
+    "907th/vim-auto-save",
+    config = function()
+      vim.g.auto_save = 0
+      vim.api.nvim_create_augroup("ft_markdown", { clear = true })
+      vim.api.nvim_create_autocmd("FileType", {
+        group = "ft_markdown",
+        pattern = "rust",
+        callback = function()
+          vim.b.auto_save = 1
+        end
+      })
+      vim.g.auto_save_events = { "InsertLeave", "TextChanged" }
+      vim.g.auto_save_presave_hook = "call coc#config('coc.preferences.formatOnSaveFiletypes', [])"
+      vim.g.auto_save_postsave_hook = "call coc#config('coc.preferences.formatOnSaveFiletypes', ['*'])"
+    end
+  },
+  {
+    "simeji/winresizer",
+    config = function()
+      vim.keymap.set("n", "<space>t", ":WinResizerStartResize<CR>", { silent = true })
+    end
+  },
+  {
+    "Yggdroot/indentLine",
+    config = function()
+      vim.g.indentLine_conceallevel = vim.o.conceallevel
+      vim.g.indentLine_concealcursor = vim.o.concealcursor
+      vim.keymap.set("n", "<space>it", ":IndentLinesToggle<CR>", { silent = true })
+      vim.g.indentLine_color_term = 113
+    end
+  },
+  {
+    "easymotion/vim-easymotion",
+    config = function()
+      vim.keymap.set("n", "m", "<Plug>(easymotion-overwin-f)", { silent = false })
+      vim.g.EasyMotion_smartcase = 1
+      vim.g.EasyMotion_use_smartsign_us = 1
+    end
+  },
+  {
+    "monaqa/dial.nvim",
+    config = function()
+      vim.keymap.set("n", "<C-a>", require("dial.map").inc_normal(), { noremap = true })
+      vim.keymap.set("n", "<C-x>", require("dial.map").dec_normal(), { noremap = true })
+      vim.keymap.set("v", "<C-a>", require("dial.map").inc_visual(), { noremap = true })
+      vim.keymap.set("v", "<C-x>", require("dial.map").dec_visual(), { noremap = true })
+      vim.keymap.set("v", "g<C-a>", require("dial.map").inc_gvisual(), { noremap = true })
+      vim.keymap.set("v", "g<C-x>", require("dial.map").dec_gvisual(), { noremap = true })
+      require("dial.config").augends:register_group {
+        default = {
+          require("dial.augend").integer.alias.decimal,
+          require("dial.augend").integer.alias.hex,
+          require("dial.augend").date.alias["%Y/%m/%d"],
+          require("dial.augend").constant.alias.bool,
+        },
+        mygroup = {
+          require("dial.augend").integer.alias.decimal,
+          require("dial.augend").date.alias["%m/%d/%Y"],
+        }
+      }
+    end
+  },
+  {
+    "kqito/vim-easy-replace",
+  },
+  {
+    'nacro90/numb.nvim',
+    config = function()
+      require('numb').setup {
+        show_numbers = true,         -- Enable 'number' for the window while peeking
+        show_cursorline = true,      -- Enable 'cursorline' for the window while peeking
+        hide_relativenumbers = true, -- Enable turning off 'relativenumber' for the window while peeking
+        number_only = true,          -- Peek only when the command is only a number instead of when it starts with a number
+        centered_peeking = true,     -- Peeked line will be centered relative to window
+      }
+    end,
+  }
+
 }
