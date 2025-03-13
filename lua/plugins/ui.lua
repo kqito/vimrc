@@ -4,6 +4,14 @@ return {
   { "nvim-tree/nvim-web-devicons" },
   { "lewis6991/gitsigns.nvim" },
   {
+    'akinsho/bufferline.nvim',
+    version = "*",
+    dependencies = 'nvim-tree/nvim-web-devicons',
+    config = function()
+      require("bufferline").setup {}
+    end
+  },
+  {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     event = "VeryLazy",
