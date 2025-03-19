@@ -12,16 +12,16 @@ return {
   --   end,
   -- },
 
-  {
-    "sainnhe/everforest",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.cmd("colorscheme everforest")
-      vim.o.background = "dark"
-      vim.g.everforest_background = 'hard'
-    end,
-  },
+  -- {
+  --   "sainnhe/everforest",
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd("colorscheme everforest")
+  --     vim.o.background = "dark"
+  --     vim.g.everforest_background = 'hard'
+  --   end,
+  -- },
 
   -- {
   --   "folke/tokyonight.nvim",
@@ -43,15 +43,15 @@ return {
   --   end,
   -- },
 
-  -- {
-  --   "sainnhe/gruvbox-material",
-  --   lazy = false,
-  --   priority = 1000,
-  --   config = function()
-  --     vim.cmd("colorscheme gruvbox-material")
-  --     vim.o.background = "dark"
-  --     vim.g.gruvbox_material_background = "soft"
-  --     vim.g.gruvbox_material_better_performance = 1
-  --   end,
-  -- },
+  {
+    "sainnhe/gruvbox-material",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd("colorscheme gruvbox-material")
+      vim.o.background = "dark"
+      vim.g.gruvbox_material_background = "soft"
+      vim.g.gruvbox_material_better_performance = 1
+    end,
+  },
 }
