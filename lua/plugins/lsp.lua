@@ -63,18 +63,23 @@ return {
       }
 
       --  Map with vim script since not working with pure lua setup
-      vim.cmd([[
-        inoremap <silent><expr> <TAB>
-              \ coc#pum#visible() ? coc#pum#next(1) :
-              \ CheckBackspace() ? "\<Tab>" :
-              \ coc#refresh()
-        inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+      vim.api.nvim_create_autocmd("InsertEnter", {
+        callback = function()
+          vim.cmd([[
+      inoremap <silent><expr> <TAB>
+            \ coc#pum#visible() ? coc#pum#next(1) :
+            \ CheckBackspace() ? "\<Tab>" :
+            \ coc#refresh()
+      inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-        function! CheckBackspace() abort
-          let col = col('.') - 1
-          return !col || getline('.')[col - 1]  =~# '\s'
-        endfunction
-      ]])
+      function! CheckBackspace() abort
+        let col = col('.') - 1
+        return !col || getline('.')[col - 1]  =~# '\s'
+      endfunction
+    ]])
+        end
+      })
+
       vim.keymap.set("i", "<CR>", 'coc#pum#visible() ? coc#pum#confirm() : "<C-g>u<CR><c-r>=coc#on_enter()<CR>"',
         { expr = true, silent = true })
       vim.keymap.set("n", "gd", "<Plug>(coc-definition)", { silent = true })
@@ -110,7 +115,7 @@ return {
       vim.keymap.set("n", "<space>c", ":CocCommand<CR>", { silent = true })
       vim.keymap.set("n", "<space>.", "<plug>(coc-codeaction-line)", { silent = true })
       vim.keymap.set("v", "<space>.", "<plug>(coc-codeaction-selected)", { silent = true })
-      vim.keymap.set("n", "<space>rr", "<plug>(coc-refactor)", { silent = true })
+      -- vim.keymap.set("n", "<space>rr", "<plug>(coc-refactor)", { silent = true })
       vim.keymap.set("n", "<space>rn", "<Plug>(coc-rename)", { silent = true })
       vim.keymap.set("n", "<space>rf", ":CocCommand workspace.renameCurrentFile<CR>", { silent = true })
       vim.keymap.set("n", "<space>k", "<Plug>(coc-diagnostic-prev)", { silent = true })
