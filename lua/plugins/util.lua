@@ -152,6 +152,14 @@ return {
         centered_peeking = true,     -- Peeked line will be centered relative to window
       }
     end,
-  }
-
+  },
+  {
+    'MagicDuck/grug-far.nvim',
+    config = function()
+      require('grug-far').setup({})
+      vim.keymap.set({ 'n', 'x' }, '<space>rr', function()
+        require('grug-far').open({})
+      end, { desc = 'grug-far: Search within range' })
+    end
+  },
 }
