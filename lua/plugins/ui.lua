@@ -1,4 +1,19 @@
----@diagnostic disable: undefined-global
+---@diagnostic disable: undefined-global, unused-local
+
+vim.api.nvim_set_keymap('n', '<space>0', ':!cursor -g <C-r>%<CR>', { noremap = true, silent = true })
+
+function open_buffer_line()
+  local buf_path = vim.fn.expand('%:p')
+
+  local start_line = vim.fn.line("'<")
+  local end_line = vim.fn.line("'>")
+
+  local line_number = start_line
+
+  vim.cmd('!' .. 'cursor -g ' .. buf_path .. ':' .. line_number)
+end
+
+vim.api.nvim_set_keymap('v', '<Space>0', ":lua open_buffer_line()<CR>", { noremap = true, silent = true })
 
 return {
   { "nvim-tree/nvim-web-devicons" },

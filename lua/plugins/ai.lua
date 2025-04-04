@@ -13,7 +13,6 @@ return {
       vim.keymap.set("i", "<C-c>", "<ESC>:Copilot<CR>", { silent = true })
     end,
   },
-
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
@@ -21,15 +20,28 @@ return {
     opts = {
       -- add any opts here
       -- for example
-      provider = "openai",
-      openai = {
-        endpoint = "https://api.openai.com/v1",
-        model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
-        timeout = 30000,  -- timeout in milliseconds
-        temperature = 0,  -- adjust if needed
-        max_tokens = 4096,
-        -- reasoning_effort = "high" -- only supported for reasoning models (o1, etc.)
+      provider = "copilot",
+      auto_suggestions_provider = "copilot",
+      behaviour = {
+        auto_suggestions = true,
+        auto_set_highlight_group = true,
+        auto_set_keymaps = true,
+        auto_apply_diff_after_generation = true,
+        support_paste_from_clipboard = true,
       },
+      -- windows = {
+      --   position = "right",
+      --   width = 30,
+      --   sidebar_header = {
+      --     align = "center",
+      --     rounded = false,
+      --   },
+      --   ask = {
+      --     floating = true,
+      --     start_insert = true,
+      --     border = "rounded"
+      --   }
+      -- },
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     build = "make",
@@ -45,6 +57,7 @@ return {
       "hrsh7th/nvim-cmp",              -- autocompletion for avante commands and mentions
       "ibhagwan/fzf-lua",              -- for file_selector provider fzf
       "nvim-tree/nvim-web-devicons",   -- or echasnovski/mini.icons
+      "github/copilot.vim",            -- for providers='copilot'
       -- "zbirenbaum/copilot.lua",        -- for providers='copilot'
       {
         -- support for image pasting
