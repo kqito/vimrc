@@ -1,18 +1,25 @@
 ---@diagnostic disable: undefined-global
 
-vim.api.nvim_set_keymap('n', '<C-g>0', ':!cursor -g <C-r>%<CR>', { noremap = true, silent = true })
+
+---@diagnostic disable-next-line: lowercase-global
+function open_current_file_in_cursor()
+  local buf_path = vim.fn.expand('%:p')
+  local line_number = vim.fn.line('.')
+  local escaped_path = vim.fn.shellescape(buf_path)
+  vim.cmd('!' .. 'cursor -g ' .. escaped_path .. ':' .. line_number)
+end
+
+vim.api.nvim_set_keymap('n', '<C-g>0', ':lua open_current_file_in_cursor()<CR>', { noremap = true, silent = true })
+
 
 ---@diagnostic disable-next-line: lowercase-global
 function open_buffer_line()
   local buf_path = vim.fn.expand('%:p')
-
   local start_line = vim.fn.line("'<")
-  ---@diagnostic disable-next-line: unused-local
-  local end_line = vim.fn.line("'>")
-
   local line_number = start_line
+  local escaped_path = vim.fn.shellescape(buf_path)
 
-  vim.cmd('!' .. 'cursor -g ' .. buf_path .. ':' .. line_number)
+  vim.cmd('!' .. 'cursor -g ' .. escaped_path .. ':' .. line_number)
 end
 
 vim.api.nvim_set_keymap('v', '<C-g>0', ":lua open_buffer_line()<CR>", { noremap = true, silent = true })
@@ -53,7 +60,7 @@ return {
             -- insert = '<C-CR>',
           },
         },
-        model = 'gpt-4o-mini',
+        model = 'gpt-4o',
         agent = 'copilot',
       })
       vim.api.nvim_create_autocmd("FileType", {
