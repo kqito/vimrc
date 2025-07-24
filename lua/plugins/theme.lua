@@ -1,16 +1,16 @@
 ---@diagnostic disable: undefined-global
 
 return {
-  -- {
-  --   "morhetz/gruvbox",
-  --   lazy = false,
-  --   priority = 1000,
-  --   config = function()
-  --     vim.cmd("colorscheme gruvbox")
-  --     vim.o.background = "dark"
-  --     vim.g.gruvbox_contrast_dark = 'hard'
-  --   end,
-  -- },
+  {
+    "morhetz/gruvbox",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd("colorscheme gruvbox")
+      vim.o.background = "dark"
+      vim.g.gruvbox_contrast_dark = 'hard'
+    end,
+  },
 
   -- {
   --   "sainnhe/everforest",
@@ -43,15 +43,15 @@ return {
   --   end,
   -- },
 
-  {
-    "sainnhe/gruvbox-material",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.cmd("colorscheme gruvbox-material")
-      vim.o.background = "dark"
-      vim.g.gruvbox_material_background = "soft"
-      vim.g.gruvbox_material_better_performance = 1
-    end,
-  },
+  -- {
+  --   "sainnhe/gruvbox-material",
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd("colorscheme gruvbox-material")
+  --     vim.o.background = "dark"
+  --     vim.g.gruvbox_material_background = "soft"
+  --     vim.g.gruvbox_material_better_performance = 1
+  --   end,
+  -- },
 }
