@@ -75,23 +75,23 @@ return {
   { "tpope/vim-commentary" },
   { "tpope/vim-surround" },
   { "tpope/vim-repeat" },
-  {
-    "907th/vim-auto-save",
-    config = function()
-      vim.g.auto_save = 0
-      vim.api.nvim_create_augroup("ft_markdown", { clear = true })
-      vim.api.nvim_create_autocmd("FileType", {
-        group = "ft_markdown",
-        pattern = "rust",
-        callback = function()
-          vim.b.auto_save = 1
-        end
-      })
-      vim.g.auto_save_events = { "InsertLeave", "TextChanged" }
-      vim.g.auto_save_presave_hook = "call coc#config('coc.preferences.formatOnSaveFiletypes', [])"
-      vim.g.auto_save_postsave_hook = "call coc#config('coc.preferences.formatOnSaveFiletypes', ['*'])"
-    end
-  },
+  -- {
+  --   "907th/vim-auto-save",
+  --   config = function()
+  --     vim.g.auto_save = 0
+  --     vim.api.nvim_create_augroup("ft_markdown", { clear = true })
+  --     vim.api.nvim_create_autocmd("FileType", {
+  --       group = "ft_markdown",
+  --       pattern = "rust",
+  --       callback = function()
+  --         vim.b.auto_save = 1
+  --       end
+  --     })
+  --     vim.g.auto_save_events = { "InsertLeave", "TextChanged" }
+  --     vim.g.auto_save_presave_hook = "call coc#config('coc.preferences.formatOnSaveFiletypes', [])"
+  --     vim.g.auto_save_postsave_hook = "call coc#config('coc.preferences.formatOnSaveFiletypes', ['*'])"
+  --   end
+  -- },
   {
     "simeji/winresizer",
     config = function()
