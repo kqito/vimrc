@@ -62,3 +62,49 @@ function _G.highlight_word_under_cursor()
 end
 
 vim.keymap.set("n", "<space>h", function() _G.highlight_word_under_cursor() end, { silent = true })
+
+-- q mapping
+-- ref: https://zenn.dev/vim_jp/articles/29d021fff07e60
+vim.api.nvim_create_autocmd('RecordingEnter', {
+  pattern = '*',
+  group = augroup_wrapper,
+  callback = function()
+    if vim.fn.reg_recording() ~= 'q' then
+      vim.cmd('normal! q')
+      return
+    end
+
+    local augroup_inner = vim.api.nvim_create_augroup('prefix-q-inner', {})
+
+    local buffer = vim.api.nvim_get_current_buf()
+
+    vim.keymap.set('n', 'q', 'q', { nowait = true, buffer = buffer })
+
+    vim.api.nvim_create_autocmd({ 'BufLeave', 'WinLeave' }, {
+      pattern = '*',
+      once = true,
+      group = augroup_inner,
+      callback = function()
+        vim.cmd('normal! q')
+        vim.notify('stop recording', vim.log.levels.INFO)
+      end,
+      desc = 'stop recording when leaving buffer',
+    })
+
+    vim.api.nvim_create_autocmd('RecordingLeave', {
+      pattern = '*',
+      once = true,
+      callback = function()
+        vim.keymap.del('n', 'q', { buffer = buffer })
+        vim.api.nvim_del_augroup_by_id(augroup_inner)
+      end,
+      desc = 'delete q mapping when recording leave',
+    })
+  end,
+})
+
+-- マクロ記録開始
+vim.keymap.set('n', 'qq', 'qq', { desc = 'start recording' })
+
+-- 直前のバッファに切り替え
+vim.keymap.set('n', 'qt', '<c-^>', { desc = 'toggle buffer' })
