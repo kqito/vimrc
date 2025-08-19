@@ -155,6 +155,18 @@ return {
       _G.get_vim_open_path = function()
         return vim.fn.getcwd()
       end
+
+      -- Use `:Format` to format current buffer
+      vim.cmd [[
+        function! FormatBuffer() abort
+          try
+            call CocAction('format')
+          catch
+            echo 'Format provider not found for this file type. Try :CocCommand prettier.formatFile or install appropriate formatter extension.'
+          endtry
+        endfunction
+        command! -nargs=0 Format :call FormatBuffer()
+      ]]
     end
   },
 }

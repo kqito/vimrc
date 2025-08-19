@@ -3,6 +3,7 @@
   "colors.enable": true,
   "semanticTokens.filetypes": [],
   "coc.preferences.enableMessageDialog": true,
+  "coc.preferences.formatOnSave": true,
   "coc.preferences.formatOnSaveFiletypes": ["*"],
   // ===== Coc-list ======
   "list.insertMappings": {
