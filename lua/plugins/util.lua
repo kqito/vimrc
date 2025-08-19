@@ -156,7 +156,11 @@ return {
   {
     'MagicDuck/grug-far.nvim',
     config = function()
-      require('grug-far').setup({})
+      require('grug-far').setup({
+        prefills = {
+          flags = '--multiline',
+        },
+      })
       vim.keymap.set({ 'n', 'x' }, '<space>rr', function()
         require('grug-far').open({})
       end, { desc = 'grug-far: Search within range' })
