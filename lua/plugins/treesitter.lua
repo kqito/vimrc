@@ -3,10 +3,13 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "main",
     event = "BufRead",
     config = function()
       require 'nvim-treesitter.configs'.setup {
         ensure_installed = 'all',
+        -- remind: failed install ipkg, so ignore it temporarily
+        ignore_install = { 'ipkg' },
         additional_vim_regex_highlighting = false,
         highlight = {
           enable = true,
