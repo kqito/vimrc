@@ -116,6 +116,12 @@
           "infertypeargs": false // Irvine Server
         }
       }
+    },
+    "some-sass-language-server": {
+      // install method: npm install --global some-sass-language-server
+      "command": "some-sass-language-server",
+      "args": ["--stdio"],
+      "filetypes": ["scss"]
     }
   },
 

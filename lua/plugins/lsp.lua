@@ -38,6 +38,7 @@ return {
         "coc-marketplace",
         "coc-omni",
         "coc-omnisharp",
+        "coc-oxc",
         "coc-pairs",
         "coc-phpls",
         "coc-prettier",
