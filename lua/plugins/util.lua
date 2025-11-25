@@ -53,7 +53,8 @@ return {
         vim.keymap.set('n', 'h', api.node.navigate.parent_close, opts('Close Directory'))
         vim.keymap.set('n', 'v', api.node.open.vertical, opts('Open: Vertical Split'))
         vim.keymap.set('n', 's', api.node.open.horizontal, opts('Open: Horizontal Split'))
-        vim.keymap.set('n', 'y', api.fs.copy.absolute_path, opts('Copy Absolute Path'))
+        vim.keymap.set('n', 'y', api.fs.copy.relative_path, opts('Copy Relative Path'))
+        vim.keymap.set('n', 'Y', api.fs.copy.absolute_path, opts('Copy Absolute Path'))
         vim.keymap.set('n', 'e', api.node.open.tab, opts('Copy Absolute Path'))
       end
       require("nvim-tree").setup {
