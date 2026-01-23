@@ -122,6 +122,20 @@
       "command": "some-sass-language-server",
       "args": ["--stdio"],
       "filetypes": ["scss"]
+    },
+    "golangci-lint-languageserver": {
+      "command": "golangci-lint-langserver",
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "command": [
+          "golangci-lint",
+          "run",
+          "--output.json.path",
+          "stdout",
+          "--show-stats=false",
+          "--issues-exit-code=1"
+        ]
+      }
     }
   },
 
