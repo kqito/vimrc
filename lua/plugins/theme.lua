@@ -1,16 +1,16 @@
 ---@diagnostic disable: undefined-global
 
 return {
-  {
-    "morhetz/gruvbox",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.cmd("colorscheme gruvbox")
-      vim.o.background = "dark"
-      vim.g.gruvbox_contrast_dark = 'hard'
-    end,
-  },
+  -- {
+  --   "morhetz/gruvbox",
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd("colorscheme gruvbox")
+  --     vim.o.background = "dark"
+  --     vim.g.gruvbox_contrast_dark = 'hard'
+  --   end,
+  -- },
 
   -- {
   --   "sainnhe/everforest",
@@ -23,15 +23,15 @@ return {
   --   end,
   -- },
 
-  -- {
-  --   "folke/tokyonight.nvim",
-  --   lazy = false,
-  --   priority = 1000,
-  --   config = function()
-  --     vim.cmd("colorscheme tokyonight")
-  --     vim.o.background = "dark"
-  --   end,
-  -- },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd("colorscheme tokyonight")
+      vim.o.background = "dark"
+    end,
+  },
 
   -- {
   --   "rebelot/kanagawa.nvim",

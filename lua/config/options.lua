@@ -54,6 +54,20 @@ vim.opt.clipboard:append "unnamed"
 -- Cursor settings
 vim.opt.cursorline = true
 
+-- Change cursor shape: bar in insert mode, block in normal mode
+if vim.env.TMUX then
+  vim.opt.guicursor = ""
+  local function set_cursor(shape)
+    io.write(string.format("\027Ptmux;\027\027[%d q\027\\", shape))
+    io.flush()
+  end
+  local group = vim.api.nvim_create_augroup("CursorShape", { clear = true })
+  vim.api.nvim_create_autocmd("InsertEnter", { group = group, callback = function() set_cursor(6) end })
+  vim.api.nvim_create_autocmd({ "InsertLeave", "VimEnter" }, { group = group, callback = function() set_cursor(2) end })
+else
+  vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25"
+end
+
 -- Mouse settings
 if vim.fn.has("mouse") == 1 then
   vim.opt.mouse = "a"
