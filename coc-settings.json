@@ -153,5 +153,26 @@
   // ===== tsserver ======
   "tsserver.useLocalTsdk": true,
 
-  "yaml.format.singleQuote": true
+  "yaml.format.singleQuote": true,
+
+  // ===== ansible ======
+  "ansible.enable": true,
+  "ansible.validation.lint.enabled": true,
+  "ansible.ansible.useFullyQualifiedCollectionNames": true,
+
+  // ===== yaml ======
+  "yaml.schemas": {
+    "https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/tasks.json": [
+      "**/tasks/*.yml",
+      "**/tasks/*.yaml",
+      "**/handlers/*.yml",
+      "**/handlers/*.yaml"
+    ],
+    "https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json": [
+      "**/playbooks/*.yml",
+      "**/playbooks/*.yaml",
+      "**/roles/**/meta/main.yml",
+      "**/roles/**/meta/main.yaml"
+    ]
+  }
 }

@@ -16,8 +16,10 @@ return {
       vim.g.coc_filetype_map = {
         ["*.jsx"] = "javascriptreact",
         ["*.tsx"] = "typescriptreact",
+        ["yaml.ansible"] = "ansible",
       }
       vim.g.coc_global_extensions = {
+        "@yaegassy/coc-ansible",
         "coc-browser",
         "coc-calc",
         "coc-clock",

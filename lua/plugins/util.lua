@@ -73,6 +73,9 @@ return {
     end
   },
 
+  -- Ansible
+  { "pearofducks/ansible-vim" },
+
   { "tpope/vim-commentary" },
   { "tpope/vim-surround" },
   { "tpope/vim-repeat" },
