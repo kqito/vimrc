@@ -1,5 +1,6 @@
 {
   "CopilotChat.nvim": { "branch": "main", "commit": "ce485330c76a5b63ccfb02b7dd18890a748ca558" },
+  "ansible-vim": { "branch": "master", "commit": "6718ff81fe36f5f4fbf6675d95b16e4a74814827" },
   "bufferline.nvim": { "branch": "main", "commit": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3" },
   "coc.nvim": { "branch": "release", "commit": "3b0b28802a1b55d0dab1a440a6e1d3b37d3af968" },
   "copilot.vim": { "branch": "release", "commit": "da369d90cfd6c396b1d0ec259836a1c7222fb2ea" },

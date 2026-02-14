@@ -24,7 +24,10 @@ vim.keymap.set("n", "<C-c><C-c>", ":noh<CR>", { silent = true })
 vim.keymap.set("n", "<C-t>n", ":tabprevious<cr>", { silent = true })
 vim.keymap.set("n", "<C-t>p", ":tabnext<cr>", { silent = true })
 vim.keymap.set("n", "<C-t>e", ":tabnew<cr>", { silent = true })
+
+-- Yank remaps
 vim.keymap.set("n", "Y", "<C-v>$y", { silent = true })
+vim.keymap.set("n", "yy", "yy", { silent = true, nowait = true })
 vim.keymap.set("n", "yc", function()
   local relative_path = vim.fn.expand("%")
   vim.fn.setreg("+", relative_path)
@@ -66,16 +69,16 @@ vim.keymap.set("v", "I", "A", { silent = true })
 -- Copy file path with line numbers in visual mode
 vim.keymap.set("v", "yc", function()
   local relative_path = vim.fn.expand("%")
-  
+
   -- Use vim.fn.line() instead of getpos() for more reliable results
   local start_line = vim.fn.line("v")
   local end_line = vim.fn.line(".")
-  
+
   -- Ensure start_line <= end_line
   if start_line > end_line then
     start_line, end_line = end_line, start_line
   end
-  
+
   local result
   if start_line == end_line then
     -- Single line selected
@@ -84,10 +87,10 @@ vim.keymap.set("v", "yc", function()
     -- Multiple lines selected
     result = relative_path .. ":" .. start_line .. ":" .. end_line
   end
-  
+
   vim.fn.setreg("+", result)
   vim.notify("Copied: " .. result)
-  
+
   -- Exit visual mode
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), 'n', false)
 end, { desc = "Copy file path with line numbers" })
@@ -95,16 +98,16 @@ end, { desc = "Copy file path with line numbers" })
 -- Copy absolute file path with line numbers in visual mode
 vim.keymap.set("v", "yC", function()
   local absolute_path = vim.fn.expand("%:p")
-  
+
   -- Use vim.fn.line() instead of getpos() for more reliable results
   local start_line = vim.fn.line("v")
   local end_line = vim.fn.line(".")
-  
+
   -- Ensure start_line <= end_line
   if start_line > end_line then
     start_line, end_line = end_line, start_line
   end
-  
+
   local result
   if start_line == end_line then
     -- Single line selected
@@ -113,10 +116,10 @@ vim.keymap.set("v", "yC", function()
     -- Multiple lines selected
     result = absolute_path .. ":" .. start_line .. ":" .. end_line
   end
-  
+
   vim.fn.setreg("+", result)
   vim.notify("Copied: " .. result)
-  
+
   -- Exit visual mode
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), 'n', false)
 end, { desc = "Copy absolute file path with line numbers" })
